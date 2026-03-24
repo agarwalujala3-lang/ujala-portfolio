@@ -1,0 +1,9 @@
+localhost-run.log
+localhost-run.err
+server.log
+server.err
+tunnel.log
+tunnel.err
+cloudfront-distribution.json
+s3-bucket-policy.json
+Ujala_Agarwal_Resume_Original.pdf
