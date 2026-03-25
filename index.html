@@ -3,151 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ujala Agarwal's portfolio featuring cloud systems, AI-assisted tools, and polished full-stack web experiences.">
-  <meta name="theme-color" content="#fff5ec">
-  <meta property="og:title" content="Ujala Agarwal | Cloud & Full-Stack Portfolio">
-  <meta property="og:description" content="A multi-page portfolio for Ujala Agarwal, blending AWS, AI, and interactive frontend work.">
+  <meta name="description" content="Adaptive portfolio of Ujala Agarwal featuring cloud systems, AI tools, and polished product builds.">
+  <meta name="theme-color" content="#09111f">
+  <meta property="og:title" content="Ujala Agarwal | Adaptive Portfolio">
+  <meta property="og:description" content="A cinematic adaptive portfolio for cloud, AI, and full-stack work with guided routes and live proof.">
   <meta property="og:type" content="website">
-  <title>Ujala Agarwal | Home</title>
+  <title>Ujala Agarwal | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="home" data-mood="candy">
-  <div class="bg-wash" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="floaters" aria-hidden="true">
-    <span class="floater floater--one"></span>
-    <span class="floater floater--two"></span>
-    <span class="floater floater--three"></span>
-    <span class="floater floater--four"></span>
-  </div>
+<body data-page="home">
+  <div class="aurora aurora--one" aria-hidden="true"></div>
+  <div class="aurora aurora--two" aria-hidden="true"></div>
+  <div class="grid-noise" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="index.html">Ujala Agarwal</a>
+    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+      <span class="brand__mark">UA</span>
+      <span class="brand__text">Ujala Agarwal</span>
+    </a>
 
     <nav class="topnav" aria-label="Primary">
       <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="about" href="about.html">About</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Work</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Playground</a>
+      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
+      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
+      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
+      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
       <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
     </nav>
 
-    <a class="pill-btn pill-btn--soft" href="contact.html" data-magnetic>Contact Me</a>
+    <div class="topbar__actions">
+      <button class="icon-btn" type="button" data-command-open>Command</button>
+      <a class="pill-btn pill-btn--primary" href="contact.html">Reach Me</a>
+    </div>
   </header>
 
-  <main class="site-shell">
-    <section class="page-hero reveal is-visible">
-      <div class="page-hero__copy">
-        <p class="eyebrow">Cloud, AI &amp; Full-Stack Developer</p>
-        <h1>I build AWS-backed applications, AI-assisted tools, and polished web experiences.</h1>
-        <p class="page-hero__lede">
-          I am Ujala Agarwal. My portfolio brings together serverless cloud work, interactive frontend builds, and practical product experiments that show how I think, learn, and execute end to end.
-        </p>
+  <main class="shell">
+    <section class="hero-grid reveal reveal--hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Adaptive Portfolio</div>
+        <h1 id="hero-title"></h1>
+        <p class="lede" id="hero-lead"></p>
+
         <div class="hero-actions">
-          <a class="pill-btn pill-btn--primary" href="work.html" data-magnetic>See My Work</a>
-          <a class="pill-btn pill-btn--soft" href="contact.html" data-magnetic>Reach Out</a>
-          <a class="pill-btn pill-btn--soft" href="Ujala_Agarwal_Resume.pdf" target="_blank" rel="noreferrer" data-magnetic>Resume</a>
+          <a class="pill-btn pill-btn--primary" href="work.html" data-pico-message="Opening the flagship proof next.">Open Projects</a>
+          <a class="pill-btn pill-btn--ghost" href="systems.html" data-pico-message="Systems route has the architecture flows.">View Systems</a>
+          <button class="pill-btn pill-btn--ghost" type="button" data-command-open data-pico-message="Command mode is the fastest way to move around.">Launch Commands</button>
+        </div>
+
+        <div class="mode-panel panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow eyebrow--small">Visitor Route</p>
+              <h2>Choose how I should frame my work for you.</h2>
+            </div>
+            <div class="status-chip" id="mode-chip">Recruiter</div>
+          </div>
+          <div class="mode-switch" id="mode-switch"></div>
+          <div class="mode-summary" id="mode-summary"></div>
+          <div class="focus-list" id="mode-focus"></div>
         </div>
       </div>
 
-      <div class="hero-stats">
-        <article class="mini-stat reveal" data-tilt>
-          <span class="mini-stat__value" data-counter="4">0</span>
-          <p>featured projects highlighted across this portfolio</p>
-        </article>
-        <article class="mini-stat reveal" data-tilt>
-          <span class="mini-stat__value" data-counter="1">0</span>
-          <p>cloud internship backing the hands-on side of my work</p>
-        </article>
-        <article class="mini-stat reveal" data-tilt>
-          <span class="mini-stat__value" data-counter="3">0</span>
-          <p>certifications and workshops shaping my current direction</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-layout">
-      <div class="page-main">
-        <section class="panel reveal">
-          <p class="eyebrow">What I Bring</p>
-          <h2>Hands-on cloud experience, project-led learning, and a strong interest in shipping real builds.</h2>
-          <p>
-            My work is strongest where cloud systems, APIs, frontend polish, and real deployment come together. I have built projects using AWS services such as Lambda, S3, DynamoDB, API Gateway, IAM, Rekognition, and Textract, alongside web interfaces that feel clean and presentable.
-          </p>
-        </section>
-
-        <section class="route-grid">
-          <a class="route-card reveal" href="about.html" data-tilt>
-            <p class="route-card__kicker">About</p>
-            <h3>Background, cloud experience, and the way I approach building.</h3>
-            <span>Open page</span>
-          </a>
-          <a class="route-card reveal" href="work.html" data-tilt>
-            <p class="route-card__kicker">Work</p>
-            <h3>Projects that show my AWS, frontend, and AI-oriented work.</h3>
-            <span>Open page</span>
-          </a>
-          <a class="route-card reveal" href="playground.html" data-tilt>
-            <p class="route-card__kicker">Playground</p>
-            <h3>A more cinematic skills lab for the tools and directions I am building into.</h3>
-            <span>Open page</span>
-          </a>
-          <a class="route-card reveal" href="contact.html" data-tilt>
-            <p class="route-card__kicker">Contact</p>
-            <h3>Email, phone, GitHub, LinkedIn, and the best way to contact me.</h3>
-            <span>Open page</span>
-          </a>
-        </section>
-
-        <section class="panel reveal">
-          <p class="eyebrow">Current Direction</p>
-          <h2>I want roles where I can contribute across cloud, backend, and frontend execution.</h2>
-          <p>
-            I am focused on growing through real product work: stronger system thinking, better API and cloud design, cleaner frontend delivery, and projects that are deployed instead of staying local. This portfolio is built to show that trajectory clearly.
-          </p>
-        </section>
-      </div>
-
-      <aside class="scene-column">
-        <div class="scene-stage reveal is-visible" id="scene-stage">
-          <div class="scene-stage__sky">
-            <span class="aura aura--one"></span>
-            <span class="aura aura--two"></span>
-            <span class="aura aura--three"></span>
-            <span class="cloud cloud--one"></span>
-            <span class="cloud cloud--two"></span>
-            <span class="cloud cloud--three"></span>
-            <div class="sparkle-field"></div>
-            <div class="hill hill--back"></div>
-            <div class="hill hill--mid"></div>
-            <div class="hill hill--front"></div>
+      <aside class="hero-console">
+        <div class="console-shell panel panel--glass">
+          <div class="console-shell__header">
+            <p class="eyebrow eyebrow--small" id="mode-kicker"></p>
+            <span class="status-dot status-dot--live">System Active</span>
           </div>
+          <div class="console-story" id="console-highlights"></div>
+          <div class="signal-grid" id="signal-grid"></div>
+        </div>
 
-          <div class="scene-stage__header">
-            <p class="scene-stage__kicker" id="scene-kicker">Dream Scene 01</p>
-            <h2 class="scene-stage__title" id="scene-title">Cloud, AI, and polished product work by Ujala Agarwal.</h2>
+        <div class="orbit-stage panel panel--glow">
+          <div class="orbit-stage__center">
+            <span class="orbit-stage__label">Ujala Agarwal</span>
+            <strong>Cloud + AI + Product</strong>
           </div>
-
-          <div class="scene-art scene-art--home">
-            <div class="portal">
-              <div class="portal__ring portal__ring--outer"></div>
-              <div class="portal__ring portal__ring--inner"></div>
-              <div class="portal__core"></div>
-            </div>
-            <div class="floating-ticket">Start here</div>
-            <div class="star star--a"></div>
-            <div class="star star--b"></div>
-            <div class="star star--c"></div>
-          </div>
-
-          <div class="scene-stage__footer">
-            <div class="scene-pills" id="scene-pills"></div>
-          </div>
+          <span class="orbit-chip orbit-chip--one">Systems</span>
+          <span class="orbit-chip orbit-chip--two">Live</span>
+          <span class="orbit-chip orbit-chip--three">Polish</span>
+          <span class="orbit-ring orbit-ring--outer"></span>
+          <span class="orbit-ring orbit-ring--inner"></span>
         </div>
       </aside>
     </section>
+
+    <section class="section-block reveal">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Flagship Proof</p>
+          <h2>Projects that carry the strongest signal.</h2>
+        </div>
+        <a class="mini-link" href="work.html">Open full projects page</a>
+      </div>
+      <div class="project-grid project-grid--featured" id="featured-projects"></div>
+    </section>
+
+    <section class="section-block section-block--split reveal">
+      <div class="panel">
+        <p class="eyebrow">Portfolio Guide</p>
+        <h2>Ask the portfolio what you want to know first.</h2>
+        <p id="guide-intro"></p>
+        <div class="guide-chip-list" id="guide-chip-list"></div>
+      </div>
+      <div class="panel panel--glass guide-answer" id="guide-answer-panel">
+        <p class="eyebrow eyebrow--small">Guide Output</p>
+        <h2 id="guide-answer-title"></h2>
+        <p id="guide-answer-text"></p>
+        <a class="mini-link" id="guide-answer-link" href="work.html">Open route</a>
+      </div>
+    </section>
+
+    <section class="section-block section-block--split reveal">
+      <div class="panel">
+        <p class="eyebrow">Live Portfolio Brain</p>
+        <h2>Ask me directly and I will answer from the portfolio context.</h2>
+        <p id="brain-status-text"></p>
+        <div class="brain-prompt-list" id="brain-prompt-list"></div>
+        <form class="brain-form" id="brain-form">
+          <label class="eyebrow eyebrow--small" for="brain-input">Ask the brain</label>
+          <textarea id="brain-input" class="brain-input" rows="4" placeholder="Ask about projects, AWS systems, what I am learning, or what role fits me best."></textarea>
+          <div class="brain-actions">
+            <button class="pill-btn pill-btn--primary" type="submit" id="brain-submit">Ask Brain</button>
+            <button class="pill-btn pill-btn--ghost" type="button" id="brain-clear">Clear</button>
+          </div>
+        </form>
+      </div>
+      <div class="panel panel--glass">
+        <p class="eyebrow eyebrow--small">Brain Output</p>
+        <div class="brain-thread" id="brain-thread"></div>
+      </div>
+    </section>
+
+    <section class="section-block section-block--split">
+      <div class="panel reveal">
+        <p class="eyebrow">Why This Is Different</p>
+        <h2>Not a brochure. A guided system that reframes itself for the visitor.</h2>
+        <p>
+          I designed this portfolio like a personal command center. Instead of showing one generic version of my work, it changes the story, proof, and emphasis depending on who is looking at it.
+        </p>
+        <div class="trait-grid">
+          <article class="trait-card">
+            <strong>Adaptive</strong>
+            <p>Switches between recruiter, engineer, founder, and friend routes.</p>
+          </article>
+          <article class="trait-card">
+            <strong>Proof-First</strong>
+            <p>Every major claim leads to live links, repos, or system views.</p>
+          </article>
+          <article class="trait-card">
+            <strong>Cinematic</strong>
+            <p>Motion and atmosphere are used to guide attention, not to distract.</p>
+          </article>
+          <article class="trait-card">
+            <strong>Human</strong>
+            <p>Pico adds warmth and guidance without taking over the experience.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="panel reveal">
+        <p class="eyebrow">Route Matrix</p>
+        <h2>Choose the next layer of the story.</h2>
+        <div class="route-grid">
+          <a class="route-card" href="work.html" data-pico-message="Projects page opens the dossiers and live proof.">
+            <span class="route-card__eyebrow">Projects</span>
+            <h3>Live demos, repos, and project dossiers.</h3>
+          </a>
+          <a class="route-card" href="systems.html" data-pico-message="Systems page has the architecture trails.">
+            <span class="route-card__eyebrow">Systems</span>
+            <h3>Architecture flows, decisions, and system thinking.</h3>
+          </a>
+          <a class="route-card" href="about.html" data-pico-message="Journey route shows how my work evolved.">
+            <span class="route-card__eyebrow">Journey</span>
+            <h3>The path from frontend builds to AWS and AI systems.</h3>
+          </a>
+          <a class="route-card" href="playground.html" data-pico-message="Lab route shows what is being explored next.">
+            <span class="route-card__eyebrow">Lab</span>
+            <h3>Experiments, stack signals, and what I am building toward.</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block reveal">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Quick Access</p>
+          <h2>High-speed exits for people who already know what they need.</h2>
+        </div>
+      </div>
+      <div class="quick-links">
+        <a class="quick-link" href="Ujala_Agarwal_Resume_Software.pdf" target="_blank" rel="noreferrer">Software Resume</a>
+        <a class="quick-link" href="Ujala_Agarwal_Resume_Cloud.pdf" target="_blank" rel="noreferrer">Cloud Resume</a>
+        <a class="quick-link" href="https://github.com/agarwalujala3-lang" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="quick-link" href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/" target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </section>
   </main>
 
+  <script src="portfolio-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

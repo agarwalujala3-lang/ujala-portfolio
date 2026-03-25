@@ -1,0 +1,17 @@
+[
+  {
+    "phase": "Now",
+    "title": "Refining product-grade AWS systems",
+    "note": "I am learning how to move from a strong technical build into something that feels closer to a real user-facing product with better structure, cleanup, and roles."
+  },
+  {
+    "phase": "Current Focus",
+    "title": "Explaining architecture more clearly",
+    "note": "I am working on turning project flows into interview-ready explanations so I can defend decisions, tradeoffs, and system choices more clearly."
+  },
+  {
+    "phase": "Practice Layer",
+    "title": "Using polish only where it helps comprehension",
+    "note": "I am learning how motion, UI, and narrative can support technical work instead of distracting from it."
+  }
+]

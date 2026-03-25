@@ -1,39 +1,80 @@
 # Ujala Agarwal Portfolio
 
-Interactive multi-page portfolio for Ujala Agarwal, focused on cloud projects, AI-assisted tools, full-stack development, and polished frontend presentation.
+Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site.
 
-## Live Portfolio
+## Core Idea
 
-- Portfolio: https://d2ikqjoiirpv7k.cloudfront.net
+This portfolio changes how it presents the work depending on the visitor:
 
-## Repo Purpose
+- `Recruiter` mode for fast signal and role fit
+- `Engineer` mode for systems, architecture, and proof
+- `Founder` mode for product taste and execution
+- `Friend` mode for the personal story and human side
 
-This repository contains the source code for my personal portfolio website and downloadable ATS-friendly resume versions.
+It also includes `Pico`, a small guided assistant that adds warmth and navigation without taking over the page.
 
 ## Pages
 
-- `index.html` - landing page and summary
-- `about.html` - background, experience direction, and approach
-- `work.html` - selected projects
-- `playground.html` - cinematic skills lab
-- `contact.html` - contact info and resume links
+- `index.html` - adaptive home runtime
+- `work.html` - project dossiers
+- `systems.html` - architecture and system routes
+- `about.html` - journey and working principles
+- `playground.html` - current experiments and active toolkit
+- `contact.html` - direct contact console and resume pack
 
-## Resume Versions
+## Data Layer
 
-- General ATS Resume: `Ujala_Agarwal_Resume.pdf`
-- Software Resume: `Ujala_Agarwal_Resume_Software.pdf`
-- Cloud Resume: `Ujala_Agarwal_Resume_Cloud.pdf`
-- Frontend Resume: `Ujala_Agarwal_Resume_Frontend.pdf`
+Most portfolio content is driven from:
 
-## Tech
+- `portfolio-data.js`
+- `portfolio-runtime.json`
+- `content/learning-log.json`
+- `content/idea-inbox.json`
+- `content/roadmap.json`
 
-- HTML
-- CSS
-- JavaScript
-- AWS S3
-- AWS CloudFront
+That file controls:
 
-## Selected Project Links
+- visitor modes
+- profile links
+- project data
+- systems routes
+- journey timeline
+- lab content
+- resume pack
+
+The runtime sync layer adds:
+
+- GitHub activity feed
+- sync status metadata
+- learning log
+- idea inbox
+- roadmap updates
+
+## Refresh Runtime Data
+
+```bash
+node sync-portfolio-data.mjs
+```
+
+That pulls public GitHub repository activity and rebuilds `portfolio-runtime.json`.
+
+## Run Locally
+
+```bash
+node local-server.js
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4173
+```
+
+## Current Live Portfolio
+
+- Portfolio: https://d2ikqjoiirpv7k.cloudfront.net
+
+## Key Proof Links
 
 - ReceiptPulse: https://d2ijsg7huf2h2p.cloudfront.net
 - LumenStack AI: https://lumenstack-ai.onrender.com

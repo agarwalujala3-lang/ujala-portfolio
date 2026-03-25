@@ -4,6 +4,10 @@ server.log
 server.err
 tunnel.log
 tunnel.err
+.brain-deploy/
+.brain-deploy.zip
+.brain-environment.json
+.brain-cors.json
 cloudfront-distribution.json
 s3-bucket-policy.json
 Ujala_Agarwal_Resume_Original.pdf

@@ -1,0 +1,14 @@
+[
+  {
+    "label": "ReceiptPulse Pro",
+    "note": "Turn the current receipt system into a multi-user cloud product with auth, scoped data, and reporting."
+  },
+  {
+    "label": "Voice Interview Coach",
+    "note": "Build an AI practice system that can ask questions, score responses, and adapt by role or company type."
+  },
+  {
+    "label": "Cloud-Native Deploy Track",
+    "note": "Take one product through Docker, CI/CD, and a more production-oriented deployment workflow."
+  }
+]

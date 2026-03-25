@@ -3,140 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="See Ujala Agarwal's selected work across AWS projects, AI experiments, and polished frontend builds.">
-  <meta name="theme-color" content="#fff5ec">
-  <title>Ujala Agarwal | Work</title>
+  <meta name="description" content="Explore my project dossiers, including live AWS systems, AI tooling, and frontend builds.">
+  <meta name="theme-color" content="#09111f">
+  <title>Ujala Agarwal | Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="work" data-mood="violet">
-  <div class="bg-wash" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="floaters" aria-hidden="true">
-    <span class="floater floater--one"></span>
-    <span class="floater floater--two"></span>
-    <span class="floater floater--three"></span>
-    <span class="floater floater--four"></span>
-  </div>
+<body data-page="work">
+  <div class="aurora aurora--one" aria-hidden="true"></div>
+  <div class="aurora aurora--two" aria-hidden="true"></div>
+  <div class="grid-noise" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="index.html">Ujala Agarwal</a>
-
+    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+      <span class="brand__mark">UA</span>
+      <span class="brand__text">Ujala Agarwal</span>
+    </a>
     <nav class="topnav" aria-label="Primary">
       <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="about" href="about.html">About</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Work</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Playground</a>
+      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
+      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
+      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
+      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
       <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
     </nav>
-
-    <a class="pill-btn pill-btn--soft" href="playground.html" data-magnetic>Skills Lab</a>
+    <div class="topbar__actions">
+      <button class="icon-btn" type="button" data-command-open>Command</button>
+      <a class="pill-btn pill-btn--primary" href="systems.html">Open Systems</a>
+    </div>
   </header>
 
-  <main class="site-shell">
-    <section class="page-hero reveal is-visible">
-      <div class="page-hero__copy">
-        <p class="eyebrow">Selected Work</p>
-        <h1>These projects show the range of how I build across cloud, web, and AI-oriented work.</h1>
-        <p class="page-hero__lede">
-          Some projects come from hands-on cloud and web work, while others show how I push myself into stronger product thinking, better presentation, and more complete delivery.
+  <main class="shell">
+    <section class="page-head reveal">
+      <div>
+        <p class="eyebrow">Project Dossiers</p>
+        <h1>Every build is presented as proof, not just a card.</h1>
+        <p class="lede">
+          This is the project layer of my portfolio. Filter by what matters, open a dossier, and use live links or repositories as direct proof.
         </p>
+      </div>
+      <div class="panel panel--glass page-head__side">
+        <p class="eyebrow eyebrow--small" id="projects-mode-kicker"></p>
+        <h2 id="projects-mode-title"></h2>
+        <p id="projects-mode-summary"></p>
       </div>
     </section>
 
-    <section class="page-layout">
-      <div class="page-main">
-        <section class="project-stack">
-          <article class="project-card reveal" data-tilt>
-            <p class="project-card__type">Smart Attendance System</p>
-            <h3>Serverless attendance platform built with AWS services.</h3>
-            <p>Attendance management flow using Lambda, API Gateway, DynamoDB, S3, Cognito, Rekognition, and IAM, designed to reduce infrastructure overhead while keeping the system scalable.</p>
-            <div class="link-row">
-              <a class="mini-link" href="https://github.com/agarwalujala3-lang/cloud-attendance-platform" target="_blank" rel="noreferrer">Repo</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-tilt>
-            <p class="project-card__type">Automated Receipt Manager</p>
-            <h3>OCR-based receipt processing workflow on AWS.</h3>
-            <p>Receipt extraction and organization workflow using Lambda, S3, DynamoDB, Textract, and IAM, built to reduce manual data entry and improve receipt retrieval.</p>
-            <div class="link-row">
-              <a class="mini-link" href="https://d2ijsg7huf2h2p.cloudfront.net" target="_blank" rel="noreferrer">Live</a>
-              <a class="mini-link" href="https://github.com/agarwalujala3-lang/ReceiptPulse" target="_blank" rel="noreferrer">Repo</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-tilt>
-            <p class="project-card__type">Amazon UI Clone</p>
-            <h3>Frontend clone focused on layout structure and UI fundamentals.</h3>
-            <p>Built with HTML, CSS, and JavaScript to strengthen component structure, layout understanding, responsive behavior, and visual organization.</p>
-            <div class="link-row">
-              <a class="mini-link" href="https://d22imnrsdj0eeu.cloudfront.net" target="_blank" rel="noreferrer">Live</a>
-              <a class="mini-link" href="https://github.com/agarwalujala3-lang/Amazon-UI-Clone" target="_blank" rel="noreferrer">Repo</a>
-            </div>
-          </article>
-
-          <article class="project-card reveal" data-tilt>
-            <p class="project-card__type">LumenStack AI</p>
-            <h3>AI-powered codebase analysis experiment with a product-style interface.</h3>
-            <p>Explores how AI can help explain repositories, generate diagrams, compare structure, and turn technical understanding into something more usable.</p>
-            <div class="link-row">
-              <a class="mini-link" href="https://lumenstack-ai.onrender.com" target="_blank" rel="noreferrer">Live</a>
-              <a class="mini-link" href="https://github.com/agarwalujala3-lang/LumenStack-AI" target="_blank" rel="noreferrer">Repo</a>
-            </div>
-          </article>
-        </section>
-
-        <section class="panel reveal">
-          <p class="eyebrow">What These Projects Show</p>
-          <h2>I am strongest when I can connect backend logic, cloud services, and a clean user-facing layer.</h2>
-          <p>
-            Across these builds, the pattern is consistent: understand the system, connect the pieces properly, deploy or present it cleanly, and keep pushing the project until it feels more complete than a basic demo.
-          </p>
-        </section>
-
-        <a class="next-page reveal" href="playground.html" data-tilt>
-          <p class="next-page__kicker">Next Stop</p>
-          <h3>Open the cinematic skills lab and see the stack behind the work.</h3>
-          <span>Open Playground page</span>
-        </a>
-      </div>
-
-      <aside class="scene-column">
-        <div class="scene-stage reveal is-visible" id="scene-stage">
-          <div class="scene-stage__sky">
-            <span class="aura aura--one"></span>
-            <span class="aura aura--two"></span>
-            <span class="aura aura--three"></span>
-            <span class="cloud cloud--one"></span>
-            <span class="cloud cloud--two"></span>
-            <span class="cloud cloud--three"></span>
-            <div class="sparkle-field"></div>
-            <div class="hill hill--back"></div>
-            <div class="hill hill--mid"></div>
-            <div class="hill hill--front"></div>
-          </div>
-
-          <div class="scene-stage__header">
-            <p class="scene-stage__kicker" id="scene-kicker">Dream Scene 03</p>
-            <h2 class="scene-stage__title" id="scene-title">Projects, experiments, and stronger builds in progress.</h2>
-          </div>
-
-          <div class="scene-art scene-art--work">
-            <div class="screen-card screen-card--one"></div>
-            <div class="screen-card screen-card--two"></div>
-            <div class="screen-card screen-card--three"></div>
-            <div class="floating-chip floating-chip--one">Systems</div>
-            <div class="floating-chip floating-chip--two">Showcase</div>
-          </div>
-
-          <div class="scene-stage__footer">
-            <div class="scene-pills" id="scene-pills"></div>
-          </div>
+    <section class="section-block reveal">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Filters</p>
+          <h2>Project proof by domain and delivery type.</h2>
         </div>
-      </aside>
+      </div>
+      <div class="filter-bar" id="project-filters">
+        <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+        <button class="filter-chip" type="button" data-filter="aws">AWS</button>
+        <button class="filter-chip" type="button" data-filter="ai">AI</button>
+        <button class="filter-chip" type="button" data-filter="frontend">Frontend</button>
+        <button class="filter-chip" type="button" data-filter="live">Live</button>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <section class="section-block section-block--split reveal">
+      <div class="panel">
+        <p class="eyebrow">Reading Guide</p>
+        <h2>How to use this page well.</h2>
+        <ul class="bullet-list">
+          <li>Use mode selection on Home if you want this page to prioritize a different audience view.</li>
+          <li>Open a dossier card for summary, proof, architecture, and tradeoff notes.</li>
+          <li>Use live links when you want the fastest project proof.</li>
+        </ul>
+      </div>
+      <a class="panel panel--cta next-panel" href="systems.html" data-pico-message="Next stop is the system architecture layer.">
+        <p class="eyebrow">Next Route</p>
+        <h2>Move from projects into system flow and architecture reasoning.</h2>
+        <span>Open Systems</span>
+      </a>
     </section>
   </main>
 
+  <div class="modal-shell" id="project-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close project details">&times;</button>
+      <div id="project-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="portfolio-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
