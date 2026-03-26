@@ -451,9 +451,109 @@ function renderBrainThread() {
     .join("");
 }
 
+function buildClientBrainFallback(question) {
+  const prompt = String(question || "").toLowerCase();
+  const receiptPulse = (data.projects || []).find((project) => project.id === "receiptpulse");
+  const lumenStack = (data.projects || []).find((project) => project.id === "lumenstack");
+  const learningLog = (data.runtime && data.runtime.learningLog) || data.learningLog || [];
+  const ideaInbox = (data.runtime && data.runtime.ideaInbox) || data.ideaInbox || [];
+
+  if (
+    prompt.includes("strongest project") ||
+    prompt.includes("best project") ||
+    prompt.includes("open first") ||
+    prompt.includes("flagship")
+  ) {
+    return [
+      `I would open ${receiptPulse?.title || "ReceiptPulse"} first.`,
+      "",
+      receiptPulse?.proof ||
+        "It is my clearest proof of cloud execution, backend workflow design, and live product deployment.",
+      receiptPulse?.links?.live ? `Live: ${receiptPulse.links.live}` : "",
+      receiptPulse?.links?.repo ? `Repo: ${receiptPulse.links.repo}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
+
+  if (prompt.includes("aws") || prompt.includes("cloud")) {
+    return [
+      "My AWS-heavy work is centered around ReceiptPulse.",
+      "",
+      receiptPulse?.proof ||
+        "It shows event-driven AWS architecture, extraction workflows, analytics, and live deployment.",
+      receiptPulse?.stack?.length ? `Core stack: ${receiptPulse.stack.join(", ")}` : "",
+      receiptPulse?.links?.live ? `Live: ${receiptPulse.links.live}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
+
+  if (prompt.includes("ai") || prompt.includes("codebase") || prompt.includes("diagram")) {
+    return [
+      "My strongest AI-focused project is LumenStack AI.",
+      "",
+      lumenStack?.proof ||
+        "It combines repository parsing, dependency inference, Mermaid generation, and AI explanation.",
+      lumenStack?.stack?.length ? `Core stack: ${lumenStack.stack.join(", ")}` : "",
+      lumenStack?.links?.live ? `Live: ${lumenStack.links.live}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
+
+  if (
+    prompt.includes("role fit") ||
+    prompt.includes("best role") ||
+    prompt.includes("what role") ||
+    prompt.includes("fit you")
+  ) {
+    return [
+      "The best fit for me right now is cloud, backend, or full-stack product work.",
+      "",
+      "My strongest signal comes from AWS systems, APIs, deployment, and building polished interfaces around technical workflows.",
+    ].join("\n");
+  }
+
+  if (
+    prompt.includes("learning") ||
+    prompt.includes("build next") ||
+    prompt.includes("planning") ||
+    prompt.includes("next")
+  ) {
+    return [
+      "Right now I am focused on:",
+      ...learningLog.slice(0, 3).map((entry) => `- ${entry.title}`),
+      "",
+      "The next things I want to build are:",
+      ...ideaInbox.slice(0, 3).map((entry) => `- ${entry.label}: ${entry.note}`),
+    ].join("\n");
+  }
+
+  if (prompt.includes("contact") || prompt.includes("reach") || prompt.includes("email")) {
+    return [
+      "You can reach me here:",
+      `Email: ${data.profile.email}`,
+      `GitHub: ${data.profile.github}`,
+      `LinkedIn: ${data.profile.linkedin}`,
+    ].join("\n");
+  }
+
+  return [
+    "I build cloud systems, AI tools, and full-stack products.",
+    "",
+    "The two strongest projects on this portfolio are:",
+    `- ${receiptPulse?.title || "ReceiptPulse"}: ${receiptPulse?.proof || "AWS backend and live product proof."}`,
+    `- ${lumenStack?.title || "LumenStack AI"}: ${lumenStack?.proof || "AI-assisted codebase analysis and product framing."}`,
+    "",
+    "Ask me about AWS work, AI projects, role fit, or what I am planning to build next.",
+  ].join("\n");
+}
+
 async function askPortfolioBrain(question) {
   const runtimeBrain = (data.runtime && data.runtime.brain) || {};
   const input = document.getElementById("brain-input");
+  const statusText = document.getElementById("brain-status-text");
 
   state.brainHistory.push({ role: "user", text: question });
   state.brainPending = true;
@@ -466,10 +566,13 @@ async function askPortfolioBrain(question) {
     state.brainPending = false;
     state.brainHistory.push({
       role: "assistant",
-      text: data.brain.fallback,
+      text: buildClientBrainFallback(question),
     });
     renderBrainThread();
-    setPicoMessage("The live brain is not connected yet, so I fell back to the static guide.", "sleepy", 2200);
+    if (statusText) {
+      statusText.textContent = "Live brain is offline right now, so I switched to the built-in portfolio guide.";
+    }
+    setPicoMessage("The live brain is offline, so I switched to the built-in guide.", "sleepy", 2200);
     return;
   }
 
@@ -494,15 +597,24 @@ async function askPortfolioBrain(question) {
     const payload = await response.json();
     state.brainHistory.push({
       role: "assistant",
-      text: payload.reply || "The portfolio brain did not return a usable answer.",
+      text: payload.reply || buildClientBrainFallback(question),
     });
-    setPicoMessage("Brain reply ready.", "excited", 1600);
+    if (statusText) {
+      statusText.textContent =
+        payload.source === "local-fallback"
+          ? "Live brain is in fallback mode right now, so answers are coming from the portfolio knowledge layer."
+          : `${runtimeBrain.label || "Live brain connected."} Tuned for ${getModeConfig().label.toLowerCase()} mode.`;
+    }
+    setPicoMessage(payload.source === "local-fallback" ? "Brain fallback reply ready." : "Brain reply ready.", "excited", 1600);
   } catch {
     state.brainHistory.push({
       role: "assistant",
-      text: "The live portfolio brain could not answer right now. You can still use the portfolio guide, project dossiers, and systems route while I reconnect.",
+      text: buildClientBrainFallback(question),
     });
-    setPicoMessage("The live brain hit a connection problem.", "sleepy", 2200);
+    if (statusText) {
+      statusText.textContent = "Live brain hit a connection problem, so I switched to the built-in portfolio guide.";
+    }
+    setPicoMessage("The live brain hit a connection problem, so I switched to the built-in guide.", "sleepy", 2200);
   } finally {
     state.brainPending = false;
     renderBrainThread();

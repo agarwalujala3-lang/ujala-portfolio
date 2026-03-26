@@ -6,26 +6,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const context = JSON.parse(readFileSync(path.join(__dirname, "brain-context.json"), "utf8"));
 
-const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "")
-  .split(",")
-  .map((value) => value.trim())
-  .filter(Boolean);
-
-function getCorsHeaders(origin = "") {
-  const allowOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : (ALLOWED_ORIGINS[0] || "*");
-  return {
-    "Access-Control-Allow-Origin": allowOrigin,
-    "Access-Control-Allow-Headers": "content-type",
-    "Access-Control-Allow-Methods": "POST,OPTIONS",
-    "Access-Control-Max-Age": "86400",
-    "Content-Type": "application/json",
-  };
-}
-
-function response(statusCode, body, origin = "") {
+function response(statusCode, body) {
   return {
     statusCode,
-    headers: getCorsHeaders(origin),
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(body),
   };
 }
@@ -178,10 +164,8 @@ function extractQuestionFromEvent(event) {
 }
 
 export async function handler(event) {
-  const origin = event?.headers?.origin || event?.headers?.Origin || "";
-
   if (event?.requestContext?.http?.method === "OPTIONS" || event?.httpMethod === "OPTIONS") {
-    return response(204, {}, origin);
+    return response(204, {});
   }
 
   try {
@@ -189,7 +173,7 @@ export async function handler(event) {
     const question = String(payload.question || "").trim();
 
     if (!question) {
-      return response(400, { error: "Question is required." }, origin);
+      return response(400, { error: "Question is required." });
     }
 
     if (!process.env.OPENAI_API_KEY) {
@@ -198,8 +182,7 @@ export async function handler(event) {
         {
           reply: buildLocalFallback(question),
           source: "local-fallback",
-        },
-        origin
+        }
       );
     }
 
@@ -246,8 +229,7 @@ export async function handler(event) {
         {
           reply: buildLocalFallback(question),
           source: "local-fallback",
-        },
-        origin
+        }
       );
     }
 
@@ -260,8 +242,7 @@ export async function handler(event) {
         reply: reply || "I could not generate a useful answer from the portfolio context.",
         model: process.env.OPENAI_MODEL || "gpt-5-mini",
         source: "openai-responses-api",
-      },
-      origin
+      }
     );
   } catch (error) {
     console.warn("Portfolio brain fallback error:", error instanceof Error ? error.message : "Unknown error");
@@ -270,8 +251,7 @@ export async function handler(event) {
       {
         reply: buildLocalFallback(extractQuestionFromEvent(event)),
         source: "local-fallback",
-      },
-      origin
+      }
     );
   }
 }
