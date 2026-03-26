@@ -1332,6 +1332,10 @@ li {
   transition: opacity 180ms ease, visibility 0s linear 180ms;
 }
 
+.command-palette[hidden] {
+  display: none;
+}
+
 .page-progress {
   position: fixed;
   top: 0;
@@ -1378,6 +1382,8 @@ li {
   inset: 0;
   background: rgba(4, 8, 15, 0.72);
   backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 180ms ease;
 }
 
 .command-palette__panel {
@@ -1392,6 +1398,18 @@ li {
   border: 1px solid var(--line);
   background: rgba(8, 15, 27, 0.96);
   box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.command-palette.is-open .command-palette__backdrop {
+  opacity: 1;
+}
+
+.command-palette.is-open .command-palette__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .command-palette__input {

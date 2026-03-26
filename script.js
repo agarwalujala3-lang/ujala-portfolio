@@ -10,6 +10,8 @@ const state = {
   brainPending: false,
 };
 
+let paletteHideTimer = null;
+
 const PICO_ACTION_CLASSES = [
   "is-wave",
   "is-pointing",
@@ -971,6 +973,8 @@ function injectCommandPalette() {
     </div>
   `;
   document.body.appendChild(wrapper);
+  wrapper.hidden = true;
+  wrapper.setAttribute("aria-hidden", "true");
   renderCommandList("");
 }
 
@@ -1245,12 +1249,20 @@ function bindGlobalEvents() {
 function openCommandPalette() {
   const palette = document.querySelector(".command-palette");
   const input = document.getElementById("command-input");
-  if (!palette) {
+  if (!palette || state.paletteOpen) {
     return;
   }
-  palette.classList.add("is-open");
+  if (paletteHideTimer) {
+    window.clearTimeout(paletteHideTimer);
+    paletteHideTimer = null;
+  }
+  palette.hidden = false;
+  palette.setAttribute("aria-hidden", "false");
   state.paletteOpen = true;
   document.body.classList.add("command-palette-open");
+  window.requestAnimationFrame(() => {
+    palette.classList.add("is-open");
+  });
   renderCommandList("");
   if (input) {
     input.value = "";
@@ -1266,7 +1278,16 @@ function closeCommandPalette() {
   }
   palette.classList.remove("is-open");
   state.paletteOpen = false;
+  palette.setAttribute("aria-hidden", "true");
   document.body.classList.remove("command-palette-open");
+  if (paletteHideTimer) {
+    window.clearTimeout(paletteHideTimer);
+  }
+  paletteHideTimer = window.setTimeout(() => {
+    if (!state.paletteOpen) {
+      palette.hidden = true;
+    }
+  }, 190);
   updatePicoForPage();
 }
 
