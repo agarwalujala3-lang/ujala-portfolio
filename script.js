@@ -1109,6 +1109,7 @@ function renderCommandList(query) {
 }
 
 function initMotionPolish() {
+  const touchUi = isTouchUi();
   const spotlightTargets = document.querySelectorAll(
     ".panel, .project-card, .route-card, .contact-card, .system-card, .resume-card, .trait-card, .direction-card, .signal-card, .story-card"
   );
@@ -1118,21 +1119,30 @@ function initMotionPolish() {
       return;
     }
 
-    item.addEventListener("pointermove", (event) => {
-      const rect = item.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      item.style.setProperty("--spot-x", `${x}%`);
-      item.style.setProperty("--spot-y", `${y}%`);
-    });
+    if (!touchUi) {
+      item.addEventListener("pointermove", (event) => {
+        const rect = item.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        item.style.setProperty("--spot-x", `${x}%`);
+        item.style.setProperty("--spot-y", `${y}%`);
+      });
 
-    item.addEventListener("pointerleave", () => {
-      item.style.removeProperty("--spot-x");
-      item.style.removeProperty("--spot-y");
-    });
+      item.addEventListener("pointerleave", () => {
+        item.style.removeProperty("--spot-x");
+        item.style.removeProperty("--spot-y");
+      });
+    } else {
+      item.style.setProperty("--spot-x", "50%");
+      item.style.setProperty("--spot-y", "24%");
+    }
 
     item.dataset.motionBound = "true";
   });
+}
+
+function isTouchUi() {
+  return window.matchMedia("(max-width: 760px), (hover: none), (pointer: coarse)").matches;
 }
 
 function bindPageTransitions() {
@@ -1171,6 +1181,7 @@ function handleViewportChange() {
   if (topbar) {
     topbar.classList.toggle("is-compact", window.scrollY > 20);
   }
+  document.body.classList.toggle("is-touch-ui", isTouchUi());
   updateScrollProgress();
 }
 
