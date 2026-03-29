@@ -3,64 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Inspect the system architecture routes for my flagship projects, including AWS and AI-backed flows.">
-  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="Read architecture routes for Ujala Agarwal's strongest cloud and AI builds.">
+  <meta name="theme-color" content="#f4efe8">
   <title>Ujala Agarwal | Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="systems">
-  <div class="aurora aurora--one" aria-hidden="true"></div>
-  <div class="aurora aurora--two" aria-hidden="true"></div>
-  <div class="grid-noise" aria-hidden="true"></div>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+  <div class="ambient ambient--grid" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
-      <span class="brand__mark">UA</span>
-      <span class="brand__text">Ujala Agarwal</span>
-    </a>
-    <nav class="topnav" aria-label="Primary">
-      <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
-      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
-      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
-      <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
-    </nav>
-    <div class="topbar__actions">
-      <button class="icon-btn" type="button" data-command-open>Command</button>
-      <a class="pill-btn pill-btn--primary" href="work.html">Project Dossiers</a>
-    </div>
-  </header>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+        <span class="brand__kicker">Portfolio Studio</span>
+        <span class="brand__name">Ujala Agarwal</span>
+      </a>
 
-  <main class="shell">
-    <section class="page-head reveal">
-      <div>
-        <p class="eyebrow">System Route</p>
-        <h1>The architecture layer behind the strongest builds.</h1>
-        <p class="lede">
-          This is where the portfolio shifts from polished project cards into system behavior, backend flow, and decision-making.
-        </p>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="main-nav__link" data-nav="home" href="index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="masthead__actions">
+        <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
+        <button class="button button--ghost" type="button" data-command-open>Navigator</button>
+        <a class="button button--solid" href="work.html">Case Studies</a>
       </div>
-      <div class="panel panel--glass page-head__side">
-        <p class="eyebrow eyebrow--small">System View</p>
-        <h2>Readable architecture without pretending to be enterprise theatre.</h2>
-        <p>The goal here is clarity: what the project does, why it is structured that way, and what each layer proves.</p>
-      </div>
-    </section>
+    </header>
 
-    <section class="systems-stack" id="systems-stack"></section>
+    <main class="page">
+      <section class="hero hero--page reveal reveal--hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Architecture Route</p>
+          <h1>The system layer behind the strongest work.</h1>
+          <p class="lede">This page is designed for people who want more than a visual tour. It turns projects into flows, decisions, and backend behavior you can read quickly.</p>
+        </div>
 
-    <section class="section-block reveal">
-      <div class="panel panel--cta next-panel" data-pico-message="Journey page shows how these systems grew out of earlier work.">
-        <p class="eyebrow">Next Route</p>
-        <h2>Move from systems into my journey and growth path.</h2>
-        <a class="mini-link" href="about.html">Open Journey</a>
-      </div>
-    </section>
-  </main>
+        <aside class="hero__aside">
+          <section class="panel panel--soft">
+            <p class="eyebrow eyebrow--small">System Snapshot</p>
+            <h2>Readable architecture without pretending to be enterprise theater.</h2>
+            <p class="panel-copy">The goal is clarity: what the system does, why it is shaped that way, and what each layer proves.</p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Shared Patterns</p>
+            <h2>The recurring design logic across my strongest systems.</h2>
+          </div>
+        </div>
+        <div class="metric-grid" id="systems-summary-grid"></div>
+      </section>
+
+      <section class="section reveal">
+        <div class="systems-stack" id="systems-stack"></div>
+      </section>
+
+      <section class="section section--split reveal">
+        <section class="panel">
+          <p class="eyebrow">Architecture Principles</p>
+          <h2>What I optimize for when I design the flow.</h2>
+          <div class="principle-grid">
+            <article class="principle-card">
+              <span class="principle-card__label">Clarity</span>
+              <h3>Readable steps beat dense diagrams.</h3>
+              <p>I want the architecture to be explainable to a reviewer without hiding the real work inside vague language.</p>
+            </article>
+            <article class="principle-card">
+              <span class="principle-card__label">Grounding</span>
+              <h3>AI should package insight, not replace logic.</h3>
+              <p>When I use AI, I keep a deterministic layer underneath so the product still has a stable center.</p>
+            </article>
+            <article class="principle-card">
+              <span class="principle-card__label">Product Sense</span>
+              <h3>Backend depth should still feel usable on screen.</h3>
+              <p>I try to bridge the gap between technical complexity and a UI that makes that complexity approachable.</p>
+            </article>
+          </div>
+        </section>
+
+        <a class="panel panel--link cta-panel" href="about.html">
+          <p class="eyebrow">Next Route</p>
+          <h2>Move from architecture into how this direction took shape.</h2>
+          <p>The journey page connects the system work to earlier frontend practice and current growth goals.</p>
+          <span class="cta-link">Open journey</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div id="footer-shell"></div>
+    </footer>
+  </div>
 
   <script src="portfolio-data.js"></script>
   <script src="script.js"></script>

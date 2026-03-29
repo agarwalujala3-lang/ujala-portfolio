@@ -3,93 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Follow my journey from frontend builds to cloud systems, AI tools, and product-minded development.">
-  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="Follow Ujala Agarwal's journey from frontend builds to cloud systems, AI tools, and product-centered execution.">
+  <meta name="theme-color" content="#f4efe8">
   <title>Ujala Agarwal | Journey</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="about">
-  <div class="aurora aurora--one" aria-hidden="true"></div>
-  <div class="aurora aurora--two" aria-hidden="true"></div>
-  <div class="grid-noise" aria-hidden="true"></div>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+  <div class="ambient ambient--grid" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
-      <span class="brand__mark">UA</span>
-      <span class="brand__text">Ujala Agarwal</span>
-    </a>
-    <nav class="topnav" aria-label="Primary">
-      <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
-      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
-      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
-      <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
-    </nav>
-    <div class="topbar__actions">
-      <button class="icon-btn" type="button" data-command-open>Command</button>
-      <a class="pill-btn pill-btn--primary" href="contact.html">Contact</a>
-    </div>
-  </header>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+        <span class="brand__kicker">Portfolio Studio</span>
+        <span class="brand__name">Ujala Agarwal</span>
+      </a>
 
-  <main class="shell">
-    <section class="page-head reveal">
-      <div>
-        <p class="eyebrow">Journey Route</p>
-        <h1>The path from first builds to stronger systems.</h1>
-        <p class="lede">
-          This page explains how the portfolio evolved: from visual builds and frontend control into AWS systems, live products, and AI-assisted tooling.
-        </p>
-      </div>
-      <div class="panel panel--glass page-head__side">
-        <p class="eyebrow eyebrow--small">Operating Traits</p>
-        <h2>How I tend to work.</h2>
-        <p>Learn by building, deploy what matters, and keep polishing until the project actually feels shareable.</p>
-      </div>
-    </section>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="main-nav__link" data-nav="home" href="index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="contact.html">Contact</a>
+      </nav>
 
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Timeline</p>
-        <h2>Key shifts in the journey.</h2>
-        <div class="timeline" id="journey-timeline"></div>
+      <div class="masthead__actions">
+        <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
+        <button class="button button--ghost" type="button" data-command-open>Navigator</button>
+        <a class="button button--solid" href="contact.html">Contact</a>
       </div>
-      <div class="panel">
-        <p class="eyebrow">Working Principles</p>
-        <h2>What drives the way I build.</h2>
-        <div class="principle-list" id="principle-list"></div>
-      </div>
-    </section>
+    </header>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Current Direction</p>
-          <h2>Where the portfolio is pointing next.</h2>
+    <main class="page">
+      <section class="hero hero--page reveal reveal--hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Journey Route</p>
+          <h1>The path from first builds to stronger systems.</h1>
+          <p class="lede">This page is less about a scorecard and more about direction: where the work started, how it deepened, and why the current portfolio now leans toward cloud, backend, and AI-assisted product work.</p>
         </div>
-      </div>
-      <div class="direction-grid">
-        <article class="direction-card">
-          <span class="direction-card__label">Backend</span>
-          <h3>Deeper API and system design depth.</h3>
-          <p>Move from working systems toward stronger engineering reasoning and more explainable architecture.</p>
-        </article>
-        <article class="direction-card">
-          <span class="direction-card__label">Cloud</span>
-          <h3>More user-aware AWS products.</h3>
-          <p>Add authentication, multi-user behavior, and stronger product realism to existing cloud projects.</p>
-        </article>
-        <article class="direction-card">
-          <span class="direction-card__label">AI</span>
-          <h3>AI where it clarifies, not where it decorates.</h3>
-          <p>Keep using AI as a helpful product layer on top of grounded systems and deterministic logic.</p>
-        </article>
-      </div>
-    </section>
-  </main>
+
+        <aside class="hero__aside">
+          <section class="panel panel--soft">
+            <p class="eyebrow eyebrow--small">Growth Snapshot</p>
+            <h2>Learning by building, shipping, and explaining the work better each time.</h2>
+            <div class="metric-grid metric-grid--mini" id="about-metrics"></div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="section section--split reveal">
+        <section class="panel">
+          <p class="eyebrow">Timeline</p>
+          <h2>Key shifts in the journey.</h2>
+          <div class="timeline" id="journey-timeline"></div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Operating Principles</p>
+          <h2>How I tend to build and why.</h2>
+          <div class="principle-list" id="principle-list"></div>
+        </section>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Current Direction</p>
+            <h2>The next layer of growth is depth, not just more surface area.</h2>
+          </div>
+        </div>
+        <div class="route-grid">
+          <article class="route-card route-card--static">
+            <span class="route-card__label">Backend</span>
+            <h3>Explain architecture more confidently.</h3>
+            <p>I want interview and project conversations to reflect the system reasoning already inside the work.</p>
+          </article>
+          <article class="route-card route-card--static">
+            <span class="route-card__label">Cloud</span>
+            <h3>Push user-aware AWS products further.</h3>
+            <p>The next step is stronger insights, better reporting, and more realistic product behavior around the backend core.</p>
+          </article>
+          <article class="route-card route-card--static">
+            <span class="route-card__label">AI</span>
+            <h3>Use AI where it clarifies, not where it decorates.</h3>
+            <p>I care most about grounded tools that become more useful because AI is applied carefully.</p>
+          </article>
+          <a class="route-card" href="playground.html">
+            <span class="route-card__label">Lab Route</span>
+            <h3>Open the experiments, learning log, and roadmap.</h3>
+            <p>The lab page shows the active growth edge in a more live format.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div id="footer-shell"></div>
+    </footer>
+  </div>
 
   <script src="portfolio-data.js"></script>
   <script src="script.js"></script>

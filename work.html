@@ -3,99 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore my project dossiers, including live AWS systems, AI tooling, and frontend builds.">
-  <meta name="theme-color" content="#09111f">
-  <title>Ujala Agarwal | Projects</title>
+  <meta name="description" content="Explore Ujala Agarwal's case studies across AWS systems, AI tooling, and polished frontend delivery.">
+  <meta name="theme-color" content="#f4efe8">
+  <title>Ujala Agarwal | Case Studies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="work">
-  <div class="aurora aurora--one" aria-hidden="true"></div>
-  <div class="aurora aurora--two" aria-hidden="true"></div>
-  <div class="grid-noise" aria-hidden="true"></div>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+  <div class="ambient ambient--grid" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
-      <span class="brand__mark">UA</span>
-      <span class="brand__text">Ujala Agarwal</span>
-    </a>
-    <nav class="topnav" aria-label="Primary">
-      <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
-      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
-      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
-      <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
-    </nav>
-    <div class="topbar__actions">
-      <button class="icon-btn" type="button" data-command-open>Command</button>
-      <a class="pill-btn pill-btn--primary" href="systems.html">Open Systems</a>
-    </div>
-  </header>
-
-  <main class="shell">
-    <section class="page-head reveal">
-      <div>
-        <p class="eyebrow">Project Dossiers</p>
-        <h1>Every build is presented as proof, not just a card.</h1>
-        <p class="lede">
-          This is the project layer of my portfolio. Filter by what matters, open a dossier, and use live links or repositories as direct proof.
-        </p>
-      </div>
-      <div class="panel panel--glass page-head__side">
-        <p class="eyebrow eyebrow--small" id="projects-mode-kicker"></p>
-        <h2 id="projects-mode-title"></h2>
-        <p id="projects-mode-summary"></p>
-      </div>
-    </section>
-
-    <section class="section-block reveal">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Filters</p>
-          <h2>Project proof by domain and delivery type.</h2>
-        </div>
-      </div>
-      <div class="filter-bar" id="project-filters">
-        <button class="filter-chip is-active" type="button" data-filter="all">All</button>
-        <button class="filter-chip" type="button" data-filter="aws">AWS</button>
-        <button class="filter-chip" type="button" data-filter="ai">AI</button>
-        <button class="filter-chip" type="button" data-filter="frontend">Frontend</button>
-        <button class="filter-chip" type="button" data-filter="live">Live</button>
-      </div>
-      <div class="project-grid" id="project-grid"></div>
-    </section>
-
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Reading Guide</p>
-        <h2>How to use this page well.</h2>
-        <ul class="bullet-list">
-          <li>Use mode selection on Home if you want this page to prioritize a different audience view.</li>
-          <li>Open a dossier card for summary, proof, architecture, and tradeoff notes.</li>
-          <li>Use live links when you want the fastest project proof.</li>
-        </ul>
-      </div>
-      <a class="panel panel--cta next-panel" href="systems.html" data-pico-message="Next stop is the system architecture layer.">
-        <p class="eyebrow">Next Route</p>
-        <h2>Move from projects into system flow and architecture reasoning.</h2>
-        <span>Open Systems</span>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+        <span class="brand__kicker">Portfolio Studio</span>
+        <span class="brand__name">Ujala Agarwal</span>
       </a>
-    </section>
-  </main>
 
-  <div class="modal-shell" id="project-modal" aria-hidden="true">
-    <div class="modal-backdrop" data-modal-close></div>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-      <button class="modal-close" type="button" data-modal-close aria-label="Close project details">&times;</button>
-      <div id="project-modal-body"></div>
-    </div>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="main-nav__link" data-nav="home" href="index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="contact.html">Contact</a>
+      </nav>
+
+      <div class="masthead__actions">
+        <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
+        <button class="button button--ghost" type="button" data-command-open>Navigator</button>
+        <a class="button button--solid" href="systems.html">System View</a>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero hero--page reveal reveal--hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Case Study Library</p>
+          <h1>Projects presented like proof, not filler.</h1>
+          <p class="lede">Every card on this page is built to answer the same question: what does this project actually prove about how I build, think, and ship?</p>
+        </div>
+
+        <aside class="hero__aside">
+          <section class="panel panel--soft">
+            <p class="eyebrow eyebrow--small" id="projects-mode-kicker">Fast Route</p>
+            <h2 id="projects-mode-title">This lens is active right now.</h2>
+            <p class="panel-copy" id="projects-mode-summary"></p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Compare Builds</p>
+            <h2>Select up to two projects and get a side-by-side read.</h2>
+          </div>
+          <span class="section-note">New feature for faster evaluation</span>
+        </div>
+        <div class="compare-selector" id="compare-selection"></div>
+        <div class="compare-panel" id="compare-panel"></div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Filter the Proof</p>
+            <h2>Switch between AWS, AI, frontend, and live work.</h2>
+          </div>
+        </div>
+        <div class="filter-bar" id="project-filters">
+          <button class="filter-chip is-active" type="button" data-filter="all">All</button>
+          <button class="filter-chip" type="button" data-filter="aws">AWS</button>
+          <button class="filter-chip" type="button" data-filter="ai">AI</button>
+          <button class="filter-chip" type="button" data-filter="frontend">Frontend</button>
+          <button class="filter-chip" type="button" data-filter="live">Live</button>
+        </div>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="section section--split reveal">
+        <section class="panel">
+          <p class="eyebrow">Reading Guide</p>
+          <h2>How to use this page well.</h2>
+          <ul class="bullet-list">
+            <li>Use the audience lens on Home if you want the order and framing to shift for a different reader.</li>
+            <li>Open a case study for architecture notes, tradeoffs, live links, and deeper context.</li>
+            <li>Use compare mode when you want to separate product polish from backend depth quickly.</li>
+          </ul>
+        </section>
+
+        <a class="panel panel--link cta-panel" href="systems.html">
+          <p class="eyebrow">Next Route</p>
+          <h2>Move from case studies into architecture and decision flow.</h2>
+          <p>The systems route translates each build into readable backend behavior and design choices.</p>
+          <span class="cta-link">Open systems</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div id="footer-shell"></div>
+    </footer>
   </div>
 
   <script src="portfolio-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-

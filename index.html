@@ -3,207 +3,189 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Adaptive portfolio of Ujala Agarwal featuring cloud systems, AI tools, and polished product builds.">
-  <meta name="theme-color" content="#09111f">
-  <meta property="og:title" content="Ujala Agarwal | Adaptive Portfolio">
-  <meta property="og:description" content="A cinematic adaptive portfolio for cloud, AI, and full-stack work with guided routes and live proof.">
+  <meta name="description" content="Editorial portfolio for Ujala Agarwal featuring cloud systems, AI product work, and polished case studies.">
+  <meta name="theme-color" content="#f4efe8">
+  <meta property="og:title" content="Ujala Agarwal | Portfolio Studio">
+  <meta property="og:description" content="A rebuilt portfolio studio for cloud systems, AI tooling, and product-minded engineering.">
   <meta property="og:type" content="website">
-  <title>Ujala Agarwal | Portfolio</title>
+  <title>Ujala Agarwal | Portfolio Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="home">
-  <div class="aurora aurora--one" aria-hidden="true"></div>
-  <div class="aurora aurora--two" aria-hidden="true"></div>
-  <div class="grid-noise" aria-hidden="true"></div>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+  <div class="ambient ambient--grid" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
-      <span class="brand__mark">UA</span>
-      <span class="brand__text">Ujala Agarwal</span>
-    </a>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+        <span class="brand__kicker">Portfolio Studio</span>
+        <span class="brand__name">Ujala Agarwal</span>
+      </a>
 
-    <nav class="topnav" aria-label="Primary">
-      <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
-      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
-      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
-      <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
-    </nav>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="main-nav__link" data-nav="home" href="index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="contact.html">Contact</a>
+      </nav>
 
-    <div class="topbar__actions">
-      <button class="icon-btn" type="button" data-command-open>Command</button>
-      <a class="pill-btn pill-btn--primary" href="contact.html">Reach Me</a>
-    </div>
-  </header>
+      <div class="masthead__actions">
+        <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
+        <button class="button button--ghost" type="button" data-command-open>Navigator</button>
+        <a class="button button--solid" href="contact.html">Let's Talk</a>
+      </div>
+    </header>
 
-  <main class="shell">
-    <section class="hero-grid reveal reveal--hero">
-      <div class="hero-copy">
-        <div class="eyebrow">Adaptive Portfolio</div>
-        <h1 id="hero-title"></h1>
-        <p class="lede" id="hero-lead"></p>
+    <main class="page">
+      <section class="hero hero--home reveal reveal--hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Rebuilt Portfolio</p>
+          <h1 id="hero-title">Cloud systems with product taste.</h1>
+          <p class="lede" id="hero-lead"></p>
 
-        <div class="hero-actions">
-          <a class="pill-btn pill-btn--primary" href="work.html" data-pico-message="Opening the flagship proof next.">Open Projects</a>
-          <a class="pill-btn pill-btn--ghost" href="systems.html" data-pico-message="Systems route has the architecture flows.">View Systems</a>
-          <button class="pill-btn pill-btn--ghost" type="button" data-command-open data-pico-message="Command mode is the fastest way to move around.">Launch Commands</button>
+          <div class="hero__actions">
+            <a class="button button--solid" href="work.html">Open Case Studies</a>
+            <a class="button button--ghost" href="systems.html">See System Flows</a>
+            <button class="button button--ghost" type="button" data-command-open>Quick Routes</button>
+          </div>
+
+          <div class="metric-grid metric-grid--compact" id="hero-signals"></div>
         </div>
 
-        <div class="mode-panel panel">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow eyebrow--small">Visitor Route</p>
-              <h2>Choose how I should frame my work for you.</h2>
+        <aside class="hero__aside">
+          <section class="panel lens-panel">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow eyebrow--small">Audience Lens</p>
+                <h2>Shift the framing without losing the proof.</h2>
+              </div>
+              <span class="tiny-status" id="mode-kicker">Fast Route</span>
             </div>
-            <div class="status-chip" id="mode-chip">Recruiter</div>
+            <div class="mode-switch" id="mode-switch"></div>
+            <p class="panel-copy" id="mode-summary"></p>
+            <div class="pill-row" id="mode-focus"></div>
+          </section>
+
+          <section class="panel panel--accent runtime-panel">
+            <div class="section-head section-head--stack">
+              <div>
+                <p class="eyebrow eyebrow--small">Live Pulse</p>
+                <h2>Current signal from the portfolio runtime.</h2>
+              </div>
+            </div>
+            <div class="metric-grid metric-grid--mini" id="home-runtime-grid"></div>
+            <div class="highlight-stack" id="home-highlights"></div>
+          </section>
+        </aside>
+      </section>
+
+      <section class="marquee-band reveal" aria-label="Stack highlights">
+        <div class="marquee-track" id="marquee-track"></div>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Featured Proof</p>
+            <h2>Case studies that carry the strongest signal right now.</h2>
           </div>
-          <div class="mode-switch" id="mode-switch"></div>
-          <div class="mode-summary" id="mode-summary"></div>
-          <div class="focus-list" id="mode-focus"></div>
+          <a class="text-link" href="work.html">View every project</a>
         </div>
-      </div>
+        <div class="project-grid project-grid--featured" id="featured-projects"></div>
+      </section>
 
-      <aside class="hero-console">
-        <div class="console-shell panel panel--glass">
-          <div class="console-shell__header">
-            <p class="eyebrow eyebrow--small" id="mode-kicker"></p>
-            <span class="status-dot status-dot--live">System Active</span>
+      <section class="section section--split reveal">
+        <section class="panel">
+          <p class="eyebrow">Briefing Studio</p>
+          <h2>Pick the question you want answered first.</h2>
+          <p class="panel-copy" id="guide-intro"></p>
+          <div class="chip-grid" id="guide-chip-list"></div>
+          <div class="answer-block">
+            <p class="eyebrow eyebrow--small">Selected Answer</p>
+            <h3 id="guide-answer-title"></h3>
+            <p id="guide-answer-text"></p>
+            <a class="text-link" id="guide-answer-link" href="work.html">Open route</a>
           </div>
-          <div class="console-story" id="console-highlights"></div>
-          <div class="signal-grid" id="signal-grid"></div>
-        </div>
+        </section>
 
-        <div class="orbit-stage panel panel--glow">
-          <div class="orbit-stage__center">
-            <span class="orbit-stage__label">Ujala Agarwal</span>
-            <strong>Cloud + AI + Product</strong>
+        <section class="panel panel--soft">
+          <p class="eyebrow">Ask Ujala</p>
+          <h2>Live portfolio brain with a built-in fallback.</h2>
+          <p class="panel-copy" id="brain-status-text"></p>
+          <div class="chip-row" id="brain-prompt-list"></div>
+          <form class="brain-form" id="brain-form">
+            <label class="eyebrow eyebrow--small" for="brain-input">Ask a question</label>
+            <textarea id="brain-input" class="field field--textarea" rows="4" placeholder="Ask about AWS work, project depth, role fit, or what I should build next."></textarea>
+            <div class="button-row">
+              <button class="button button--solid" type="submit" id="brain-submit">Ask Brain</button>
+              <button class="button button--ghost" type="button" id="brain-clear">Clear</button>
+            </div>
+          </form>
+          <div class="thread" id="brain-thread"></div>
+        </section>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Portfolio Routes</p>
+            <h2>A new visual system, but still built around readable next steps.</h2>
           </div>
-          <span class="orbit-chip orbit-chip--one">Systems</span>
-          <span class="orbit-chip orbit-chip--two">Live</span>
-          <span class="orbit-chip orbit-chip--three">Polish</span>
-          <span class="orbit-ring orbit-ring--outer"></span>
-          <span class="orbit-ring orbit-ring--inner"></span>
         </div>
-      </aside>
-    </section>
-
-    <section class="section-block reveal">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Flagship Proof</p>
-          <h2>Projects that carry the strongest signal.</h2>
-        </div>
-        <a class="mini-link" href="work.html">Open full projects page</a>
-      </div>
-      <div class="project-grid project-grid--featured" id="featured-projects"></div>
-    </section>
-
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Portfolio Guide</p>
-        <h2>Ask the portfolio what you want to know first.</h2>
-        <p id="guide-intro"></p>
-        <div class="guide-chip-list" id="guide-chip-list"></div>
-      </div>
-      <div class="panel panel--glass guide-answer" id="guide-answer-panel">
-        <p class="eyebrow eyebrow--small">Guide Output</p>
-        <h2 id="guide-answer-title"></h2>
-        <p id="guide-answer-text"></p>
-        <a class="mini-link" id="guide-answer-link" href="work.html">Open route</a>
-      </div>
-    </section>
-
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Live Portfolio Brain</p>
-        <h2>Ask me directly and I will answer from the portfolio context.</h2>
-        <p id="brain-status-text"></p>
-        <div class="brain-prompt-list" id="brain-prompt-list"></div>
-        <form class="brain-form" id="brain-form">
-          <label class="eyebrow eyebrow--small" for="brain-input">Ask the brain</label>
-          <textarea id="brain-input" class="brain-input" rows="4" placeholder="Ask about projects, AWS systems, what I am learning, or what role fits me best."></textarea>
-          <div class="brain-actions">
-            <button class="pill-btn pill-btn--primary" type="submit" id="brain-submit">Ask Brain</button>
-            <button class="pill-btn pill-btn--ghost" type="button" id="brain-clear">Clear</button>
-          </div>
-        </form>
-      </div>
-      <div class="panel panel--glass">
-        <p class="eyebrow eyebrow--small">Brain Output</p>
-        <div class="brain-thread" id="brain-thread"></div>
-      </div>
-    </section>
-
-    <section class="section-block section-block--split">
-      <div class="panel reveal">
-        <p class="eyebrow">Why This Is Different</p>
-        <h2>Not a brochure. A guided system that reframes itself for the visitor.</h2>
-        <p>
-          I designed this portfolio like a personal command center. Instead of showing one generic version of my work, it changes the story, proof, and emphasis depending on who is looking at it.
-        </p>
-        <div class="trait-grid">
-          <article class="trait-card">
-            <strong>Adaptive</strong>
-            <p>Switches between recruiter, engineer, founder, and friend routes.</p>
-          </article>
-          <article class="trait-card">
-            <strong>Proof-First</strong>
-            <p>Every major claim leads to live links, repos, or system views.</p>
-          </article>
-          <article class="trait-card">
-            <strong>Cinematic</strong>
-            <p>Motion and atmosphere are used to guide attention, not to distract.</p>
-          </article>
-          <article class="trait-card">
-            <strong>Human</strong>
-            <p>Pico adds warmth and guidance without taking over the experience.</p>
-          </article>
-        </div>
-      </div>
-
-      <div class="panel reveal">
-        <p class="eyebrow">Route Matrix</p>
-        <h2>Choose the next layer of the story.</h2>
         <div class="route-grid">
-          <a class="route-card" href="work.html" data-pico-message="Projects page opens the dossiers and live proof.">
-            <span class="route-card__eyebrow">Projects</span>
-            <h3>Live demos, repos, and project dossiers.</h3>
+          <a class="route-card" href="work.html">
+            <span class="route-card__label">Case Studies</span>
+            <h3>Project breakdowns, live links, repositories, and tradeoffs.</h3>
+            <p>Go straight into the strongest shipped work first.</p>
           </a>
-          <a class="route-card" href="systems.html" data-pico-message="Systems page has the architecture trails.">
-            <span class="route-card__eyebrow">Systems</span>
-            <h3>Architecture flows, decisions, and system thinking.</h3>
+          <a class="route-card" href="systems.html">
+            <span class="route-card__label">Systems</span>
+            <h3>Architecture routes explained in product language.</h3>
+            <p>Best for interview prep, backend discussion, and technical depth.</p>
           </a>
-          <a class="route-card" href="about.html" data-pico-message="Journey route shows how my work evolved.">
-            <span class="route-card__eyebrow">Journey</span>
-            <h3>The path from frontend builds to AWS and AI systems.</h3>
+          <a class="route-card" href="about.html">
+            <span class="route-card__label">Journey</span>
+            <h3>The path from early builds to stronger cloud and AI systems.</h3>
+            <p>Shows how the work evolved and how the direction sharpened.</p>
           </a>
-          <a class="route-card" href="playground.html" data-pico-message="Lab route shows what is being explored next.">
-            <span class="route-card__eyebrow">Lab</span>
-            <h3>Experiments, stack signals, and what I am building toward.</h3>
+          <a class="route-card" href="playground.html">
+            <span class="route-card__label">Lab</span>
+            <h3>Live learning signals, roadmap notes, and experiments in motion.</h3>
+            <p>The best place to see what is getting deeper next.</p>
           </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Quick Access</p>
-          <h2>High-speed exits for people who already know what they need.</h2>
-        </div>
-      </div>
-      <div class="quick-links">
-        <a class="quick-link" href="Ujala_Agarwal_Resume_Software.pdf" target="_blank" rel="noreferrer">Software Resume</a>
-        <a class="quick-link" href="Ujala_Agarwal_Resume_Cloud.pdf" target="_blank" rel="noreferrer">Cloud Resume</a>
-        <a class="quick-link" href="https://github.com/agarwalujala3-lang" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="quick-link" href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
-    </section>
-  </main>
+      <section class="section section--split reveal">
+        <section class="panel">
+          <div class="section-head section-head--stack">
+            <div>
+              <p class="eyebrow">Current Proof Trail</p>
+              <h2>Recent public activity and runtime-backed context.</h2>
+            </div>
+          </div>
+          <div class="feed-list" id="home-github-activity"></div>
+        </section>
+
+        <a class="panel panel--link cta-panel" href="contact.html">
+          <p class="eyebrow">Direct Route</p>
+          <h2>If the work looks aligned, this page is already set up to move faster.</h2>
+          <p>Use the contact route for email, phone, GitHub, LinkedIn, and role-specific resumes.</p>
+          <span class="cta-link">Open contact console</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div id="footer-shell"></div>
+    </footer>
+  </div>
 
   <script src="portfolio-data.js"></script>
   <script src="script.js"></script>

@@ -3,113 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Open my lab page to see current experiments, tools, and the next direction I am exploring.">
-  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="See Ujala Agarwal's active experiments, learning focus, roadmap, and current runtime signals.">
+  <meta name="theme-color" content="#f4efe8">
   <title>Ujala Agarwal | Lab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="playground">
-  <div class="aurora aurora--one" aria-hidden="true"></div>
-  <div class="aurora aurora--two" aria-hidden="true"></div>
-  <div class="grid-noise" aria-hidden="true"></div>
+  <div class="ambient ambient--one" aria-hidden="true"></div>
+  <div class="ambient ambient--two" aria-hidden="true"></div>
+  <div class="ambient ambient--grid" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
-      <span class="brand__mark">UA</span>
-      <span class="brand__text">Ujala Agarwal</span>
-    </a>
-    <nav class="topnav" aria-label="Primary">
-      <a class="topnav__item" data-nav="home" href="index.html">Home</a>
-      <a class="topnav__item" data-nav="work" href="work.html">Projects</a>
-      <a class="topnav__item" data-nav="systems" href="systems.html">Systems</a>
-      <a class="topnav__item" data-nav="about" href="about.html">Journey</a>
-      <a class="topnav__item" data-nav="playground" href="playground.html">Lab</a>
-      <a class="topnav__item" data-nav="contact" href="contact.html">Contact</a>
-    </nav>
-    <div class="topbar__actions">
-      <button class="icon-btn" type="button" data-command-open>Command</button>
-      <a class="pill-btn pill-btn--primary" href="contact.html">Contact</a>
-    </div>
-  </header>
+  <div class="site-shell">
+    <header class="masthead">
+      <a class="brand" href="index.html" aria-label="Ujala Agarwal portfolio home">
+        <span class="brand__kicker">Portfolio Studio</span>
+        <span class="brand__name">Ujala Agarwal</span>
+      </a>
 
-  <main class="shell">
-    <section class="page-head reveal">
-      <div>
-        <p class="eyebrow">Lab Route</p>
-        <h1>The experimental side of my portfolio.</h1>
-        <p class="lede">
-          This page is for what is being explored now, what tools are active, and which capabilities are likely to appear in the next generation of projects.
-        </p>
-      </div>
-      <div class="panel panel--glass page-head__side">
-        <p class="eyebrow eyebrow--small">Pico Note</p>
-        <h2>Labs are where polish starts as curiosity.</h2>
-        <p>Use this page to understand what I am aiming for before those ideas become bigger shipped builds.</p>
-      </div>
-    </section>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="main-nav__link" data-nav="home" href="index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="contact.html">Contact</a>
+      </nav>
 
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Now Building</p>
-        <h2>Current active direction.</h2>
-        <div class="stack-list" id="now-building-list"></div>
+      <div class="masthead__actions">
+        <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
+        <button class="button button--ghost" type="button" data-command-open>Navigator</button>
+        <a class="button button--solid" href="contact.html">Contact</a>
       </div>
-      <div class="panel">
-        <p class="eyebrow">Next Experiments</p>
-        <h2>What likely comes after the current portfolio generation.</h2>
-        <div class="stack-list" id="next-experiments-list"></div>
-      </div>
-    </section>
+    </header>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Toolkit</p>
-          <h2>Skills and services currently in rotation.</h2>
+    <main class="page">
+      <section class="hero hero--page reveal reveal--hero">
+        <div class="hero__copy">
+          <p class="eyebrow">Lab Route</p>
+          <h1>The live workshop behind the polished pages.</h1>
+          <p class="lede">This is where the portfolio feels most current: what I am improving now, what I am learning more deeply, and which ideas are closest to becoming the next serious build.</p>
         </div>
-      </div>
-      <div class="tool-cloud" id="tool-cloud"></div>
-    </section>
 
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Learning Log</p>
-        <h2>What I am understanding more deeply right now.</h2>
-        <div class="insight-list" id="learning-log-list"></div>
-      </div>
-      <div class="panel">
-        <p class="eyebrow">Idea Inbox</p>
-        <h2>Ideas that are worth building into future proof.</h2>
-        <div class="insight-list" id="idea-inbox-list"></div>
-      </div>
-    </section>
+        <aside class="hero__aside">
+          <section class="panel panel--soft">
+            <p class="eyebrow eyebrow--small">Runtime Status</p>
+            <h2>Signals refreshed from the portfolio data layer.</h2>
+            <div class="metric-grid metric-grid--mini" id="sync-status-grid"></div>
+          </section>
+        </aside>
+      </section>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <div>
+      <section class="section section--split reveal">
+        <section class="panel">
+          <p class="eyebrow">Now Building</p>
+          <h2>Active direction right now.</h2>
+          <div class="stack-panel" id="now-building-list"></div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Next Experiments</p>
+          <h2>What likely comes after this generation.</h2>
+          <div class="stack-panel" id="next-experiments-list"></div>
+        </section>
+      </section>
+
+      <section class="section reveal">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Toolkit</p>
+            <h2>Skills and services currently in rotation.</h2>
+          </div>
+        </div>
+        <div class="tool-cloud" id="tool-cloud"></div>
+      </section>
+
+      <section class="section section--split reveal">
+        <section class="panel">
+          <p class="eyebrow">Learning Log</p>
+          <h2>What is getting sharper right now.</h2>
+          <div class="insight-list" id="learning-log-list"></div>
+        </section>
+
+        <section class="panel">
+          <p class="eyebrow">Idea Inbox</p>
+          <h2>Ideas that are worth turning into proof next.</h2>
+          <div class="insight-list" id="idea-inbox-list"></div>
+        </section>
+      </section>
+
+      <section class="section section--split reveal">
+        <section class="panel">
           <p class="eyebrow">Roadmap</p>
-          <h2>How I want this portfolio and project stack to evolve next.</h2>
-        </div>
-      </div>
-      <div class="roadmap-grid" id="roadmap-list"></div>
-    </section>
+          <h2>How the portfolio and project stack should evolve.</h2>
+          <div class="roadmap-grid" id="roadmap-list"></div>
+        </section>
 
-    <section class="section-block section-block--split reveal">
-      <div class="panel">
-        <p class="eyebrow">Sync Pulse</p>
-        <h2>What the live portfolio runtime is tracking right now.</h2>
-        <div class="sync-grid" id="sync-status-grid"></div>
-      </div>
-      <div class="panel">
-        <p class="eyebrow">GitHub Feed</p>
-        <h2>Most recently updated public proof.</h2>
-        <div class="activity-feed" id="github-activity-feed"></div>
-      </div>
-    </section>
-  </main>
+        <section class="panel">
+          <p class="eyebrow">GitHub Feed</p>
+          <h2>Recent public proof from live repositories.</h2>
+          <div class="feed-list" id="github-activity-feed"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer reveal">
+      <div id="footer-shell"></div>
+    </footer>
+  </div>
 
   <script src="portfolio-data.js"></script>
   <script src="script.js"></script>
