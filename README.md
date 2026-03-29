@@ -1,6 +1,6 @@
 # Ujala Agarwal Portfolio
 
-Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site.
+Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around live proof, especially ReceiptPulse and LumenStack AI, rather than static project cards alone.
 
 ## Core Idea
 
@@ -77,6 +77,15 @@ http://127.0.0.1:4173
 ## Key Proof Links
 
 - ReceiptPulse: https://d2ijsg7huf2h2p.cloudfront.net
+  - private per-user receipt workspace with sign-in, OCR extraction, duplicate decision flow, label rename, and dashboard management
 - LumenStack AI: https://lumenstack-ai.onrender.com
+  - AI-powered codebase analysis with diagrams, compare mode, exports, and guided explanations
 - GitHub Profile: https://github.com/agarwalujala3-lang
 - LinkedIn: https://www.linkedin.com/in/ujala-agarwal-30aa28283/
+
+## Current Project Positioning
+
+- `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and live dashboard reporting.
+- `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI.
+- `Amazon UI Clone` proves dense frontend layout control and visual composition discipline.
+- `Valentine Interactive Web Experience` shows creative interaction design, timing, and frontend personality.

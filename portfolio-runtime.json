@@ -48,7 +48,7 @@
       "name": "ReceiptPulse",
       "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
       "language": "CSS",
-      "note": "Serverless receipt processing system using AWS Textract and Lambda.",
+      "note": "Private receipt workspace with Cognito auth, Textract extraction, duplicate handling, rename flow, and live dashboard review.",
       "pushedAt": "2026-03-22T12:15:33Z",
       "homepage": ""
     },
@@ -81,7 +81,7 @@
   "ideaInbox": [
     {
       "label": "ReceiptPulse Pro",
-      "note": "Turn the current receipt system into a multi-user cloud product with auth, scoped data, and reporting."
+      "note": "Expand the current private receipt workspace into deeper spend insights, merchant trends, and stronger review tooling."
     },
     {
       "label": "Voice Interview Coach",
@@ -101,7 +101,7 @@
     {
       "stage": "Stage 02",
       "title": "Add user-aware features",
-      "note": "Authentication, per-user data, and cleaner role flows are the best next layer for stronger product realism."
+      "note": "Authentication and per-user data are now in place, so the next layer is stronger insights, reporting, and product refinement."
     },
     {
       "stage": "Stage 03",

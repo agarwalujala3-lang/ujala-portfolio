@@ -133,16 +133,16 @@ window.UJOS_DATA = {
       accent: "cyan",
       icon: "RP",
       summary:
-        "I built ReceiptPulse as a live AWS serverless receipt intelligence platform that turns uploaded bills into structured expense data, review flows, and visual reporting.",
+        "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
       proof:
-        "This project proves event-driven AWS architecture, extraction workflows, dashboard product design, and full live deployment.",
+        "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and full live deployment.",
       stack: [
         "AWS Lambda",
         "S3",
         "DynamoDB",
         "API Gateway",
+        "Cognito",
         "Textract",
-        "SES",
         "CloudFront",
         "JavaScript",
       ],
@@ -152,19 +152,20 @@ window.UJOS_DATA = {
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [
-        "I built a full upload-to-insight pipeline around receipt extraction.",
-        "I added categorization, duplicate detection, confidence scoring, review routing, and analytics.",
-        "I pushed it beyond a backend demo by building a polished dashboard around the workflow.",
+        "I built a full upload-to-insight pipeline around private per-user receipt processing.",
+        "I added sign-up/sign-in, receipt-only validation, duplicate decision handling, compact auto labels, rename actions, delete actions, and analytics.",
+        "I pushed it beyond a backend demo by building a real dashboard flow around uploads, history, review, and stored results.",
       ],
       architecture: [
-        "Receipt uploads land in S3.",
-        "Lambda processes files and calls Textract.",
-        "The data is normalized, categorized, and stored in DynamoDB.",
-        "API routes power history, analytics, cleanup, and reporting views.",
+        "Signed-in users get a private workspace through Cognito-backed auth.",
+        "Receipt uploads land in user-scoped S3 paths.",
+        "Lambda processes files, validates them, and calls Textract.",
+        "The data is normalized, categorized, labeled, and stored in DynamoDB.",
+        "API routes power uploads, history, duplicate decisions, rename/delete actions, and analytics views.",
         "CloudFront serves the frontend experience.",
       ],
       tradeoff:
-        "I optimized first for a strong product-style AWS build; auth and billing are future layers I can add later.",
+        "I optimized for a believable product-style AWS build with strong user flow first; budget analysis and deeper reporting are the next layer.",
     },
     {
       id: "lumenstack",
@@ -274,29 +275,29 @@ window.UJOS_DATA = {
       steps: [
         {
           label: "Upload",
-          text: "A receipt enters through the UI and is stored in S3 as the durable intake layer.",
+          text: "A signed-in user uploads a receipt into a private workspace and the file lands in a user-scoped S3 path.",
         },
         {
           label: "Extract",
           text: "Lambda orchestrates the flow and Textract extracts structured receipt content.",
         },
         {
-          label: "Enrich",
-          text: "I apply categorization, confidence scoring, and duplicate checks.",
+          label: "Review",
+          text: "I apply categorization, confidence scoring, duplicate checks, and receipt-only validation before the result is accepted.",
         },
         {
           label: "Store",
-          text: "The normalized result is persisted in DynamoDB for analytics and history views.",
+          text: "The normalized result is persisted in DynamoDB for that user's analytics, history, and receipt management views.",
         },
         {
           label: "Surface",
-          text: "API routes and a live dashboard turn the backend output into a usable product.",
+          text: "API routes and a live dashboard turn the backend output into duplicate decisions, label rename flows, history, and analytics.",
         },
       ],
       decisions: [
         "I used serverless architecture to reduce infrastructure overhead.",
         "I chose Textract because receipt extraction is more structured than plain OCR.",
-        "I used CloudFront so the final dashboard feels like a real product instead of a backend demo.",
+        "I added Cognito-backed private workspaces so the final dashboard feels like a real product instead of a backend demo.",
       ],
     },
     {
@@ -375,7 +376,7 @@ window.UJOS_DATA = {
         label: "Best flagship project",
         title: "If you only open one project, start with ReceiptPulse.",
         answer:
-          "ReceiptPulse is the strongest single proof of my current direction because it combines AWS architecture, backend flow, product design, deployment, and live usability in one system.",
+          "ReceiptPulse is the strongest single proof of my current direction because it combines AWS architecture, private user flow, backend logic, product design, deployment, and live usability in one system.",
         routeLabel: "Open ReceiptPulse dossier",
         routeHref: "work.html",
       },
@@ -384,7 +385,7 @@ window.UJOS_DATA = {
         label: "Cloud work",
         title: "My cloud-heavy work centers on live AWS systems.",
         answer:
-          "ReceiptPulse shows the clearest AWS signal through Lambda, S3, DynamoDB, API Gateway, Textract, SES, and CloudFront. It is the best route if you want to understand my serverless and event-driven thinking.",
+          "ReceiptPulse shows the clearest AWS signal through Lambda, S3, DynamoDB, API Gateway, Cognito, Textract, and CloudFront. It is the best route if you want to understand my serverless, event-driven, and user-scoped product thinking.",
         routeLabel: "Open Systems route",
         routeHref: "systems.html",
       },
