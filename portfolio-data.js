@@ -410,9 +410,9 @@ window.UJOS_DATA = {
       {
         id: "next-build",
         label: "What I'm building next",
-        title: "The next serious step is adding more user-aware product depth.",
+        title: "The next serious step is deeper reporting and stronger product depth.",
         answer:
-          "I want to push my existing systems into multi-user, authentication-aware, more production-style builds while improving system explanation quality for interviews and real product conversations.",
+          "I want to push my current systems into stronger reporting, merchant insight, and cleaner review flows while improving how clearly I explain the architecture in interviews and product conversations.",
         routeLabel: "Open Lab route",
         routeHref: "playground.html",
       },
@@ -433,12 +433,12 @@ window.UJOS_DATA = {
   },
   lab: {
     nowBuilding: [
-      "Multi-user product features for my AWS projects",
+      "Deeper spend insights and merchant trends for ReceiptPulse",
       "Stronger system-design explanations for interviews",
       "Adaptive portfolio experiences that respond to the visitor",
     ],
     nextExperiments: [
-      "Authentication and per-user data models",
+      "Receipt-level reporting and review tooling",
       "AI helper experiences with better grounding",
       "Cloud-native deployment patterns beyond static hosting",
     ],
@@ -487,7 +487,7 @@ window.UJOS_DATA = {
     {
       label: "ReceiptPulse Pro",
       note:
-        "Turn the current receipt system into a multi-user cloud product with auth, scoped data, and reporting.",
+        "Expand the current private receipt workspace into deeper spend insights, merchant trends, and stronger review tooling.",
     },
     {
       label: "Voice Interview Coach",
@@ -509,9 +509,9 @@ window.UJOS_DATA = {
     },
     {
       stage: "Stage 02",
-      title: "Add user-aware features",
+      title: "Refine user-aware product depth",
       note:
-        "Authentication, per-user data, and cleaner role flows are the best next layer for stronger product realism.",
+        "Authentication and per-user data are now in place, so the next layer is stronger insights, reporting, and product refinement.",
     },
     {
       stage: "Stage 03",
