@@ -671,21 +671,27 @@ function getFilteredProjects() {
 function createProjectCard(project, compact = false) {
   const article = document.createElement("article");
   article.className = "project-card";
+  if (project.brandTheme) {
+    article.classList.add(`project-card--${project.brandTheme}`);
+  }
 
   const stack = project.stack
     .slice(0, compact ? 4 : 6)
     .map((item) => `<span class="stack-pill">${escapeHtml(item)}</span>`)
     .join("");
 
+  const badge = project.badge ? `<span class="project-badge">${escapeHtml(project.badge)}</span>` : "";
+
   article.innerHTML = `
     <div class="project-card__top">
-      <div class="project-icon" data-accent="${escapeHtml(project.accent)}">${escapeHtml(project.icon)}</div>
+      ${renderProjectIcon(project)}
       <span class="status-chip">${escapeHtml(project.status)}</span>
     </div>
     <div class="project-card__meta">
       <div>
         <p class="project-card__kind">${escapeHtml(project.kind)}</p>
         <h3>${escapeHtml(project.title)}</h3>
+        ${badge}
       </div>
     </div>
     <p>${escapeHtml(project.summary)}</p>
@@ -724,8 +730,17 @@ function openProjectModal(projectId) {
 
   body.innerHTML = `
     <div class="modal-project-head">
+      <div class="modal-project-brand">
+        ${
+          project.lockupImage
+            ? `<img class="modal-project-lockup" src="${escapeHtml(project.lockupImage)}" alt="${escapeHtml(project.title)} logo" loading="lazy" decoding="async">`
+            : renderProjectIcon(project)
+        }
+        <span class="status-chip">${escapeHtml(project.status)}</span>
+      </div>
       <p class="eyebrow">${escapeHtml(project.kind)}</p>
       <h2 id="project-modal-title">${escapeHtml(project.title)}</h2>
+      ${project.badge ? `<p class="project-badge project-badge--modal">${escapeHtml(project.badge)}</p>` : ""}
       <p>${escapeHtml(project.summary)}</p>
     </div>
     <div class="modal-project-grid">
@@ -756,6 +771,22 @@ function openProjectModal(projectId) {
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   setPicoMessage(`Dossier open for ${project.title}.`, "happy");
+}
+
+function renderProjectIcon(project) {
+  const classes = ["project-icon"];
+  if (project.iconImage) {
+    classes.push("project-icon--image");
+  }
+  if (project.brandTheme) {
+    classes.push(`project-icon--${project.brandTheme}`);
+  }
+
+  const content = project.iconImage
+    ? `<img class="project-icon__image" src="${escapeHtml(project.iconImage)}" alt="${escapeHtml(project.title)} logo" loading="lazy" decoding="async">`
+    : escapeHtml(project.icon);
+
+  return `<div class="${classes.join(" ")}" data-accent="${escapeHtml(project.accent || "")}">${content}</div>`;
 }
 
 function closeProjectModal() {
