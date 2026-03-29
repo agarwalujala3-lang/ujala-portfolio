@@ -14,6 +14,8 @@
     .name { font-size: 28px; font-weight: 700; letter-spacing: 0.02em; }
     .title { margin-top: 4px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
     .contact { margin-top: 8px; font-size: 11px; word-break: break-word; }
+    .contact + .contact { margin-top: 4px; }
+    a { color: inherit; text-decoration: none; }
     .section { margin-top: 12px; }
     .section h2 { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; border-bottom: 1px solid #111111; padding-bottom: 4px; margin-bottom: 8px; }
     .summary { font-size: 11.5px; }
@@ -26,7 +28,7 @@
     li { margin: 2px 0; }
     .skills-grid { display: grid; gap: 6px; font-size: 11px; }
     .skills-grid p strong { display: inline-block; min-width: 140px; }
-    .links { margin-top: 4px; font-size: 10.5px; }
+    .links { margin-top: 4px; font-size: 10.5px; word-break: break-word; }
     @page { size: A4; margin: 10mm; }
     @media print { body { background: #ffffff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } }
   </style>
@@ -35,23 +37,26 @@
   <main class="page">
     <section class="header">
       <h1 class="name">Ujala Agarwal</h1>
-      <p class="title">Cloud Developer | AWS Serverless | Backend Developer</p>
+      <p class="title">AWS Serverless Developer | Cloud and Backend Engineer</p>
+      <p class="contact">Bareilly, Uttar Pradesh | +91 7906786403 | agarwalujala3@gmail.com</p>
       <p class="contact">
-        Bareilly, Uttar Pradesh | +91 7906786403 | agarwalujala3@gmail.com |
-        linkedin.com/in/ujala-agarwal-30aa28283/ | github.com/agarwalujala3-lang |
-        d2ikqjoiirpv7k.cloudfront.net
+        Portfolio:
+        <a href="https://d2ikqjoiirpv7k.cloudfront.net">d2ikqjoiirpv7k.cloudfront.net</a> |
+        GitHub: <a href="https://github.com/agarwalujala3-lang">github.com/agarwalujala3-lang</a> |
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">linkedin.com/in/ujala-agarwal-30aa28283</a>
       </p>
     </section>
 
     <section class="section">
       <h2>Professional Summary</h2>
       <p class="summary">
-        Cloud-focused developer with hands-on experience building AWS serverless applications using
-        Lambda, S3, DynamoDB, API Gateway, IAM, Rekognition, Textract, CloudFront, and Cognito.
-        Built practical cloud projects involving automation, OCR workflows, secure storage,
-        serverless processing, and role-based application flows. Interested in cloud, backend, and
-        AWS-oriented software roles involving serverless architecture, API integration, cloud
-        automation, and scalable application development.
+        Cloud-focused engineer with experience building and deploying AWS serverless applications
+        using Lambda, S3, DynamoDB, API Gateway, Cognito, Textract, Rekognition, IAM, and
+        CloudFront. Built systems around OCR pipelines, secure data flow, role-aware access, and
+        product-style cloud delivery. Comfortable designing practical AWS workflows that connect
+        storage, processing, APIs, and frontend experiences. Seeking cloud and backend roles around
+        AWS, serverless architecture, APIs, and cloud automation.
       </p>
     </section>
 
@@ -60,7 +65,7 @@
       <div class="skills-grid">
         <p><strong>AWS Cloud:</strong> Lambda, S3, DynamoDB, API Gateway, IAM, Rekognition, Textract, CloudFront, Cognito</p>
         <p><strong>Languages:</strong> Python, JavaScript, C</p>
-        <p><strong>Backend and Web:</strong> Node.js, Express, HTML, CSS, JavaScript, REST APIs</p>
+        <p><strong>Backend and Web:</strong> Node.js, Express, HTML, CSS, REST APIs</p>
         <p><strong>Databases:</strong> DynamoDB, MySQL</p>
         <p><strong>Tools:</strong> Git, GitHub, Docker (Basics), OpenAI API</p>
       </div>
@@ -87,13 +92,27 @@
 
       <article class="item">
         <div class="item-head">
+          <strong>ReceiptPulse</strong>
+          <span>Live + GitHub</span>
+        </div>
+        <p class="item-sub">AWS Lambda, S3, DynamoDB, API Gateway, Cognito, Textract, CloudFront, JavaScript</p>
+        <ul>
+          <li>Built and deployed a private receipt workspace with Cognito auth, user-scoped uploads, Textract extraction, duplicate review flow, rename and delete actions, and receipt history management.</li>
+          <li>Used Lambda, S3, DynamoDB, API Gateway, and CloudFront to structure an end-to-end serverless product workflow.</li>
+          <li>Applied cloud-native services to turn document ingestion, processing, storage, and frontend delivery into one usable system.</li>
+        </ul>
+        <p class="links">Live: https://d2ijsg7huf2h2p.cloudfront.net | Repo: https://github.com/agarwalujala3-lang/ReceiptPulse</p>
+      </article>
+
+      <article class="item">
+        <div class="item-head">
           <strong>Smart Attendance System</strong>
           <span>GitHub</span>
         </div>
         <p class="item-sub">AWS Lambda, API Gateway, DynamoDB, S3, Cognito, Rekognition, IAM</p>
         <ul>
-          <li>Built a serverless attendance management system with automated attendance tracking, secure storage, and role-based dashboards.</li>
-          <li>Used API, identity, storage, and recognition services in AWS to structure the application workflow.</li>
+          <li>Built a serverless attendance management system with secure attendance tracking, cloud storage, and role-based application flow.</li>
+          <li>Used API, storage, identity, and recognition services in AWS to support a practical end-to-end workflow.</li>
           <li>Designed the architecture to reduce infrastructure overhead while keeping the system scalable and practical.</li>
         </ul>
         <p class="links">Repo: https://github.com/agarwalujala3-lang/cloud-attendance-platform</p>
@@ -101,41 +120,16 @@
 
       <article class="item">
         <div class="item-head">
-          <strong>ReceiptPulse / Automated Receipt Manager</strong>
-          <span>Live + GitHub</span>
-        </div>
-        <p class="item-sub">AWS Lambda, S3, DynamoDB, API Gateway, Textract, SES, CloudFront, JavaScript</p>
-        <ul>
-          <li>Built and deployed a serverless receipt processing application with OCR-based extraction, categorization, history management, and frontend delivery.</li>
-          <li>Used AWS services for document ingestion, automated processing, storage, and live application hosting.</li>
-          <li>Applied cloud-based workflows to reduce manual receipt handling and improve retrieval efficiency.</li>
-        </ul>
-        <p class="links">Live: https://d2ijsg7huf2h2p.cloudfront.net | Repo: https://github.com/agarwalujala3-lang/ReceiptPulse</p>
-      </article>
-
-      <article class="item">
-        <div class="item-head">
           <strong>LumenStack AI</strong>
           <span>Live + GitHub</span>
         </div>
-        <p class="item-sub">Node.js, Express, JavaScript, OpenAI, Mermaid</p>
+        <p class="item-sub">Node.js, Express, JavaScript, OpenAI API, Mermaid</p>
         <ul>
-          <li>Built an AI-powered technical analysis tool and hosted it as a live web application.</li>
-          <li>Worked across backend application flow, AI integration, and frontend delivery for a practical developer-focused product.</li>
+          <li>Built a deployed technical analysis product that turns repository input into architecture summaries, Mermaid diagrams, compare mode, and guided explanations.</li>
+          <li>Worked across backend application flow, AI integration, and frontend delivery for a practical developer-facing product.</li>
+          <li>Shows ability to ship a live web application with backend logic and product-style presentation.</li>
         </ul>
         <p class="links">Live: https://lumenstack-ai.onrender.com | Repo: https://github.com/agarwalujala3-lang/LumenStack-AI</p>
-      </article>
-
-      <article class="item">
-        <div class="item-head">
-          <strong>Amazon UI Clone</strong>
-          <span>Live + GitHub</span>
-        </div>
-        <p class="item-sub">HTML, CSS, JavaScript</p>
-        <ul>
-          <li>Built a responsive frontend project to strengthen web fundamentals and improve end-to-end delivery skills.</li>
-        </ul>
-        <p class="links">Live: https://d22imnrsdj0eeu.cloudfront.net | Repo: https://github.com/agarwalujala3-lang/Amazon-UI-Clone</p>
       </article>
     </section>
 
