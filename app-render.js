@@ -300,16 +300,34 @@
       .join("");
   }
 
+  function renderProjectIcon(project) {
+    const classes = ["project-icon"];
+    if (project.iconImage) {
+      classes.push("project-icon--image");
+    }
+    if (project.brandTheme) {
+      classes.push(`project-icon--${project.brandTheme}`);
+    }
+
+    const content = project.iconImage
+      ? `<img class="project-icon__image" src="${App.escapeHtml(project.iconImage)}" alt="${App.escapeHtml(project.title)} logo" loading="lazy" decoding="async">`
+      : App.escapeHtml(project.icon);
+
+    return `<div class="${classes.join(" ")}" data-accent="${App.escapeHtml(project.accent)}">${content}</div>`;
+  }
+
   function createProjectCard(project, featured) {
     const activeCompare = App.state.compareIds.includes(project.id);
+    const badge = project.badge ? `<span class="project-badge">${App.escapeHtml(project.badge)}</span>` : "";
     return `
-      <article class="case-card">
+      <article class="case-card${project.brandTheme ? ` case-card--${App.escapeHtml(project.brandTheme)}` : ""}">
         <div class="case-card__top">
           <div class="case-card__meta">
-            <div class="project-icon" data-accent="${App.escapeHtml(project.accent)}">${App.escapeHtml(project.icon)}</div>
+            ${renderProjectIcon(project)}
             <div>
               <p class="project-kind">${App.escapeHtml(project.kind)}</p>
               <h3>${App.escapeHtml(project.title)}</h3>
+              ${badge}
             </div>
           </div>
           <span class="status-badge">${App.escapeHtml(project.status)}</span>
@@ -453,8 +471,17 @@
     body.innerHTML = `
       <div class="modal-layout">
         <section class="modal-section">
+          <div class="modal-project-brand">
+            ${
+              project.lockupImage
+                ? `<img class="modal-project-lockup" src="${App.escapeHtml(project.lockupImage)}" alt="${App.escapeHtml(project.title)} logo" loading="lazy" decoding="async">`
+                : renderProjectIcon(project)
+            }
+            <span class="status-badge">${App.escapeHtml(project.status)}</span>
+          </div>
           <p class="eyebrow">Case Study</p>
           <h2 id="project-modal-title">${App.escapeHtml(project.title)}</h2>
+          ${project.badge ? `<p class="project-badge project-badge--modal">${App.escapeHtml(project.badge)}</p>` : ""}
           <p>${App.escapeHtml(project.summary)}</p>
           <div class="modal-link-row">
             ${project.links?.live ? `<a class="button button--solid" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noreferrer">Open Live</a>` : ""}

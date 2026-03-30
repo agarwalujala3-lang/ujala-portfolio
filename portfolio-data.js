@@ -172,8 +172,12 @@ window.UJOS_DATA = {
       title: "LumenStack AI",
       kind: "AI Tooling Product",
       status: "Live",
-      accent: "amber",
+      accent: "cyan",
       icon: "LS",
+      iconImage: "content/branding/lumenstack-brand-mark.svg",
+      lockupImage: "content/branding/lumenstack-brand-lockup.svg",
+      brandTheme: "lumenstack",
+      badge: "Flagship AI build",
       summary:
         "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
       proof:

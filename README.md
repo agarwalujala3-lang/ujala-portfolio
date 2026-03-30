@@ -1,5 +1,16 @@
 # Ujala Agarwal Portfolio
 
+<p align="center">
+  Adaptive cinematic portfolio built as a multi-page personal system instead of a standard portfolio site.
+</p>
+
+<p align="center">
+  <a href="https://d2ikqjoiirpv7k.cloudfront.net">Live Portfolio</a> |
+  <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
+  <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
+  <a href="https://d2ijsg7huf2h2p.cloudfront.net">ReceiptPulse</a>
+</p>
+
 Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around live proof, especially ReceiptPulse and LumenStack AI, rather than static project cards alone.
 
 ## Core Idea
@@ -85,7 +96,7 @@ http://127.0.0.1:4173
 
 ## Current Project Positioning
 
-- `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and live dashboard reporting.
-- `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI.
-- `Amazon UI Clone` proves dense frontend layout control and visual composition discipline.
-- `Valentine Interactive Web Experience` shows creative interaction design, timing, and frontend personality.
+- `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and live dashboard reporting
+- `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
+- `Amazon UI Clone` proves dense frontend layout control and visual composition discipline
+- `Valentine Interactive Web Experience` shows creative interaction design, timing, and frontend personality
