@@ -50,27 +50,6 @@
     compareIds: [],
   };
 
-  const CURSOR_INTERACTIVE_SELECTOR = [
-    "a",
-    "button",
-    "input",
-    "textarea",
-    "select",
-    "label",
-    "summary",
-    "[role='button']",
-    "[contenteditable='true']",
-  ].join(", ");
-
-  const cursorState = {
-    x: 0,
-    y: 0,
-    renderX: 0,
-    renderY: 0,
-    visible: false,
-    rafId: 0,
-  };
-
   function storeMode(mode) {
     try {
       window.localStorage.setItem(MODE_KEY, mode);
@@ -222,111 +201,6 @@
       stack.className = "toast-stack";
       stack.id = "toast-stack";
       document.body.appendChild(stack);
-    }
-
-    if (!document.querySelector(".theme-cursor")) {
-      const cursor = document.createElement("div");
-      cursor.className = "theme-cursor";
-      cursor.id = "theme-cursor";
-      cursor.hidden = true;
-      cursor.setAttribute("aria-hidden", "true");
-      cursor.innerHTML = `
-        <div class="theme-cursor__aura"></div>
-        <div class="theme-cursor__ring"></div>
-        <div class="theme-cursor__arrow"></div>
-        <div class="theme-cursor__spark"></div>
-      `;
-      document.body.appendChild(cursor);
-    }
-  }
-
-  function initThemeCursor() {
-    const cursor = document.getElementById("theme-cursor");
-    if (!cursor) {
-      return;
-    }
-
-    const isFinePointer =
-      window.matchMedia("(hover: hover)").matches && window.matchMedia("(pointer: fine)").matches;
-
-    document.body.classList.toggle("has-theme-cursor", isFinePointer);
-    cursor.hidden = !isFinePointer;
-
-    if (!isFinePointer) {
-      cursor.classList.remove("is-visible", "is-interactive", "is-pressed");
-      return;
-    }
-
-    const renderCursor = () => {
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const smoothing = prefersReducedMotion ? 1 : 0.2;
-      cursorState.renderX += (cursorState.x - cursorState.renderX) * smoothing;
-      cursorState.renderY += (cursorState.y - cursorState.renderY) * smoothing;
-      cursor.style.transform = `translate3d(${cursorState.renderX}px, ${cursorState.renderY}px, 0)`;
-
-      if (
-        Math.abs(cursorState.renderX - cursorState.x) > 0.1 ||
-        Math.abs(cursorState.renderY - cursorState.y) > 0.1
-      ) {
-        cursorState.rafId = window.requestAnimationFrame(renderCursor);
-      } else {
-        cursorState.rafId = 0;
-      }
-    };
-
-    const queueRender = () => {
-      if (!cursorState.rafId) {
-        cursorState.rafId = window.requestAnimationFrame(renderCursor);
-      }
-    };
-
-    const setInteractiveState = (target) => {
-      const interactiveTarget = target?.closest?.(CURSOR_INTERACTIVE_SELECTOR);
-      cursor.classList.toggle("is-interactive", Boolean(interactiveTarget));
-    };
-
-    if (!cursor.dataset.bound) {
-      document.addEventListener(
-        "pointermove",
-        (event) => {
-          cursorState.x = event.clientX;
-          cursorState.y = event.clientY;
-
-          if (!cursorState.visible) {
-            cursorState.visible = true;
-            cursorState.renderX = event.clientX;
-            cursorState.renderY = event.clientY;
-            cursor.classList.add("is-visible");
-          }
-
-          setInteractiveState(event.target);
-          queueRender();
-        },
-        { passive: true }
-      );
-
-      document.addEventListener("pointerdown", () => {
-        cursor.classList.add("is-pressed");
-      });
-
-      document.addEventListener("pointerup", () => {
-        cursor.classList.remove("is-pressed");
-      });
-
-      window.addEventListener("blur", () => {
-        cursor.classList.remove("is-visible", "is-interactive", "is-pressed");
-        cursorState.visible = false;
-      });
-
-      window.addEventListener("mouseout", (event) => {
-        if (event.relatedTarget) {
-          return;
-        }
-        cursor.classList.remove("is-visible", "is-interactive", "is-pressed");
-        cursorState.visible = false;
-      });
-
-      cursor.dataset.bound = "true";
     }
   }
 
@@ -558,7 +432,6 @@
     toast,
     copyText,
     updateViewportUi,
-    initThemeCursor,
     initRevealObserver,
     initSurfaceSpotlights,
     goTo,
