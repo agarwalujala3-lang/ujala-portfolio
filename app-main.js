@@ -375,6 +375,7 @@
 
   function init() {
     App.injectChrome();
+    App.initThemeCursor();
     App.applyMode();
     App.syncCurrentNav();
     App.renderAll();
