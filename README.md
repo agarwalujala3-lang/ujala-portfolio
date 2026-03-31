@@ -8,7 +8,7 @@
   <a href="https://d2ikqjoiirpv7k.cloudfront.net">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
-  <a href="https://d2ijsg7huf2h2p.cloudfront.net">ReceiptPulse</a>
+  <a href="https://d2ijsg7huf2h2p.cloudfront.net/app.html?v=20260331">ReceiptPulse</a>
 </p>
 
 Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around live proof, especially ReceiptPulse and LumenStack AI, rather than static project cards alone.
