@@ -1,9 +1,9 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-04-02T14:41:48.626Z",
-    "syncedAtLabel": "02 Apr 2026, 08:11 pm",
-    "repoCount": 6,
+    "syncedAt": "2026-04-02T15:44:53.936Z",
+    "syncedAtLabel": "02 Apr 2026, 09:14 pm",
+    "repoCount": 7,
     "githubUser": "agarwalujala3-lang"
   },
   "brain": {
@@ -13,11 +13,43 @@
   },
   "githubActivity": [
     {
+      "name": "ReceiptPulse",
+      "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
+      "language": "JavaScript",
+      "note": "Serverless receipt processing system using AWS Textract and Lambda.",
+      "pushedAt": "2026-04-02T15:44:31Z",
+      "homepage": ""
+    },
+    {
+      "name": "VALENTINE-CHAUDHRAIN",
+      "url": "https://github.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN",
+      "language": "JavaScript",
+      "note": "a webpage dedicated to my gf.",
+      "pushedAt": "2026-04-02T15:42:15Z",
+      "homepage": ""
+    },
+    {
+      "name": "Amazon-UI-Clone",
+      "url": "https://github.com/agarwalujala3-lang/Amazon-UI-Clone",
+      "language": "HTML",
+      "note": "Updated 02 Apr 2026, 09:12 pm",
+      "pushedAt": "2026-04-02T15:42:11Z",
+      "homepage": ""
+    },
+    {
+      "name": "LumenStack-AI",
+      "url": "https://github.com/agarwalujala3-lang/LumenStack-AI",
+      "language": "JavaScript",
+      "note": "Updated 02 Apr 2026, 09:12 pm",
+      "pushedAt": "2026-04-02T15:42:08Z",
+      "homepage": ""
+    },
+    {
       "name": "ujala-portfolio",
       "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
       "language": "JavaScript",
       "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-04-02T13:47:49Z",
+      "pushedAt": "2026-04-02T14:45:56Z",
       "homepage": ""
     },
     {
@@ -27,41 +59,286 @@
       "note": "Updated 31 Mar 2026, 10:27 am",
       "pushedAt": "2026-03-31T04:57:18Z",
       "homepage": ""
-    },
-    {
-      "name": "ReceiptPulse",
-      "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
-      "language": "JavaScript",
-      "note": "Serverless receipt processing system using AWS Textract and Lambda.",
-      "pushedAt": "2026-03-31T04:56:18Z",
-      "homepage": ""
-    },
-    {
-      "name": "LumenStack-AI",
-      "url": "https://github.com/agarwalujala3-lang/LumenStack-AI",
-      "language": "JavaScript",
-      "note": "Updated 31 Mar 2026, 09:51 am",
-      "pushedAt": "2026-03-31T04:21:28Z",
-      "homepage": ""
-    },
-    {
-      "name": "Amazon-UI-Clone",
-      "url": "https://github.com/agarwalujala3-lang/Amazon-UI-Clone",
-      "language": "HTML",
-      "note": "Updated 28 Mar 2026, 02:03 pm",
-      "pushedAt": "2026-03-28T08:33:16Z",
-      "homepage": ""
-    },
-    {
-      "name": "VALENTINE-CHAUDHRAIN",
-      "url": "https://github.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN",
-      "language": "JavaScript",
-      "note": "a webpage dedicated to my gf.",
-      "pushedAt": "2026-03-28T08:33:16Z",
-      "homepage": ""
     }
   ],
-  "projectBranding": {},
+  "projects": [
+    {
+      "enabled": true,
+      "id": "receiptpulse",
+      "title": "ReceiptPulse",
+      "kind": "Flagship System",
+      "status": "Live",
+      "priority": 100,
+      "featured": true,
+      "badge": "Flagship AWS build",
+      "icon": "RP",
+      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-mark.svg",
+      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-lockup.svg",
+      "summary": "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
+      "proof": "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and full live deployment.",
+      "details": [
+        "I built a full upload-to-insight pipeline around private per-user receipt processing.",
+        "I added sign-up/sign-in, receipt-only validation, duplicate decision handling, compact auto labels, rename actions, delete actions, and analytics.",
+        "I pushed it beyond a backend demo by building a real dashboard flow around uploads, history, review, and stored results."
+      ],
+      "architecture": [
+        "Signed-in users get a private workspace through Cognito-backed auth.",
+        "Receipt uploads land in user-scoped S3 paths.",
+        "Lambda processes files, validates them, and calls Textract.",
+        "The data is normalized, categorized, labeled, and stored in DynamoDB.",
+        "API routes power uploads, history, duplicate decisions, rename/delete actions, and analytics views.",
+        "CloudFront serves the frontend experience."
+      ],
+      "tradeoff": "I optimized for a believable product-style AWS build with strong user flow first; budget analysis and deeper reporting are the next layer.",
+      "tags": [
+        "aws",
+        "backend",
+        "full-stack",
+        "live"
+      ],
+      "stack": [
+        "AWS Lambda",
+        "S3",
+        "DynamoDB",
+        "API Gateway",
+        "Cognito",
+        "Textract",
+        "CloudFront",
+        "JavaScript"
+      ],
+      "links": {
+        "live": "https://d2ijsg7huf2h2p.cloudfront.net",
+        "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
+      },
+      "theme": {
+        "surface1": "rgba(247, 251, 249, 0.96)",
+        "surface2": "rgba(236, 244, 240, 0.94)",
+        "ring": "rgba(43, 104, 92, 0.14)",
+        "glow": "rgba(47, 113, 101, 0.16)",
+        "glowSoft": "rgba(143, 194, 181, 0.18)",
+        "accentStrong": "#20564d",
+        "accentSoft": "rgba(32, 86, 77, 0.12)",
+        "badgeBg": "rgba(32, 86, 77, 0.09)",
+        "badgeBorder": "rgba(32, 86, 77, 0.16)",
+        "proofBg": "linear-gradient(135deg, rgba(32, 86, 77, 0.12), rgba(104, 170, 152, 0.08))",
+        "signalBg": "rgba(255, 255, 255, 0.74)",
+        "signalBorder": "rgba(43, 104, 92, 0.1)",
+        "iconBg": "linear-gradient(145deg, rgba(239, 247, 243, 1), rgba(220, 233, 228, 0.98))"
+      },
+      "lensPriority": {
+        "recruiter": 100,
+        "engineer": 95,
+        "founder": 92,
+        "friend": 78
+      },
+      "repoSync": {
+        "repo": "ReceiptPulse",
+        "manifestPath": "portfolio-branding.json",
+        "manifestRequired": true
+      }
+    },
+    {
+      "enabled": true,
+      "id": "lumenstack",
+      "title": "LumenStack AI",
+      "kind": "AI Tooling Product",
+      "status": "Live",
+      "priority": 96,
+      "featured": true,
+      "badge": "Flagship AI build",
+      "icon": "LS",
+      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-mark.svg",
+      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-lockup.svg",
+      "summary": "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
+      "proof": "This project proves backend analysis flow, AI-assisted explanation, project framing, and multi-page product design.",
+      "details": [
+        "I accept repos or uploads and turn them into structured architecture summaries.",
+        "I added diagram generation, compare mode, chat, and exports.",
+        "I designed it to make unfamiliar codebases easier to understand quickly."
+      ],
+      "architecture": [
+        "Repository input is parsed file by file.",
+        "Manifest and import patterns are used to infer dependency structure.",
+        "A structured analysis layer feeds diagrams and AI explanations.",
+        "The frontend presents the output as a guided developer product."
+      ],
+      "tradeoff": "I balanced deterministic analysis with AI explanation so the tool stays useful without relying blindly on the model.",
+      "tags": [
+        "ai",
+        "backend",
+        "full-stack",
+        "live"
+      ],
+      "stack": [
+        "Node.js",
+        "Express.js",
+        "JavaScript",
+        "OpenAI API",
+        "Mermaid",
+        "HTML",
+        "CSS"
+      ],
+      "links": {
+        "live": "https://lumenstack-ai.onrender.com",
+        "repo": "https://github.com/agarwalujala3-lang/LumenStack-AI"
+      },
+      "theme": {
+        "surface1": "rgba(242, 249, 248, 0.96)",
+        "surface2": "rgba(231, 241, 239, 0.94)",
+        "ring": "rgba(78, 124, 141, 0.15)",
+        "glow": "rgba(101, 180, 194, 0.18)",
+        "glowSoft": "rgba(128, 205, 193, 0.18)",
+        "accentStrong": "#3c6574",
+        "accentSoft": "rgba(60, 101, 116, 0.12)",
+        "badgeBg": "rgba(77, 128, 144, 0.09)",
+        "badgeBorder": "rgba(77, 128, 144, 0.16)",
+        "proofBg": "linear-gradient(135deg, rgba(87, 154, 166, 0.14), rgba(112, 181, 163, 0.1))",
+        "signalBg": "rgba(248, 252, 251, 0.76)",
+        "signalBorder": "rgba(78, 124, 141, 0.12)",
+        "iconBg": "linear-gradient(145deg, rgba(18, 44, 48, 0.98), rgba(14, 30, 34, 0.96))"
+      },
+      "lensPriority": {
+        "recruiter": 96,
+        "engineer": 100,
+        "founder": 88,
+        "friend": 70
+      },
+      "repoSync": {
+        "repo": "LumenStack-AI",
+        "manifestPath": "portfolio-branding.json",
+        "manifestRequired": true
+      }
+    },
+    {
+      "enabled": true,
+      "id": "amazon-ui-clone",
+      "title": "Amazon UI Clone",
+      "kind": "Frontend Build",
+      "status": "Live",
+      "priority": 82,
+      "featured": true,
+      "badge": "Interface study",
+      "icon": "AZ",
+      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/Amazon-UI-Clone/main/branding/portfolio-brand-mark.svg",
+      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/Amazon-UI-Clone/main/branding/portfolio-brand-lockup.svg",
+      "summary": "I built this frontend recreation of Amazon's homepage to sharpen my layout control, section composition, and dense commercial UI structuring.",
+      "proof": "This project proves visual composition discipline, spacing control, and my ability to recreate complex real-world layouts cleanly.",
+      "details": [
+        "I focused on layout recreation and visual fidelity.",
+        "It strengthened my understanding of dense navigation and catalog-style interfaces."
+      ],
+      "architecture": [
+        "Static HTML sections define the structure.",
+        "CSS handles layout, spacing, and responsive adjustments.",
+        "Deployment through CloudFront keeps it accessible as a live demo."
+      ],
+      "tradeoff": "This build is intentionally frontend-only; its strength is UI control, not backend depth.",
+      "tags": [
+        "frontend",
+        "ui",
+        "live"
+      ],
+      "stack": [
+        "HTML",
+        "CSS"
+      ],
+      "links": {
+        "live": "https://d22imnrsdj0eeu.cloudfront.net",
+        "repo": "https://github.com/agarwalujala3-lang/Amazon-UI-Clone"
+      },
+      "theme": {
+        "surface1": "rgba(252, 247, 239, 0.96)",
+        "surface2": "rgba(246, 237, 224, 0.94)",
+        "ring": "rgba(184, 128, 52, 0.16)",
+        "glow": "rgba(238, 180, 72, 0.18)",
+        "glowSoft": "rgba(217, 147, 74, 0.16)",
+        "accentStrong": "#9c6222",
+        "accentSoft": "rgba(156, 98, 34, 0.12)",
+        "badgeBg": "rgba(156, 98, 34, 0.09)",
+        "badgeBorder": "rgba(156, 98, 34, 0.16)",
+        "proofBg": "linear-gradient(135deg, rgba(242, 183, 73, 0.14), rgba(215, 136, 52, 0.1))",
+        "signalBg": "rgba(255, 251, 245, 0.76)",
+        "signalBorder": "rgba(184, 128, 52, 0.12)",
+        "iconBg": "linear-gradient(145deg, rgba(255, 243, 220, 1), rgba(246, 224, 185, 0.98))"
+      },
+      "lensPriority": {
+        "recruiter": 82,
+        "engineer": 74,
+        "founder": 95,
+        "friend": 86
+      },
+      "repoSync": {
+        "repo": "Amazon-UI-Clone",
+        "manifestPath": "portfolio-branding.json",
+        "manifestRequired": true
+      }
+    },
+    {
+      "enabled": true,
+      "id": "valentine",
+      "title": "Valentine Interactive Web Experience",
+      "kind": "Creative Interaction Build",
+      "status": "Live",
+      "priority": 70,
+      "featured": false,
+      "badge": "Interactive concept",
+      "icon": "VX",
+      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN/main/branding/portfolio-brand-mark.svg",
+      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN/main/branding/portfolio-brand-lockup.svg",
+      "summary": "I built this animated single-page interactive experience around media transitions, lightweight logic, and playful emotional design.",
+      "proof": "This project proves personality, interaction design instincts, and my willingness to build something expressive instead of purely utilitarian.",
+      "details": [
+        "I built it around interaction flow, timing, and media-led transitions.",
+        "I later optimized the loading behavior to improve the first render."
+      ],
+      "architecture": [
+        "The interface is driven by a single-page DOM interaction flow.",
+        "JavaScript coordinates transitions and state changes.",
+        "Optimized media loading improved perceived performance."
+      ],
+      "tradeoff": "This build prioritizes memorable interaction and emotional tone over formal system complexity.",
+      "tags": [
+        "frontend",
+        "interactive",
+        "live"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "links": {
+        "live": "https://d3lrcs5kkqcuas.cloudfront.net",
+        "repo": "https://github.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN"
+      },
+      "theme": {
+        "surface1": "rgba(252, 244, 247, 0.96)",
+        "surface2": "rgba(246, 231, 237, 0.94)",
+        "ring": "rgba(168, 92, 118, 0.16)",
+        "glow": "rgba(223, 132, 163, 0.18)",
+        "glowSoft": "rgba(198, 111, 141, 0.18)",
+        "accentStrong": "#9b4968",
+        "accentSoft": "rgba(155, 73, 104, 0.12)",
+        "badgeBg": "rgba(155, 73, 104, 0.09)",
+        "badgeBorder": "rgba(155, 73, 104, 0.16)",
+        "proofBg": "linear-gradient(135deg, rgba(222, 132, 163, 0.14), rgba(188, 92, 124, 0.1))",
+        "signalBg": "rgba(255, 248, 250, 0.76)",
+        "signalBorder": "rgba(168, 92, 118, 0.12)",
+        "iconBg": "linear-gradient(145deg, rgba(255, 235, 242, 1), rgba(246, 214, 225, 0.98))"
+      },
+      "lensPriority": {
+        "recruiter": 70,
+        "engineer": 62,
+        "founder": 80,
+        "friend": 98
+      },
+      "repoSync": {
+        "repo": "VALENTINE-CHAUDHRAIN",
+        "manifestPath": "portfolio-branding.json",
+        "manifestRequired": true
+      }
+    }
+  ],
   "learningLog": [
     {
       "phase": "Now",

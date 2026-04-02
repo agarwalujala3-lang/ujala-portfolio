@@ -139,7 +139,7 @@
 
   function commandItems() {
     const data = App.getData();
-    const projects = data.projects || [];
+    const projects = App.getProjectsForMode();
     const resumes = data.profile?.resumes || [];
     const repos = (data.runtime && data.runtime.githubActivity) || [];
 

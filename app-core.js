@@ -80,12 +80,22 @@
   }
 
   function getProjectsForMode() {
-    const mode = getModeConfig();
-    const order = new Map((mode.projectOrder || []).map((id, index) => [id, index]));
-    return [...(data.projects || [])].sort((left, right) => {
-      const leftIndex = order.has(left.id) ? order.get(left.id) : 999;
-      const rightIndex = order.has(right.id) ? order.get(right.id) : 999;
-      return leftIndex - rightIndex;
+    return [...(data.projects || [])]
+      .filter((project) => project && project.enabled !== false)
+      .sort((left, right) => {
+        const leftLens = Number(left?.lensPriority?.[state.mode] || 0);
+        const rightLens = Number(right?.lensPriority?.[state.mode] || 0);
+        if (rightLens !== leftLens) {
+          return rightLens - leftLens;
+        }
+
+        const leftPriority = Number(left?.priority || 0);
+        const rightPriority = Number(right?.priority || 0);
+        if (rightPriority !== leftPriority) {
+          return rightPriority - leftPriority;
+        }
+
+        return String(left?.title || "").localeCompare(String(right?.title || ""));
     });
   }
 
@@ -97,24 +107,60 @@
     return data;
   }
 
-  function mergeProjectBranding(projects, projectBranding) {
-    if (!Array.isArray(projects) || !projectBranding || typeof projectBranding !== "object") {
-      return projects;
-    }
+  function mergeProjectRecord(baseProject, overrideProject) {
+    return {
+      ...baseProject,
+      ...overrideProject,
+      theme: {
+        ...(baseProject?.theme || {}),
+        ...(overrideProject?.theme || {}),
+      },
+      links: {
+        ...(baseProject?.links || {}),
+        ...(overrideProject?.links || {}),
+      },
+      lensPriority: {
+        ...(baseProject?.lensPriority || {}),
+        ...(overrideProject?.lensPriority || {}),
+      },
+      repoSync: {
+        ...(baseProject?.repoSync || {}),
+        ...(overrideProject?.repoSync || {}),
+      },
+    };
+  }
 
-    return projects.map((project) => {
-      const override = projectBranding[project.id];
-      if (!override || typeof override !== "object") {
-        return project;
+  function combineProjects(baseProjects, runtimeProjects, syncedCatalog) {
+    const seed = (Array.isArray(baseProjects) ? baseProjects : []).filter((project) => {
+      if (!project || project.enabled === false) {
+        return false;
       }
 
-      return {
-        ...project,
-        ...override,
-        ...(override.theme ? { theme: { ...(project.theme || {}), ...override.theme } } : {}),
-        ...(override.repoSync ? { repoSync: { ...(project.repoSync || {}), ...override.repoSync } } : {}),
-      };
+      if (syncedCatalog && project.repoSync?.manifestRequired) {
+        return false;
+      }
+
+      return true;
     });
+    const merged = seed.map((project) => ({ ...project }));
+    const indexMap = new Map(merged.map((project, index) => [project.id, index]));
+
+    for (const project of Array.isArray(runtimeProjects) ? runtimeProjects : []) {
+      if (!project || !project.id || project.enabled === false) {
+        continue;
+      }
+
+      if (indexMap.has(project.id)) {
+        const index = indexMap.get(project.id);
+        merged[index] = mergeProjectRecord(merged[index], project);
+        continue;
+      }
+
+      indexMap.set(project.id, merged.length);
+      merged.push(project);
+    }
+
+    return merged;
   }
 
   function mergeRuntimeData(runtimeData) {
@@ -123,15 +169,17 @@
     }
 
     const runtimeOverrides = runtimeData.overrides || {};
-    const mergedProjects = mergeProjectBranding(
+    const syncedCatalog = runtimeData.sync?.status === "synced" && Array.isArray(runtimeData.projects);
+    const mergedProjects = combineProjects(
       runtimeOverrides.projects || data.projects || [],
-      runtimeData.projectBranding
+      runtimeData.projects,
+      syncedCatalog
     );
 
     setData({
       ...data,
       ...runtimeOverrides,
-      ...(mergedProjects ? { projects: mergedProjects } : {}),
+      ...(Array.isArray(mergedProjects) ? { projects: mergedProjects } : {}),
       runtime: {
         ...(data.runtime || {}),
         ...(runtimeData.sync ? { sync: runtimeData.sync } : {}),

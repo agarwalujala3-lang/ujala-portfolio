@@ -126,12 +126,23 @@ window.UJOS_DATA = {
   ],
   projects: [
     {
+      enabled: true,
       id: "receiptpulse",
       title: "ReceiptPulse",
       kind: "Flagship System",
       status: "Live",
+      priority: 100,
+      featured: true,
+      lensPriority: {
+        recruiter: 100,
+        engineer: 95,
+        founder: 92,
+        friend: 78,
+      },
       accent: "cyan",
       icon: "RP",
+      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-mark.svg",
+      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-lockup.svg",
       badge: "Flagship AWS build",
       theme: {
         surface1: "rgba(247, 251, 249, 0.96)",
@@ -151,6 +162,7 @@ window.UJOS_DATA = {
       repoSync: {
         repo: "ReceiptPulse",
         manifestPath: "portfolio-branding.json",
+        manifestRequired: true,
       },
       summary:
         "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
@@ -188,15 +200,23 @@ window.UJOS_DATA = {
         "I optimized for a believable product-style AWS build with strong user flow first; budget analysis and deeper reporting are the next layer.",
     },
     {
+      enabled: true,
       id: "lumenstack",
       title: "LumenStack AI",
       kind: "AI Tooling Product",
       status: "Live",
+      priority: 96,
+      featured: true,
+      lensPriority: {
+        recruiter: 96,
+        engineer: 100,
+        founder: 88,
+        friend: 70,
+      },
       accent: "cyan",
       icon: "LS",
-      iconImage: "content/branding/lumenstack-brand-mark.svg",
-      lockupImage: "content/branding/lumenstack-brand-lockup.svg",
-      brandTheme: "lumenstack",
+      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-mark.svg",
+      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-lockup.svg",
       badge: "Flagship AI build",
       theme: {
         surface1: "rgba(242, 249, 248, 0.96)",
@@ -216,6 +236,7 @@ window.UJOS_DATA = {
       repoSync: {
         repo: "LumenStack-AI",
         manifestPath: "portfolio-branding.json",
+        manifestRequired: true,
       },
       summary:
         "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
@@ -250,12 +271,23 @@ window.UJOS_DATA = {
         "I balanced deterministic analysis with AI explanation so the tool stays useful without relying blindly on the model.",
     },
     {
+      enabled: true,
       id: "amazon-ui-clone",
       title: "Amazon UI Clone",
       kind: "Frontend Build",
       status: "Live",
+      priority: 82,
+      featured: true,
+      lensPriority: {
+        recruiter: 82,
+        engineer: 74,
+        founder: 95,
+        friend: 86,
+      },
       accent: "violet",
       icon: "AZ",
+      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/Amazon-UI-Clone/main/branding/portfolio-brand-mark.svg",
+      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/Amazon-UI-Clone/main/branding/portfolio-brand-lockup.svg",
       badge: "Interface study",
       theme: {
         surface1: "rgba(252, 247, 239, 0.96)",
@@ -275,6 +307,7 @@ window.UJOS_DATA = {
       repoSync: {
         repo: "Amazon-UI-Clone",
         manifestPath: "portfolio-branding.json",
+        manifestRequired: true,
       },
       summary:
         "I built this frontend recreation of Amazon’s homepage to sharpen my layout control, section composition, and dense commercial UI structuring.",
@@ -299,12 +332,23 @@ window.UJOS_DATA = {
         "This build is intentionally frontend-only; its strength is UI control, not backend depth.",
     },
     {
+      enabled: true,
       id: "valentine",
       title: "Valentine Interactive Web Experience",
       kind: "Creative Interaction Build",
       status: "Live",
+      priority: 70,
+      featured: false,
+      lensPriority: {
+        recruiter: 70,
+        engineer: 62,
+        founder: 80,
+        friend: 98,
+      },
       accent: "rose",
       icon: "VX",
+      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN/main/branding/portfolio-brand-mark.svg",
+      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN/main/branding/portfolio-brand-lockup.svg",
       badge: "Interactive concept",
       theme: {
         surface1: "rgba(252, 244, 247, 0.96)",
@@ -324,6 +368,7 @@ window.UJOS_DATA = {
       repoSync: {
         repo: "VALENTINE-CHAUDHRAIN",
         manifestPath: "portfolio-branding.json",
+        manifestRequired: true,
       },
       summary:
         "I built this animated single-page interactive experience around media transitions, lightweight logic, and playful emotional design.",

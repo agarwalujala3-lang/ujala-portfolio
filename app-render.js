@@ -217,8 +217,15 @@
     }
 
     if (featuredProjects) {
-      featuredProjects.innerHTML = App.getProjectsForMode()
-        .slice(0, 2)
+      const orderedProjects = App.getProjectsForMode();
+      const homeProjects = [
+        ...orderedProjects.filter((project) => project.featured),
+        ...orderedProjects.filter((project) => !project.featured),
+      ]
+        .filter((project, index, items) => items.findIndex((item) => item.id === project.id) === index)
+        .slice(0, 2);
+
+      featuredProjects.innerHTML = homeProjects
         .map((project) => createProjectCard(project, true))
         .join("");
     }
@@ -327,9 +334,6 @@
     const classes = ["project-icon"];
     if (project.iconImage) {
       classes.push("project-icon--image");
-    }
-    if (project.brandTheme) {
-      classes.push(`project-icon--${project.brandTheme}`);
     }
 
     const content = project.iconImage
@@ -475,7 +479,7 @@
     const activeCompare = App.state.compareIds.includes(project.id);
     const badge = project.badge ? `<span class="project-badge">${App.escapeHtml(project.badge)}</span>` : "";
     return `
-      <article class="case-card${project.brandTheme ? ` case-card--${App.escapeHtml(project.brandTheme)}` : ""}${featured ? " case-card--featured" : ""}" style="${App.escapeHtml(projectThemeStyle(project))}">
+      <article class="case-card${featured ? " case-card--featured" : ""}" style="${App.escapeHtml(projectThemeStyle(project))}">
         <div class="case-card__top">
           <div class="case-card__meta">
             ${renderProjectIcon(project)}
@@ -651,7 +655,7 @@
     const architectureNotes = (project.architecture || []).slice(0, 3);
 
     return `
-      <article class="compare-column${project.brandTheme ? ` compare-column--${App.escapeHtml(project.brandTheme)}` : ""}" style="${App.escapeHtml(projectThemeStyle(project))}">
+      <article class="compare-column" style="${App.escapeHtml(projectThemeStyle(project))}">
         <div class="compare-column__header">
           <div class="case-card__meta">
             ${renderProjectIcon(project)}

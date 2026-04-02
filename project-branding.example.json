@@ -1,11 +1,31 @@
 {
-  "title": "Project Title",
-  "icon": "PT",
-  "iconImage": "https://raw.githubusercontent.com/your-user/your-repo/main/assets/brand-mark.svg",
-  "lockupImage": "https://raw.githubusercontent.com/your-user/your-repo/main/assets/brand-lockup.svg",
-  "badge": "Flagship build",
-  "accent": "cyan",
-  "brandTheme": "custom",
+  "enabled": true,
+  "id": "receiptpulse",
+  "title": "ReceiptPulse",
+  "kind": "Flagship System",
+  "status": "Live",
+  "priority": 100,
+  "featured": true,
+  "lensPriority": {
+    "recruiter": 100,
+    "engineer": 95,
+    "founder": 92,
+    "friend": 74
+  },
+  "tags": ["aws", "backend", "full-stack", "live"],
+  "stack": ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "JavaScript"],
+  "summary": "Short card summary",
+  "proof": "What this project proves",
+  "details": ["Detail 1", "Detail 2", "Detail 3"],
+  "architecture": ["Step 1", "Step 2", "Step 3"],
+  "tradeoff": "Main tradeoff",
+  "badge": "Flagship AWS build",
+  "icon": "RP",
+  "iconImage": "https://raw.githubusercontent.com/your-user/your-repo/main/branding/portfolio-brand-mark.svg",
+  "lockupImage": "https://raw.githubusercontent.com/your-user/your-repo/main/branding/portfolio-brand-lockup.svg",
+  "links": {
+    "live": "https://your-live-site.example.com"
+  },
   "theme": {
     "surface1": "rgba(247, 251, 249, 0.96)",
     "surface2": "rgba(236, 244, 240, 0.94)",
