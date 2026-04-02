@@ -316,11 +316,120 @@
     return `<div class="${classes.join(" ")}" data-accent="${App.escapeHtml(project.accent)}">${content}</div>`;
   }
 
+  function projectDeliveryLabel(project) {
+    const parts = [project.links?.live ? "Live" : null, project.links?.repo ? "Repo" : null].filter(Boolean);
+    return parts.length ? parts.join(" + ") : "Portfolio";
+  }
+
+  function projectSignalLabel(project) {
+    const tags = project.tags || [];
+    if (tags.includes("aws")) {
+      return "AWS system depth";
+    }
+    if (tags.includes("ai")) {
+      return "AI product depth";
+    }
+    if (tags.includes("interactive")) {
+      return "Interaction design";
+    }
+    if (tags.includes("ui")) {
+      return "Layout fidelity";
+    }
+    if (tags.includes("frontend")) {
+      return "Frontend polish";
+    }
+    return "Shipped web product";
+  }
+
+  function projectFocusLabel(project) {
+    const tags = project.tags || [];
+    const stack = project.stack || [];
+
+    if (tags.includes("aws")) {
+      return "Serverless workflow + private user flow";
+    }
+    if (tags.includes("ai")) {
+      return "Repository analysis + AI explanation";
+    }
+    if (tags.includes("interactive")) {
+      return "Motion-led storytelling";
+    }
+    if (tags.includes("ui")) {
+      return "Dense interface reconstruction";
+    }
+    if (stack.length) {
+      return stack.slice(0, 2).join(" + ");
+    }
+    return project.kind;
+  }
+
+  function projectSignalItems(project) {
+    const stack = project.stack || [];
+
+    return [
+      {
+        label: "Delivery",
+        value: projectDeliveryLabel(project),
+        note: project.links?.live ? "Public proof is ready to open." : "Repository depth is the main proof.",
+      },
+      {
+        label: "Strongest Signal",
+        value: projectSignalLabel(project),
+        note: projectFocusLabel(project),
+      },
+      {
+        label: "Core Stack",
+        value: stack.slice(0, 3).join(" / ") || "Web stack",
+        note: stack.length > 3 ? `+${stack.length - 3} more tools in the build.` : "Focused implementation surface.",
+      },
+    ];
+  }
+
+  function buildProjectSignalCards(project, limit) {
+    return `
+      <div class="project-signal-grid">
+        ${projectSignalItems(project)
+          .slice(0, limit || 3)
+          .map(
+            (item) => `
+              <article class="project-signal-card">
+                <span class="project-signal-card__label">${App.escapeHtml(item.label)}</span>
+                <strong class="project-signal-card__value">${App.escapeHtml(item.value)}</strong>
+                <p>${App.escapeHtml(item.note)}</p>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    `;
+  }
+
+  function buildProjectDetailList(project, limit) {
+    const items = (project.details || []).slice(0, limit || 3);
+    if (!items.length) {
+      return "";
+    }
+
+    return `
+      <div class="case-card__detail-list">
+        ${items
+          .map(
+            (item) => `
+              <article class="case-card__detail-item">
+                <p>${App.escapeHtml(item)}</p>
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    `;
+  }
+
   function createProjectCard(project, featured) {
     const activeCompare = App.state.compareIds.includes(project.id);
     const badge = project.badge ? `<span class="project-badge">${App.escapeHtml(project.badge)}</span>` : "";
     return `
-      <article class="case-card${project.brandTheme ? ` case-card--${App.escapeHtml(project.brandTheme)}` : ""}">
+      <article class="case-card${project.brandTheme ? ` case-card--${App.escapeHtml(project.brandTheme)}` : ""}${featured ? " case-card--featured" : ""}">
         <div class="case-card__top">
           <div class="case-card__meta">
             ${renderProjectIcon(project)}
@@ -330,13 +439,21 @@
               ${badge}
             </div>
           </div>
-          <span class="status-badge">${App.escapeHtml(project.status)}</span>
+          <div class="case-card__status">
+            <span class="status-badge">${App.escapeHtml(project.status)}</span>
+            <span class="case-card__status-note">${App.escapeHtml(projectDeliveryLabel(project))}</span>
+          </div>
         </div>
-        <p>${App.escapeHtml(featured ? project.proof : project.summary)}</p>
-        <div class="case-card__proof">${App.escapeHtml(project.proof)}</div>
+        <p class="case-card__summary">${App.escapeHtml(project.summary)}</p>
+        ${buildProjectSignalCards(project, featured ? 2 : 3)}
+        <div class="case-card__proof">
+          <span class="case-card__proof-label">What it proves</span>
+          <p>${App.escapeHtml(project.proof)}</p>
+        </div>
+        ${buildProjectDetailList(project, featured ? 2 : 3)}
         <div class="case-card__tags">
           ${(project.stack || [])
-            .slice(0, featured ? 6 : 5)
+            .slice(0, featured ? 5 : 6)
             .map((item) => `<span class="stack-pill">${App.escapeHtml(item)}</span>`)
             .join("")}
         </div>
@@ -358,6 +475,7 @@
       return;
     }
 
+    const data = App.getData();
     const mode = App.getModeConfig();
     document.getElementById("projects-mode-kicker").textContent = mode.kicker;
     document.getElementById("projects-mode-title").textContent = `${mode.label} lens is shaping this page right now.`;
@@ -369,6 +487,48 @@
       }
       return (project.tags || []).includes(App.state.filter);
     });
+
+    const studioMetrics = document.getElementById("project-studio-metrics");
+    if (studioMetrics) {
+      const allProjects = data.projects || [];
+      studioMetrics.innerHTML = [
+        {
+          value: String(allProjects.filter((project) => project.status === "Live").length),
+          label: "Live Builds",
+          note: "Public projects you can open right now.",
+        },
+        {
+          value: String(allProjects.filter((project) => (project.tags || []).includes("aws")).length),
+          label: "Cloud Signals",
+          note: "Projects where AWS and backend depth are the strongest proof.",
+        },
+        {
+          value: String(allProjects.filter((project) => (project.tags || []).includes("ai")).length),
+          label: "AI Products",
+          note: "Builds where analysis, explanation, or AI-assisted flow matters most.",
+        },
+        {
+          value: String(
+            allProjects.filter((project) => {
+              const tags = project.tags || [];
+              return tags.includes("frontend") || tags.includes("interactive") || tags.includes("ui");
+            }).length
+          ),
+          label: "Interface Builds",
+          note: "Projects where visual control and product feel are the main signal.",
+        },
+      ]
+        .map(
+          (item) => `
+            <article class="metric-card">
+              <span class="metric-card__value">${App.escapeHtml(item.value)}</span>
+              <span class="metric-card__label">${App.escapeHtml(item.label)}</span>
+              <p>${App.escapeHtml(item.note)}</p>
+            </article>
+          `
+        )
+        .join("");
+    }
 
     grid.innerHTML = projects.map((project) => createProjectCard(project, false)).join("");
 
@@ -418,9 +578,11 @@
     if (selected.length === 1) {
       return `
         <div class="compare-summary">
+          <span class="case-card__proof-label">Single project read</span>
           <h3>${App.escapeHtml(selected[0].title)}</h3>
           <p>${App.escapeHtml(selected[0].proof)}</p>
         </div>
+        ${buildCompareColumn(selected[0])}
       `;
     }
 
@@ -428,8 +590,9 @@
     const sharedStack = (left.stack || []).filter((item) => (right.stack || []).includes(item));
     return `
       <div class="compare-summary">
+        <span class="case-card__proof-label">Comparison summary</span>
         <h3>${App.escapeHtml(left.title)} vs ${App.escapeHtml(right.title)}</h3>
-        <p>Shared stack signal: ${App.escapeHtml(sharedStack.join(", ") || "Different strengths with limited stack overlap.")}</p>
+        <p>${App.escapeHtml(sharedStack.length ? `Shared stack signal: ${sharedStack.join(", ")}.` : "These projects win in different areas with limited stack overlap.")}</p>
       </div>
       <div class="compare-columns">
         ${buildCompareColumn(left)}
@@ -439,19 +602,39 @@
   }
 
   function buildCompareColumn(project) {
+    const architectureNotes = (project.architecture || []).slice(0, 3);
+
     return `
-      <article class="compare-column">
-        <div class="metric-card">
-          <span class="project-kind">${App.escapeHtml(project.kind)}</span>
-          <h3>${App.escapeHtml(project.title)}</h3>
-          <p>${App.escapeHtml(project.summary)}</p>
+      <article class="compare-column${project.brandTheme ? ` compare-column--${App.escapeHtml(project.brandTheme)}` : ""}">
+        <div class="compare-column__header">
+          <div class="case-card__meta">
+            ${renderProjectIcon(project)}
+            <div>
+              <p class="project-kind">${App.escapeHtml(project.kind)}</p>
+              <h3>${App.escapeHtml(project.title)}</h3>
+            </div>
+          </div>
+          <span class="status-badge">${App.escapeHtml(project.status)}</span>
         </div>
-        <div class="metric-card">
-          <span class="metric-card__label">What It Proves</span>
+        <p class="compare-column__summary">${App.escapeHtml(project.summary)}</p>
+        ${buildProjectSignalCards(project, 2)}
+        <div class="compare-summary compare-summary--column">
+          <span class="case-card__proof-label">What it proves</span>
           <p>${App.escapeHtml(project.proof)}</p>
         </div>
-        <div class="metric-card">
-          <span class="metric-card__label">Tradeoff</span>
+        <div class="compare-list">
+          ${architectureNotes
+            .map(
+              (item) => `
+                <article class="compare-list__item">
+                  <p>${App.escapeHtml(item)}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="compare-summary compare-summary--column">
+          <span class="case-card__proof-label">Tradeoff</span>
           <p>${App.escapeHtml(project.tradeoff)}</p>
         </div>
       </article>

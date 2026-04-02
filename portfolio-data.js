@@ -132,6 +132,7 @@ window.UJOS_DATA = {
       status: "Live",
       accent: "cyan",
       icon: "RP",
+      badge: "Flagship AWS build",
       summary:
         "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
       proof:
@@ -217,6 +218,7 @@ window.UJOS_DATA = {
       status: "Live",
       accent: "violet",
       icon: "AZ",
+      badge: "Interface study",
       summary:
         "I built this frontend recreation of Amazon’s homepage to sharpen my layout control, section composition, and dense commercial UI structuring.",
       proof:
@@ -246,6 +248,7 @@ window.UJOS_DATA = {
       status: "Live",
       accent: "rose",
       icon: "VX",
+      badge: "Interactive concept",
       summary:
         "I built this animated single-page interactive experience around media transitions, lightweight logic, and playful emotional design.",
       proof:
