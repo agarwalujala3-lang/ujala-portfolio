@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ujala Agarwal - Software Developer Resume</title>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      if (!params.has("export")) {
+        window.location.replace("Ujala_Agarwal_Resume_Software.pdf");
+      }
+    })();
+  </script>
   <style>
     :root { color-scheme: light; }
     * { box-sizing: border-box; }

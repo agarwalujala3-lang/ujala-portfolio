@@ -97,14 +97,41 @@
     return data;
   }
 
+  function mergeProjectBranding(projects, projectBranding) {
+    if (!Array.isArray(projects) || !projectBranding || typeof projectBranding !== "object") {
+      return projects;
+    }
+
+    return projects.map((project) => {
+      const override = projectBranding[project.id];
+      if (!override || typeof override !== "object") {
+        return project;
+      }
+
+      return {
+        ...project,
+        ...override,
+        ...(override.theme ? { theme: { ...(project.theme || {}), ...override.theme } } : {}),
+        ...(override.repoSync ? { repoSync: { ...(project.repoSync || {}), ...override.repoSync } } : {}),
+      };
+    });
+  }
+
   function mergeRuntimeData(runtimeData) {
     if (!runtimeData || typeof runtimeData !== "object") {
       return;
     }
 
+    const runtimeOverrides = runtimeData.overrides || {};
+    const mergedProjects = mergeProjectBranding(
+      runtimeOverrides.projects || data.projects || [],
+      runtimeData.projectBranding
+    );
+
     setData({
       ...data,
-      ...(runtimeData.overrides || {}),
+      ...runtimeOverrides,
+      ...(mergedProjects ? { projects: mergedProjects } : {}),
       runtime: {
         ...(data.runtime || {}),
         ...(runtimeData.sync ? { sync: runtimeData.sync } : {}),

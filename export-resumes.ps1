@@ -27,7 +27,7 @@ try {
     $sourcePath = Join-Path $workspace $export.Source
     $outputPath = Join-Path $workspace $export.Output
     $profileDir = Join-Path $profileRoot ([System.IO.Path]::GetFileNameWithoutExtension($export.Output))
-    $sourceUri = [System.Uri]::new($sourcePath).AbsoluteUri
+    $sourceUri = ([System.Uri]::new($sourcePath).AbsoluteUri) + "?export=1"
 
     New-Item -ItemType Directory -Path $profileDir | Out-Null
 

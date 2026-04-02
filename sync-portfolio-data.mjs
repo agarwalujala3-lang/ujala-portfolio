@@ -5,6 +5,12 @@ import { fileURLToPath } from "node:url";
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const githubUser = "agarwalujala3-lang";
 const brainApiUrl = "https://d77odxxfwhwwpw4s3c4uvnwcdq0nifbp.lambda-url.ap-south-1.on.aws/";
+const projectBrandingSources = [
+  { id: "receiptpulse", repo: "ReceiptPulse", manifestPath: "portfolio-branding.json" },
+  { id: "lumenstack", repo: "LumenStack-AI", manifestPath: "portfolio-branding.json" },
+  { id: "amazon-ui-clone", repo: "Amazon-UI-Clone", manifestPath: "portfolio-branding.json" },
+  { id: "valentine", repo: "VALENTINE-CHAUDHRAIN", manifestPath: "portfolio-branding.json" },
+];
 
 async function readJson(relativePath, fallback) {
   try {
@@ -41,19 +47,98 @@ async function fetchGithubRepos() {
     throw new Error(`GitHub sync failed with status ${response.status}`);
   }
 
-  const repos = await response.json();
-  return repos
+  const repos = (await response.json())
     .filter((repo) => !repo.fork)
-    .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at))
-    .slice(0, 6)
-    .map((repo) => ({
+    .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at));
+
+  return {
+    repoMap: new Map(repos.map((repo) => [repo.name, repo])),
+    activity: repos.slice(0, 6).map((repo) => ({
       name: repo.name,
       url: repo.html_url,
       language: repo.language || "Repo update",
       note: repo.description || `Updated ${formatDate(repo.pushed_at)}`,
       pushedAt: repo.pushed_at,
       homepage: repo.homepage || "",
-    }));
+    })),
+  };
+}
+
+function normalizeProjectBranding(manifest) {
+  if (!manifest || typeof manifest !== "object") {
+    return null;
+  }
+
+  const branding = {};
+
+  ["title", "icon", "iconImage", "lockupImage", "badge", "accent", "brandTheme"].forEach((key) => {
+    if (typeof manifest[key] === "string" && manifest[key].trim()) {
+      branding[key] = manifest[key].trim();
+    }
+  });
+
+  if (manifest.theme && typeof manifest.theme === "object") {
+    const theme = {};
+    [
+      "surface1",
+      "surface2",
+      "ring",
+      "glow",
+      "glowSoft",
+      "accentStrong",
+      "accentSoft",
+      "badgeBg",
+      "badgeBorder",
+      "proofBg",
+      "signalBg",
+      "signalBorder",
+      "iconBg",
+    ].forEach((key) => {
+      if (typeof manifest.theme[key] === "string" && manifest.theme[key].trim()) {
+        theme[key] = manifest.theme[key].trim();
+      }
+    });
+
+    if (Object.keys(theme).length) {
+      branding.theme = theme;
+    }
+  }
+
+  return Object.keys(branding).length ? branding : null;
+}
+
+async function fetchProjectBranding(repoMap) {
+  const entries = await Promise.all(
+    projectBrandingSources.map(async (source) => {
+      const repo = repoMap.get(source.repo);
+      if (!repo) {
+        return null;
+      }
+
+      const branch = repo.default_branch || "main";
+      const manifestUrl = `https://raw.githubusercontent.com/${githubUser}/${source.repo}/${branch}/${source.manifestPath}`;
+
+      try {
+        const response = await fetch(manifestUrl, {
+          headers: {
+            "User-Agent": "ujala-portfolio-sync",
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          return null;
+        }
+
+        const branding = normalizeProjectBranding(await response.json());
+        return branding ? [source.id, branding] : null;
+      } catch {
+        return null;
+      }
+    })
+  );
+
+  return Object.fromEntries(entries.filter(Boolean));
 }
 
 async function main() {
@@ -62,10 +147,13 @@ async function main() {
   const roadmap = await readJson("content/roadmap.json", []);
 
   let githubActivity = [];
+  let projectBranding = {};
   let status = "offline";
 
   try {
-    githubActivity = await fetchGithubRepos();
+    const githubData = await fetchGithubRepos();
+    githubActivity = githubData.activity;
+    projectBranding = await fetchProjectBranding(githubData.repoMap);
     status = "synced";
   } catch (error) {
     console.warn(`GitHub sync warning: ${error.message}`);
@@ -85,6 +173,7 @@ async function main() {
       label: "Live portfolio brain connected through a serverless backend with portfolio-aware fallback.",
     },
     githubActivity,
+    projectBranding,
     learningLog,
     ideaInbox,
     roadmap,

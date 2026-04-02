@@ -46,6 +46,17 @@
 
     const data = App.getData();
     const sync = (data.runtime && data.runtime.sync) || {};
+    const routes = [
+      { id: "home", label: "Home", href: "index.html", kicker: "Start route" },
+      { id: "work", label: "Case Studies", href: "work.html", kicker: "Project route" },
+      { id: "systems", label: "Systems", href: "systems.html", kicker: "Architecture route" },
+      { id: "about", label: "Journey", href: "about.html", kicker: "Story route" },
+      { id: "playground", label: "Lab", href: "playground.html", kicker: "Live workshop" },
+      { id: "contact", label: "Contact", href: "contact.html", kicker: "Direct route" },
+    ];
+    const currentIndex = routes.findIndex((route) => route.id === document.body.dataset.page);
+    const previousRoute = currentIndex >= 0 ? routes[(currentIndex - 1 + routes.length) % routes.length] : routes[0];
+    const nextRoute = currentIndex >= 0 ? routes[(currentIndex + 1) % routes.length] : routes[1];
 
     shell.innerHTML = `
       <div class="footer-grid">
@@ -63,6 +74,18 @@
           <span>Runtime: ${App.escapeHtml(sync.status || "static")}</span>
           <span>${App.escapeHtml(sync.syncedAtLabel || "Using bundled portfolio data")}</span>
         </div>
+      </div>
+      <div class="footer-route-nav">
+        <a class="footer-route-card" href="${App.escapeHtml(previousRoute.href)}">
+          <span class="footer-route-card__eyebrow">Previous page</span>
+          <strong>${App.escapeHtml(previousRoute.label)}</strong>
+          <p>${App.escapeHtml(previousRoute.kicker)}</p>
+        </a>
+        <a class="footer-route-card footer-route-card--next" href="${App.escapeHtml(nextRoute.href)}">
+          <span class="footer-route-card__eyebrow">Next page</span>
+          <strong>${App.escapeHtml(nextRoute.label)}</strong>
+          <p>${App.escapeHtml(nextRoute.kicker)}</p>
+        </a>
       </div>
     `;
   }
@@ -316,6 +339,29 @@
     return `<div class="${classes.join(" ")}" data-accent="${App.escapeHtml(project.accent)}">${content}</div>`;
   }
 
+  function projectThemeStyle(project) {
+    const theme = project.theme || {};
+    const vars = {
+      "--project-surface-1": theme.surface1 || "rgba(255, 255, 255, 0.82)",
+      "--project-surface-2": theme.surface2 || "rgba(246, 240, 232, 0.96)",
+      "--project-ring": theme.ring || "rgba(32, 74, 68, 0.12)",
+      "--project-glow": theme.glow || "rgba(198, 111, 55, 0.16)",
+      "--project-glow-soft": theme.glowSoft || "rgba(32, 74, 68, 0.14)",
+      "--project-accent-strong": theme.accentStrong || "var(--brand)",
+      "--project-accent-soft": theme.accentSoft || "rgba(32, 74, 68, 0.12)",
+      "--project-badge-bg": theme.badgeBg || "rgba(32, 74, 68, 0.08)",
+      "--project-badge-border": theme.badgeBorder || "rgba(32, 74, 68, 0.14)",
+      "--project-proof-bg": theme.proofBg || "linear-gradient(135deg, rgba(32, 74, 68, 0.08), rgba(198, 111, 55, 0.08))",
+      "--project-signal-bg": theme.signalBg || "rgba(255, 255, 255, 0.72)",
+      "--project-signal-border": theme.signalBorder || "rgba(32, 74, 68, 0.1)",
+      "--project-icon-bg": theme.iconBg || "rgba(32, 74, 68, 0.12)",
+    };
+
+    return Object.entries(vars)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join("; ");
+  }
+
   function projectDeliveryLabel(project) {
     const parts = [project.links?.live ? "Live" : null, project.links?.repo ? "Repo" : null].filter(Boolean);
     return parts.length ? parts.join(" + ") : "Portfolio";
@@ -429,7 +475,7 @@
     const activeCompare = App.state.compareIds.includes(project.id);
     const badge = project.badge ? `<span class="project-badge">${App.escapeHtml(project.badge)}</span>` : "";
     return `
-      <article class="case-card${project.brandTheme ? ` case-card--${App.escapeHtml(project.brandTheme)}` : ""}${featured ? " case-card--featured" : ""}">
+      <article class="case-card${project.brandTheme ? ` case-card--${App.escapeHtml(project.brandTheme)}` : ""}${featured ? " case-card--featured" : ""}" style="${App.escapeHtml(projectThemeStyle(project))}">
         <div class="case-card__top">
           <div class="case-card__meta">
             ${renderProjectIcon(project)}
@@ -605,7 +651,7 @@
     const architectureNotes = (project.architecture || []).slice(0, 3);
 
     return `
-      <article class="compare-column${project.brandTheme ? ` compare-column--${App.escapeHtml(project.brandTheme)}` : ""}">
+      <article class="compare-column${project.brandTheme ? ` compare-column--${App.escapeHtml(project.brandTheme)}` : ""}" style="${App.escapeHtml(projectThemeStyle(project))}">
         <div class="compare-column__header">
           <div class="case-card__meta">
             ${renderProjectIcon(project)}
@@ -652,7 +698,7 @@
     }
 
     body.innerHTML = `
-      <div class="modal-layout">
+      <div class="modal-layout" style="${App.escapeHtml(projectThemeStyle(project))}">
         <section class="modal-section">
           <div class="modal-project-brand">
             ${
@@ -933,7 +979,7 @@
             </div>
             <h3>${App.escapeHtml(resume.label)}</h3>
             <p class="resume-card__note">${App.escapeHtml(resume.note)}</p>
-            <a class="text-link" href="${App.escapeHtml(resume.href)}" target="_blank" rel="noreferrer">Open resume</a>
+            <a class="text-link" href="${App.escapeHtml(resume.href)}" download rel="noreferrer">Download PDF</a>
           </article>
         `
       )

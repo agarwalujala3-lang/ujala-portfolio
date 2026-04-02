@@ -1,0 +1,24 @@
+{
+  "title": "Project Title",
+  "icon": "PT",
+  "iconImage": "https://raw.githubusercontent.com/your-user/your-repo/main/assets/brand-mark.svg",
+  "lockupImage": "https://raw.githubusercontent.com/your-user/your-repo/main/assets/brand-lockup.svg",
+  "badge": "Flagship build",
+  "accent": "cyan",
+  "brandTheme": "custom",
+  "theme": {
+    "surface1": "rgba(247, 251, 249, 0.96)",
+    "surface2": "rgba(236, 244, 240, 0.94)",
+    "ring": "rgba(43, 104, 92, 0.14)",
+    "glow": "rgba(47, 113, 101, 0.16)",
+    "glowSoft": "rgba(143, 194, 181, 0.18)",
+    "accentStrong": "#20564d",
+    "accentSoft": "rgba(32, 86, 77, 0.12)",
+    "badgeBg": "rgba(32, 86, 77, 0.09)",
+    "badgeBorder": "rgba(32, 86, 77, 0.16)",
+    "proofBg": "linear-gradient(135deg, rgba(32, 86, 77, 0.12), rgba(104, 170, 152, 0.08))",
+    "signalBg": "rgba(255, 255, 255, 0.74)",
+    "signalBorder": "rgba(43, 104, 92, 0.1)",
+    "iconBg": "linear-gradient(145deg, rgba(239, 247, 243, 1), rgba(220, 233, 228, 0.98))"
+  }
+}

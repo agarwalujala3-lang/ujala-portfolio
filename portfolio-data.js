@@ -133,6 +133,25 @@ window.UJOS_DATA = {
       accent: "cyan",
       icon: "RP",
       badge: "Flagship AWS build",
+      theme: {
+        surface1: "rgba(247, 251, 249, 0.96)",
+        surface2: "rgba(236, 244, 240, 0.94)",
+        ring: "rgba(43, 104, 92, 0.14)",
+        glow: "rgba(47, 113, 101, 0.16)",
+        glowSoft: "rgba(143, 194, 181, 0.18)",
+        accentStrong: "#20564d",
+        accentSoft: "rgba(32, 86, 77, 0.12)",
+        badgeBg: "rgba(32, 86, 77, 0.09)",
+        badgeBorder: "rgba(32, 86, 77, 0.16)",
+        proofBg: "linear-gradient(135deg, rgba(32, 86, 77, 0.12), rgba(104, 170, 152, 0.08))",
+        signalBg: "rgba(255, 255, 255, 0.74)",
+        signalBorder: "rgba(43, 104, 92, 0.1)",
+        iconBg: "linear-gradient(145deg, rgba(239, 247, 243, 1), rgba(220, 233, 228, 0.98))",
+      },
+      repoSync: {
+        repo: "ReceiptPulse",
+        manifestPath: "portfolio-branding.json",
+      },
       summary:
         "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
       proof:
@@ -179,6 +198,25 @@ window.UJOS_DATA = {
       lockupImage: "content/branding/lumenstack-brand-lockup.svg",
       brandTheme: "lumenstack",
       badge: "Flagship AI build",
+      theme: {
+        surface1: "rgba(242, 249, 248, 0.96)",
+        surface2: "rgba(231, 241, 239, 0.94)",
+        ring: "rgba(78, 124, 141, 0.15)",
+        glow: "rgba(101, 180, 194, 0.18)",
+        glowSoft: "rgba(128, 205, 193, 0.18)",
+        accentStrong: "#3c6574",
+        accentSoft: "rgba(60, 101, 116, 0.12)",
+        badgeBg: "rgba(77, 128, 144, 0.09)",
+        badgeBorder: "rgba(77, 128, 144, 0.16)",
+        proofBg: "linear-gradient(135deg, rgba(87, 154, 166, 0.14), rgba(112, 181, 163, 0.1))",
+        signalBg: "rgba(248, 252, 251, 0.76)",
+        signalBorder: "rgba(78, 124, 141, 0.12)",
+        iconBg: "linear-gradient(145deg, rgba(18, 44, 48, 0.98), rgba(14, 30, 34, 0.96))",
+      },
+      repoSync: {
+        repo: "LumenStack-AI",
+        manifestPath: "portfolio-branding.json",
+      },
       summary:
         "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
       proof:
@@ -219,6 +257,25 @@ window.UJOS_DATA = {
       accent: "violet",
       icon: "AZ",
       badge: "Interface study",
+      theme: {
+        surface1: "rgba(252, 247, 239, 0.96)",
+        surface2: "rgba(246, 237, 224, 0.94)",
+        ring: "rgba(184, 128, 52, 0.16)",
+        glow: "rgba(238, 180, 72, 0.18)",
+        glowSoft: "rgba(217, 147, 74, 0.16)",
+        accentStrong: "#9c6222",
+        accentSoft: "rgba(156, 98, 34, 0.12)",
+        badgeBg: "rgba(156, 98, 34, 0.09)",
+        badgeBorder: "rgba(156, 98, 34, 0.16)",
+        proofBg: "linear-gradient(135deg, rgba(242, 183, 73, 0.14), rgba(215, 136, 52, 0.1))",
+        signalBg: "rgba(255, 251, 245, 0.76)",
+        signalBorder: "rgba(184, 128, 52, 0.12)",
+        iconBg: "linear-gradient(145deg, rgba(255, 243, 220, 1), rgba(246, 224, 185, 0.98))",
+      },
+      repoSync: {
+        repo: "Amazon-UI-Clone",
+        manifestPath: "portfolio-branding.json",
+      },
       summary:
         "I built this frontend recreation of Amazon’s homepage to sharpen my layout control, section composition, and dense commercial UI structuring.",
       proof:
@@ -249,6 +306,25 @@ window.UJOS_DATA = {
       accent: "rose",
       icon: "VX",
       badge: "Interactive concept",
+      theme: {
+        surface1: "rgba(252, 244, 247, 0.96)",
+        surface2: "rgba(246, 231, 237, 0.94)",
+        ring: "rgba(168, 92, 118, 0.16)",
+        glow: "rgba(223, 132, 163, 0.18)",
+        glowSoft: "rgba(198, 111, 141, 0.18)",
+        accentStrong: "#9b4968",
+        accentSoft: "rgba(155, 73, 104, 0.12)",
+        badgeBg: "rgba(155, 73, 104, 0.09)",
+        badgeBorder: "rgba(155, 73, 104, 0.16)",
+        proofBg: "linear-gradient(135deg, rgba(222, 132, 163, 0.14), rgba(188, 92, 124, 0.1))",
+        signalBg: "rgba(255, 248, 250, 0.76)",
+        signalBorder: "rgba(168, 92, 118, 0.12)",
+        iconBg: "linear-gradient(145deg, rgba(255, 235, 242, 1), rgba(246, 214, 225, 0.98))",
+      },
+      repoSync: {
+        repo: "VALENTINE-CHAUDHRAIN",
+        manifestPath: "portfolio-branding.json",
+      },
       summary:
         "I built this animated single-page interactive experience around media transitions, lightweight logic, and playful emotional design.",
       proof:
