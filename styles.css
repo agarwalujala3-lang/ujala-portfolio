@@ -1166,6 +1166,8 @@ li {
 }
 
 .site-footer {
+  position: relative;
+  z-index: 62;
   margin-top: 18px;
   display: grid;
   gap: 18px;

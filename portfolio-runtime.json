@@ -1,8 +1,8 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-04-02T15:44:53.936Z",
-    "syncedAtLabel": "02 Apr 2026, 09:14 pm",
+    "syncedAt": "2026-04-03T08:43:27.280Z",
+    "syncedAtLabel": "03 Apr 2026, 02:13 pm",
     "repoCount": 7,
     "githubUser": "agarwalujala3-lang"
   },
@@ -13,11 +13,19 @@
   },
   "githubActivity": [
     {
+      "name": "ujala-portfolio",
+      "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
+      "language": "JavaScript",
+      "note": "Interactive portfolio website for Ujala Agarwal",
+      "pushedAt": "2026-04-03T08:24:21Z",
+      "homepage": ""
+    },
+    {
       "name": "ReceiptPulse",
       "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
-      "language": "JavaScript",
+      "language": "CSS",
       "note": "Serverless receipt processing system using AWS Textract and Lambda.",
-      "pushedAt": "2026-04-02T15:44:31Z",
+      "pushedAt": "2026-04-03T08:11:04Z",
       "homepage": ""
     },
     {
@@ -42,14 +50,6 @@
       "language": "JavaScript",
       "note": "Updated 02 Apr 2026, 09:12 pm",
       "pushedAt": "2026-04-02T15:42:08Z",
-      "homepage": ""
-    },
-    {
-      "name": "ujala-portfolio",
-      "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
-      "language": "JavaScript",
-      "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-04-02T14:45:56Z",
       "homepage": ""
     },
     {

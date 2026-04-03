@@ -474,8 +474,10 @@
       dockRect.right > footerRect.left &&
       dockRect.top < footerRect.bottom &&
       dockRect.bottom > footerRect.top;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const nearPageBottom = maxScroll > 0 && window.scrollY / maxScroll > 0.78;
 
-    return footerInViewport || dockOverlapsFooter;
+    return footerInViewport || dockOverlapsFooter || nearPageBottom;
   }
 
   async function loadRuntimeData() {
