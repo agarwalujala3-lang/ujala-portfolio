@@ -190,11 +190,15 @@
     }
 
     const runtimeOverrides = runtimeData.overrides || {};
+    const nextGithubActivity = runtimeData.githubActivity || data.runtime?.githubActivity || [];
     const syncedCatalog = runtimeData.sync?.status === "synced" && Array.isArray(runtimeData.projects);
-    const mergedProjects = combineProjects(
-      runtimeOverrides.projects || data.projects || [],
-      runtimeData.projects,
-      syncedCatalog
+    const mergedProjects = versionProjectAssets(
+      combineProjects(
+        runtimeOverrides.projects || data.projects || [],
+        runtimeData.projects,
+        syncedCatalog
+      ),
+      nextGithubActivity
     );
 
     setData({
@@ -237,6 +241,45 @@
       return [];
     }
     return value.map((item) => cleanString(item)).filter(Boolean);
+  }
+
+  function withAssetVersion(url, version) {
+    const assetUrl = cleanString(url);
+    const assetVersion = cleanString(version);
+    if (!assetUrl || !assetVersion) {
+      return assetUrl;
+    }
+
+    try {
+      const parsedUrl = new URL(assetUrl);
+      parsedUrl.searchParams.set("v", assetVersion);
+      return parsedUrl.toString();
+    } catch {
+      const joinChar = assetUrl.includes("?") ? "&" : "?";
+      return `${assetUrl}${joinChar}v=${encodeURIComponent(assetVersion)}`;
+    }
+  }
+
+  function versionProjectAssets(projects, githubActivity) {
+    const versionByRepo = new Map(
+      (Array.isArray(githubActivity) ? githubActivity : [])
+        .filter((entry) => cleanString(entry?.name) && cleanString(entry?.pushedAt))
+        .map((entry) => [cleanString(entry.name), cleanString(entry.pushedAt)])
+    );
+
+    return (Array.isArray(projects) ? projects : []).map((project) => {
+      const repoName = cleanString(project?.repoSync?.repo);
+      const version = versionByRepo.get(repoName);
+      if (!version) {
+        return project;
+      }
+
+      return {
+        ...project,
+        iconImage: withAssetVersion(project.iconImage, version),
+        lockupImage: withAssetVersion(project.lockupImage, version),
+      };
+    });
   }
 
   function resolveManifestAsset(repo, candidate) {

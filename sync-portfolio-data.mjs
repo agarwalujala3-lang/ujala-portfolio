@@ -65,12 +65,23 @@ function resolveManifestAsset(repo, branch, value) {
     return "";
   }
 
-  if (/^https?:\/\//i.test(candidate)) {
-    return candidate;
+  const version = cleanString(repo?.pushed_at || repo?.updated_at || "");
+  const baseUrl = /^https?:\/\//i.test(candidate)
+    ? candidate
+    : `https://raw.githubusercontent.com/${githubUser}/${repo.name}/${branch}/${candidate.replace(/^\/+/, "")}`;
+
+  if (!version) {
+    return baseUrl;
   }
 
-  const normalized = candidate.replace(/^\/+/, "");
-  return `https://raw.githubusercontent.com/${githubUser}/${repo.name}/${branch}/${normalized}`;
+  try {
+    const parsedUrl = new URL(baseUrl);
+    parsedUrl.searchParams.set("v", version);
+    return parsedUrl.toString();
+  } catch {
+    const joinChar = baseUrl.includes("?") ? "&" : "?";
+    return `${baseUrl}${joinChar}v=${encodeURIComponent(version)}`;
+  }
 }
 
 function validateManifestShape(manifest) {
