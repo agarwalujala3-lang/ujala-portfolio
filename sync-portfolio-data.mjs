@@ -22,6 +22,7 @@ const themeKeys = [
   "iconBg",
 ];
 const lensKeys = ["recruiter", "engineer", "founder", "friend"];
+const requiredStringKeys = ["id", "title", "kind", "status", "summary", "proof", "tradeoff", "badge", "icon"];
 
 async function readJson(relativePath, fallback) {
   try {
@@ -70,6 +71,57 @@ function resolveManifestAsset(repo, branch, value) {
 
   const normalized = candidate.replace(/^\/+/, "");
   return `https://raw.githubusercontent.com/${githubUser}/${repo.name}/${branch}/${normalized}`;
+}
+
+function validateManifestShape(manifest) {
+  const issues = [];
+  if (!manifest || typeof manifest !== "object") {
+    return ["Manifest is not a valid JSON object."];
+  }
+
+  for (const key of requiredStringKeys) {
+    if (!cleanString(manifest[key])) {
+      issues.push(`Missing required string: ${key}`);
+    }
+  }
+
+  if (!Number.isFinite(manifest.priority)) {
+    issues.push("Missing required number: priority");
+  }
+
+  if (typeof manifest.featured !== "boolean") {
+    issues.push("Missing required boolean: featured");
+  }
+
+  if (!Array.isArray(manifest.tags) || cleanStringArray(manifest.tags).length === 0) {
+    issues.push("Missing required non-empty array: tags");
+  }
+
+  if (!Array.isArray(manifest.details) || cleanStringArray(manifest.details).length === 0) {
+    issues.push("Missing required non-empty array: details");
+  }
+
+  if (!Array.isArray(manifest.architecture) || cleanStringArray(manifest.architecture).length === 0) {
+    issues.push("Missing required non-empty array: architecture");
+  }
+
+  for (const key of lensKeys) {
+    if (!Number.isFinite(manifest.lensPriority?.[key])) {
+      issues.push(`Missing required lensPriority.${key}`);
+    }
+  }
+
+  if (!manifest.links || typeof manifest.links !== "object") {
+    issues.push("Missing links object (links.live is optional but links must exist).");
+  }
+
+  for (const key of themeKeys) {
+    if (!cleanString(manifest.theme?.[key])) {
+      issues.push(`Missing required theme.${key}`);
+    }
+  }
+
+  return issues;
 }
 
 async function fetchGithubRepos() {
@@ -153,29 +205,12 @@ function normalizeProjectManifest(repo, manifest) {
     }
   }
 
-  const requiredStrings = [
-    project.id,
-    project.title,
-    project.kind,
-    project.status,
-    project.summary,
-    project.proof,
-    project.tradeoff,
-    project.badge,
-    project.icon,
-  ];
-  const hasRequiredArrays = project.tags.length && project.details.length && project.architecture.length;
-  const hasRequiredPriority = lensKeys.every((key) => Number.isFinite(project.lensPriority[key]));
-
-  if (requiredStrings.some((value) => !value) || !hasRequiredArrays || !hasRequiredPriority) {
-    return null;
-  }
-
   return project;
 }
 
 async function fetchProjectCatalog(repos) {
   const projects = [];
+  const warnings = [];
 
   await Promise.all(
     repos.map(async (repo) => {
@@ -194,7 +229,17 @@ async function fetchProjectCatalog(repos) {
           return;
         }
 
-        const project = normalizeProjectManifest(repo, await response.json());
+        const manifest = await response.json();
+        const issues = validateManifestShape(manifest);
+        if (issues.length > 0) {
+          warnings.push({
+            repo: repo.name,
+            issues,
+          });
+          return;
+        }
+
+        const project = normalizeProjectManifest(repo, manifest);
         if (project) {
           projects.push(project);
         }
@@ -204,12 +249,15 @@ async function fetchProjectCatalog(repos) {
     })
   );
 
-  return projects.sort((left, right) => {
-    if (right.priority !== left.priority) {
-      return right.priority - left.priority;
-    }
-    return left.title.localeCompare(right.title);
-  });
+  return {
+    projects: projects.sort((left, right) => {
+      if (right.priority !== left.priority) {
+        return right.priority - left.priority;
+      }
+      return left.title.localeCompare(right.title);
+    }),
+    warnings,
+  };
 }
 
 async function main() {
@@ -226,7 +274,14 @@ async function main() {
     const githubData = await fetchGithubRepos();
     githubActivity = githubData.activity;
     repoCount = githubData.repos.length;
-    projects = await fetchProjectCatalog(githubData.repos);
+    const catalog = await fetchProjectCatalog(githubData.repos);
+    projects = catalog.projects;
+    if (catalog.warnings.length) {
+      console.warn("Project manifest warnings:");
+      for (const warning of catalog.warnings) {
+        console.warn(`- ${warning.repo}: ${warning.issues.join("; ")}`);
+      }
+    }
     status = "synced";
   } catch (error) {
     console.warn(`GitHub sync warning: ${error.message}`);

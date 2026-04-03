@@ -69,6 +69,35 @@ node sync-portfolio-data.mjs
 
 That pulls public GitHub repository activity and rebuilds `portfolio-runtime.json`.
 
+## Future Project Auto-Onboarding (Important)
+
+Use this every time you add a new project so it appears automatically in the portfolio.
+
+1. In the project repo, add `portfolio-branding.json` at repo root.
+2. Add branding assets:
+   - `branding/portfolio-brand-mark.svg`
+   - `branding/portfolio-brand-lockup.svg`
+3. In `portfolio-branding.json`, include all required fields:
+   - `enabled`, `id`, `title`, `kind`, `status`
+   - `priority`, `featured`
+   - `lensPriority.recruiter`, `lensPriority.engineer`, `lensPriority.founder`, `lensPriority.friend`
+   - `tags`, `summary`, `proof`, `details`, `architecture`, `tradeoff`
+   - `badge`, `icon`, `iconImage`, `lockupImage`
+   - `links` object (use `links.live` when available)
+   - full `theme` object (`surface1`, `surface2`, `ring`, `glow`, `glowSoft`, `accentStrong`, `accentSoft`, `badgeBg`, `badgeBorder`, `proofBg`, `signalBg`, `signalBorder`, `iconBg`)
+4. Commit and push that project repo.
+5. In this portfolio repo run:
+   - `node sync-portfolio-data.mjs`
+6. Deploy the portfolio.
+
+### Hide Older Projects Without Deleting Repos
+
+Set `"enabled": false` in that repo's `portfolio-branding.json`. The repo stays on GitHub but disappears from portfolio cards.
+
+### Schema Helper
+
+Use `project-branding.example.json` as your base template.
+
 ## Run Locally
 
 ```bash
