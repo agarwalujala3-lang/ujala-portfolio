@@ -26,13 +26,14 @@ try {
   foreach ($export in $exports) {
     $sourcePath = Join-Path $workspace $export.Source
     $outputPath = Join-Path $workspace $export.Output
+    $tempOutputPath = Join-Path $workspace ("temp-" + $export.Output)
     $profileDir = Join-Path $profileRoot ([System.IO.Path]::GetFileNameWithoutExtension($export.Output))
     $sourceUri = ([System.Uri]::new($sourcePath).AbsoluteUri) + "?export=1"
 
     New-Item -ItemType Directory -Path $profileDir | Out-Null
 
-    if (Test-Path -LiteralPath $outputPath) {
-      Remove-Item -LiteralPath $outputPath -Force
+    if (Test-Path -LiteralPath $tempOutputPath) {
+      Remove-Item -LiteralPath $tempOutputPath -Force
     }
 
     $args = @(
@@ -43,7 +44,7 @@ try {
       "--virtual-time-budget=2500",
       "--print-to-pdf-no-header",
       "--user-data-dir=$profileDir",
-      "--print-to-pdf=$outputPath",
+      "--print-to-pdf=$tempOutputPath",
       $sourceUri
     )
 
@@ -53,9 +54,15 @@ try {
       throw "Resume export failed for $($export.Source) with exit code $($process.ExitCode)"
     }
 
-    if (-not (Test-Path -LiteralPath $outputPath)) {
+    if (-not (Test-Path -LiteralPath $tempOutputPath)) {
       throw "Resume export did not produce $($export.Output)"
     }
+
+    if (Test-Path -LiteralPath $outputPath) {
+      Remove-Item -LiteralPath $outputPath -Force
+    }
+
+    Move-Item -LiteralPath $tempOutputPath -Destination $outputPath -Force
   }
 }
 finally {
