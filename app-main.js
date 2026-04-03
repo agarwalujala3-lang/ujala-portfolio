@@ -1,5 +1,11 @@
 (function () {
   const App = window.PortfolioApp;
+  const FRESHNESS_HINTS = ["update", "latest", "recent", "sync", "github", "future", "next", "plan", "roadmap"];
+
+  function asksForFreshRuntime(question) {
+    const prompt = String(question || "").toLowerCase();
+    return FRESHNESS_HINTS.some((token) => prompt.includes(token));
+  }
 
   function buildClientBrainFallback(question) {
     const data = App.getData();
@@ -9,8 +15,8 @@
     const secondaryProject = projects[1] || null;
     const awsProject = projects.find((project) => (project.tags || []).includes("aws")) || primaryProject;
     const aiProject = projects.find((project) => (project.tags || []).includes("ai")) || secondaryProject || primaryProject;
-    const learningLog = data.learningLog || [];
-    const ideaInbox = data.ideaInbox || [];
+    const runtime = data.runtime?.sync || {};
+    const githubActivity = (data.runtime?.githubActivity || []).slice(0, 4);
 
     if (prompt.includes("flagship") || prompt.includes("open first") || prompt.includes("best project")) {
       return [
@@ -53,13 +59,28 @@
       ].join("\n");
     }
 
-    if (prompt.includes("learning") || prompt.includes("next") || prompt.includes("build")) {
+    if (
+      prompt.includes("learning") ||
+      prompt.includes("next") ||
+      prompt.includes("build") ||
+      prompt.includes("future") ||
+      prompt.includes("plan") ||
+      prompt.includes("roadmap") ||
+      asksForFreshRuntime(question)
+    ) {
+      const runtimeLabel = runtime.syncedAtLabel || "runtime sync in progress";
       return [
-        "Right now I am focused on:",
-        ...learningLog.slice(0, 3).map((entry) => `- ${entry.title}`),
+        `Latest runtime sync: ${runtimeLabel}.`,
         "",
-        "The next ideas I want to turn into stronger proof are:",
-        ...ideaInbox.slice(0, 3).map((entry) => `- ${entry.label}: ${entry.note}`),
+        "Recent GitHub updates:",
+        ...(githubActivity.length
+          ? githubActivity.slice(0, 3).map((entry) => `- ${entry.name}: ${entry.note || "Updated recently"}`)
+          : ["- GitHub activity is loading right now."]),
+        "",
+        "Current strongest focus from live projects:",
+        ...projects
+          .slice(0, 3)
+          .map((project) => `- ${project.title}: ${project.proof || "Strong current portfolio signal."}`),
       ].join("\n");
     }
 
@@ -81,7 +102,8 @@
   }
 
   async function askPortfolioBrain(question) {
-    await App.refreshRuntimeFromGithub({ silent: true });
+    const freshnessQuestion = asksForFreshRuntime(question);
+    await App.refreshRuntimeFromGithub({ silent: true, force: freshnessQuestion });
 
     const data = App.getData();
     const runtimeBrain = (data.runtime && data.runtime.brain) || {};
@@ -112,6 +134,16 @@
 
     if (input) {
       input.value = "";
+    }
+
+    if (freshnessQuestion) {
+      App.state.brainPending = false;
+      App.state.brainHistory.push({ role: "assistant", text: buildClientBrainFallback(question) });
+      App.renderBrainThread();
+      if (statusText) {
+        statusText.textContent = "Answered from the latest runtime sync so this reflects current GitHub/project state.";
+      }
+      return;
     }
 
     if (!runtimeBrain.apiUrl) {
@@ -395,6 +427,14 @@
 
     window.addEventListener("scroll", App.updateViewportUi, { passive: true });
     window.addEventListener("resize", App.updateViewportUi, { passive: true });
+    window.addEventListener("focus", () => {
+      App.refreshRuntimeFromGithub({ silent: true, force: true });
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        App.refreshRuntimeFromGithub({ silent: true, force: true });
+      }
+    });
   }
 
   function init() {
@@ -407,6 +447,9 @@
     App.initRevealObserver();
     App.initSurfaceSpotlights();
     App.updateViewportUi();
+    window.setInterval(() => {
+      App.refreshRuntimeFromGithub({ silent: true });
+    }, 2 * 60 * 1000);
 
     window.requestAnimationFrame(() => {
       document.querySelectorAll(".reveal--hero").forEach((item) => item.classList.add("is-visible"));

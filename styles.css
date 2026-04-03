@@ -1403,7 +1403,7 @@ li {
 
 .floating-dock {
   position: fixed;
-  right: max(20px, calc((100vw - var(--shell)) / 2 - 88px));
+  right: max(16px, calc((100vw - var(--shell)) / 2 + 10px));
   bottom: 20px;
   z-index: 55;
   display: grid;

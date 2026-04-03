@@ -244,12 +244,23 @@
     if (!value) {
       return "";
     }
-    if (/^https?:\/\//i.test(value)) {
-      return value;
+    const version = cleanString(repo?.pushed_at || repo?.updated_at || "");
+    const baseUrl = /^https?:\/\//i.test(value)
+      ? value
+      : `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${cleanString(repo.default_branch) || "main"}/${value.replace(/^\/+/, "")}`;
+
+    if (!version) {
+      return baseUrl;
     }
-    const branch = cleanString(repo.default_branch) || "main";
-    const path = value.replace(/^\/+/, "");
-    return `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${branch}/${path}`;
+
+    try {
+      const parsedUrl = new URL(baseUrl);
+      parsedUrl.searchParams.set("v", version);
+      return parsedUrl.toString();
+    } catch {
+      const joinChar = baseUrl.includes("?") ? "&" : "?";
+      return `${baseUrl}${joinChar}v=${encodeURIComponent(version)}`;
+    }
   }
 
   function normalizeManifestProject(repo, manifest) {
@@ -438,13 +449,33 @@
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.some((entry) => entry.isIntersecting);
-        dock.classList.toggle("is-obscured", visible);
+        dock.dataset.footerVisible = visible ? "true" : "false";
+        dock.classList.toggle("is-obscured", shouldObscureFloatingDock());
       },
-      { threshold: 0.02, rootMargin: "0px 0px 140px 0px" }
+      { threshold: 0, rootMargin: "0px 0px -48px 0px" }
     );
 
     observer.observe(footer);
     dock.dataset.footerAware = "true";
+  }
+
+  function shouldObscureFloatingDock() {
+    const dock = document.querySelector(".floating-dock");
+    const footer = document.querySelector(".site-footer");
+    if (!dock || !footer) {
+      return false;
+    }
+
+    const footerRect = footer.getBoundingClientRect();
+    const dockRect = dock.getBoundingClientRect();
+    const footerInViewport = footerRect.top < window.innerHeight - 40 && footerRect.bottom > 0;
+    const dockOverlapsFooter =
+      dockRect.left < footerRect.right &&
+      dockRect.right > footerRect.left &&
+      dockRect.top < footerRect.bottom &&
+      dockRect.bottom > footerRect.top;
+
+    return footerInViewport || dockOverlapsFooter;
   }
 
   async function loadRuntimeData() {
@@ -643,6 +674,7 @@
   function updateViewportUi() {
     updateScrollProgress();
     document.querySelector(".masthead")?.classList.toggle("is-compact", window.scrollY > 18);
+    document.querySelector(".floating-dock")?.classList.toggle("is-obscured", shouldObscureFloatingDock());
   }
 
   function initRevealObserver() {
