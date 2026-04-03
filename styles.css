@@ -1403,12 +1403,19 @@ li {
 
 .floating-dock {
   position: fixed;
-  right: 20px;
+  right: max(20px, calc((100vw - var(--shell)) / 2 - 88px));
   bottom: 20px;
   z-index: 55;
   display: grid;
   gap: 10px;
   justify-items: end;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.floating-dock.is-obscured {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
 }
 
 .toast-stack {

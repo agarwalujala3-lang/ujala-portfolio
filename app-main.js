@@ -4,17 +4,20 @@
   function buildClientBrainFallback(question) {
     const data = App.getData();
     const prompt = String(question || "").toLowerCase();
-    const receiptPulse = (data.projects || []).find((project) => project.id === "receiptpulse");
-    const lumenStack = (data.projects || []).find((project) => project.id === "lumenstack");
+    const projects = App.getProjectsForMode();
+    const primaryProject = projects[0] || null;
+    const secondaryProject = projects[1] || null;
+    const awsProject = projects.find((project) => (project.tags || []).includes("aws")) || primaryProject;
+    const aiProject = projects.find((project) => (project.tags || []).includes("ai")) || secondaryProject || primaryProject;
     const learningLog = data.learningLog || [];
     const ideaInbox = data.ideaInbox || [];
 
     if (prompt.includes("flagship") || prompt.includes("open first") || prompt.includes("best project")) {
       return [
-        `Start with ${receiptPulse?.title || "ReceiptPulse"}.`,
+        `Start with ${primaryProject?.title || "the top project in this lens"}.`,
         "",
-        receiptPulse?.proof || "It is the clearest combined proof of AWS architecture, private user flow, and live product execution.",
-        receiptPulse?.links?.live ? `Live: ${receiptPulse.links.live}` : "",
+        primaryProject?.proof || "It is the clearest proof in the current view based on lens and priority.",
+        primaryProject?.links?.live ? `Live: ${primaryProject.links.live}` : "",
       ]
         .filter(Boolean)
         .join("\n");
@@ -22,10 +25,10 @@
 
     if (prompt.includes("aws") || prompt.includes("cloud")) {
       return [
-        "My strongest AWS-heavy work is centered around ReceiptPulse.",
+        `My strongest AWS-heavy work right now is ${awsProject?.title || "the current AWS project"}.`,
         "",
-        receiptPulse?.proof || "It shows Lambda, S3, DynamoDB, Cognito, Textract, API Gateway, and CloudFront working together in one product flow.",
-        receiptPulse?.stack?.length ? `Core stack: ${receiptPulse.stack.join(", ")}` : "",
+        awsProject?.proof || "It shows cloud architecture, backend flow, and deployment proof in one build.",
+        awsProject?.stack?.length ? `Core stack: ${awsProject.stack.join(", ")}` : "",
       ]
         .filter(Boolean)
         .join("\n");
@@ -33,10 +36,10 @@
 
     if (prompt.includes("ai") || prompt.includes("codebase") || prompt.includes("diagram")) {
       return [
-        "My strongest AI-focused build is LumenStack AI.",
+        `My strongest AI-focused build right now is ${aiProject?.title || "the current AI project"}.`,
         "",
-        lumenStack?.proof || "It combines deterministic analysis with AI explanation and Mermaid generation.",
-        lumenStack?.stack?.length ? `Core stack: ${lumenStack.stack.join(", ")}` : "",
+        aiProject?.proof || "It combines deterministic project analysis with AI-assisted explanation.",
+        aiProject?.stack?.length ? `Core stack: ${aiProject.stack.join(", ")}` : "",
       ]
         .filter(Boolean)
         .join("\n");
@@ -72,16 +75,36 @@
     return [
       "I build cloud systems, AI tools, and product-minded full-stack experiences.",
       "",
-      `- ${receiptPulse?.title || "ReceiptPulse"}: ${receiptPulse?.proof || "AWS and product proof."}`,
-      `- ${lumenStack?.title || "LumenStack AI"}: ${lumenStack?.proof || "AI tooling and developer-product proof."}`,
+      `- ${primaryProject?.title || "Primary project"}: ${primaryProject?.proof || "Strong implementation proof."}`,
+      `- ${secondaryProject?.title || "Secondary project"}: ${secondaryProject?.proof || "Additional systems and product signal."}`,
     ].join("\n");
   }
 
   async function askPortfolioBrain(question) {
+    await App.refreshRuntimeFromGithub({ silent: true });
+
     const data = App.getData();
     const runtimeBrain = (data.runtime && data.runtime.brain) || {};
     const statusText = document.getElementById("brain-status-text");
     const input = document.getElementById("brain-input");
+    const runtimeContext = {
+      sync: data.runtime?.sync || null,
+      githubActivity: (data.runtime?.githubActivity || []).slice(0, 6).map((repo) => ({
+        name: repo.name,
+        language: repo.language,
+        note: repo.note,
+        pushedAt: repo.pushedAt,
+      })),
+      projects: App.getProjectsForMode().slice(0, 6).map((project) => ({
+        id: project.id,
+        title: project.title,
+        status: project.status,
+        kind: project.kind,
+        proof: project.proof,
+        tags: project.tags || [],
+        links: project.links || {},
+      })),
+    };
 
     App.state.brainHistory.push({ role: "user", text: question });
     App.state.brainPending = true;
@@ -110,6 +133,7 @@
           mode: App.state.mode,
           page: document.body.dataset.page,
           history: App.state.brainHistory.slice(-6),
+          runtimeContext,
         }),
       });
 
@@ -378,6 +402,7 @@
     App.applyMode();
     App.syncCurrentNav();
     App.renderAll();
+    App.initFloatingDockObserver();
     bindGlobalEvents();
     App.initRevealObserver();
     App.initSurfaceSpotlights();

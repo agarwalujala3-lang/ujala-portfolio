@@ -1,5 +1,24 @@
 (function () {
   const MODE_KEY = "ujala-portfolio-mode";
+  const GITHUB_USER = "agarwalujala3-lang";
+  const MANIFEST_PATH = "portfolio-branding.json";
+  const RUNTIME_REFRESH_INTERVAL_MS = 10 * 60 * 1000;
+  const THEME_KEYS = [
+    "surface1",
+    "surface2",
+    "ring",
+    "glow",
+    "glowSoft",
+    "accentStrong",
+    "accentSoft",
+    "badgeBg",
+    "badgeBorder",
+    "proofBg",
+    "signalBg",
+    "signalBorder",
+    "iconBg",
+  ];
+  const LENS_KEYS = ["recruiter", "engineer", "founder", "friend"];
 
   function sanitizeCopy(value) {
     const replacements = [
@@ -48,6 +67,8 @@
     brainHistory: [],
     brainPending: false,
     compareIds: [],
+    githubRefreshPending: false,
+    githubLastRefreshAt: 0,
   };
 
   function storeMode(mode) {
@@ -193,10 +214,244 @@
     });
   }
 
+  function formatRuntimeDate(iso) {
+    try {
+      return new Intl.DateTimeFormat("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      }).format(new Date(iso));
+    } catch {
+      return iso;
+    }
+  }
+
+  function cleanString(value) {
+    return typeof value === "string" && value.trim() ? value.trim() : "";
+  }
+
+  function cleanStringArray(value) {
+    if (!Array.isArray(value)) {
+      return [];
+    }
+    return value.map((item) => cleanString(item)).filter(Boolean);
+  }
+
+  function resolveManifestAsset(repo, candidate) {
+    const value = cleanString(candidate);
+    if (!value) {
+      return "";
+    }
+    if (/^https?:\/\//i.test(value)) {
+      return value;
+    }
+    const branch = cleanString(repo.default_branch) || "main";
+    const path = value.replace(/^\/+/, "");
+    return `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${branch}/${path}`;
+  }
+
+  function normalizeManifestProject(repo, manifest) {
+    if (!manifest || typeof manifest !== "object" || manifest.enabled === false) {
+      return null;
+    }
+
+    const project = {
+      enabled: true,
+      id: cleanString(manifest.id),
+      title: cleanString(manifest.title),
+      kind: cleanString(manifest.kind),
+      status: cleanString(manifest.status),
+      priority: Number.isFinite(manifest.priority) ? manifest.priority : 0,
+      featured: Boolean(manifest.featured),
+      badge: cleanString(manifest.badge),
+      icon: cleanString(manifest.icon),
+      iconImage: resolveManifestAsset(repo, manifest.iconImage),
+      lockupImage: resolveManifestAsset(repo, manifest.lockupImage),
+      summary: cleanString(manifest.summary),
+      proof: cleanString(manifest.proof),
+      details: cleanStringArray(manifest.details),
+      architecture: cleanStringArray(manifest.architecture),
+      tradeoff: cleanString(manifest.tradeoff),
+      tags: cleanStringArray(manifest.tags),
+      stack: cleanStringArray(manifest.stack),
+      links: {
+        live: cleanString(manifest.links?.live) || cleanString(repo.homepage),
+        repo: repo.html_url,
+      },
+      theme: {},
+      lensPriority: {},
+      repoSync: {
+        repo: repo.name,
+        manifestPath: MANIFEST_PATH,
+        manifestRequired: true,
+      },
+    };
+
+    for (const key of THEME_KEYS) {
+      const value = cleanString(manifest.theme?.[key]);
+      if (value) {
+        project.theme[key] = value;
+      }
+    }
+
+    for (const key of LENS_KEYS) {
+      const value = manifest.lensPriority?.[key];
+      if (Number.isFinite(value)) {
+        project.lensPriority[key] = value;
+      }
+    }
+
+    const requiredStrings = [
+      project.id,
+      project.title,
+      project.kind,
+      project.status,
+      project.summary,
+      project.proof,
+      project.tradeoff,
+      project.badge,
+      project.icon,
+    ];
+    const hasRequiredArrays = project.tags.length && project.details.length && project.architecture.length;
+    const hasRequiredLens = LENS_KEYS.every((key) => Number.isFinite(project.lensPriority[key]));
+    const hasRequiredTheme = THEME_KEYS.every((key) => cleanString(project.theme[key]));
+
+    if (requiredStrings.some((value) => !value) || !hasRequiredArrays || !hasRequiredLens || !hasRequiredTheme) {
+      return null;
+    }
+
+    return project;
+  }
+
+  async function fetchGithubRuntimeSnapshot() {
+    const response = await window.fetch(
+      `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
+      {
+        cache: "no-store",
+        headers: {
+          Accept: "application/vnd.github+json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`GitHub runtime sync failed with status ${response.status}`);
+    }
+
+    const repos = (await response.json())
+      .filter((repo) => !repo.fork)
+      .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at));
+
+    const githubActivity = repos.slice(0, 6).map((repo) => ({
+      name: repo.name,
+      url: repo.html_url,
+      language: repo.language || "Repo update",
+      note: repo.description || `Updated ${formatRuntimeDate(repo.pushed_at)}`,
+      pushedAt: repo.pushed_at,
+      homepage: repo.homepage || "",
+    }));
+
+    const projects = (
+      await Promise.all(
+        repos.map(async (repo) => {
+          const branch = cleanString(repo.default_branch) || "main";
+          const manifestUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${branch}/${MANIFEST_PATH}`;
+
+          try {
+            const manifestResponse = await window.fetch(manifestUrl, { cache: "no-store" });
+            if (!manifestResponse.ok) {
+              return null;
+            }
+
+            return normalizeManifestProject(repo, await manifestResponse.json());
+          } catch {
+            return null;
+          }
+        })
+      )
+    )
+      .filter(Boolean)
+      .sort((left, right) => {
+        if (right.priority !== left.priority) {
+          return right.priority - left.priority;
+        }
+        return left.title.localeCompare(right.title);
+      });
+
+    const nowIso = new Date().toISOString();
+    return {
+      sync: {
+        status: "synced",
+        syncedAt: nowIso,
+        syncedAtLabel: formatRuntimeDate(nowIso),
+        repoCount: repos.length,
+        githubUser: GITHUB_USER,
+      },
+      githubActivity,
+      projects,
+    };
+  }
+
+  async function refreshRuntimeFromGithub(options = {}) {
+    const { force = false, silent = false } = options;
+    if (state.githubRefreshPending) {
+      return false;
+    }
+
+    const now = Date.now();
+    if (!force && state.githubLastRefreshAt && now - state.githubLastRefreshAt < RUNTIME_REFRESH_INTERVAL_MS) {
+      return false;
+    }
+
+    state.githubRefreshPending = true;
+    try {
+      const snapshot = await fetchGithubRuntimeSnapshot();
+      mergeRuntimeData(snapshot);
+      state.githubLastRefreshAt = Date.now();
+      window.PortfolioApp.renderAll();
+      initRevealObserver();
+      initSurfaceSpotlights();
+      updateViewportUi();
+      if (!silent) {
+        toast("Runtime refreshed from GitHub.");
+      }
+      return true;
+    } catch (error) {
+      if (!silent) {
+        console.warn(error.message);
+      }
+      return false;
+    } finally {
+      state.githubRefreshPending = false;
+    }
+  }
+
+  function initFloatingDockObserver() {
+    const dock = document.querySelector(".floating-dock");
+    const footer = document.querySelector(".site-footer");
+    if (!dock || !footer || dock.dataset.footerAware === "true") {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((entry) => entry.isIntersecting);
+        dock.classList.toggle("is-obscured", visible);
+      },
+      { threshold: 0.02, rootMargin: "0px 0px 140px 0px" }
+    );
+
+    observer.observe(footer);
+    dock.dataset.footerAware = "true";
+  }
+
   async function loadRuntimeData() {
     try {
       const response = await window.fetch("portfolio-runtime.json", { cache: "no-store" });
       if (!response.ok) {
+        refreshRuntimeFromGithub({ silent: true });
         return;
       }
 
@@ -205,8 +460,11 @@
       initRevealObserver();
       initSurfaceSpotlights();
       updateViewportUi();
+      initFloatingDockObserver();
+      refreshRuntimeFromGithub({ silent: true });
     } catch {
       // Runtime data is optional.
+      refreshRuntimeFromGithub({ silent: true });
     }
   }
 
@@ -509,6 +767,8 @@
     updateViewportUi,
     initRevealObserver,
     initSurfaceSpotlights,
+    initFloatingDockObserver,
+    refreshRuntimeFromGithub,
     goTo,
     openExternal,
     escapeHtml,
