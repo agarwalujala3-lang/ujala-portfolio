@@ -445,6 +445,7 @@
     App.initFloatingDockObserver();
     bindGlobalEvents();
     App.initRevealObserver();
+    App.initHeroDepthScene();
     App.initSurfaceSpotlights();
     App.updateViewportUi();
     window.setInterval(() => {

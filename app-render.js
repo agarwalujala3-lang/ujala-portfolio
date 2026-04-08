@@ -138,9 +138,41 @@
     App.storeMode(mode);
     renderAll();
     App.initRevealObserver();
+    App.initHeroDepthScene();
     App.initSurfaceSpotlights();
     App.syncCurrentNav();
     App.toast(`${data.modes[mode].label} lens is active now.`);
+  }
+
+  function buildHeroSceneProject(project, variant) {
+    if (!project) {
+      return "";
+    }
+
+    const delivery = projectDeliveryLabel(project);
+    const summary = project.summary || project.proof || "Portfolio proof layer.";
+    const stack = (project.stack || []).slice(0, 2);
+
+    return `
+      <article class="hero-scene-card__inner" style="${App.escapeHtml(projectThemeStyle(project))}">
+        <div class="hero-scene-card__header">
+          ${renderProjectIcon(project)}
+          <div>
+            <p class="hero-scene-card__kicker">${App.escapeHtml(project.kind)}</p>
+            <h3>${App.escapeHtml(project.title)}</h3>
+          </div>
+        </div>
+        <div class="hero-scene-card__chips">
+          <span class="hero-scene-card__chip">${App.escapeHtml(project.badge || delivery)}</span>
+          ${stack.map((item) => `<span class="hero-scene-card__chip hero-scene-card__chip--soft">${App.escapeHtml(item)}</span>`).join("")}
+        </div>
+        <p class="hero-scene-card__summary">${App.escapeHtml(summary)}</p>
+        <div class="hero-scene-card__footer">
+          <span>${App.escapeHtml(variant === "primary" ? "Lead proof" : "Secondary proof")}</span>
+          <span>${App.escapeHtml(project.status || "Portfolio")}</span>
+        </div>
+      </article>
+    `;
   }
 
   function renderHome() {
@@ -160,6 +192,18 @@
     const marquee = document.getElementById("marquee-track");
     const featuredProjects = document.getElementById("featured-projects");
     const githubFeed = document.getElementById("home-github-activity");
+    const heroStage = document.getElementById("hero-stage");
+    const heroPrimary = document.getElementById("hero-project-primary");
+    const heroSecondary = document.getElementById("hero-project-secondary");
+    const heroProof = document.getElementById("hero-stage-proof");
+    const heroSync = document.getElementById("hero-scene-sync");
+    const heroSceneProof = document.getElementById("hero-scene-proof");
+    const heroSceneLens = document.getElementById("hero-scene-lens");
+    const heroRuntimeLabel = document.getElementById("hero-stage-runtime-label");
+
+    const orderedProjects = App.getProjectsForMode();
+    const primaryProject = orderedProjects[0] || null;
+    const secondaryProject = orderedProjects.find((project) => project.id !== primaryProject?.id) || primaryProject;
 
     heroTitle.textContent = mode.heroTitle;
     if (heroLead) {
@@ -178,6 +222,47 @@
           `
         )
         .join("");
+    }
+
+    if (heroStage && primaryProject) {
+      const secondaryTheme = secondaryProject?.theme || {};
+      heroStage.style.setProperty("--hero-accent", primaryProject.theme?.accentStrong || "#8af4ff");
+      heroStage.style.setProperty("--hero-accent-soft", primaryProject.theme?.accentSoft || "rgba(122, 151, 255, 0.16)");
+      heroStage.style.setProperty("--hero-glow-primary", primaryProject.theme?.glow || "rgba(122, 151, 255, 0.22)");
+      heroStage.style.setProperty("--hero-glow-secondary", secondaryTheme.glowSoft || secondaryTheme.glow || "rgba(214, 183, 255, 0.18)");
+    }
+
+    if (heroPrimary) {
+      heroPrimary.innerHTML = buildHeroSceneProject(primaryProject, "primary");
+    }
+
+    if (heroSecondary) {
+      heroSecondary.innerHTML = secondaryProject ? buildHeroSceneProject(secondaryProject, "secondary") : "";
+    }
+
+    if (heroProof) {
+      heroProof.innerHTML = `
+        <span class="hero-stage__proof-label">What changes</span>
+        <p>${App.escapeHtml(
+          `One portfolio that reshapes itself for ${mode.label.toLowerCase()} review while keeping ${primaryProject?.title || "the strongest project"} and ${secondaryProject?.title || "the second signal"} visible at a glance.`
+        )}</p>
+      `;
+    }
+
+    if (heroSync) {
+      heroSync.textContent = runtime.syncedAtLabel || "Using bundled portfolio data";
+    }
+
+    if (heroSceneProof) {
+      heroSceneProof.textContent = primaryProject?.proof || primaryProject?.summary || "Primary project proof is loading.";
+    }
+
+    if (heroSceneLens) {
+      heroSceneLens.textContent = `${mode.label} lens is shaping the homepage narrative right now.`;
+    }
+
+    if (heroRuntimeLabel) {
+      heroRuntimeLabel.textContent = runtime.status === "synced" ? "Runtime synced" : "Bundled runtime";
     }
 
     if (runtimeGrid) {
@@ -217,7 +302,6 @@
     }
 
     if (featuredProjects) {
-      const orderedProjects = App.getProjectsForMode();
       const homeProjects = [
         ...orderedProjects.filter((project) => project.featured),
         ...orderedProjects.filter((project) => !project.featured),

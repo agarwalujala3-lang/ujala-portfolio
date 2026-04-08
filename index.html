@@ -44,45 +44,89 @@
 
     <main class="page">
       <section class="hero hero--home reveal reveal--hero">
-        <div class="hero__copy">
-          <p class="eyebrow">Rebuilt Portfolio</p>
+        <div class="hero__copy hero__copy--immersive">
+          <p class="eyebrow eyebrow--hero">Cloud + AI + Product Systems</p>
           <h1 id="hero-title">Cloud systems with product taste.</h1>
           <p class="lede" id="hero-lead"></p>
 
           <div class="hero__actions">
-            <a class="button button--solid" href="work.html">Open Case Studies</a>
-            <a class="button button--ghost" href="systems.html">See System Flows</a>
-            <button class="button button--ghost" type="button" data-command-open>Quick Routes</button>
+            <a class="button button--solid" href="work.html">Enter Case Studies</a>
+            <a class="button button--ghost" href="systems.html">Open System Routes</a>
+            <button class="button button--ghost" type="button" data-command-open>Ask The Navigator</button>
           </div>
 
           <div class="metric-grid metric-grid--compact" id="hero-signals"></div>
+          <div class="pill-row pill-row--hero" id="mode-focus"></div>
         </div>
 
-        <aside class="hero__aside">
-          <section class="panel lens-panel">
-            <div class="section-head">
-              <div>
-                <p class="eyebrow eyebrow--small">Audience Lens</p>
-                <h2>Shift the framing without losing the proof.</h2>
-              </div>
-              <span class="tiny-status" id="mode-kicker">Fast Route</span>
-            </div>
-            <div class="mode-switch" id="mode-switch"></div>
-            <p class="panel-copy" id="mode-summary"></p>
-            <div class="pill-row" id="mode-focus"></div>
-          </section>
+        <div class="hero__visual">
+          <div class="hero-stage" id="hero-stage">
+            <div class="hero-stage__word" aria-hidden="true">PORTFOLIO</div>
 
-          <section class="panel panel--accent runtime-panel">
-            <div class="section-head section-head--stack">
-              <div>
-                <p class="eyebrow eyebrow--small">Live Pulse</p>
-                <h2>Current signal from the portfolio runtime.</h2>
+            <div class="hero-stage__scene" data-depth-scene>
+              <div class="hero-stage__glow hero-stage__glow--a" aria-hidden="true"></div>
+              <div class="hero-stage__glow hero-stage__glow--b" aria-hidden="true"></div>
+              <div class="hero-stage__plate hero-stage__plate--rear" aria-hidden="true"></div>
+              <div class="hero-stage__plate hero-stage__plate--mid" aria-hidden="true"></div>
+
+              <article class="hero-stage__main">
+                <div class="hero-stage__toolbar">
+                  <div class="hero-stage__toolbar-dots" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <span class="hero-stage__toolbar-label" id="hero-stage-runtime-label">Runtime synced</span>
+                </div>
+
+                <div class="hero-stage__project-grid">
+                  <div class="hero-scene-card hero-scene-card--primary" id="hero-project-primary"></div>
+                  <div class="hero-scene-card hero-scene-card--secondary" id="hero-project-secondary"></div>
+                </div>
+
+                <div class="hero-stage__proof" id="hero-stage-proof"></div>
+              </article>
+
+              <div class="hero-stage__callout hero-stage__callout--sync">
+                <span class="hero-stage__callout-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Runtime sync</strong>
+                  <p id="hero-scene-sync">Waiting for runtime data.</p>
+                </div>
+              </div>
+
+              <div class="hero-stage__callout hero-stage__callout--proof">
+                <span class="hero-stage__callout-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Proof-first</strong>
+                  <p id="hero-scene-proof">Leading project signal.</p>
+                </div>
+              </div>
+
+              <div class="hero-stage__callout hero-stage__callout--lens">
+                <span class="hero-stage__callout-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Lens-aware</strong>
+                  <p id="hero-scene-lens">Current visitor framing.</p>
+                </div>
               </div>
             </div>
-            <div class="metric-grid metric-grid--mini" id="home-runtime-grid"></div>
-            <div class="highlight-stack" id="home-highlights"></div>
-          </section>
-        </aside>
+
+            <aside class="hero-glass">
+              <div class="section-head section-head--stack">
+                <div>
+                  <p class="eyebrow eyebrow--small">Audience Lens</p>
+                  <h2>Shift the framing without losing the proof.</h2>
+                </div>
+                <span class="tiny-status" id="mode-kicker">Fast Route</span>
+              </div>
+              <div class="mode-switch" id="mode-switch"></div>
+              <p class="panel-copy" id="mode-summary"></p>
+              <div class="metric-grid metric-grid--mini" id="home-runtime-grid"></div>
+              <div class="highlight-stack" id="home-highlights"></div>
+            </aside>
+          </div>
+        </div>
       </section>
 
       <section class="marquee-band reveal" aria-label="Stack highlights">

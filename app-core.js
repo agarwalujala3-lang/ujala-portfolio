@@ -466,6 +466,7 @@
       state.githubLastRefreshAt = Date.now();
       window.PortfolioApp.renderAll();
       initRevealObserver();
+      initHeroDepthScene();
       initSurfaceSpotlights();
       updateViewportUi();
       if (!silent) {
@@ -534,6 +535,7 @@
       mergeRuntimeData(sanitizeCopy(await response.json()));
       window.PortfolioApp.renderAll();
       initRevealObserver();
+      initHeroDepthScene();
       initSurfaceSpotlights();
       updateViewportUi();
       initFloatingDockObserver();
@@ -755,7 +757,69 @@
     });
   }
 
+  function initHeroDepthScene() {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    document.querySelectorAll("[data-depth-scene]").forEach((scene) => {
+      if (scene.dataset.depthBound) {
+        return;
+      }
+
+      const stage = scene.closest(".hero-stage") || scene;
+      if (!stage) {
+        return;
+      }
+
+      if (reducedMotion) {
+        stage.style.setProperty("--depth-rotate-x", "0deg");
+        stage.style.setProperty("--depth-rotate-y", "0deg");
+        scene.dataset.depthBound = "true";
+        return;
+      }
+
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      const tick = () => {
+        if (!stage.isConnected) {
+          return;
+        }
+
+        currentX += (targetX - currentX) * 0.12;
+        currentY += (targetY - currentY) * 0.12;
+
+        stage.style.setProperty("--depth-rotate-x", `${(-currentY * 11).toFixed(2)}deg`);
+        stage.style.setProperty("--depth-rotate-y", `${(currentX * 13).toFixed(2)}deg`);
+        stage.style.setProperty("--depth-shift-x", `${(currentX * 20).toFixed(2)}px`);
+        stage.style.setProperty("--depth-shift-y", `${(currentY * 18).toFixed(2)}px`);
+        stage.style.setProperty("--depth-glow-x", `${(50 + currentX * 16).toFixed(2)}%`);
+        stage.style.setProperty("--depth-glow-y", `${(34 + currentY * 10).toFixed(2)}%`);
+
+        window.requestAnimationFrame(tick);
+      };
+
+      const updateTarget = (event) => {
+        const rect = stage.getBoundingClientRect();
+        targetX = (event.clientX - rect.left) / rect.width - 0.5;
+        targetY = (event.clientY - rect.top) / rect.height - 0.5;
+      };
+
+      stage.addEventListener("pointermove", updateTarget);
+      stage.addEventListener("pointerdown", updateTarget);
+      stage.addEventListener("pointerleave", () => {
+        targetX = 0;
+        targetY = 0;
+      });
+
+      scene.dataset.depthBound = "true";
+      window.requestAnimationFrame(tick);
+    });
+  }
+
   function initSurfaceSpotlights() {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const selector = [
       ".panel",
       ".case-card",
@@ -771,6 +835,8 @@
       ".stack-item",
       ".metric-card",
       ".highlight-card",
+      ".hero-scene-card__inner",
+      ".hero-stage__proof",
     ].join(", ");
 
     document.querySelectorAll(selector).forEach((item) => {
@@ -784,11 +850,19 @@
         const y = ((event.clientY - rect.top) / rect.height) * 100;
         item.style.setProperty("--spot-x", `${x}%`);
         item.style.setProperty("--spot-y", `${y}%`);
+        if (!reducedMotion) {
+          const tiltX = ((event.clientY - rect.top) / rect.height - 0.5) * -8;
+          const tiltY = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+          item.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
+          item.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
+        }
       });
 
       item.addEventListener("pointerleave", () => {
         item.style.removeProperty("--spot-x");
         item.style.removeProperty("--spot-y");
+        item.style.removeProperty("--tilt-x");
+        item.style.removeProperty("--tilt-y");
       });
 
       item.dataset.spotlightBound = "true";
@@ -843,6 +917,7 @@
     copyText,
     updateViewportUi,
     initRevealObserver,
+    initHeroDepthScene,
     initSurfaceSpotlights,
     initFloatingDockObserver,
     refreshRuntimeFromGithub,
