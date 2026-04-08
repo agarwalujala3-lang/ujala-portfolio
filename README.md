@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  <img src="./content/github-preview.svg" alt="Preview banner for the Ujala Agarwal portfolio showing adaptive visitor lenses and featured project proof." width="100%" />
+</p>
+
+<p align="center">
   <a href="https://d2ikqjoiirpv7k.cloudfront.net">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
