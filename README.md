@@ -1,11 +1,9 @@
-# Ujala Agarwal Portfolio
-
 <p align="center">
-  Adaptive cinematic portfolio built as a multi-page personal system instead of a standard portfolio site.
+  <img src="./content/portfolio-lockup.svg" alt="Ujala Agarwal Portfolio" width="460" />
 </p>
 
 <p align="center">
-  <img src="./content/github-preview.svg" alt="Preview banner for the Ujala Agarwal portfolio showing adaptive visitor lenses and featured project proof." width="100%" />
+  Adaptive cinematic portfolio system built for live proof, stronger product signal, and a much sharper first read than a standard personal site.
 </p>
 
 <p align="center">
@@ -14,6 +12,12 @@
   <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
   <a href="https://d2ijsg7huf2h2p.cloudfront.net/app.html?v=20260331">ReceiptPulse</a>
 </p>
+
+<p align="center">
+  <img src="./content/github-preview.svg?v=20260408b" alt="Preview banner for the Ujala Agarwal portfolio showing runtime sync, adaptive visitor lenses, and proof-first project presentation." width="100%" />
+</p>
+
+# Ujala Agarwal Portfolio
 
 Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around live proof, especially ReceiptPulse and LumenStack AI, rather than static project cards alone.
 
