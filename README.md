@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="./content/github-preview.svg?v=20260408b" alt="Preview banner for the Ujala Agarwal portfolio showing runtime sync, adaptive visitor lenses, and proof-first project presentation." width="100%" />
+  <img src="./content/github-preview.svg?v=20260408c" alt="Cinematic preview banner for the Ujala Agarwal portfolio showing layered portfolio surfaces, runtime callouts, and premium product storytelling." width="100%" />
 </p>
 
 # Ujala Agarwal Portfolio

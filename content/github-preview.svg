@@ -1,127 +1,197 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Ujala Agarwal Portfolio GitHub preview</title>
-  <desc id="desc">Premium GitHub preview for the adaptive portfolio system, showing runtime sync, visitor lenses, and proof-first presentation.</desc>
+  <title id="title">Ujala Agarwal Portfolio cinematic GitHub preview</title>
+  <desc id="desc">A cinematic premium preview for the Ujala Agarwal portfolio with layered project surfaces, runtime callouts, and a luxury product landing composition.</desc>
   <defs>
-    <linearGradient id="bg" x1="92" y1="44" x2="1494" y2="846" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#08121F"/>
-      <stop offset="0.46" stop-color="#102231"/>
-      <stop offset="1" stop-color="#163849"/>
+    <linearGradient id="pageBg" x1="66" y1="28" x2="1522" y2="862" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070B14"/>
+      <stop offset="0.56" stop-color="#0A1220"/>
+      <stop offset="1" stop-color="#111B2C"/>
     </linearGradient>
-    <radialGradient id="glowGold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(252 176) rotate(16) scale(436 262)">
-      <stop stop-color="#F4C37D" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#F4C37D" stop-opacity="0"/>
+    <radialGradient id="haloLeft" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(174 112) rotate(15) scale(436 254)">
+      <stop stop-color="#D6B7FF" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#D6B7FF" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1292 706) rotate(150) scale(362 220)">
-      <stop stop-color="#77E9FF" stop-opacity="0.24"/>
-      <stop offset="1" stop-color="#77E9FF" stop-opacity="0"/>
+    <radialGradient id="haloRight" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1296 752) rotate(155) scale(418 260)">
+      <stop stop-color="#6BEAFF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#6BEAFF" stop-opacity="0"/>
     </radialGradient>
-    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#87F1FF"/>
+    <linearGradient id="shellStroke" x1="120" y1="44" x2="1460" y2="834" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2E3B54"/>
+      <stop offset="0.5" stop-color="#1B2232"/>
+      <stop offset="1" stop-color="#24364A"/>
+    </linearGradient>
+    <linearGradient id="navFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#111726"/>
+      <stop offset="1" stop-color="#0D1320"/>
+    </linearGradient>
+    <linearGradient id="heroCard" x1="588" y1="222" x2="1098" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#272C36"/>
+      <stop offset="1" stop-color="#12161F"/>
+    </linearGradient>
+    <linearGradient id="heroCardFront" x1="642" y1="286" x2="1108" y2="598" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12171F"/>
+      <stop offset="1" stop-color="#090E17"/>
+    </linearGradient>
+    <linearGradient id="heroAccent" x1="560" y1="238" x2="1100" y2="602" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EFE4D8"/>
+      <stop offset="0.48" stop-color="#B9C8D5"/>
+      <stop offset="1" stop-color="#55657A"/>
+    </linearGradient>
+    <linearGradient id="heroGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#202632" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#101520" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8AF8FF"/>
       <stop offset="1" stop-color="#7A97FF"/>
     </linearGradient>
-    <linearGradient id="mono" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#F7F0DE"/>
-      <stop offset="1" stop-color="#9EEFFF"/>
+    <linearGradient id="warmGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FFF1D9"/>
+      <stop offset="1" stop-color="#B8C6D2"/>
     </linearGradient>
-    <linearGradient id="name" x1="194" y1="92" x2="492" y2="146" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F3FBFF"/>
-      <stop offset="0.64" stop-color="#C9E7F7"/>
-      <stop offset="1" stop-color="#8DA9FF"/>
+    <linearGradient id="miniCardStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#59657A"/>
+      <stop offset="1" stop-color="#283244"/>
     </linearGradient>
-    <linearGradient id="chipStroke" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#82F4FF"/>
-      <stop offset="1" stop-color="#5B94E8"/>
+    <linearGradient id="sideCardStroke" x1="1188" y1="262" x2="1498" y2="612" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7A89A5"/>
+      <stop offset="1" stop-color="#3B485F"/>
     </linearGradient>
-    <linearGradient id="panelFill" x1="1038" y1="216" x2="1472" y2="594" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#12293C" stop-opacity="0.96"/>
-      <stop offset="1" stop-color="#0C1E2C" stop-opacity="0.94"/>
+    <linearGradient id="sideThumb" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#B6C1CD"/>
+      <stop offset="1" stop-color="#4D6077"/>
     </linearGradient>
-    <linearGradient id="panelStroke" x1="1042" y1="210" x2="1466" y2="594" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#88F4FF"/>
-      <stop offset="1" stop-color="#7A99FF"/>
-    </linearGradient>
-    <linearGradient id="lineStroke" x1="1178" y1="0" x2="1408" y2="0" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#88F8FF"/>
-      <stop offset="1" stop-color="#84A2FF"/>
-    </linearGradient>
-    <filter id="panelGlow" x="986" y="172" width="542" height="470" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-      <feDropShadow dx="0" dy="0" stdDeviation="18" flood-color="#7AEFFF" flood-opacity="0.28"/>
-      <feDropShadow dx="0" dy="26" stdDeviation="34" flood-color="#08121E" flood-opacity="0.44"/>
+    <filter id="shellShadow" x="48" y="20" width="1504" height="860" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="14"/>
+      <feGaussianBlur stdDeviation="22"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0156863 0 0 0 0 0.0235294 0 0 0 0 0.0431373 0 0 0 0.34 0"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
     </filter>
-    <filter id="softBlur" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="34"/>
+    <filter id="objectShadow" x="432" y="148" width="800" height="572" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="24"/>
+      <feGaussianBlur stdDeviation="30"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0235294 0 0 0 0 0.0313726 0 0 0 0 0.0588235 0 0 0 0.48 0"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+    </filter>
+    <filter id="blueBloom" x="526" y="292" width="618" height="240" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="glassGlow" x="1164" y="234" width="348" height="434" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18"/>
     </filter>
   </defs>
 
-  <rect width="1600" height="900" rx="42" fill="url(#bg)"/>
-  <ellipse cx="252" cy="176" rx="354" ry="232" fill="url(#glowGold)"/>
-  <ellipse cx="1292" cy="706" rx="306" ry="194" fill="url(#glowBlue)"/>
-
-  <g opacity="0.24" filter="url(#softBlur)">
-    <path d="M126 744C300 690 470 666 676 682" stroke="#E8BD7B" stroke-width="20" stroke-linecap="round"/>
-    <path d="M1050 784C1182 752 1324 686 1454 554" stroke="#7BE6FF" stroke-width="18" stroke-linecap="round"/>
+  <rect width="1600" height="900" rx="42" fill="#0B0F18"/>
+  <g filter="url(#shellShadow)">
+    <rect x="74" y="34" width="1452" height="820" rx="36" fill="url(#pageBg)"/>
+    <rect x="74.8" y="34.8" width="1450.4" height="818.4" rx="35.2" stroke="url(#shellStroke)" stroke-width="1.6"/>
   </g>
 
-  <rect x="96" y="76" width="74" height="74" rx="22" fill="#0D1928" stroke="url(#frame)" stroke-opacity="0.58" stroke-width="1.8"/>
-  <path d="M114 94V118C114 127.4 119.4 133 129.2 133C139.1 133 144 127.3 144 118V94" stroke="url(#mono)" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M120 94V113.5C120 119.3 123 123 129.2 123C135.4 123 138 119.4 138 113.5V94" stroke="#7DDFFF" stroke-opacity="0.45" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="194" y="106" fill="#97B6C7" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4.8">ADAPTIVE PORTFOLIO</text>
-  <text x="194" y="144" fill="url(#name)" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="800" letter-spacing="1.2">Ujala Agarwal</text>
+  <ellipse cx="174" cy="112" rx="438" ry="258" fill="url(#haloLeft)"/>
+  <ellipse cx="1296" cy="752" rx="420" ry="266" fill="url(#haloRight)"/>
 
-  <text x="96" y="308" fill="#F7FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="800">Adaptive portfolio layer</text>
-  <text x="96" y="372" fill="#F7FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="800">for proof and product signal</text>
+  <rect x="116" y="58" width="1368" height="62" rx="16" fill="url(#navFill)" fill-opacity="0.86" stroke="#222B3B"/>
 
-  <text x="96" y="444" fill="#C2D3DE" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">Lens-aware storytelling, GitHub-synced runtime, project manifests,</text>
-  <text x="96" y="482" fill="#C2D3DE" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="500">and case studies that read like a product instead of a gallery.</text>
+  <rect x="138" y="78" width="24" height="24" rx="7" fill="#0F1420" stroke="#59627A"/>
+  <path d="M144 84L156 96" stroke="#F2F6FA" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M156 84L144 96" stroke="#8FF2FF" stroke-width="1.8" stroke-linecap="round"/>
+  <text x="178" y="98" fill="#F3F6FB" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">UJALA</text>
+
+  <g fill="#8B93A8" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="600">
+    <text x="612" y="96">Home</text>
+    <text x="666" y="96">Work</text>
+    <text x="714" y="96">Systems</text>
+    <text x="780" y="96">Journey</text>
+    <text x="840" y="96">Brain</text>
+    <text x="884" y="96">Contact</text>
+  </g>
+
+  <rect x="1288" y="74" width="66" height="30" rx="15" fill="#141C2A" stroke="#2A3242"/>
+  <text x="1310" y="94" fill="#D7DDE8" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">GitHub</text>
+  <rect x="1364" y="74" width="76" height="30" rx="15" fill="#F2F5FB"/>
+  <text x="1388" y="94" fill="#101723" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">Preview</text>
+
+  <text x="152" y="292" fill="#F6F7FB" fill-opacity="0.06" font-family="Segoe UI, Arial, sans-serif" font-size="118" font-weight="800" letter-spacing="0.02em">PORTFOLIO</text>
+
+  <g filter="url(#objectShadow)">
+    <g transform="translate(560 244) rotate(-18 260 170)">
+      <rect x="0" y="38" width="544" height="320" rx="30" fill="url(#heroCard)" stroke="#353E51" stroke-width="1.5"/>
+      <rect x="46" y="24" width="522" height="312" rx="28" fill="#161B24" fill-opacity="0.92" stroke="#232B38" stroke-width="1.5"/>
+      <rect x="84" y="10" width="492" height="302" rx="26" fill="url(#heroCardFront)" stroke="#445064" stroke-width="1.6"/>
+      <rect x="106" y="34" width="452" height="32" rx="12" fill="#111723" stroke="#2F394A"/>
+      <circle cx="128" cy="50" r="5.5" fill="#7CEFFF"/>
+      <text x="146" y="55" fill="#EAF4FF" font-family="Consolas, monospace" font-size="13" font-weight="700">Portfolio proof layer</text>
+
+      <rect x="112" y="88" width="192" height="118" rx="22" fill="#101520" stroke="url(#miniCardStroke)"/>
+      <text x="128" y="112" fill="#8BA1B3" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.18em">FLAGSHIP SYSTEM</text>
+      <text x="128" y="142" fill="#F5F8FD" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">ReceiptPulse</text>
+      <rect x="128" y="158" width="108" height="26" rx="13" fill="#18232C" stroke="#304656"/>
+      <text x="146" y="176" fill="#89F0FF" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">LIVE AWS</text>
+      <text x="128" y="198" fill="#C7D4DE" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Private uploads +</text>
+      <text x="128" y="217" fill="#C7D4DE" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">duplicate review flow</text>
+
+      <rect x="324" y="88" width="216" height="118" rx="22" fill="#111827" stroke="url(#miniCardStroke)"/>
+      <text x="340" y="112" fill="#8BA1B3" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.18em">AI PRODUCT</text>
+      <text x="340" y="142" fill="#F5F8FD" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800">LumenStack AI</text>
+      <rect x="340" y="158" width="126" height="26" rx="13" fill="#16242D" stroke="#304656"/>
+      <text x="358" y="176" fill="#89F0FF" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700">ANALYZE + CHAT</text>
+      <text x="340" y="198" fill="#C7D4DE" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Repo analysis, compare mode,</text>
+      <text x="340" y="217" fill="#C7D4DE" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Mermaid maps, guided output</text>
+
+      <rect x="112" y="226" width="428" height="60" rx="18" fill="#0E131D" stroke="#263141"/>
+      <text x="134" y="249" fill="#8EA1B4" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0.18em">WHAT IT CHANGES</text>
+      <text x="134" y="272" fill="#F1F5FA" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600">One portfolio that reshapes itself for recruiter, engineer, founder, and friend</text>
+    </g>
+  </g>
+
+  <g filter="url(#blueBloom)" opacity="0.32">
+    <path d="M612 420C722 358 828 344 934 394C1016 430 1044 470 1082 474" stroke="url(#blueGlow)" stroke-width="18" stroke-linecap="round"/>
+  </g>
+
+  <path d="M560 420L502 392" stroke="#BBC6D2" stroke-opacity="0.58" stroke-width="2"/>
+  <circle cx="560" cy="420" r="12" fill="#0E1623" stroke="#C3CBD5"/>
+  <circle cx="560" cy="420" r="4.5" fill="#F4F8FC"/>
+  <text x="456" y="384" fill="#EDF2F7" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">Proof-first</text>
+  <text x="462" y="401" fill="#9FAAB9" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="500">project signal</text>
+
+  <path d="M778 286L752 236" stroke="#C1C8D2" stroke-opacity="0.58" stroke-width="2"/>
+  <circle cx="778" cy="286" r="12" fill="#0E1623" stroke="#C3CBD5"/>
+  <circle cx="778" cy="286" r="4.5" fill="#F4F8FC"/>
+  <text x="688" y="214" fill="#EDF2F7" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">Runtime sync</text>
+  <text x="682" y="231" fill="#9FAAB9" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="500">from GitHub</text>
+
+  <path d="M960 510L1028 540" stroke="#C1C8D2" stroke-opacity="0.58" stroke-width="2"/>
+  <circle cx="960" cy="510" r="12" fill="#0E1623" stroke="#C3CBD5"/>
+  <circle cx="960" cy="510" r="4.5" fill="#F4F8FC"/>
+  <text x="1044" y="546" fill="#EDF2F7" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">Lens-aware</text>
+  <text x="1044" y="563" fill="#9FAAB9" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="500">visitor routes</text>
+
+  <g filter="url(#glassGlow)">
+    <rect x="1188" y="260" width="290" height="392" rx="30" fill="url(#heroGlass)" stroke="url(#sideCardStroke)" stroke-width="1.5"/>
+  </g>
+  <rect x="1210" y="284" width="246" height="146" rx="24" fill="url(#sideThumb)"/>
+  <rect x="1220" y="296" width="226" height="120" rx="20" fill="#121926" stroke="#253146"/>
+  <rect x="1234" y="310" width="198" height="86" rx="16" fill="url(#heroGlass)" stroke="#394659"/>
+  <text x="1246" y="336" fill="#8DA1B2" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="0.18em">PORTFOLIO SURFACE</text>
+  <text x="1246" y="364" fill="#F5F8FD" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800">Case studies</text>
+  <text x="1246" y="387" fill="#C6D3DE" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500">Live proof, systems routes,</text>
+  <text x="1246" y="404" fill="#C6D3DE" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="500">brain answers, PDF resumes</text>
+
+  <text x="1212" y="472" fill="#F7FAFF" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700">About this portfolio</text>
+  <text x="1212" y="498" fill="#B7C4D0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Built to make engineering depth,</text>
+  <text x="1212" y="518" fill="#B7C4D0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">product taste, and live execution</text>
+  <text x="1212" y="538" fill="#B7C4D0" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">easier to feel in one glance.</text>
 
   <g>
-    <rect x="96" y="556" width="218" height="56" rx="28" fill="#0F2131" stroke="url(#chipStroke)"/>
-    <text x="205" y="592" text-anchor="middle" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">Recruiter lens</text>
-
-    <rect x="336" y="556" width="222" height="56" rx="28" fill="#0F2131" stroke="url(#chipStroke)"/>
-    <text x="447" y="592" text-anchor="middle" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">Engineer mode</text>
-
-    <rect x="580" y="556" width="212" height="56" rx="28" fill="#0F2131" stroke="url(#chipStroke)"/>
-    <text x="686" y="592" text-anchor="middle" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">Founder route</text>
-
-    <rect x="96" y="630" width="198" height="56" rx="28" fill="#0F2131" stroke="url(#chipStroke)"/>
-    <text x="195" y="666" text-anchor="middle" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">Runtime sync</text>
-
-    <rect x="316" y="630" width="194" height="56" rx="28" fill="#0F2131" stroke="url(#chipStroke)"/>
-    <text x="413" y="666" text-anchor="middle" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">Pico brain</text>
-
-    <rect x="532" y="630" width="240" height="56" rx="28" fill="#0F2131" stroke="url(#chipStroke)"/>
-    <text x="652" y="666" text-anchor="middle" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="700">Case-study proof</text>
+    <circle cx="1232" cy="582" r="18" fill="#D9DEE6"/>
+    <circle cx="1260" cy="582" r="18" fill="#B8C3CF"/>
+    <circle cx="1288" cy="582" r="18" fill="#8797A8"/>
   </g>
+  <rect x="1320" y="565" width="104" height="34" rx="17" fill="#161E2B" stroke="#313B4B"/>
+  <text x="1352" y="587" fill="#F3F7FC" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700">Premium UI</text>
 
-  <text x="96" y="792" fill="#9CB9C9" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="600">github.com/agarwalujala3-lang/ujala-portfolio</text>
-  <text x="96" y="836" fill="#D2DDE7" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="500">Built with HTML, CSS, JavaScript, CloudFront, and repo-driven GitHub runtime sync</text>
-
-  <g filter="url(#panelGlow)">
-    <rect x="1044" y="224" width="420" height="370" rx="34" fill="url(#panelFill)" stroke="url(#panelStroke)"/>
-    <rect x="1086" y="264" width="338" height="54" rx="16" fill="#0E2131" stroke="#356280"/>
-    <circle cx="1120" cy="291" r="8.5" fill="#8AF7FF"/>
-    <text x="1146" y="300" fill="#E9FAFF" font-family="Consolas, monospace" font-size="20" font-weight="700">Portfolio runtime system</text>
-
-    <rect x="1094" y="386" width="138" height="82" rx="20" fill="#12283A" stroke="#36617D"/>
-    <text x="1128" y="418" fill="#9AF8FF" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">INPUT</text>
-    <text x="1118" y="446" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">GitHub repos</text>
-
-    <rect x="1280" y="386" width="138" height="82" rx="20" fill="#12283A" stroke="#36617D"/>
-    <text x="1315" y="418" fill="#9AF8FF" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">SYNC</text>
-    <text x="1295" y="446" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Manifest merge</text>
-
-    <rect x="1170" y="496" width="192" height="82" rx="22" fill="#12283A" stroke="#36617D"/>
-    <text x="1225" y="528" fill="#9AF8FF" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">OUTPUT</text>
-    <text x="1197" y="556" fill="#F5FBFF" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Adaptive proof layer</text>
-
-    <path d="M1232 428H1272" stroke="url(#lineStroke)" stroke-width="7" stroke-linecap="round"/>
-    <path d="M1348 470V516" stroke="url(#lineStroke)" stroke-width="7" stroke-linecap="round"/>
-    <path d="M1336 516H1360" stroke="url(#lineStroke)" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="1272" cy="428" r="8.5" fill="#8AF7FF"/>
-    <circle cx="1348" cy="516" r="8.5" fill="#86AFFF"/>
-    <circle cx="1360" cy="516" r="8.5" fill="#8AF7FF"/>
-  </g>
+  <text x="140" y="646" fill="#F4F6FB" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">Ujala Portfolio</text>
+  <text x="140" y="698" fill="#F7FAFF" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="800">Making technical proof</text>
+  <text x="140" y="758" fill="#F7FAFF" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="800">feel premium and memorable</text>
+  <text x="140" y="808" fill="#B8C4D0" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="500">Adaptive visitor modes, GitHub-synced project branding, richer storytelling, and live product evidence.</text>
 </svg>
