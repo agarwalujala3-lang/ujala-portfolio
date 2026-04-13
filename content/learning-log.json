@@ -1,17 +1,22 @@
 [
   {
     "phase": "Now",
-    "title": "Refining product-grade AWS systems",
-    "note": "I am learning how to move from a strong technical build into something that feels closer to a real user-facing product with better structure, cleanup, and roles."
+    "title": "Building a stronger proof layer",
+    "note": "I am learning how to present shipped work with cleaner runtime sync, repo-driven branding, and sharper project storytelling."
   },
   {
     "phase": "Current Focus",
-    "title": "Explaining architecture more clearly",
-    "note": "I am working on turning project flows into interview-ready explanations so I can defend decisions, tradeoffs, and system choices more clearly."
+    "title": "Making systems feel more product-grade",
+    "note": "I am tightening AWS, AI, and frontend projects so they feel like complete products instead of separate demos."
   },
   {
     "phase": "Practice Layer",
-    "title": "Using polish only where it helps comprehension",
-    "note": "I am learning how motion, UI, and narrative can support technical work instead of distracting from it."
+    "title": "Using motion to support comprehension",
+    "note": "I am learning how stronger motion, depth, and interface narrative can make technical work easier to read without hiding the logic."
+  },
+  {
+    "phase": "System Habit",
+    "title": "Keeping repos and portfolio aligned",
+    "note": "I am turning the portfolio into a cleaner operating layer for my best repos so future project updates land here with less manual cleanup."
   }
 ]

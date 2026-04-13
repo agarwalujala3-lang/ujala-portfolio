@@ -1,17 +1,17 @@
 [
   {
     "stage": "Stage 01",
-    "title": "Deepen current projects",
-    "note": "Understand and explain ReceiptPulse and LumenStack AI fully before adding more complexity."
+    "title": "Sharpen the flagship products",
+    "note": "Push ReceiptPulse and LumenStack AI further with stronger reporting, cleaner product routes, and clearer proof of depth."
   },
   {
     "stage": "Stage 02",
-    "title": "Add user-aware features",
-    "note": "Authentication, per-user data, and cleaner role flows are the best next layer for stronger product realism."
+    "title": "Keep the portfolio repo-aware",
+    "note": "Make project manifests, branding assets, and portfolio storytelling stay aligned so strong repos update here cleanly."
   },
   {
     "stage": "Stage 03",
     "title": "Level up deployment maturity",
-    "note": "Move beyond basic hosting into stronger cloud-native deployment and production-readiness patterns."
+    "note": "Move the best builds toward CI/CD, container workflows, observability, and more production-like release discipline."
   }
 ]

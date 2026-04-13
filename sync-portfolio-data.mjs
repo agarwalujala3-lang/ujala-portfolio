@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -30,6 +30,25 @@ async function readJson(relativePath, fallback) {
     return JSON.parse(file);
   } catch {
     return fallback;
+  }
+}
+
+async function pathExists(targetPath) {
+  try {
+    await stat(targetPath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function readLocalGitCommitIso(repoDir) {
+  try {
+    const refPath = path.join(repoDir, ".git", "refs", "heads", "main");
+    const refStats = await stat(refPath);
+    return refStats.mtime.toISOString();
+  } catch {
+    return "";
   }
 }
 
@@ -271,6 +290,99 @@ async function fetchProjectCatalog(repos) {
   };
 }
 
+async function fetchLocalManifestCatalog() {
+  const workspaceDir = path.dirname(rootDir);
+  const entries = await readdir(workspaceDir, { withFileTypes: true });
+  const repos = [];
+  const warnings = [];
+
+  await Promise.all(
+    entries
+      .filter((entry) => entry.isDirectory())
+      .map(async (entry) => {
+        const repoName = cleanString(entry.name);
+        if (!repoName || repoName === path.basename(rootDir)) {
+          return;
+        }
+
+        const repoDir = path.join(workspaceDir, repoName);
+        const candidateManifestPath = path.join(repoDir, manifestPath);
+        if (!(await pathExists(candidateManifestPath))) {
+          return;
+        }
+
+        try {
+          const manifest = JSON.parse(await readFile(candidateManifestPath, "utf8"));
+          const issues = validateManifestShape(manifest);
+          if (issues.length > 0) {
+            warnings.push({
+              repo: repoName,
+              issues,
+            });
+            return;
+          }
+
+          const manifestStats = await stat(candidateManifestPath);
+          const commitIso = (await readLocalGitCommitIso(repoDir)) || manifestStats.mtime.toISOString();
+          const repo = {
+            name: repoName,
+            default_branch: "main",
+            pushed_at: commitIso,
+            updated_at: commitIso,
+            html_url: `https://github.com/${githubUser}/${repoName}`,
+            homepage: cleanString(manifest.links?.live),
+            language: cleanString(manifest.stack?.[0]) || "Project update",
+            description: cleanString(manifest.summary) || `Updated ${formatDate(commitIso)}`,
+          };
+
+          const project = normalizeProjectManifest(repo, manifest);
+          if (project) {
+            repos.push(repo);
+          }
+        } catch (error) {
+          warnings.push({
+            repo: repoName,
+            issues: [`Local manifest read failed: ${error.message}`],
+          });
+        }
+      })
+  );
+
+  const activity = repos
+    .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at))
+    .slice(0, 6)
+    .map((repo) => ({
+      name: repo.name,
+      url: repo.html_url,
+      language: repo.language || "Project update",
+      note: repo.description || `Updated ${formatDate(repo.pushed_at)}`,
+      pushedAt: repo.pushed_at,
+      homepage: repo.homepage || "",
+    }));
+
+  const projects = repos
+    .map((repo) => {
+      const manifestFile = path.join(workspaceDir, repo.name, manifestPath);
+      return readFile(manifestFile, "utf8")
+        .then((file) => normalizeProjectManifest(repo, JSON.parse(file)))
+        .catch(() => null);
+    });
+
+  return {
+    repos,
+    activity,
+    projects: (await Promise.all(projects))
+      .filter(Boolean)
+      .sort((left, right) => {
+        if (right.priority !== left.priority) {
+          return right.priority - left.priority;
+        }
+        return left.title.localeCompare(right.title);
+      }),
+    warnings,
+  };
+}
+
 async function main() {
   const learningLog = await readJson("content/learning-log.json", []);
   const ideaInbox = await readJson("content/idea-inbox.json", []);
@@ -280,6 +392,7 @@ async function main() {
   let projects = [];
   let repoCount = 0;
   let status = "offline";
+  let source = "none";
 
   try {
     const githubData = await fetchGithubRepos();
@@ -294,8 +407,25 @@ async function main() {
       }
     }
     status = "synced";
+    source = "github";
   } catch (error) {
     console.warn(`GitHub sync warning: ${error.message}`);
+    try {
+      const localCatalog = await fetchLocalManifestCatalog();
+      githubActivity = localCatalog.activity;
+      projects = localCatalog.projects;
+      repoCount = localCatalog.repos.length;
+      if (localCatalog.warnings.length) {
+        console.warn("Local manifest warnings:");
+        for (const warning of localCatalog.warnings) {
+          console.warn(`- ${warning.repo}: ${warning.issues.join("; ")}`);
+        }
+      }
+      status = "synced";
+      source = "local-manifests";
+    } catch (localError) {
+      console.warn(`Local manifest fallback warning: ${localError.message}`);
+    }
   }
 
   const runtime = {
@@ -305,6 +435,7 @@ async function main() {
       syncedAtLabel: formatDate(new Date().toISOString()),
       repoCount,
       githubUser,
+      source,
     },
     brain: {
       status: "live",

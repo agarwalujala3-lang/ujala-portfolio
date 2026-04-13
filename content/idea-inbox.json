@@ -1,14 +1,14 @@
 [
   {
-    "label": "ReceiptPulse Pro",
-    "note": "Turn the current receipt system into a multi-user cloud product with auth, scoped data, and reporting."
+    "label": "ReceiptPulse Insights",
+    "note": "Push the receipt workspace into stronger reporting, merchant trends, and cleaner review tooling."
   },
   {
-    "label": "Voice Interview Coach",
-    "note": "Build an AI practice system that can ask questions, score responses, and adapt by role or company type."
+    "label": "Portfolio Runtime Intelligence",
+    "note": "Make repo manifests, branding, and the portfolio brain stay fresher so the site reflects current work automatically."
   },
   {
-    "label": "Cloud-Native Deploy Track",
-    "note": "Take one product through Docker, CI/CD, and a more production-oriented deployment workflow."
+    "label": "Production Deploy Track",
+    "note": "Take the strongest builds through CI/CD, containers, observability, and a more production-oriented release flow."
   }
 ]

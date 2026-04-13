@@ -538,9 +538,9 @@ window.UJOS_DATA = {
       {
         id: "next-build",
         label: "What I'm building next",
-        title: "The next serious step is deeper reporting and stronger product depth.",
+        title: "The next serious step is deeper product depth plus cleaner repo-aware updates.",
         answer:
-          "I want to push my current systems into stronger reporting, merchant insight, and cleaner review flows while improving how clearly I explain the architecture in interviews and product conversations.",
+          "I am pushing ReceiptPulse and LumenStack AI into stronger product depth while making the portfolio stay cleaner and more in sync with my best repos, branding, and project proof.",
         routeLabel: "Open Lab route",
         routeHref: "playground.html",
       },
@@ -561,14 +561,14 @@ window.UJOS_DATA = {
   },
   lab: {
     nowBuilding: [
-      "Deeper spend insights and merchant trends for ReceiptPulse",
-      "Stronger system-design explanations for interviews",
-      "Adaptive portfolio experiences that respond to the visitor",
+      "Deeper reporting, merchant trends, and review tooling for ReceiptPulse",
+      "Sharper architecture framing and guided explanations for LumenStack AI",
+      "Repo-aware portfolio sync so strong project updates land here more cleanly",
     ],
     nextExperiments: [
-      "Receipt-level reporting and review tooling",
-      "AI helper experiences with better grounding",
-      "Cloud-native deployment patterns beyond static hosting",
+      "Portfolio runtime intelligence and fresher project narration",
+      "AI helper experiences with better grounding and product framing",
+      "Production-style deployment patterns with CI/CD and observability",
     ],
     toolkit: [
       "Python",

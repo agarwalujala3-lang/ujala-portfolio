@@ -773,6 +773,14 @@
       if (reducedMotion) {
         stage.style.setProperty("--depth-rotate-x", "0deg");
         stage.style.setProperty("--depth-rotate-y", "0deg");
+        stage.style.setProperty("--depth-shift-x", "0px");
+        stage.style.setProperty("--depth-shift-y", "0px");
+        stage.style.setProperty("--depth-float", "0px");
+        stage.style.setProperty("--depth-float-soft", "0px");
+        stage.style.setProperty("--depth-float-tiny", "0px");
+        stage.style.setProperty("--depth-twist", "0deg");
+        stage.style.setProperty("--depth-spin", "0deg");
+        stage.style.setProperty("--depth-spin-reverse", "0deg");
         scene.dataset.depthBound = "true";
         return;
       }
@@ -781,21 +789,35 @@
       let targetY = 0;
       let currentX = 0;
       let currentY = 0;
+      const phase = Math.random() * Math.PI * 2;
 
-      const tick = () => {
+      const tick = (time = 0) => {
         if (!stage.isConnected) {
           return;
         }
 
-        currentX += (targetX - currentX) * 0.12;
-        currentY += (targetY - currentY) * 0.12;
+        const driftX = Math.sin(time / 2200 + phase) * 0.16;
+        const driftY = Math.cos(time / 2800 + phase) * 0.1;
+        const float = Math.sin(time / 1800 + phase) * 18;
+        const floatSoft = Math.sin(time / 2000 + phase) * 9;
+        const floatTiny = Math.cos(time / 2300 + phase) * 4;
+        const twist = Math.sin(time / 2600 + phase) * 2.6;
+
+        currentX += (targetX + driftX - currentX) * 0.08;
+        currentY += (targetY + driftY - currentY) * 0.08;
 
         stage.style.setProperty("--depth-rotate-x", `${(-currentY * 11).toFixed(2)}deg`);
         stage.style.setProperty("--depth-rotate-y", `${(currentX * 13).toFixed(2)}deg`);
-        stage.style.setProperty("--depth-shift-x", `${(currentX * 20).toFixed(2)}px`);
-        stage.style.setProperty("--depth-shift-y", `${(currentY * 18).toFixed(2)}px`);
+        stage.style.setProperty("--depth-shift-x", `${(currentX * 28).toFixed(2)}px`);
+        stage.style.setProperty("--depth-shift-y", `${(currentY * 22).toFixed(2)}px`);
         stage.style.setProperty("--depth-glow-x", `${(50 + currentX * 16).toFixed(2)}%`);
         stage.style.setProperty("--depth-glow-y", `${(34 + currentY * 10).toFixed(2)}%`);
+        stage.style.setProperty("--depth-float", `${float.toFixed(2)}px`);
+        stage.style.setProperty("--depth-float-soft", `${floatSoft.toFixed(2)}px`);
+        stage.style.setProperty("--depth-float-tiny", `${floatTiny.toFixed(2)}px`);
+        stage.style.setProperty("--depth-twist", `${twist.toFixed(2)}deg`);
+        stage.style.setProperty("--depth-spin", `${((time / 90) % 360).toFixed(2)}deg`);
+        stage.style.setProperty("--depth-spin-reverse", `${((360 - (time / 110) % 360)).toFixed(2)}deg`);
 
         window.requestAnimationFrame(tick);
       };
