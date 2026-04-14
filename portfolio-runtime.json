@@ -1,8 +1,8 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-04-14T04:32:47.431Z",
-    "syncedAtLabel": "14 Apr 2026, 10:02 am",
+    "syncedAt": "2026-04-14T04:44:51.509Z",
+    "syncedAtLabel": "14 Apr 2026, 10:14 am",
     "repoCount": 4,
     "githubUser": "agarwalujala3-lang",
     "source": "local-manifests"
@@ -14,20 +14,20 @@
   },
   "githubActivity": [
     {
-      "name": "ReceiptPulse",
-      "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
-      "language": "AWS Lambda",
-      "note": "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
-      "pushedAt": "2026-04-13T14:25:48.785Z",
-      "homepage": "https://d2ijsg7huf2h2p.cloudfront.net"
-    },
-    {
       "name": "LumenStack-AI",
       "url": "https://github.com/agarwalujala3-lang/LumenStack-AI",
       "language": "Node.js",
       "note": "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
-      "pushedAt": "2026-04-13T10:32:49.765Z",
+      "pushedAt": "2026-04-14T04:42:47.480Z",
       "homepage": "https://lumenstack-ai.onrender.com"
+    },
+    {
+      "name": "ReceiptPulse",
+      "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
+      "language": "AWS Lambda",
+      "note": "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
+      "pushedAt": "2026-04-14T04:41:33.763Z",
+      "homepage": "https://d2ijsg7huf2h2p.cloudfront.net"
     },
     {
       "name": "VALENTINE-CHAUDHRAIN",
@@ -57,8 +57,8 @@
       "featured": true,
       "badge": "Flagship AWS build",
       "icon": "RP",
-      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-mark.svg?v=2026-04-13T14%3A25%3A48.785Z",
-      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-lockup.svg?v=2026-04-13T14%3A25%3A48.785Z",
+      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-mark.svg?v=2026-04-14T04%3A41%3A33.763Z",
+      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-lockup.svg?v=2026-04-14T04%3A41%3A33.763Z",
       "summary": "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
       "proof": "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and full live deployment.",
       "details": [
@@ -132,8 +132,8 @@
       "featured": true,
       "badge": "Flagship AI build",
       "icon": "LS",
-      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-mark.svg?v=2026-04-13T10%3A32%3A49.765Z",
-      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-lockup.svg?v=2026-04-13T10%3A32%3A49.765Z",
+      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-mark.svg?v=2026-04-14T04%3A42%3A47.480Z",
+      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-lockup.svg?v=2026-04-14T04%3A42%3A47.480Z",
       "summary": "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
       "proof": "This project proves backend analysis flow, AI-assisted explanation, project framing, and multi-page product design.",
       "details": [
