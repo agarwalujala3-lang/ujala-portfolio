@@ -76,6 +76,11 @@ function buildLocalFallback(question, runtimeContext = {}) {
   const runtimeGithubActivity = Array.isArray(runtimeContext?.githubActivity) ? runtimeContext.githubActivity : [];
   const syncedAtLabel = runtimeContext?.sync?.syncedAtLabel || "";
   const topProjectTitle = runtimeProjects[0]?.title || receiptPulse?.name;
+  const secondRuntimeProject = runtimeProjects.find((project) => project?.title && project.title !== topProjectTitle);
+  const fallbackSecondTitle = topProjectTitle === lumenStack?.name ? receiptPulse?.name : lumenStack?.name;
+  const fallbackSecondProof = topProjectTitle === lumenStack?.name ? receiptPulse?.proof : lumenStack?.proof;
+  const secondProjectTitle = secondRuntimeProject?.title || fallbackSecondTitle;
+  const secondProjectProof = secondRuntimeProject?.proof || fallbackSecondProof;
 
   if (
     prompt.includes("strongest project") ||
@@ -162,7 +167,7 @@ function buildLocalFallback(question, runtimeContext = {}) {
     "",
     "The two strongest projects on this portfolio are:",
     `- ${topProjectTitle}: ${runtimeProjects[0]?.proof || receiptPulse.proof}`,
-    `- ${lumenStack.name}: ${lumenStack.proof}`,
+    `- ${secondProjectTitle}: ${secondProjectProof}`,
     "",
     "If you want, ask me about AWS work, AI projects, role fit, or what I am planning to build next.",
   ].join("\n");
