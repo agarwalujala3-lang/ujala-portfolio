@@ -753,7 +753,7 @@ body[data-page="home"] .main-nav__link.is-current {
   top: 24%;
   width: min(520px, 54%);
   height: 320px;
-  border-color: rgba(89, 236, 255, 0.18);
+  border-color: rgba(63, 96, 121, 0.2);
   transform:
     translate3d(calc(var(--depth-shift-x, 0px) * 0.1), calc(var(--depth-shift-y, 0px) * 0.08), 70px)
     rotateX(72deg)
@@ -765,7 +765,7 @@ body[data-page="home"] .main-nav__link.is-current {
   top: 26%;
   width: min(250px, 26%);
   height: 250px;
-  border-color: rgba(179, 125, 255, 0.22);
+  border-color: rgba(198, 111, 55, 0.2);
   transform:
     translate3d(calc(var(--depth-shift-x, 0px) * 0.14), calc(var(--depth-shift-y, 0px) * 0.1 + var(--depth-float-tiny, 0px)), 130px)
     rotateX(72deg)
@@ -781,7 +781,7 @@ body[data-page="home"] .main-nav__link.is-current {
   background: linear-gradient(135deg, #f3fbff, var(--hero-accent));
   box-shadow:
     0 0 24px var(--hero-accent-soft),
-    0 0 52px rgba(115, 243, 255, 0.18);
+    0 0 52px rgba(63, 96, 121, 0.18);
   pointer-events: none;
 }
 
@@ -804,10 +804,10 @@ body[data-page="home"] .main-nav__link.is-current {
 .hero-stage__node--b {
   right: 24%;
   top: 20%;
-  background: linear-gradient(135deg, #f7f2ff, #b37dff);
+  background: linear-gradient(135deg, #fff7ef, #c66f37);
   box-shadow:
-    0 0 24px rgba(179, 125, 255, 0.26),
-    0 0 52px rgba(179, 125, 255, 0.16);
+    0 0 24px rgba(198, 111, 55, 0.24),
+    0 0 52px rgba(198, 111, 55, 0.14);
   transform:
     translate3d(calc(var(--depth-shift-x, 0px) * 0.12), calc(var(--depth-shift-y, 0px) * -0.06 + var(--depth-float-soft, 0px)), 160px);
 }
@@ -2245,7 +2245,7 @@ li {
 
 .floating-dock {
   position: fixed;
-  right: max(12px, calc((100vw - var(--shell)) / 2 - 160px));
+  right: max(12px, calc((100vw - var(--shell)) / 2 - 220px));
   bottom: 20px;
   z-index: 55;
   display: grid;
@@ -2642,6 +2642,12 @@ li {
 
   .toast {
     max-width: none;
+  }
+}
+
+@media (max-width: 1600px) {
+  .floating-dock {
+    display: none;
   }
 }
 

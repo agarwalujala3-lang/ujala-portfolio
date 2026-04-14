@@ -37,24 +37,27 @@ function buildSystemPrompt() {
   return [
     `You are the live portfolio brain for ${context.profile.name}.`,
     ...context.rules,
+    "When runtime sync context is provided in the user message, treat that runtime context as the latest source of truth over static context.",
     "",
     "Portfolio context:",
     JSON.stringify(context, null, 2),
   ].join("\n");
 }
 
-function buildUserPrompt({ question, mode, page, history }) {
+function buildUserPrompt({ question, mode, page, history, runtimeContext }) {
   const recentHistory = Array.isArray(history)
     ? history
         .slice(-6)
         .map((item) => `${item.role === "assistant" ? "Portfolio brain" : "Visitor"}: ${item.text}`)
         .join("\n")
     : "";
+  const runtimeSummary = runtimeContext && typeof runtimeContext === "object" ? JSON.stringify(runtimeContext, null, 2) : "";
 
   return [
     `Current visitor mode: ${mode || "unknown"}`,
     `Current page: ${page || "unknown"}`,
     recentHistory ? `Recent conversation:\n${recentHistory}` : "",
+    runtimeSummary ? `Latest runtime sync context (authoritative):\n${runtimeSummary}` : "",
     `Latest user question: ${question}`,
   ]
     .filter(Boolean)
@@ -65,10 +68,14 @@ function bulletList(items) {
   return items.map((item) => `- ${item}`).join("\n");
 }
 
-function buildLocalFallback(question) {
+function buildLocalFallback(question, runtimeContext = {}) {
   const prompt = String(question || "").toLowerCase();
   const receiptPulse = context.projects.find((project) => project.name === "ReceiptPulse");
   const lumenStack = context.projects.find((project) => project.name === "LumenStack AI");
+  const runtimeProjects = Array.isArray(runtimeContext?.projects) ? runtimeContext.projects : [];
+  const runtimeGithubActivity = Array.isArray(runtimeContext?.githubActivity) ? runtimeContext.githubActivity : [];
+  const syncedAtLabel = runtimeContext?.sync?.syncedAtLabel || "";
+  const topProjectTitle = runtimeProjects[0]?.title || receiptPulse?.name;
 
   if (
     prompt.includes("strongest project") ||
@@ -125,12 +132,19 @@ function buildLocalFallback(question) {
     prompt.includes("planning") ||
     prompt.includes("next")
   ) {
+    const liveUpdates = runtimeGithubActivity.slice(0, 3).map((entry) => `${entry.name}: ${entry.note || "Updated recently"}`);
+    const currentProjectFocus = runtimeProjects
+      .slice(0, 3)
+      .map((project) => `${project.title}: ${project.proof || "Strong live portfolio signal."}`);
+
     return [
-      "Right now I am focused on:",
-      bulletList(context.currentFocus),
+      syncedAtLabel ? `Latest runtime sync: ${syncedAtLabel}` : "Latest runtime sync: just now.",
       "",
-      "The next things I want to build are:",
-      bulletList(context.futureIdeas),
+      "Recent project updates:",
+      bulletList(liveUpdates.length ? liveUpdates : context.currentFocus),
+      "",
+      "Current strongest live focus:",
+      bulletList(currentProjectFocus.length ? currentProjectFocus : context.currentFocus),
     ].join("\n");
   }
 
@@ -147,7 +161,7 @@ function buildLocalFallback(question) {
     `I build cloud systems, AI tools, and full-stack products.`,
     "",
     "The two strongest projects on this portfolio are:",
-    `- ${receiptPulse.name}: ${receiptPulse.proof}`,
+    `- ${topProjectTitle}: ${runtimeProjects[0]?.proof || receiptPulse.proof}`,
     `- ${lumenStack.name}: ${lumenStack.proof}`,
     "",
     "If you want, ask me about AWS work, AI projects, role fit, or what I am planning to build next.",
@@ -163,6 +177,15 @@ function extractQuestionFromEvent(event) {
   }
 }
 
+function extractRuntimeContextFromEvent(event) {
+  try {
+    const payload = JSON.parse(event?.body || "{}");
+    return payload.runtimeContext && typeof payload.runtimeContext === "object" ? payload.runtimeContext : {};
+  } catch {
+    return {};
+  }
+}
+
 export async function handler(event) {
   if (event?.requestContext?.http?.method === "OPTIONS" || event?.httpMethod === "OPTIONS") {
     return response(204, {});
@@ -171,6 +194,7 @@ export async function handler(event) {
   try {
     const payload = JSON.parse(event?.body || "{}");
     const question = String(payload.question || "").trim();
+    const runtimeContext = payload.runtimeContext && typeof payload.runtimeContext === "object" ? payload.runtimeContext : {};
 
     if (!question) {
       return response(400, { error: "Question is required." });
@@ -180,7 +204,7 @@ export async function handler(event) {
       return response(
         200,
         {
-          reply: buildLocalFallback(question),
+          reply: buildLocalFallback(question, runtimeContext),
           source: "local-fallback",
         }
       );
@@ -227,7 +251,7 @@ export async function handler(event) {
       return response(
         200,
         {
-          reply: buildLocalFallback(question),
+          reply: buildLocalFallback(question, runtimeContext),
           source: "local-fallback",
         }
       );
@@ -249,7 +273,7 @@ export async function handler(event) {
     return response(
       200,
       {
-        reply: buildLocalFallback(extractQuestionFromEvent(event)),
+        reply: buildLocalFallback(extractQuestionFromEvent(event), extractRuntimeContextFromEvent(event)),
         source: "local-fallback",
       }
     );
