@@ -1,8 +1,8 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-04-14T03:02:45.140Z",
-    "syncedAtLabel": "14 Apr 2026, 08:32 am",
+    "syncedAt": "2026-04-14T04:32:47.431Z",
+    "syncedAtLabel": "14 Apr 2026, 10:02 am",
     "repoCount": 4,
     "githubUser": "agarwalujala3-lang",
     "source": "local-manifests"
@@ -96,19 +96,19 @@
         "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
       },
       "theme": {
-        "surface1": "rgba(247, 251, 249, 0.96)",
-        "surface2": "rgba(236, 244, 240, 0.94)",
-        "ring": "rgba(43, 104, 92, 0.14)",
-        "glow": "rgba(47, 113, 101, 0.16)",
-        "glowSoft": "rgba(143, 194, 181, 0.18)",
-        "accentStrong": "#20564d",
-        "accentSoft": "rgba(32, 86, 77, 0.12)",
-        "badgeBg": "rgba(32, 86, 77, 0.09)",
-        "badgeBorder": "rgba(32, 86, 77, 0.16)",
-        "proofBg": "linear-gradient(135deg, rgba(32, 86, 77, 0.12), rgba(104, 170, 152, 0.08))",
-        "signalBg": "rgba(255, 255, 255, 0.74)",
-        "signalBorder": "rgba(43, 104, 92, 0.1)",
-        "iconBg": "linear-gradient(145deg, rgba(239, 247, 243, 1), rgba(220, 233, 228, 0.98))"
+        "surface1": "rgba(251, 245, 236, 0.96)",
+        "surface2": "rgba(243, 233, 218, 0.94)",
+        "ring": "rgba(191, 162, 130, 0.2)",
+        "glow": "rgba(227, 178, 125, 0.2)",
+        "glowSoft": "rgba(179, 211, 186, 0.2)",
+        "accentStrong": "#98643f",
+        "accentSoft": "rgba(152, 100, 63, 0.12)",
+        "badgeBg": "rgba(152, 100, 63, 0.1)",
+        "badgeBorder": "rgba(152, 100, 63, 0.2)",
+        "proofBg": "linear-gradient(135deg, rgba(233, 182, 129, 0.18), rgba(176, 210, 184, 0.14))",
+        "signalBg": "rgba(239, 246, 250, 0.84)",
+        "signalBorder": "rgba(151, 179, 197, 0.22)",
+        "iconBg": "linear-gradient(145deg, rgba(242, 248, 252, 1), rgba(222, 236, 245, 0.98))"
       },
       "lensPriority": {
         "recruiter": 100,
@@ -168,19 +168,19 @@
         "repo": "https://github.com/agarwalujala3-lang/LumenStack-AI"
       },
       "theme": {
-        "surface1": "rgba(242, 249, 248, 0.96)",
-        "surface2": "rgba(231, 241, 239, 0.94)",
-        "ring": "rgba(78, 124, 141, 0.15)",
-        "glow": "rgba(101, 180, 194, 0.18)",
-        "glowSoft": "rgba(128, 205, 193, 0.18)",
-        "accentStrong": "#3c6574",
-        "accentSoft": "rgba(60, 101, 116, 0.12)",
-        "badgeBg": "rgba(77, 128, 144, 0.09)",
-        "badgeBorder": "rgba(77, 128, 144, 0.16)",
-        "proofBg": "linear-gradient(135deg, rgba(87, 154, 166, 0.14), rgba(112, 181, 163, 0.1))",
-        "signalBg": "rgba(248, 252, 251, 0.76)",
-        "signalBorder": "rgba(78, 124, 141, 0.12)",
-        "iconBg": "linear-gradient(145deg, rgba(18, 44, 48, 0.98), rgba(14, 30, 34, 0.96))"
+        "surface1": "rgba(246, 246, 253, 0.97)",
+        "surface2": "rgba(236, 233, 248, 0.95)",
+        "ring": "rgba(150, 137, 198, 0.2)",
+        "glow": "rgba(165, 149, 229, 0.2)",
+        "glowSoft": "rgba(145, 214, 236, 0.18)",
+        "accentStrong": "#6c59a8",
+        "accentSoft": "rgba(108, 89, 168, 0.12)",
+        "badgeBg": "rgba(108, 89, 168, 0.1)",
+        "badgeBorder": "rgba(108, 89, 168, 0.2)",
+        "proofBg": "linear-gradient(135deg, rgba(170, 154, 233, 0.18), rgba(152, 220, 241, 0.14))",
+        "signalBg": "rgba(249, 248, 255, 0.84)",
+        "signalBorder": "rgba(160, 147, 205, 0.2)",
+        "iconBg": "linear-gradient(145deg, rgba(234, 247, 255, 1), rgba(217, 236, 250, 0.98))"
       },
       "lensPriority": {
         "recruiter": 96,
