@@ -561,6 +561,13 @@
 
   function createProjectCard(project, featured) {
     const activeCompare = App.state.compareIds.includes(project.id);
+    const compareLabel = featured
+      ? activeCompare
+        ? "Added To Studio"
+        : "Compare In Studio"
+      : activeCompare
+        ? "Added To Compare"
+        : "Compare";
     const badge = project.badge ? `<span class="project-badge">${App.escapeHtml(project.badge)}</span>` : "";
     return `
       <article class="case-card${featured ? " case-card--featured" : ""}" style="${App.escapeHtml(projectThemeStyle(project))}">
@@ -594,7 +601,7 @@
         <div class="case-card__actions">
           <button class="button button--solid" type="button" data-open-project="${App.escapeHtml(project.id)}">Open Case Study</button>
           <button class="button button--ghost" type="button" data-compare-project="${App.escapeHtml(project.id)}">
-            ${activeCompare ? "Added To Compare" : "Compare"}
+            ${compareLabel}
           </button>
           ${project.links?.live ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noreferrer">Live</a>` : ""}
           ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noreferrer">Repo</a>` : ""}

@@ -1,10 +1,64 @@
 (function () {
   const App = window.PortfolioApp;
   const FRESHNESS_HINTS = ["update", "latest", "recent", "sync", "github", "future", "next", "plan", "roadmap"];
+  const COMPARE_IDS_KEY = "ujala-portfolio-compare-ids";
 
   function asksForFreshRuntime(question) {
     const prompt = String(question || "").toLowerCase();
     return FRESHNESS_HINTS.some((token) => prompt.includes(token));
+  }
+
+  function readStoredCompareIds() {
+    try {
+      const raw = window.sessionStorage.getItem(COMPARE_IDS_KEY) || window.localStorage.getItem(COMPARE_IDS_KEY) || "[]";
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) {
+        return [];
+      }
+      return [...new Set(parsed.map((id) => String(id || "").trim()).filter(Boolean))].slice(-2);
+    } catch {
+      return [];
+    }
+  }
+
+  function storeCompareIds(ids) {
+    const next = [...new Set((Array.isArray(ids) ? ids : []).map((id) => String(id || "").trim()).filter(Boolean))].slice(-2);
+    const encoded = JSON.stringify(next);
+    try {
+      window.sessionStorage.setItem(COMPARE_IDS_KEY, encoded);
+    } catch {
+      // Ignore storage failures.
+    }
+    try {
+      window.localStorage.setItem(COMPARE_IDS_KEY, encoded);
+    } catch {
+      // Ignore storage failures.
+    }
+  }
+
+  function hydrateCompareIds() {
+    const stored = readStoredCompareIds();
+    if (!stored.length) {
+      return;
+    }
+
+    const knownProjects = new Set(App.getProjectsForMode().map((project) => project.id));
+    const hydrated = stored.filter((id) => knownProjects.has(id)).slice(0, 2);
+    App.state.compareIds = hydrated;
+    storeCompareIds(hydrated);
+  }
+
+  function queueCompareAndOpenStudio(projectId) {
+    const id = String(projectId || "").trim();
+    if (!id) {
+      return;
+    }
+
+    const next = [...readStoredCompareIds().filter((item) => item !== id), id].slice(-2);
+    App.state.compareIds = next;
+    storeCompareIds(next);
+    App.toast("Added to Compare Studio. Opening Case Studies.");
+    App.goTo("work.html#compare-studio");
   }
 
   function buildClientBrainFallback(question) {
@@ -321,7 +375,18 @@
 
       const compareButton = event.target.closest("[data-compare-project], [data-compare-select]");
       if (compareButton) {
-        App.toggleCompare(compareButton.dataset.compareProject || compareButton.dataset.compareSelect);
+        const compareId = compareButton.dataset.compareProject || compareButton.dataset.compareSelect;
+        if (!compareId) {
+          return;
+        }
+
+        if (document.body.dataset.page !== "work") {
+          queueCompareAndOpenStudio(compareId);
+          return;
+        }
+
+        App.toggleCompare(compareId);
+        storeCompareIds(App.state.compareIds);
         return;
       }
 
@@ -441,6 +506,7 @@
     App.injectChrome();
     App.applyMode();
     App.syncCurrentNav();
+    hydrateCompareIds();
     App.renderAll();
     App.initFloatingDockObserver();
     bindGlobalEvents();
