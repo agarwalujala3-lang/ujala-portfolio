@@ -1,14 +1,14 @@
 [
   {
-    "label": "ReceiptPulse Insights",
-    "note": "Push the receipt workspace into stronger reporting, merchant trends, and cleaner review tooling."
+    "label": "ReceiptPulse Reporting Layer",
+    "note": "Expand analytics depth, category insights, and decision tooling so the product reads as stronger operations software."
   },
   {
-    "label": "Portfolio Runtime Intelligence",
-    "note": "Make repo manifests, branding, and the portfolio brain stay fresher so the site reflects current work automatically."
+    "label": "Runtime Brand Sync",
+    "note": "Keep manifest logos, accents, and project metadata reflected in portfolio cards with minimal manual maintenance."
   },
   {
     "label": "Production Deploy Track",
-    "note": "Take the strongest builds through CI/CD, containers, observability, and a more production-oriented release flow."
+    "note": "Keep improving CI/CD, observability, and deployment confidence for flagship systems."
   }
 ]
