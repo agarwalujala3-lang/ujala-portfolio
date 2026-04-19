@@ -3062,3 +3062,178 @@ body[data-page="home"] .main-nav__link.is-current {
     padding-top: 8px;
   }
 }
+
+/* Contrast + polish fix: keep dark base, use project accents cleanly */
+.hero--home .metric-card,
+.hero--home .highlight-card,
+.hero-glass .metric-card,
+.hero-glass .highlight-card {
+  border-color: rgba(124, 156, 220, 0.3);
+  background: linear-gradient(165deg, rgba(10, 16, 28, 0.94), rgba(7, 12, 23, 0.94));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 36px rgba(2, 6, 14, 0.5);
+}
+
+.hero--home .button--solid {
+  color: #05111e;
+  background: linear-gradient(135deg, #b8f2ff 0%, #76e8ff 44%, #6ea1ff 100%);
+  box-shadow: 0 16px 34px rgba(2, 6, 14, 0.46);
+}
+
+.hero--home .button--ghost {
+  border-color: rgba(124, 156, 220, 0.34);
+  background: rgba(255, 255, 255, 0.06);
+  color: #eef5ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.hero--home .metric-card__value,
+.hero-glass .metric-card__value,
+.hero-glass .section-head h2,
+.hero-stage__callout strong,
+.hero-scene-card__header h3 {
+  color: #f5f9ff;
+}
+
+.hero--home .metric-card p,
+.hero-glass .metric-card p,
+.hero-glass .panel-copy,
+.hero-stage__callout p,
+.hero-scene-card__summary,
+.hero-stage__toolbar-label,
+.hero-glass .highlight-card strong {
+  color: rgba(220, 232, 250, 0.86);
+}
+
+.hero-scene-card__inner {
+  border-color: var(--project-ring, rgba(126, 160, 226, 0.28));
+  background:
+    radial-gradient(circle at 88% 12%, var(--project-glow, rgba(102, 233, 255, 0.24)), transparent 36%),
+    radial-gradient(circle at 8% 88%, var(--project-accent-soft, rgba(125, 152, 255, 0.16)), transparent 40%),
+    linear-gradient(155deg, rgba(7, 12, 23, 0.94), rgba(8, 14, 26, 0.95));
+  box-shadow:
+    0 18px 42px rgba(2, 6, 14, 0.54),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.hero-scene-card__chip {
+  border-color: var(--project-badge-border, rgba(126, 160, 226, 0.3));
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(242, 248, 255, 0.92);
+}
+
+.hero-scene-card__chip--soft {
+  border-color: rgba(126, 160, 226, 0.22);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(220, 232, 250, 0.8);
+}
+
+.case-card,
+.compare-column,
+.modal-section {
+  border-color: var(--project-ring, rgba(126, 160, 226, 0.28));
+  background:
+    radial-gradient(circle at 88% 12%, var(--project-glow, rgba(102, 233, 255, 0.24)), transparent 36%),
+    radial-gradient(circle at 8% 88%, var(--project-accent-soft, rgba(125, 152, 255, 0.16)), transparent 40%),
+    linear-gradient(155deg, rgba(7, 12, 23, 0.95), rgba(8, 14, 26, 0.96));
+  box-shadow:
+    0 18px 42px rgba(2, 6, 14, 0.54),
+    0 10px 26px rgba(2, 6, 14, 0.36),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.case-card,
+.compare-column,
+.case-card .project-kind,
+.compare-column .project-kind,
+.case-card .case-card__status-note,
+.case-card .stack-pill,
+.case-card .project-signal-card p,
+.case-card .case-card__proof p,
+.case-card .case-card__detail-item p,
+.compare-column p,
+.compare-summary p {
+  color: rgba(220, 232, 250, 0.86);
+}
+
+.case-card h3,
+.compare-column h3,
+.case-card .project-signal-card__value,
+.case-card .project-signal-card__label,
+.case-card .case-card__proof-label,
+.compare-column strong,
+.project-signal-card__value {
+  color: #f5f9ff;
+}
+
+.case-card .project-kind,
+.case-card .status-badge,
+.case-card .case-card__proof-label,
+.case-card .project-signal-card__label,
+.compare-column .project-kind,
+.project-kind,
+.status-badge {
+  color: var(--project-accent-strong, #8be9ff);
+}
+
+.project-badge {
+  border-color: var(--project-badge-border, rgba(126, 160, 226, 0.28));
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    rgba(8, 14, 25, 0.38);
+  color: var(--project-accent-strong, #8be9ff);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 18px rgba(2, 6, 14, 0.34);
+}
+
+.project-signal-card,
+.case-card__detail-item,
+.compare-list__item {
+  border-color: var(--project-signal-border, rgba(126, 160, 226, 0.24));
+  background:
+    linear-gradient(165deg, rgba(10, 16, 28, 0.92), rgba(8, 13, 24, 0.93));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 10px 24px rgba(2, 6, 14, 0.3);
+}
+
+.case-card__proof,
+.compare-summary,
+.compare-summary--column {
+  border-color: var(--project-ring, rgba(126, 160, 226, 0.28));
+  background:
+    radial-gradient(circle at 84% 18%, var(--project-accent-soft, rgba(125, 152, 255, 0.14)), transparent 42%),
+    linear-gradient(160deg, rgba(8, 14, 25, 0.92), rgba(8, 13, 23, 0.94));
+}
+
+.project-icon {
+  border-color: var(--project-ring, rgba(126, 160, 226, 0.24));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 24px rgba(2, 6, 14, 0.42);
+}
+
+.system-step,
+.principle-item {
+  border-color: rgba(126, 160, 226, 0.26);
+  background: linear-gradient(160deg, rgba(10, 16, 28, 0.92), rgba(8, 13, 23, 0.94));
+}
+
+.system-step,
+.system-step p,
+.principle-item,
+.principle-item p {
+  color: rgba(220, 232, 250, 0.88);
+}
+
+.system-step__label,
+.principle-item__index {
+  color: #88eaff;
+}
+
+.principle-item__index {
+  background: rgba(136, 234, 255, 0.12);
+  border: 1px solid rgba(136, 234, 255, 0.24);
+}
