@@ -3371,3 +3371,145 @@ body[data-page="home"] .page {
   background: rgba(8, 14, 24, 0.74);
   color: rgba(220, 233, 252, 0.9);
 }
+
+/* Final polish pass: consistency, spacing, interaction quality */
+:root {
+  --focus-ring: rgba(124, 187, 255, 0.42);
+  --focus-ring-soft: rgba(124, 187, 255, 0.18);
+}
+
+.page {
+  margin-top: 34px;
+}
+
+.section,
+.hero {
+  scroll-margin-top: 128px;
+}
+
+.section-head {
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.section-head h2 {
+  line-height: 1.08;
+}
+
+.button,
+.guide-chip,
+.compare-chip,
+.filter-chip,
+.pill,
+.stack-pill,
+.header-chip,
+.tiny-status,
+.dock-chip {
+  min-height: 46px;
+  border-color: rgba(120, 158, 226, 0.26);
+}
+
+.button {
+  letter-spacing: 0.01em;
+}
+
+.button--ghost {
+  border-color: rgba(120, 158, 226, 0.3);
+  background: rgba(8, 14, 24, 0.72);
+  color: rgba(236, 244, 255, 0.94);
+}
+
+.button--ghost:hover,
+.button--ghost:focus-visible {
+  background: rgba(10, 17, 30, 0.84);
+}
+
+.guide-chip,
+.compare-chip,
+.filter-chip,
+.pill,
+.stack-pill {
+  background: rgba(9, 15, 26, 0.74);
+  color: rgba(219, 232, 252, 0.9);
+}
+
+.guide-chip.is-active,
+.compare-chip.is-active,
+.filter-chip.is-active {
+  color: #f5f9ff;
+  background:
+    linear-gradient(135deg, rgba(44, 120, 177, 0.66), rgba(88, 111, 197, 0.6)),
+    rgba(8, 14, 24, 0.8);
+  border-color: rgba(136, 187, 255, 0.34);
+  box-shadow:
+    inset 0 0 0 1px rgba(154, 204, 255, 0.26),
+    0 12px 24px rgba(2, 6, 14, 0.36);
+}
+
+a:focus-visible,
+button:focus-visible,
+.main-nav__link:focus-visible,
+.text-link:focus-visible,
+.cta-link:focus-visible,
+.contact-card__link:focus-visible,
+.command-item:focus-visible,
+.field:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px var(--focus-ring),
+    0 0 0 5px var(--focus-ring-soft);
+}
+
+.panel,
+.route-card,
+.resume-card,
+.contact-card,
+.system-card,
+.principle-card,
+.case-card,
+.compare-column,
+.metric-card,
+.highlight-card,
+.thread-message,
+.case-card__proof,
+.project-signal-card,
+.case-card__detail-item,
+.compare-list__item,
+.footer-route-card {
+  box-shadow:
+    0 14px 34px rgba(2, 6, 14, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.panel-copy,
+.route-card p,
+.resume-card p,
+.contact-card p,
+.system-card p,
+.principle-card p,
+.timeline-card p,
+.feed-card p,
+.roadmap-card p,
+.insight-card p {
+  line-height: 1.68;
+}
+
+@media (max-width: 760px) {
+  .page {
+    margin-top: 24px;
+  }
+
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .button,
+  .guide-chip,
+  .compare-chip,
+  .filter-chip,
+  .pill,
+  .stack-pill {
+    min-height: 44px;
+  }
+}
