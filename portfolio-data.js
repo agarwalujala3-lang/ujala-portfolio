@@ -13,22 +13,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "Ujala_Agarwal_Resume.pdf",
+        href: "Ujala_Agarwal_Resume.pdf?v=20260505b",
         note: "Use this if you want a balanced overview of my work.",
       },
       {
         label: "Software Resume",
-        href: "Ujala_Agarwal_Resume_Software.pdf",
+        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260505b",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "Ujala_Agarwal_Resume_Cloud.pdf",
+        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260505b",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "Ujala_Agarwal_Resume_Frontend.pdf",
+        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260505b",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -569,7 +569,7 @@ window.UJOS_DATA = {
       "Sharper architecture framing and guided explanations for LumenStack AI",
     ],
     nextExperiments: [
-      "Cloud Attendance analytics and multi-role insights layer",
+      "Safety workflow analytics and multi-role insights layer",
       "Portfolio runtime intelligence and fresher repo-aware project narration",
       "Production-style deployment patterns with CI/CD and observability",
     ],
