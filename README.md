@@ -130,8 +130,8 @@ http://127.0.0.1:4173
   - cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS or silent SOS escalation
 - LumenStack AI: https://lumenstack-ai.onrender.com
   - AI-powered codebase analysis with diagrams, compare mode, exports, and guided explanations
-- Cloud Attendance Platform: https://github.com/agarwalujala3-lang/cloud-attendance-platform
-  - serverless attendance workflow with role-based auth, Lambda APIs, and DynamoDB-backed records
+- Amazon UI Clone: https://d22imnrsdj0eeu.cloudfront.net
+  - dense commerce-style interface recreation that proves visual layout discipline and frontend execution control
 - GitHub Profile: https://github.com/agarwalujala3-lang
 - LinkedIn: https://www.linkedin.com/in/ujala-agarwal-30aa28283/
 
@@ -140,4 +140,4 @@ http://127.0.0.1:4173
 - `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and live dashboard reporting
 - `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud-hosted deployment
 - `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
-- `Cloud Attendance Platform` reinforces AWS-first backend depth through serverless attendance APIs, role-based access, and scalable persistence
+- `Amazon UI Clone` reinforces frontend execution depth through dense layout replication, spacing control, and commercial UI composition
