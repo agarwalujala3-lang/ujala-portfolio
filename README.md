@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://d2ikqjoiirpv7k.cloudfront.net">Live Portfolio</a> |
+  <a href="https://agarwalujala3-lang.github.io/ujala-portfolio">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
   <a href="https://d2ijsg7huf2h2p.cloudfront.net/app.html?v=20260331">ReceiptPulse</a>
@@ -120,7 +120,7 @@ http://127.0.0.1:4173
 
 ## Current Live Portfolio
 
-- Portfolio: https://d2ikqjoiirpv7k.cloudfront.net
+- Portfolio: https://agarwalujala3-lang.github.io/ujala-portfolio
 
 ## Key Proof Links
 
@@ -141,3 +141,4 @@ http://127.0.0.1:4173
 - `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud-hosted deployment
 - `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
 - `Amazon UI Clone` reinforces frontend execution depth through dense layout replication, spacing control, and commercial UI composition
+
