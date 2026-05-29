@@ -13,22 +13,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "Ujala_Agarwal_Resume.pdf?v=20260527a",
+        href: "Ujala_Agarwal_Resume.pdf?v=20260529a",
         note: "Use this if you want a balanced overview of my work.",
       },
       {
         label: "Software Resume",
-        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260527a",
+        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260529a",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260527a",
+        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260529a",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260527a",
+        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260529a",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -39,11 +39,11 @@ window.UJOS_DATA = {
       kicker: "Fast Route",
       heroTitle: "See my strongest proof in two minutes.",
       heroLead:
-        "This route removes noise and shows the most important things first: live products, deployed systems, and the project work that best represents how I build.",
+        "This route removes noise and shows the most important things first: repo-verified products, deployed systems, and the project work that best represents how I build.",
       summary:
         "Use this view if you want a fast read on my projects, stack, and role fit.",
       highlights: [
-        "Live deployed projects",
+        "Repo-verified flagship projects",
         "AWS + AI + full-stack proof",
         "Resume routing by role",
       ],
@@ -81,9 +81,9 @@ window.UJOS_DATA = {
       highlights: [
         "Product-first project framing",
         "Design + engineering overlap",
-        "Memorable UI with live proof",
+        "Memorable UI with clear proof",
       ],
-      focus: ["Product thinking", "Live demos", "Cloud execution", "Cross-platform delivery"],
+      focus: ["Product thinking", "Repo proof", "Cloud execution", "Cross-platform delivery"],
       projectOrder: ["safety-copilot", "receiptpulse", "lumenstack", "amazon-ui-clone"],
       picoGreeting:
         "Founder route online. I'll show you how I think about product feel and shipping quality.",
@@ -130,7 +130,7 @@ window.UJOS_DATA = {
       id: "receiptpulse",
       title: "ReceiptPulse",
       kind: "Flagship System",
-      status: "Live",
+      status: "GitHub Proof",
       priority: 100,
       featured: true,
       lensPriority: {
@@ -165,9 +165,9 @@ window.UJOS_DATA = {
         manifestRequired: true,
       },
       summary:
-        "I built ReceiptPulse as a live AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
+        "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
       proof:
-        "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and full live deployment.",
+        "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and product-grade dashboard delivery.",
       stack: [
         "AWS Lambda",
         "S3",
@@ -178,9 +178,8 @@ window.UJOS_DATA = {
         "CloudFront",
         "JavaScript",
       ],
-      tags: ["aws", "backend", "full-stack", "live"],
+      tags: ["aws", "backend", "full-stack", "repo"],
       links: {
-        live: "https://d2ijsg7huf2h2p.cloudfront.net",
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [
@@ -194,10 +193,10 @@ window.UJOS_DATA = {
         "Lambda processes files, validates them, and calls Textract.",
         "The data is normalized, categorized, labeled, and stored in DynamoDB.",
         "API routes power uploads, history, duplicate decisions, rename/delete actions, and analytics views.",
-        "CloudFront serves the frontend experience.",
+        "The dashboard code is versioned with the repo so the product flow remains inspectable while hosting changes.",
       ],
       tradeoff:
-        "I optimized for a believable product-style AWS build with strong user flow first; budget analysis and deeper reporting are the next layer.",
+        "I optimized for a believable product-style AWS build with strong user flow first; deeper reporting and a portable redeploy path are the next layer.",
     },
     {
       enabled: true,
@@ -275,7 +274,7 @@ window.UJOS_DATA = {
       id: "safety-copilot",
       title: "Safety Copilot",
       kind: "Cloud Safety Platform",
-      status: "Live",
+      status: "GitHub Proof",
       priority: 90,
       featured: true,
       lensPriority: {
@@ -305,7 +304,7 @@ window.UJOS_DATA = {
       summary:
         "I built Safety Copilot as a cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS escalation across web and Android surfaces.",
       proof:
-        "This project proves multi-surface product execution, API orchestration, incident workflows, and AWS-hosted deployment.",
+        "This project proves multi-surface product execution, API orchestration, and incident workflows across web and Android surfaces.",
       stack: [
         "React",
         "Vite",
@@ -315,9 +314,8 @@ window.UJOS_DATA = {
         "CloudFront",
         "Flutter",
       ],
-      tags: ["aws", "full-stack", "product", "live"],
+      tags: ["aws", "full-stack", "product", "repo"],
       links: {
-        live: "https://d1j7xq1aihw0g3.cloudfront.net",
         repo: "https://github.com/agarwalujala3-lang/Safety-Copilot",
       },
       details: [
@@ -326,9 +324,9 @@ window.UJOS_DATA = {
         "I designed the UI to keep high-risk actions clear, fast, and resilient under stress scenarios.",
       ],
       architecture: [
-        "React web and Flutter Android clients connect to an AWS-hosted API layer.",
+        "React web and Flutter Android clients connect to a cloud API layer.",
         "Trip, alert, and trusted-circle workflows are orchestrated through Node.js service modules and Lambda-style runtime paths.",
-        "API Gateway routes and cloud hosting keep the system public, testable, and demo-ready.",
+        "API Gateway routes and service modules keep the system structured around clear safety workflows.",
         "Incident actions update shared state for safety visibility across surfaces.",
       ],
       tradeoff:
@@ -339,7 +337,7 @@ window.UJOS_DATA = {
       id: "amazon-ui-clone",
       title: "Amazon UI Clone",
       kind: "Frontend Build",
-      status: "Live",
+      status: "GitHub Proof",
       priority: 82,
       featured: false,
       lensPriority: {
@@ -378,9 +376,8 @@ window.UJOS_DATA = {
       proof:
         "This project proves visual composition discipline, spacing control, and my ability to recreate complex real-world layouts cleanly.",
       stack: ["HTML", "CSS"],
-      tags: ["frontend", "ui", "live"],
+      tags: ["frontend", "ui", "repo"],
       links: {
-        live: "https://d22imnrsdj0eeu.cloudfront.net",
         repo: "https://github.com/agarwalujala3-lang/Amazon-UI-Clone",
       },
       details: [
@@ -390,7 +387,7 @@ window.UJOS_DATA = {
       architecture: [
         "Static HTML sections define the structure.",
         "CSS handles layout, spacing, and responsive adjustments.",
-        "Deployment through CloudFront keeps it accessible as a live demo.",
+        "The repo keeps the layout work inspectable through static HTML and CSS.",
       ],
       tradeoff:
         "This build is intentionally frontend-only; its strength is UI control, not backend depth.",
@@ -483,7 +480,7 @@ window.UJOS_DATA = {
       phase: "Product Layer",
       title: "I started turning technical systems into product experiences",
       text:
-        "Projects like ReceiptPulse, Safety Copilot, and LumenStack pushed me toward stronger UX, live hosting, and better project storytelling.",
+        "Projects like ReceiptPulse, Safety Copilot, and LumenStack pushed me toward stronger UX, cleaner hosting choices, and better project storytelling.",
     },
     {
       phase: "Current Direction",
@@ -507,14 +504,14 @@ window.UJOS_DATA = {
         label: "Best flagship project",
         title: "If you only open one project, start with ReceiptPulse.",
         answer:
-          "ReceiptPulse is the strongest single proof of my current direction because it combines AWS architecture, private user flow, backend logic, product design, deployment, and live usability in one system.",
+          "ReceiptPulse is the strongest single proof of my current direction because it combines AWS architecture, private user flow, backend logic, product design, deployment thinking, and product usability in one system.",
         routeLabel: "Open ReceiptPulse dossier",
         routeHref: "work.html",
       },
       {
         id: "cloud-work",
         label: "Cloud work",
-        title: "My cloud-heavy work centers on live AWS systems.",
+        title: "My cloud-heavy work centers on AWS-backed product systems.",
         answer:
           "ReceiptPulse shows the clearest AWS signal through Lambda, S3, DynamoDB, API Gateway, Cognito, Textract, and CloudFront. It is the best route if you want to understand my serverless, event-driven, and user-scoped product thinking.",
         routeLabel: "Open Systems route",
@@ -551,7 +548,7 @@ window.UJOS_DATA = {
   },
   brain: {
     intro:
-      "This is the live portfolio brain. It is for direct questions when you want answers in my voice instead of scanning every page manually.",
+      "This is the built-in portfolio guide. It is for direct questions when you want answers in my voice instead of scanning every page manually.",
     prompts: [
       "Which project should I open first?",
       "What AWS work have you built?",
@@ -560,7 +557,7 @@ window.UJOS_DATA = {
       "What are you planning to build next?",
     ],
     fallback:
-      "The live brain is not connected yet, so the portfolio is falling back to the static guide and project routes.",
+      "The portfolio is running on the built-in guide and project routes, with no AWS runtime dependency.",
   },
   lab: {
     nowBuilding: [
@@ -574,7 +571,7 @@ window.UJOS_DATA = {
       "Production-style deployment patterns with CI/CD and observability",
     ],
     toolkit: [
-      "Python",
+      "Java",
       "C",
       "HTML",
       "CSS",

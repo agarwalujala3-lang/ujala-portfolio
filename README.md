@@ -10,7 +10,7 @@
   <a href="https://agarwalujala3-lang.github.io/ujala-portfolio">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
-  <a href="https://d2ijsg7huf2h2p.cloudfront.net/app.html?v=20260331">ReceiptPulse</a>
+  <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">ReceiptPulse Repo</a>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
 
 # Ujala Agarwal Portfolio
 
-Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around live proof, especially ReceiptPulse, Safety Copilot, and LumenStack AI, rather than static project cards alone.
+Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around repo-verified proof, especially ReceiptPulse, Safety Copilot, and LumenStack AI, rather than static project cards alone.
 
 ## Core Idea
 
@@ -122,15 +122,24 @@ http://127.0.0.1:4173
 
 - Portfolio: https://agarwalujala3-lang.github.io/ujala-portfolio
 
+## Free Hosting
+
+This portfolio is configured for free static hosting with GitHub Pages and a Render Blueprint. It has no AWS deploy requirement.
+
+- GitHub Pages workflow: `.github/workflows/deploy-pages.yml`
+- Render Blueprint: `render.yaml`
+- Publish directory: `.`
+- Build command: not required
+
 ## Key Proof Links
 
-- ReceiptPulse: https://d2ijsg7huf2h2p.cloudfront.net
+- ReceiptPulse: https://github.com/agarwalujala3-lang/ReceiptPulse
   - private per-user receipt workspace with sign-in, OCR extraction, duplicate decision flow, label rename, and dashboard management
-- Safety Copilot: https://d1j7xq1aihw0g3.cloudfront.net
+- Safety Copilot: https://github.com/agarwalujala3-lang/Safety-Copilot
   - cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS or silent SOS escalation
 - LumenStack AI: https://lumenstack-ai.onrender.com
   - AI-powered codebase analysis with diagrams, compare mode, exports, and guided explanations
-- Amazon UI Clone: https://d22imnrsdj0eeu.cloudfront.net
+- Amazon UI Clone: https://github.com/agarwalujala3-lang/Amazon-UI-Clone
   - dense commerce-style interface recreation that proves visual layout discipline and frontend execution control
 - GitHub Profile: https://github.com/agarwalujala3-lang
 - LinkedIn: https://www.linkedin.com/in/ujala-agarwal-30aa28283/

@@ -27,7 +27,6 @@
         "CloudFront",
         "JavaScript"
       ],
-      "live": "https://d2ijsg7huf2h2p.cloudfront.net",
       "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
     },
     {
@@ -48,19 +47,11 @@
       "name": "Amazon UI Clone",
       "kind": "Frontend recreation project",
       "proof": "Shows dense layout control and commercial-style interface recreation with pure HTML and CSS.",
-      "live": "https://d22imnrsdj0eeu.cloudfront.net",
       "repo": "https://github.com/agarwalujala3-lang/Amazon-UI-Clone"
-    },
-    {
-      "name": "Valentine Interactive Web Experience",
-      "kind": "Creative interaction project",
-      "proof": "Shows personality, animation, media transitions, and playful frontend interaction.",
-      "live": "https://d3lrcs5kkqcuas.cloudfront.net",
-      "repo": "https://github.com/agarwalujala3-lang/VALENTINE-CHAUDHRAIN"
     }
   ],
   "systems": [
-    "ReceiptPulse flow: upload -> S3 -> Lambda -> Textract -> categorization and review logic -> DynamoDB -> dashboard via API and CloudFront.",
+    "ReceiptPulse flow: upload -> S3 -> Lambda -> Textract -> categorization and review logic -> DynamoDB -> dashboard via API.",
     "LumenStack AI flow: repo input -> parse files and manifests -> infer structure and dependencies -> generate diagrams and explanations -> present through a guided UI."
   ],
   "currentFocus": [

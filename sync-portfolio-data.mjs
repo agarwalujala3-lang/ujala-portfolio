@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const githubUser = "agarwalujala3-lang";
-const brainApiUrl = "https://d77odxxfwhwwpw4s3c4uvnwcdq0nifbp.lambda-url.ap-south-1.on.aws/";
+const brainApiUrl = "";
 const manifestPath = "portfolio-branding.json";
 const themeKeys = [
   "surface1",
@@ -76,6 +76,66 @@ function cleanStringArray(value) {
   }
 
   return value.map((item) => cleanString(item)).filter(Boolean);
+}
+
+function isAwsHostedUrl(value) {
+  const candidate = cleanString(value);
+  if (!candidate) {
+    return false;
+  }
+
+  try {
+    const host = new URL(candidate).hostname.toLowerCase();
+    return host.endsWith("cloudfront.net") || host.includes("amazonaws.com") || host.endsWith(".on.aws");
+  } catch {
+    return false;
+  }
+}
+
+function cleanLiveUrl(value) {
+  const candidate = cleanString(value);
+  return isAwsHostedUrl(candidate) ? "" : candidate;
+}
+
+function normalizeStatus(status, liveUrl) {
+  const candidate = cleanString(status);
+  if (!liveUrl && candidate.toLowerCase() === "live") {
+    return "GitHub Proof";
+  }
+  return candidate;
+}
+
+function normalizeTags(tags, liveUrl) {
+  const cleaned = cleanStringArray(tags).filter((tag) => liveUrl || tag.toLowerCase() !== "live");
+  if (!liveUrl && cleaned.length && !cleaned.some((tag) => tag.toLowerCase() === "repo")) {
+    cleaned.push("repo");
+  }
+  return cleaned;
+}
+
+function normalizeHostedCopy(value, liveUrl) {
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeHostedCopy(item, liveUrl)).filter(Boolean);
+  }
+
+  const copy = cleanString(value);
+  if (!copy || liveUrl) {
+    return copy;
+  }
+
+  return copy
+    .replace("live AWS receipt workspace", "AWS receipt workspace")
+    .replace("full live deployment", "product-grade dashboard delivery")
+    .replace("AWS-hosted deployment", "cloud product execution")
+    .replace("AWS-hosted API layer", "cloud API layer")
+    .replace(
+      "CloudFront serves the frontend experience.",
+      "The dashboard code is versioned with the repo so the product flow remains inspectable while hosting changes."
+    )
+    .replace(
+      "Deployment through CloudFront keeps it accessible as a live demo.",
+      "The repo keeps the layout work inspectable through static HTML and CSS."
+    );
 }
 
 function resolveManifestAsset(repo, branch, value) {
@@ -178,7 +238,7 @@ async function fetchGithubRepos() {
       language: repo.language || "Repo update",
       note: repo.description || `Updated ${formatDate(repo.pushed_at)}`,
       pushedAt: repo.pushed_at,
-      homepage: repo.homepage || "",
+      homepage: cleanLiveUrl(repo.homepage),
     })),
   };
 }
@@ -189,27 +249,28 @@ function normalizeProjectManifest(repo, manifest) {
   }
 
   const branch = cleanString(repo.default_branch) || "main";
+  const liveUrl = cleanLiveUrl(manifest.links?.live) || cleanLiveUrl(repo.homepage);
   const project = {
     enabled: true,
     id: cleanString(manifest.id),
     title: cleanString(manifest.title),
     kind: cleanString(manifest.kind),
-    status: cleanString(manifest.status),
+    status: normalizeStatus(manifest.status, liveUrl),
     priority: Number.isFinite(manifest.priority) ? manifest.priority : 0,
     featured: Boolean(manifest.featured),
     badge: cleanString(manifest.badge),
     icon: cleanString(manifest.icon),
     iconImage: resolveManifestAsset(repo, branch, manifest.iconImage),
     lockupImage: resolveManifestAsset(repo, branch, manifest.lockupImage),
-    summary: cleanString(manifest.summary),
-    proof: cleanString(manifest.proof),
-    details: cleanStringArray(manifest.details),
-    architecture: cleanStringArray(manifest.architecture),
-    tradeoff: cleanString(manifest.tradeoff),
-    tags: cleanStringArray(manifest.tags),
+    summary: normalizeHostedCopy(manifest.summary, liveUrl),
+    proof: normalizeHostedCopy(manifest.proof, liveUrl),
+    details: normalizeHostedCopy(manifest.details, liveUrl),
+    architecture: normalizeHostedCopy(manifest.architecture, liveUrl),
+    tradeoff: normalizeHostedCopy(manifest.tradeoff, liveUrl),
+    tags: normalizeTags(manifest.tags, liveUrl),
     stack: cleanStringArray(manifest.stack),
     links: {
-      live: cleanString(manifest.links?.live) || cleanString(repo.homepage),
+      live: liveUrl,
       repo: repo.html_url,
     },
     theme: {},
@@ -330,7 +391,7 @@ async function fetchLocalManifestCatalog() {
             pushed_at: commitIso,
             updated_at: commitIso,
             html_url: `https://github.com/${githubUser}/${repoName}`,
-            homepage: cleanString(manifest.links?.live),
+            homepage: cleanLiveUrl(manifest.links?.live),
             language: cleanString(manifest.stack?.[0]) || "Project update",
             description: cleanString(manifest.summary) || `Updated ${formatDate(commitIso)}`,
           };
@@ -438,9 +499,11 @@ async function main() {
       source,
     },
     brain: {
-      status: "live",
+      status: brainApiUrl ? "live" : "fallback",
       apiUrl: brainApiUrl,
-      label: "Live portfolio brain connected through a serverless backend with portfolio-aware fallback.",
+      label: brainApiUrl
+        ? "Live portfolio brain connected through a serverless backend with portfolio-aware fallback."
+        : "Static portfolio guide active on free hosting with no AWS runtime dependency.",
     },
     githubActivity,
     projects,

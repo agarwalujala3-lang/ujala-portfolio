@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ujala-portfolio
+    runtime: static
+    plan: free
+    buildCommand: "true"
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
