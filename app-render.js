@@ -51,7 +51,7 @@
       { id: "work", label: "Case Studies", href: "work.html", kicker: "Project route" },
       { id: "systems", label: "Systems", href: "systems.html", kicker: "Architecture route" },
       { id: "about", label: "Journey", href: "about.html", kicker: "Story route" },
-      { id: "playground", label: "Lab", href: "playground.html", kicker: "Live workshop" },
+      { id: "playground", label: "Lab", href: "playground.html", kicker: "Build workshop" },
       { id: "contact", label: "Contact", href: "contact.html", kicker: "Direct route" },
     ];
     const currentIndex = routes.findIndex((route) => route.id === document.body.dataset.page);
@@ -451,7 +451,7 @@
   }
 
   function projectDeliveryLabel(project) {
-    const parts = [project.links?.live ? "Live" : null, project.links?.repo ? "Repo" : null].filter(Boolean);
+    const parts = [project.links?.repo ? "Repo" : null].filter(Boolean);
     return parts.length ? parts.join(" + ") : "Portfolio";
   }
 
@@ -504,7 +504,7 @@
       {
         label: "Delivery",
         value: projectDeliveryLabel(project),
-        note: project.links?.live ? "Public proof is ready to open." : "Repository depth is the main proof.",
+        note: project.links?.repo ? "Repository proof is ready to inspect." : "Portfolio case study is the main proof.",
       },
       {
         label: "Strongest Signal",
@@ -603,7 +603,6 @@
           <button class="button button--ghost" type="button" data-compare-project="${App.escapeHtml(project.id)}">
             ${compareLabel}
           </button>
-          ${project.links?.live ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noreferrer">Live</a>` : ""}
           ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noreferrer">Repo</a>` : ""}
         </div>
       </article>
@@ -634,9 +633,9 @@
       const allProjects = data.projects || [];
       studioMetrics.innerHTML = [
         {
-          value: String(allProjects.filter((project) => project.status === "Live").length),
-          label: "Live Builds",
-          note: "Public projects you can open right now.",
+          value: String(allProjects.filter((project) => project.links?.repo).length),
+          label: "Repo Proof",
+          note: "Projects with public source and clear implementation proof.",
         },
         {
           value: String(allProjects.filter((project) => (project.tags || []).includes("aws")).length),
@@ -808,7 +807,6 @@
           ${project.badge ? `<p class="project-badge project-badge--modal">${App.escapeHtml(project.badge)}</p>` : ""}
           <p>${App.escapeHtml(project.summary)}</p>
           <div class="modal-link-row">
-            ${project.links?.live ? `<a class="button button--solid" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noreferrer">Open Live</a>` : ""}
             ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noreferrer">View Repo</a>` : ""}
           </div>
         </section>
@@ -847,12 +845,12 @@
     const data = App.getData();
     const systems = data.systems || [];
     const totalSteps = systems.reduce((sum, item) => sum + (item.steps || []).length, 0);
-    const liveProjects = (data.projects || []).filter((project) => project.status === "Live").length;
+    const proofProjects = (data.projects || []).filter((project) => project.links?.repo).length;
 
     summaryGrid.innerHTML = [
       { value: String(systems.length), label: "System routes" },
       { value: String(totalSteps), label: "Flow steps" },
-      { value: String(liveProjects), label: "Live products" },
+      { value: String(proofProjects), label: "Repo-backed" },
       { value: App.getModeConfig().label, label: "Current lens" },
     ]
       .map(

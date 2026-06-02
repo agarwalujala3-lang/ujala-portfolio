@@ -92,7 +92,6 @@ function buildLocalFallback(question, runtimeContext = {}) {
       `I would open ${receiptPulse.name} first.`,
       "",
       `It is my strongest proof of cloud and backend execution because it shows ${receiptPulse.proof.toLowerCase()}`,
-      `Live: ${receiptPulse.live}`,
       `Repo: ${receiptPulse.repo}`,
     ].join("\n");
   }
@@ -103,7 +102,7 @@ function buildLocalFallback(question, runtimeContext = {}) {
       "",
       receiptPulse.proof,
       `Core stack: ${receiptPulse.stack.join(", ")}`,
-      `Live: ${receiptPulse.live}`,
+      `Repo: ${receiptPulse.repo}`,
     ].join("\n");
   }
 
@@ -113,7 +112,7 @@ function buildLocalFallback(question, runtimeContext = {}) {
       "",
       lumenStack.proof,
       `Core stack: ${lumenStack.stack.join(", ")}`,
-      `Live: ${lumenStack.live}`,
+      `Repo: ${lumenStack.repo}`,
     ].join("\n");
   }
 
@@ -140,7 +139,7 @@ function buildLocalFallback(question, runtimeContext = {}) {
     const liveUpdates = runtimeGithubActivity.slice(0, 3).map((entry) => `${entry.name}: ${entry.note || "Updated recently"}`);
     const currentProjectFocus = runtimeProjects
       .slice(0, 3)
-      .map((project) => `${project.title}: ${project.proof || "Strong live portfolio signal."}`);
+      .map((project) => `${project.title}: ${project.proof || "Strong portfolio signal."}`);
 
     return [
       syncedAtLabel ? `Latest runtime sync: ${syncedAtLabel}` : "Latest runtime sync: just now.",
@@ -148,7 +147,7 @@ function buildLocalFallback(question, runtimeContext = {}) {
       "Recent project updates:",
       bulletList(liveUpdates.length ? liveUpdates : context.currentFocus),
       "",
-      "Current strongest live focus:",
+      "Current strongest portfolio focus:",
       bulletList(currentProjectFocus.length ? currentProjectFocus : context.currentFocus),
     ].join("\n");
   }

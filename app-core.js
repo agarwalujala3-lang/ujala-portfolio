@@ -3,6 +3,8 @@
   const GITHUB_USER = "agarwalujala3-lang";
   const MANIFEST_PATH = "portfolio-branding.json";
   const RUNTIME_REFRESH_INTERVAL_MS = 10 * 60 * 1000;
+  const ALLOWED_PROJECT_REPOS = new Set(["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
+  const BLOCKED_PUBLIC_REPOS = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
   const THEME_KEYS = [
     "surface1",
     "surface2",
@@ -259,7 +261,16 @@
 
   function cleanLiveUrl(value) {
     const candidate = cleanString(value);
-    return isAwsHostedUrl(candidate) ? "" : candidate;
+    if (!candidate || isAwsHostedUrl(candidate)) {
+      return "";
+    }
+
+    try {
+      const host = new URL(candidate).hostname.toLowerCase();
+      return host === "agarwalujala3-lang.github.io" ? candidate : "";
+    } catch {
+      return "";
+    }
   }
 
   function normalizeStatus(status, liveUrl) {
@@ -457,6 +468,7 @@
 
     const repos = (await response.json())
       .filter((repo) => !repo.fork)
+      .filter((repo) => !BLOCKED_PUBLIC_REPOS.has(repo.name))
       .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at));
 
     const githubActivity = repos.slice(0, 6).map((repo) => ({
@@ -471,6 +483,10 @@
     const projects = (
       await Promise.all(
         repos.map(async (repo) => {
+          if (!ALLOWED_PROJECT_REPOS.has(repo.name)) {
+            return null;
+          }
+
           const branch = cleanString(repo.default_branch) || "main";
           const manifestUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${branch}/${MANIFEST_PATH}`;
 

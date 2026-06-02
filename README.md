@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://agarwalujala3-lang.github.io/ujala-portfolio">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
-  <a href="https://lumenstack-ai.onrender.com">LumenStack AI</a> |
+  <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">LumenStack AI Repo</a> |
   <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">ReceiptPulse Repo</a>
 </p>
 
@@ -137,10 +137,8 @@ This portfolio is configured for free static hosting with GitHub Pages and a Ren
   - private per-user receipt workspace with sign-in, OCR extraction, duplicate decision flow, label rename, and dashboard management
 - Safety Copilot: https://github.com/agarwalujala3-lang/Safety-Copilot
   - cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS or silent SOS escalation
-- LumenStack AI: https://lumenstack-ai.onrender.com
+- LumenStack AI: https://github.com/agarwalujala3-lang/LumenStack-AI
   - AI-powered codebase analysis with diagrams, compare mode, exports, and guided explanations
-- Amazon UI Clone: https://github.com/agarwalujala3-lang/Amazon-UI-Clone
-  - dense commerce-style interface recreation that proves visual layout discipline and frontend execution control
 - GitHub Profile: https://github.com/agarwalujala3-lang
 - LinkedIn: https://www.linkedin.com/in/ujala-agarwal-30aa28283/
 
@@ -149,5 +147,4 @@ This portfolio is configured for free static hosting with GitHub Pages and a Ren
 - `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and live dashboard reporting
 - `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud-hosted deployment
 - `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
-- `Amazon UI Clone` reinforces frontend execution depth through dense layout replication, spacing control, and commercial UI composition
 

@@ -6,6 +6,8 @@ const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const githubUser = "agarwalujala3-lang";
 const brainApiUrl = "";
 const manifestPath = "portfolio-branding.json";
+const allowedProjectRepos = new Set(["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
+const blockedPublicRepos = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
 const themeKeys = [
   "surface1",
   "surface2",
@@ -94,7 +96,16 @@ function isAwsHostedUrl(value) {
 
 function cleanLiveUrl(value) {
   const candidate = cleanString(value);
-  return isAwsHostedUrl(candidate) ? "" : candidate;
+  if (!candidate || isAwsHostedUrl(candidate)) {
+    return "";
+  }
+
+  try {
+    const host = new URL(candidate).hostname.toLowerCase();
+    return host === "agarwalujala3-lang.github.io" ? candidate : "";
+  } catch {
+    return "";
+  }
 }
 
 function normalizeStatus(status, liveUrl) {
@@ -228,6 +239,7 @@ async function fetchGithubRepos() {
 
   const repos = (await response.json())
     .filter((repo) => !repo.fork)
+    .filter((repo) => !blockedPublicRepos.has(repo.name))
     .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at));
 
   return {
@@ -305,6 +317,10 @@ async function fetchProjectCatalog(repos) {
 
   await Promise.all(
     repos.map(async (repo) => {
+      if (!allowedProjectRepos.has(repo.name)) {
+        return;
+      }
+
       const branch = cleanString(repo.default_branch) || "main";
       const manifestUrl = `https://raw.githubusercontent.com/${githubUser}/${repo.name}/${branch}/${manifestPath}`;
 
@@ -363,6 +379,10 @@ async function fetchLocalManifestCatalog() {
       .map(async (entry) => {
         const repoName = cleanString(entry.name);
         if (!repoName || repoName === path.basename(rootDir)) {
+          return;
+        }
+
+        if (!allowedProjectRepos.has(repoName)) {
           return;
         }
 

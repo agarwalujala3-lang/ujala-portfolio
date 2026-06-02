@@ -77,7 +77,6 @@
         `Start with ${primaryProject?.title || "the top project in this lens"}.`,
         "",
         primaryProject?.proof || "It is the clearest proof in the current view based on lens and priority.",
-        primaryProject?.links?.live ? `Live: ${primaryProject.links.live}` : "",
       ]
         .filter(Boolean)
         .join("\n");
@@ -278,14 +277,6 @@
           App.openProjectModal(project.id);
         },
       })),
-      ...projects
-        .filter((project) => project.links?.live)
-        .map((project) => ({
-          key: `live-${project.id}`,
-          label: `Open ${project.title} Live`,
-          hint: "Launch the live version",
-          action: () => App.openExternal(project.links.live),
-        })),
       ...resumes.map((resume) => ({
         key: `resume-${resume.label}`,
         label: `Open ${resume.label}`,

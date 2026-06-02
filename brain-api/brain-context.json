@@ -40,14 +40,7 @@
         "OpenAI API",
         "Mermaid"
       ],
-      "live": "https://lumenstack-ai.onrender.com",
       "repo": "https://github.com/agarwalujala3-lang/LumenStack-AI"
-    },
-    {
-      "name": "Amazon UI Clone",
-      "kind": "Frontend recreation project",
-      "proof": "Shows dense layout control and commercial-style interface recreation with pure HTML and CSS.",
-      "repo": "https://github.com/agarwalujala3-lang/Amazon-UI-Clone"
     }
   ],
   "systems": [

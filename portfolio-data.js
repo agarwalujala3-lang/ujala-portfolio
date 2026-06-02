@@ -48,7 +48,7 @@ window.UJOS_DATA = {
         "Resume routing by role",
       ],
       focus: ["ReceiptPulse", "Safety Copilot", "LumenStack AI", "Resume pack"],
-      projectOrder: ["receiptpulse", "safety-copilot", "lumenstack", "amazon-ui-clone"],
+      projectOrder: ["receiptpulse", "safety-copilot", "lumenstack"],
       picoGreeting:
         "Recruiter route ready. I'll keep this fast, clear, and proof-first.",
     },
@@ -66,7 +66,7 @@ window.UJOS_DATA = {
         "Project tradeoffs and next steps",
       ],
       focus: ["System flows", "Code proof", "Deployment paths", "Tradeoffs"],
-      projectOrder: ["lumenstack", "receiptpulse", "amazon-ui-clone", "safety-copilot"],
+      projectOrder: ["lumenstack", "receiptpulse", "safety-copilot"],
       picoGreeting:
         "Engineer route locked. I'll point you toward flows, internals, and code proof.",
     },
@@ -84,7 +84,7 @@ window.UJOS_DATA = {
         "Memorable UI with clear proof",
       ],
       focus: ["Product thinking", "Repo proof", "Cloud execution", "Cross-platform delivery"],
-      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack", "amazon-ui-clone"],
+      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack"],
       picoGreeting:
         "Founder route online. I'll show you how I think about product feel and shipping quality.",
     },
@@ -99,10 +99,10 @@ window.UJOS_DATA = {
       highlights: [
         "Journey and learning path",
         "Current build momentum",
-        "Projects with real deployment proof",
+        "Projects with repo-backed proof",
       ],
       focus: ["Journey", "Learning", "Current products", "Contact"],
-      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack", "amazon-ui-clone"],
+      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack"],
       picoGreeting:
         "Friend route feels warmer. I'll show the story, not just the scorecard.",
     },
@@ -110,7 +110,7 @@ window.UJOS_DATA = {
   signals: [
     {
       label: "Flagship Builds",
-      value: "4",
+      value: "3",
       note: "GitHub-backed projects across AWS, AI, and product engineering work",
     },
     {
@@ -203,7 +203,7 @@ window.UJOS_DATA = {
       id: "lumenstack",
       title: "LumenStack AI",
       kind: "AI Tooling Product",
-      status: "Live",
+      status: "GitHub Proof",
       priority: 96,
       featured: true,
       lensPriority: {
@@ -250,9 +250,8 @@ window.UJOS_DATA = {
         "HTML",
         "CSS",
       ],
-      tags: ["ai", "backend", "full-stack", "live"],
+      tags: ["ai", "backend", "full-stack", "repo"],
       links: {
-        live: "https://lumenstack-ai.onrender.com",
         repo: "https://github.com/agarwalujala3-lang/LumenStack-AI",
       },
       details: [
@@ -331,66 +330,6 @@ window.UJOS_DATA = {
       ],
       tradeoff:
         "I prioritized end-to-end product flow and safety interactions first; deeper long-term persistence hardening is the next infrastructure layer.",
-    },
-    {
-      enabled: true,
-      id: "amazon-ui-clone",
-      title: "Amazon UI Clone",
-      kind: "Frontend Build",
-      status: "GitHub Proof",
-      priority: 82,
-      featured: false,
-      lensPriority: {
-        recruiter: 82,
-        engineer: 74,
-        founder: 95,
-        friend: 86,
-      },
-      accent: "violet",
-      icon: "AZ",
-      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/Amazon-UI-Clone/main/branding/portfolio-brand-mark.svg",
-      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/Amazon-UI-Clone/main/branding/portfolio-brand-lockup.svg",
-      badge: "Interface study",
-      theme: {
-        surface1: "rgba(252, 247, 239, 0.96)",
-        surface2: "rgba(246, 237, 224, 0.94)",
-        ring: "rgba(184, 128, 52, 0.16)",
-        glow: "rgba(238, 180, 72, 0.18)",
-        glowSoft: "rgba(217, 147, 74, 0.16)",
-        accentStrong: "#9c6222",
-        accentSoft: "rgba(156, 98, 34, 0.12)",
-        badgeBg: "rgba(156, 98, 34, 0.09)",
-        badgeBorder: "rgba(156, 98, 34, 0.16)",
-        proofBg: "linear-gradient(135deg, rgba(242, 183, 73, 0.14), rgba(215, 136, 52, 0.1))",
-        signalBg: "rgba(255, 251, 245, 0.76)",
-        signalBorder: "rgba(184, 128, 52, 0.12)",
-        iconBg: "linear-gradient(145deg, rgba(255, 243, 220, 1), rgba(246, 224, 185, 0.98))",
-      },
-      repoSync: {
-        repo: "Amazon-UI-Clone",
-        manifestPath: "portfolio-branding.json",
-        manifestRequired: true,
-      },
-      summary:
-        "I built this frontend recreation of Amazon's homepage to sharpen my layout control, section composition, and dense commercial UI structuring.",
-      proof:
-        "This project proves visual composition discipline, spacing control, and my ability to recreate complex real-world layouts cleanly.",
-      stack: ["HTML", "CSS"],
-      tags: ["frontend", "ui", "repo"],
-      links: {
-        repo: "https://github.com/agarwalujala3-lang/Amazon-UI-Clone",
-      },
-      details: [
-        "I focused on layout recreation and visual fidelity.",
-        "It strengthened my understanding of dense navigation and catalog-style interfaces.",
-      ],
-      architecture: [
-        "Static HTML sections define the structure.",
-        "CSS handles layout, spacing, and responsive adjustments.",
-        "The repo keeps the layout work inspectable through static HTML and CSS.",
-      ],
-      tradeoff:
-        "This build is intentionally frontend-only; its strength is UI control, not backend depth.",
     },
   ],
   systems: [
