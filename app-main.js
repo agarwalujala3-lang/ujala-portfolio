@@ -61,6 +61,41 @@
     App.goTo("work.html#compare-studio");
   }
 
+  function projectMatches(prompt, project) {
+    const terms = [
+      project.id,
+      project.title,
+      project.kind,
+      ...(project.tags || []),
+      ...(project.stack || []),
+    ]
+      .map((term) => String(term || "").toLowerCase())
+      .filter(Boolean);
+
+    return terms.some((term) => prompt.includes(term));
+  }
+
+  function findMentionedProject(prompt, projects) {
+    return projects.find((project) => projectMatches(prompt, project)) || null;
+  }
+
+  function formatProjectAnswer(project) {
+    if (!project) {
+      return "";
+    }
+
+    return [
+      `${project.title} is my ${String(project.kind || "project").toLowerCase()}.`,
+      "",
+      project.proof ? `Proof: ${project.proof}` : "",
+      project.summary ? `What it does: ${project.summary}` : "",
+      project.stack?.length ? `Core stack: ${project.stack.slice(0, 8).join(", ")}` : "",
+      project.links?.repo ? `Repo: ${project.links.repo}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+  }
+
   function buildClientBrainFallback(question) {
     const data = App.getData();
     const prompt = String(question || "").toLowerCase();
@@ -69,8 +104,51 @@
     const secondaryProject = projects[1] || null;
     const awsProject = projects.find((project) => (project.tags || []).includes("aws")) || primaryProject;
     const aiProject = projects.find((project) => (project.tags || []).includes("ai")) || secondaryProject || primaryProject;
+    const mentionedProject = findMentionedProject(prompt, projects);
     const runtime = data.runtime?.sync || {};
     const githubActivity = (data.runtime?.githubActivity || []).slice(0, 4);
+
+    if (mentionedProject && (prompt.includes("link") || prompt.includes("repo") || prompt.includes("github") || prompt.includes("open"))) {
+      return [
+        formatProjectAnswer(mentionedProject),
+        "",
+        "Best portfolio route: open Case Studies, then use the project card or Compare Studio.",
+      ].join("\n");
+    }
+
+    if (mentionedProject) {
+      return formatProjectAnswer(mentionedProject);
+    }
+
+    if (prompt.includes("resume") || prompt.includes("cv")) {
+      return [
+        "Use the resume route that matches the role:",
+        "",
+        ...(data.profile.resumes || []).map((resume) => `- ${resume.label}: ${resume.href}`),
+        "",
+        "The current resume set is aligned around Java, JavaScript, AWS/serverless, Node.js, frontend UI, and repo-backed projects.",
+      ].join("\n");
+    }
+
+    if (prompt.includes("safe") || prompt.includes("security") || prompt.includes("dangerous")) {
+      return [
+        "This portfolio is currently designed as a static-safe GitHub Pages site.",
+        "",
+        "- No AWS runtime dependency is required for the portfolio.",
+        "- The public app reads committed local data instead of scraping GitHub in the browser.",
+        "- Project proof links route to GitHub repos and the live portfolio route.",
+        "- A page-level CSP keeps browser connections restricted to self-hosted assets plus fonts.",
+      ].join("\n");
+    }
+
+    if (prompt.includes("compare") || prompt.includes("difference")) {
+      return [
+        "Use Compare Studio for the clearest side-by-side read.",
+        "",
+        `${primaryProject?.title || "Top project"} is strongest for ${primaryProject?.proof || "current proof"}.`,
+        `${secondaryProject?.title || "Second project"} adds ${secondaryProject?.proof || "secondary signal"}.`,
+      ].join("\n");
+    }
 
     if (prompt.includes("flagship") || prompt.includes("open first") || prompt.includes("best project")) {
       return [
@@ -121,9 +199,9 @@
       prompt.includes("roadmap") ||
       asksForFreshRuntime(question)
     ) {
-      const runtimeLabel = runtime.syncedAtLabel || "runtime sync in progress";
+      const runtimeLabel = runtime.syncedAtLabel || "the committed portfolio snapshot";
       return [
-        `Latest runtime sync: ${runtimeLabel}.`,
+        `Latest static snapshot: ${runtimeLabel}.`,
         "",
         "Recent GitHub updates:",
         ...(githubActivity.length
@@ -192,7 +270,7 @@
       App.state.brainHistory.push({ role: "assistant", text: buildClientBrainFallback(question) });
       App.renderBrainThread();
       if (statusText) {
-        statusText.textContent = "Answered from the latest runtime sync so this reflects current GitHub/project state.";
+        statusText.textContent = "Answered from the committed static snapshot so this reflects the current portfolio state.";
       }
       return;
     }
@@ -430,10 +508,10 @@
       const isInternalPage = !anchor.target && !/^https?:\/\//.test(href) && href.endsWith(".html");
       if (isInternalPage) {
         event.preventDefault();
-        App.triggerCurtain();
+        App.triggerCurtain("Opening route");
         window.setTimeout(() => {
           window.location.href = href;
-        }, 120);
+        }, 280);
       }
     });
 
@@ -485,6 +563,8 @@
 
   function init() {
     App.injectChrome();
+    App.initIntroSequence();
+    App.initPointerExperience();
     App.applyMode();
     App.syncCurrentNav();
     hydrateCompareIds();

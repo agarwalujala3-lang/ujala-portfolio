@@ -63,7 +63,7 @@
     "LumenStack AI flow: repo input -> parse files and manifests -> infer structure and dependencies -> generate diagrams and explanations -> present through a guided UI."
   ],
   "currentFocus": [
-    "Keeping project manifests, branding assets, and portfolio runtime sync aligned with current repos.",
+    "Keeping project manifests, branding assets, and committed portfolio snapshots aligned with current repos.",
     "Hardening ReceiptPulse, Safety Copilot, and LumenStack AI as polished product-style systems.",
     "Improving deployment reliability, release quality, and recruiter-ready proof depth."
   ],

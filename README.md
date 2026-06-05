@@ -62,15 +62,15 @@ That file controls:
 - lab content
 - resume pack
 
-The runtime sync layer adds:
+The static snapshot layer adds:
 
 - GitHub activity feed
-- sync status metadata
+- snapshot status metadata
 - learning log
 - idea inbox
 - roadmap updates
 
-## Refresh Runtime Data
+## Refresh Snapshot Data
 
 ```bash
 node sync-portfolio-data.mjs

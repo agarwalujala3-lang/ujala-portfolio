@@ -1,5 +1,6 @@
 (function () {
   const MODE_KEY = "ujala-portfolio-mode";
+  const INTRO_KEY = "ujala-portfolio-intro-seen";
 
   function sanitizeCopy(value) {
     const replacements = [
@@ -312,7 +313,46 @@
       const curtain = document.createElement("div");
       curtain.className = "page-curtain is-active";
       curtain.id = "page-curtain";
+      curtain.innerHTML = `
+        <div class="page-curtain__grid" aria-hidden="true"></div>
+        <div class="page-curtain__core">
+          <span class="page-curtain__signal"></span>
+          <strong id="page-curtain-label">Switching route</strong>
+          <span>Ujala OS is loading the next surface.</span>
+        </div>
+      `;
       document.body.appendChild(curtain);
+    }
+
+    if (!document.querySelector(".intro-portal")) {
+      const intro = document.createElement("div");
+      intro.className = "intro-portal";
+      intro.id = "intro-portal";
+      intro.setAttribute("aria-hidden", "true");
+      intro.innerHTML = `
+        <div class="intro-portal__matrix" aria-hidden="true"></div>
+        <div class="intro-portal__panel">
+          <span class="intro-portal__status">Static-safe GitHub Pages build</span>
+          <h2>Welcome to Ujala's build world.</h2>
+          <p>Cloud systems, AI tooling, and product-grade interfaces are coming online.</p>
+          <div class="intro-portal__scan">
+            <span></span>
+          </div>
+          <div class="intro-portal__boot">
+            <span>Verifying repo proof</span>
+            <span>Loading project routes</span>
+            <span>Opening portfolio OS</span>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(intro);
+    }
+
+    if (!document.querySelector(".cursor-orb")) {
+      const cursor = document.createElement("div");
+      cursor.className = "cursor-orb";
+      cursor.setAttribute("aria-hidden", "true");
+      document.body.appendChild(cursor);
     }
 
     if (!document.querySelector(".command-palette")) {
@@ -369,12 +409,108 @@
     }
   }
 
-  function triggerCurtain() {
+  function triggerCurtain(label = "Switching route") {
+    const labelNode = document.getElementById("page-curtain-label");
+    if (labelNode) {
+      labelNode.textContent = label;
+    }
     document.getElementById("page-curtain")?.classList.add("is-active");
   }
 
   function releaseCurtain() {
     document.getElementById("page-curtain")?.classList.remove("is-active");
+  }
+
+  function initIntroSequence() {
+    const intro = document.getElementById("intro-portal");
+    if (!intro || intro.dataset.bound === "true") {
+      return;
+    }
+
+    intro.dataset.bound = "true";
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let alreadySeen = false;
+
+    try {
+      alreadySeen = window.sessionStorage.getItem(INTRO_KEY) === "true";
+    } catch {
+      alreadySeen = false;
+    }
+
+    if (reducedMotion || alreadySeen) {
+      intro.hidden = true;
+      return;
+    }
+
+    document.body.classList.add("intro-lock");
+    intro.classList.add("is-active");
+
+    window.setTimeout(() => {
+      intro.classList.add("is-dismissing");
+      document.body.classList.remove("intro-lock");
+      try {
+        window.sessionStorage.setItem(INTRO_KEY, "true");
+      } catch {
+        // Ignore storage failures.
+      }
+    }, 1550);
+
+    window.setTimeout(() => {
+      intro.hidden = true;
+      intro.classList.remove("is-active", "is-dismissing");
+    }, 2050);
+  }
+
+  function initPointerExperience() {
+    if (document.body.dataset.pointerExperience === "true") {
+      return;
+    }
+
+    document.body.dataset.pointerExperience = "true";
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const cursor = document.querySelector(".cursor-orb");
+
+    if (!reducedMotion && cursor) {
+      let cursorX = window.innerWidth / 2;
+      let cursorY = window.innerHeight / 2;
+      let targetX = cursorX;
+      let targetY = cursorY;
+
+      const renderCursor = () => {
+        cursorX += (targetX - cursorX) * 0.2;
+        cursorY += (targetY - cursorY) * 0.2;
+        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+        window.requestAnimationFrame(renderCursor);
+      };
+
+      document.addEventListener("pointermove", (event) => {
+        targetX = event.clientX;
+        targetY = event.clientY;
+        document.body.style.setProperty("--cursor-x", `${event.clientX}px`);
+        document.body.style.setProperty("--cursor-y", `${event.clientY}px`);
+      }, { passive: true });
+
+      document.addEventListener("pointerover", (event) => {
+        const interactive = event.target.closest("a, button, input, textarea, [data-command-action], [data-open-project]");
+        cursor.classList.toggle("is-interactive", Boolean(interactive));
+      }, { passive: true });
+
+      window.requestAnimationFrame(renderCursor);
+    }
+
+    document.addEventListener("click", (event) => {
+      const interactive = event.target.closest("a, button, [data-copy], [data-open-project], [data-command-action]");
+      if (!interactive || reducedMotion) {
+        return;
+      }
+
+      const pulse = document.createElement("span");
+      pulse.className = "click-pulse";
+      pulse.style.left = `${event.clientX}px`;
+      pulse.style.top = `${event.clientY}px`;
+      document.body.appendChild(pulse);
+      window.setTimeout(() => pulse.remove(), 620);
+    }, { passive: true });
   }
 
   function openCommandPalette() {
@@ -473,6 +609,10 @@
   }
 
   function updateViewportUi() {
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.min(window.scrollY / maxScroll, 1);
+    document.body.style.setProperty("--scroll-progress", progress.toFixed(3));
+    document.body.dataset.scrollDepth = progress > 0.66 ? "deep" : progress > 0.28 ? "mid" : "top";
     updateScrollProgress();
     document.querySelector(".masthead")?.classList.toggle("is-compact", window.scrollY > 18);
     document.querySelector(".floating-dock")?.classList.toggle("is-obscured", shouldObscureFloatingDock());
@@ -646,10 +786,10 @@
   }
 
   function goTo(url) {
-    triggerCurtain();
+    triggerCurtain("Opening route");
     window.setTimeout(() => {
       window.location.href = url;
-    }, 120);
+    }, 280);
   }
 
   function openExternal(url) {
@@ -696,6 +836,8 @@
     initHeroDepthScene,
     initSurfaceSpotlights,
     initFloatingDockObserver,
+    initIntroSequence,
+    initPointerExperience,
     goTo,
     openExternal,
     escapeHtml,

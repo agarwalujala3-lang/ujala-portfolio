@@ -181,8 +181,8 @@
   "learningLog": [
     {
       "phase": "Now",
-      "title": "Operating a live repo-synced portfolio",
-      "note": "I am actively maintaining runtime sync, manifest branding, and project storytelling so live proof stays accurate."
+      "title": "Operating a static-safe portfolio OS",
+      "note": "I am actively maintaining committed project snapshots, branding assets, and project storytelling so live proof stays accurate without unsafe browser-side API calls."
     },
     {
       "phase": "Current Focus",
@@ -206,7 +206,7 @@
       "note": "Expand analytics depth, category insights, and decision tooling so the product reads as stronger operations software."
     },
     {
-      "label": "Runtime Brand Sync",
+      "label": "Static Brand Snapshot",
       "note": "Keep manifest logos, accents, and project metadata reflected in portfolio cards with minimal manual maintenance."
     },
     {
@@ -222,8 +222,8 @@
     },
     {
       "stage": "Stage 02",
-      "title": "Keep portfolio runtime truly repo-driven",
-      "note": "Continue aligning manifests, branding assets, and runtime sync so project cards, logos, and themes stay current automatically."
+      "title": "Keep portfolio proof truly repo-driven",
+      "note": "Continue aligning manifests, branding assets, and committed snapshots so project cards, logos, themes, and resume links stay current."
     },
     {
       "stage": "Stage 03",

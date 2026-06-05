@@ -1,8 +1,8 @@
 [
   {
     "phase": "Now",
-    "title": "Operating a live repo-synced portfolio",
-    "note": "I am actively maintaining runtime sync, manifest branding, and project storytelling so live proof stays accurate."
+    "title": "Operating a static-safe portfolio OS",
+    "note": "I am actively maintaining committed project snapshots, manifest branding, and project storytelling so live proof stays accurate without unsafe browser-side API calls."
   },
   {
     "phase": "Current Focus",
@@ -17,6 +17,6 @@
   {
     "phase": "System Habit",
     "title": "Keeping repos and portfolio aligned",
-    "note": "I am using manifest-driven updates so future project changes reflect in the portfolio with less manual rework."
+    "note": "I am using committed metadata snapshots so future project changes reflect in the portfolio with less manual rework."
   }
 ]

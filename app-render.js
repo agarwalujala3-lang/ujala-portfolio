@@ -250,7 +250,9 @@
     }
 
     if (heroSync) {
-      heroSync.textContent = runtime.syncedAtLabel || "Using bundled portfolio data";
+      heroSync.textContent = runtime.syncedAtLabel
+        ? `Static snapshot refreshed ${runtime.syncedAtLabel}`
+        : "Using bundled static portfolio data";
     }
 
     if (heroSceneProof) {
@@ -262,14 +264,16 @@
     }
 
     if (heroRuntimeLabel) {
-      heroRuntimeLabel.textContent = runtime.status === "synced" ? "Runtime synced" : "Bundled runtime";
+      heroRuntimeLabel.textContent = "Static snapshot";
     }
 
     if (runtimeGrid) {
+      const repoProofCount = (data.projects || []).filter((project) => project.links?.repo).length || (data.projects || []).length || 0;
+      const brainMode = brain.status === "connected" ? "connected" : "local";
       runtimeGrid.innerHTML = [
-        { value: runtime.status || "static", label: "Runtime" },
-        { value: String(runtime.repoCount || (data.projects || []).length || 0), label: "Repos tracked" },
-        { value: brain.status || "fallback", label: "Brain mode" },
+        { value: "static", label: "Hosting mode" },
+        { value: String(repoProofCount), label: "Repo proofs" },
+        { value: brainMode, label: "Guide mode" },
         { value: mode.label, label: "Active lens" },
       ]
         .map(
