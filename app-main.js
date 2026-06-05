@@ -156,8 +156,6 @@
 
   async function askPortfolioBrain(question) {
     const freshnessQuestion = asksForFreshRuntime(question);
-    await App.refreshRuntimeFromGithub({ silent: true, force: freshnessQuestion });
-
     const data = App.getData();
     const runtimeBrain = (data.runtime && data.runtime.brain) || {};
     const statusText = document.getElementById("brain-status-text");
@@ -483,14 +481,6 @@
 
     window.addEventListener("scroll", App.updateViewportUi, { passive: true });
     window.addEventListener("resize", App.updateViewportUi, { passive: true });
-    window.addEventListener("focus", () => {
-      App.refreshRuntimeFromGithub({ silent: true, force: true });
-    });
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden) {
-        App.refreshRuntimeFromGithub({ silent: true, force: true });
-      }
-    });
   }
 
   function init() {
@@ -505,10 +495,6 @@
     App.initHeroDepthScene();
     App.initSurfaceSpotlights();
     App.updateViewportUi();
-    window.setInterval(() => {
-      App.refreshRuntimeFromGithub({ silent: true });
-    }, 2 * 60 * 1000);
-
     window.requestAnimationFrame(() => {
       document.querySelectorAll(".reveal--hero").forEach((item) => item.classList.add("is-visible"));
       App.releaseCurtain();

@@ -9,14 +9,14 @@
   },
   "summary": [
     "I build cloud systems, AI tools, and full-stack products.",
-    "My strongest portfolio pieces are ReceiptPulse and LumenStack AI.",
+    "My strongest portfolio pieces are ReceiptPulse, Safety Copilot, and LumenStack AI.",
     "I prefer product-style builds that combine technical depth with polished interface quality."
   ],
   "projects": [
     {
       "name": "ReceiptPulse",
       "kind": "AWS serverless receipt intelligence platform",
-      "proof": "Shows event-driven AWS architecture, receipt extraction, categorization, review routing, analytics, and live deployment.",
+      "proof": "Shows event-driven AWS architecture, receipt extraction, categorization, review routing, analytics, and repo-inspectable dashboard delivery.",
       "stack": [
         "AWS Lambda",
         "S3",
@@ -30,9 +30,23 @@
       "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
     },
     {
+      "name": "Safety Copilot",
+      "kind": "Cloud-first personal safety platform",
+      "proof": "Shows trusted-circle workflows, trip monitoring, SOS escalation, web plus Android product thinking, and cloud API workflow design.",
+      "stack": [
+        "React",
+        "Vite",
+        "Node.js",
+        "AWS API Gateway",
+        "AWS Lambda",
+        "Flutter"
+      ],
+      "repo": "https://github.com/agarwalujala3-lang/Safety-Copilot"
+    },
+    {
       "name": "LumenStack AI",
       "kind": "AI-powered codebase architecture analyzer",
-      "proof": "Shows repository parsing, dependency inference, Mermaid generation, AI explanation, and live product framing.",
+      "proof": "Shows repository parsing, dependency inference, Mermaid generation, AI explanation, and product-grade tool framing.",
       "stack": [
         "Node.js",
         "Express.js",
@@ -45,11 +59,12 @@
   ],
   "systems": [
     "ReceiptPulse flow: upload -> S3 -> Lambda -> Textract -> categorization and review logic -> DynamoDB -> dashboard via API.",
+    "Safety Copilot flow: trusted circle setup -> trip state -> alert escalation -> API workflow -> web and Android surfaces.",
     "LumenStack AI flow: repo input -> parse files and manifests -> infer structure and dependencies -> generate diagrams and explanations -> present through a guided UI."
   ],
   "currentFocus": [
-    "Keeping project manifests, branding assets, and portfolio runtime sync aligned with live repos.",
-    "Hardening ReceiptPulse and LumenStack AI as polished product-style systems.",
+    "Keeping project manifests, branding assets, and portfolio runtime sync aligned with current repos.",
+    "Hardening ReceiptPulse, Safety Copilot, and LumenStack AI as polished product-style systems.",
     "Improving deployment reliability, release quality, and recruiter-ready proof depth."
   ],
   "futureIdeas": [
@@ -67,6 +82,6 @@
     "Use only the facts in this context and the request metadata.",
     "If something is not in the portfolio context, say it is not part of my portfolio yet instead of inventing it.",
     "Keep answers concise, useful, and human.",
-    "Mention direct proof like project names, live demos, repos, or routes when helpful."
+    "Mention direct proof like project names, repos, or portfolio routes when helpful."
   ]
 }

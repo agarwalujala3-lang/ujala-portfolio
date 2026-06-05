@@ -13,22 +13,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "Ujala_Agarwal_Resume.pdf?v=20260529a",
+        href: "Ujala_Agarwal_Resume.pdf?v=20260605a",
         note: "Use this if you want a balanced overview of my work.",
       },
       {
         label: "Software Resume",
-        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260529a",
+        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260605a",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260529a",
+        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260605a",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260529a",
+        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260605a",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -141,8 +141,6 @@ window.UJOS_DATA = {
       },
       accent: "cyan",
       icon: "RP",
-      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-mark.svg",
-      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-lockup.svg",
       badge: "Flagship AWS build",
       theme: {
         surface1: "rgba(251, 245, 236, 0.96)",
@@ -214,8 +212,8 @@ window.UJOS_DATA = {
       },
       accent: "cyan",
       icon: "LS",
-      iconImage: "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-mark.svg",
-      lockupImage: "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-lockup.svg",
+      iconImage: "content/branding/lumenstack-brand-mark.svg",
+      lockupImage: "content/branding/lumenstack-brand-lockup.svg",
       badge: "Flagship AI build",
       theme: {
         surface1: "rgba(246, 246, 253, 0.97)",

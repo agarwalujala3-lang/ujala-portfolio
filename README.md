@@ -10,7 +10,8 @@
   <a href="https://agarwalujala3-lang.github.io/ujala-portfolio">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">LumenStack AI Repo</a> |
-  <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">ReceiptPulse Repo</a>
+  <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">ReceiptPulse Repo</a> |
+  <a href="https://github.com/agarwalujala3-lang/Safety-Copilot">Safety Copilot Repo</a>
 </p>
 
 <p align="center">
@@ -91,7 +92,7 @@ Use this every time you add a new project so it appears automatically in the por
    - `lensPriority.recruiter`, `lensPriority.engineer`, `lensPriority.founder`, `lensPriority.friend`
    - `tags`, `summary`, `proof`, `details`, `architecture`, `tradeoff`
    - `badge`, `icon`, `iconImage`, `lockupImage`
-   - `links` object (use `links.live` when available)
+   - `links` object (`links.repo` required; use `links.live` only for a safe, current public deployment)
    - full `theme` object (`surface1`, `surface2`, `ring`, `glow`, `glowSoft`, `accentStrong`, `accentSoft`, `badgeBg`, `badgeBorder`, `proofBg`, `signalBg`, `signalBorder`, `iconBg`)
 4. Commit and push that project repo.
 5. In this portfolio repo run:
@@ -144,7 +145,7 @@ This portfolio is configured for free static hosting with GitHub Pages and a Ren
 
 ## Current Project Positioning
 
-- `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and live dashboard reporting
-- `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud-hosted deployment
+- `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and repo-inspectable dashboard flow
+- `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud API workflow design
 - `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
 

@@ -1,26 +1,5 @@
 (function () {
   const MODE_KEY = "ujala-portfolio-mode";
-  const GITHUB_USER = "agarwalujala3-lang";
-  const MANIFEST_PATH = "portfolio-branding.json";
-  const RUNTIME_REFRESH_INTERVAL_MS = 10 * 60 * 1000;
-  const ALLOWED_PROJECT_REPOS = new Set(["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
-  const BLOCKED_PUBLIC_REPOS = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
-  const THEME_KEYS = [
-    "surface1",
-    "surface2",
-    "ring",
-    "glow",
-    "glowSoft",
-    "accentStrong",
-    "accentSoft",
-    "badgeBg",
-    "badgeBorder",
-    "proofBg",
-    "signalBg",
-    "signalBorder",
-    "iconBg",
-  ];
-  const LENS_KEYS = ["recruiter", "engineer", "founder", "friend"];
 
   function sanitizeCopy(value) {
     const replacements = [
@@ -69,8 +48,6 @@
     brainHistory: [],
     brainPending: false,
     compareIds: [],
-    githubRefreshPending: false,
-    githubLastRefreshAt: 0,
   };
 
   function storeMode(mode) {
@@ -220,98 +197,8 @@
     });
   }
 
-  function formatRuntimeDate(iso) {
-    try {
-      return new Intl.DateTimeFormat("en-IN", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-      }).format(new Date(iso));
-    } catch {
-      return iso;
-    }
-  }
-
   function cleanString(value) {
     return typeof value === "string" && value.trim() ? value.trim() : "";
-  }
-
-  function cleanStringArray(value) {
-    if (!Array.isArray(value)) {
-      return [];
-    }
-    return value.map((item) => cleanString(item)).filter(Boolean);
-  }
-
-  function isAwsHostedUrl(value) {
-    const candidate = cleanString(value);
-    if (!candidate) {
-      return false;
-    }
-
-    try {
-      const host = new URL(candidate).hostname.toLowerCase();
-      return host.endsWith("cloudfront.net") || host.includes("amazonaws.com") || host.endsWith(".on.aws");
-    } catch {
-      return false;
-    }
-  }
-
-  function cleanLiveUrl(value) {
-    const candidate = cleanString(value);
-    if (!candidate || isAwsHostedUrl(candidate)) {
-      return "";
-    }
-
-    try {
-      const host = new URL(candidate).hostname.toLowerCase();
-      return host === "agarwalujala3-lang.github.io" ? candidate : "";
-    } catch {
-      return "";
-    }
-  }
-
-  function normalizeStatus(status, liveUrl) {
-    const candidate = cleanString(status);
-    if (!liveUrl && candidate.toLowerCase() === "live") {
-      return "GitHub Proof";
-    }
-    return candidate;
-  }
-
-  function normalizeTags(tags, liveUrl) {
-    const cleaned = cleanStringArray(tags).filter((tag) => liveUrl || tag.toLowerCase() !== "live");
-    if (!liveUrl && cleaned.length && !cleaned.some((tag) => tag.toLowerCase() === "repo")) {
-      cleaned.push("repo");
-    }
-    return cleaned;
-  }
-
-  function normalizeHostedCopy(value, liveUrl) {
-    if (Array.isArray(value)) {
-      return value.map((item) => normalizeHostedCopy(item, liveUrl)).filter(Boolean);
-    }
-
-    const copy = cleanString(value);
-    if (!copy || liveUrl) {
-      return copy;
-    }
-
-    return copy
-      .replace("live AWS receipt workspace", "AWS receipt workspace")
-      .replace("full live deployment", "product-grade dashboard delivery")
-      .replace("AWS-hosted deployment", "cloud product execution")
-      .replace("AWS-hosted API layer", "cloud API layer")
-      .replace(
-        "CloudFront serves the frontend experience.",
-        "The dashboard code is versioned with the repo so the product flow remains inspectable while hosting changes."
-      )
-      .replace(
-        "Deployment through CloudFront keeps it accessible as a live demo.",
-        "The repo keeps the layout work inspectable through static HTML and CSS."
-      );
   }
 
   function withAssetVersion(url, version) {
@@ -351,213 +238,6 @@
         lockupImage: withAssetVersion(project.lockupImage, version),
       };
     });
-  }
-
-  function resolveManifestAsset(repo, candidate) {
-    const value = cleanString(candidate);
-    if (!value) {
-      return "";
-    }
-    const version = cleanString(repo?.pushed_at || repo?.updated_at || "");
-    const baseUrl = /^https?:\/\//i.test(value)
-      ? value
-      : `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${cleanString(repo.default_branch) || "main"}/${value.replace(/^\/+/, "")}`;
-
-    if (!version) {
-      return baseUrl;
-    }
-
-    try {
-      const parsedUrl = new URL(baseUrl);
-      parsedUrl.searchParams.set("v", version);
-      return parsedUrl.toString();
-    } catch {
-      const joinChar = baseUrl.includes("?") ? "&" : "?";
-      return `${baseUrl}${joinChar}v=${encodeURIComponent(version)}`;
-    }
-  }
-
-  function normalizeManifestProject(repo, manifest) {
-    if (!manifest || typeof manifest !== "object" || manifest.enabled === false) {
-      return null;
-    }
-
-    const liveUrl = cleanLiveUrl(manifest.links?.live) || cleanLiveUrl(repo.homepage);
-    const project = {
-      enabled: true,
-      id: cleanString(manifest.id),
-      title: cleanString(manifest.title),
-      kind: cleanString(manifest.kind),
-      status: normalizeStatus(manifest.status, liveUrl),
-      priority: Number.isFinite(manifest.priority) ? manifest.priority : 0,
-      featured: Boolean(manifest.featured),
-      badge: cleanString(manifest.badge),
-      icon: cleanString(manifest.icon),
-      iconImage: resolveManifestAsset(repo, manifest.iconImage),
-      lockupImage: resolveManifestAsset(repo, manifest.lockupImage),
-      summary: normalizeHostedCopy(manifest.summary, liveUrl),
-      proof: normalizeHostedCopy(manifest.proof, liveUrl),
-      details: normalizeHostedCopy(manifest.details, liveUrl),
-      architecture: normalizeHostedCopy(manifest.architecture, liveUrl),
-      tradeoff: normalizeHostedCopy(manifest.tradeoff, liveUrl),
-      tags: normalizeTags(manifest.tags, liveUrl),
-      stack: cleanStringArray(manifest.stack),
-      links: {
-        live: liveUrl,
-        repo: repo.html_url,
-      },
-      theme: {},
-      lensPriority: {},
-      repoSync: {
-        repo: repo.name,
-        manifestPath: MANIFEST_PATH,
-        manifestRequired: true,
-      },
-    };
-
-    for (const key of THEME_KEYS) {
-      const value = cleanString(manifest.theme?.[key]);
-      if (value) {
-        project.theme[key] = value;
-      }
-    }
-
-    for (const key of LENS_KEYS) {
-      const value = manifest.lensPriority?.[key];
-      if (Number.isFinite(value)) {
-        project.lensPriority[key] = value;
-      }
-    }
-
-    const requiredStrings = [
-      project.id,
-      project.title,
-      project.kind,
-      project.status,
-      project.summary,
-      project.proof,
-      project.tradeoff,
-      project.badge,
-      project.icon,
-    ];
-    const hasRequiredArrays = project.tags.length && project.details.length && project.architecture.length;
-    const hasRequiredLens = LENS_KEYS.every((key) => Number.isFinite(project.lensPriority[key]));
-    const hasRequiredTheme = THEME_KEYS.every((key) => cleanString(project.theme[key]));
-
-    if (requiredStrings.some((value) => !value) || !hasRequiredArrays || !hasRequiredLens || !hasRequiredTheme) {
-      return null;
-    }
-
-    return project;
-  }
-
-  async function fetchGithubRuntimeSnapshot() {
-    const response = await window.fetch(
-      `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`,
-      {
-        cache: "no-store",
-        headers: {
-          Accept: "application/vnd.github+json",
-        },
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`GitHub runtime sync failed with status ${response.status}`);
-    }
-
-    const repos = (await response.json())
-      .filter((repo) => !repo.fork)
-      .filter((repo) => !BLOCKED_PUBLIC_REPOS.has(repo.name))
-      .sort((left, right) => new Date(right.pushed_at) - new Date(left.pushed_at));
-
-    const githubActivity = repos.slice(0, 6).map((repo) => ({
-      name: repo.name,
-      url: repo.html_url,
-      language: repo.language || "Repo update",
-      note: repo.description || `Updated ${formatRuntimeDate(repo.pushed_at)}`,
-      pushedAt: repo.pushed_at,
-      homepage: cleanLiveUrl(repo.homepage),
-    }));
-
-    const projects = (
-      await Promise.all(
-        repos.map(async (repo) => {
-          if (!ALLOWED_PROJECT_REPOS.has(repo.name)) {
-            return null;
-          }
-
-          const branch = cleanString(repo.default_branch) || "main";
-          const manifestUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${repo.name}/${branch}/${MANIFEST_PATH}`;
-
-          try {
-            const manifestResponse = await window.fetch(manifestUrl, { cache: "no-store" });
-            if (!manifestResponse.ok) {
-              return null;
-            }
-
-            return normalizeManifestProject(repo, await manifestResponse.json());
-          } catch {
-            return null;
-          }
-        })
-      )
-    )
-      .filter(Boolean)
-      .sort((left, right) => {
-        if (right.priority !== left.priority) {
-          return right.priority - left.priority;
-        }
-        return left.title.localeCompare(right.title);
-      });
-
-    const nowIso = new Date().toISOString();
-    return {
-      sync: {
-        status: "synced",
-        syncedAt: nowIso,
-        syncedAtLabel: formatRuntimeDate(nowIso),
-        repoCount: repos.length,
-        githubUser: GITHUB_USER,
-      },
-      githubActivity,
-      projects,
-    };
-  }
-
-  async function refreshRuntimeFromGithub(options = {}) {
-    const { force = false, silent = false } = options;
-    if (state.githubRefreshPending) {
-      return false;
-    }
-
-    const now = Date.now();
-    if (!force && state.githubLastRefreshAt && now - state.githubLastRefreshAt < RUNTIME_REFRESH_INTERVAL_MS) {
-      return false;
-    }
-
-    state.githubRefreshPending = true;
-    try {
-      const snapshot = await fetchGithubRuntimeSnapshot();
-      mergeRuntimeData(snapshot);
-      state.githubLastRefreshAt = Date.now();
-      window.PortfolioApp.renderAll();
-      initRevealObserver();
-      initHeroDepthScene();
-      initSurfaceSpotlights();
-      updateViewportUi();
-      if (!silent) {
-        toast("Runtime refreshed from GitHub.");
-      }
-      return true;
-    } catch (error) {
-      if (!silent) {
-        console.warn(error.message);
-      }
-      return false;
-    } finally {
-      state.githubRefreshPending = false;
-    }
   }
 
   function initFloatingDockObserver() {
@@ -605,7 +285,6 @@
     try {
       const response = await window.fetch("portfolio-runtime.json", { cache: "no-store" });
       if (!response.ok) {
-        refreshRuntimeFromGithub({ silent: true });
         return;
       }
 
@@ -616,10 +295,8 @@
       initSurfaceSpotlights();
       updateViewportUi();
       initFloatingDockObserver();
-      refreshRuntimeFromGithub({ silent: true });
     } catch {
       // Runtime data is optional.
-      refreshRuntimeFromGithub({ silent: true });
     }
   }
 
@@ -1019,7 +696,6 @@
     initHeroDepthScene,
     initSurfaceSpotlights,
     initFloatingDockObserver,
-    refreshRuntimeFromGithub,
     goTo,
     openExternal,
     escapeHtml,

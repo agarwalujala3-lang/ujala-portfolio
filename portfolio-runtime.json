@@ -1,11 +1,11 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-06-02T07:03:56.572Z",
-    "syncedAtLabel": "02 Jun 2026, 12:33 pm",
-    "repoCount": 6,
+    "syncedAt": "2026-06-05T04:32:36.560Z",
+    "syncedAtLabel": "05 Jun 2026, 10:02 am",
+    "repoCount": 2,
     "githubUser": "agarwalujala3-lang",
-    "source": "github"
+    "source": "local-manifests"
   },
   "brain": {
     "status": "fallback",
@@ -14,51 +14,19 @@
   },
   "githubActivity": [
     {
-      "name": "ujala-portfolio",
-      "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
-      "language": "JavaScript",
-      "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-06-02T06:37:30Z",
-      "homepage": ""
-    },
-    {
       "name": "ReceiptPulse",
       "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
-      "language": "CSS",
-      "note": "Serverless receipt processing system using AWS Textract and Lambda.",
-      "pushedAt": "2026-05-19T03:29:20Z",
+      "language": "AWS Lambda",
+      "note": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results. Designed to reduce manual expense tracking time by 80%.",
+      "pushedAt": "2026-06-02T12:05:19.700Z",
       "homepage": ""
     },
     {
       "name": "LumenStack-AI",
       "url": "https://github.com/agarwalujala3-lang/LumenStack-AI",
-      "language": "JavaScript",
-      "note": "Updated 22 Apr 2026, 09:34 am",
-      "pushedAt": "2026-04-22T04:04:31Z",
-      "homepage": ""
-    },
-    {
-      "name": "Safety-Copilot",
-      "url": "https://github.com/agarwalujala3-lang/Safety-Copilot",
-      "language": "Dart",
-      "note": "Updated 19 Apr 2026, 01:34 pm",
-      "pushedAt": "2026-04-19T08:04:28Z",
-      "homepage": ""
-    },
-    {
-      "name": "Nexora-Prime",
-      "url": "https://github.com/agarwalujala3-lang/Nexora-Prime",
-      "language": "JavaScript",
-      "note": "Updated 19 Apr 2026, 01:16 pm",
-      "pushedAt": "2026-04-19T07:46:54Z",
-      "homepage": ""
-    },
-    {
-      "name": "agarwalujala3-lang",
-      "url": "https://github.com/agarwalujala3-lang/agarwalujala3-lang",
-      "language": "Repo update",
-      "note": "Updated 18 Apr 2026, 11:50 am",
-      "pushedAt": "2026-04-18T06:20:13Z",
+      "language": "Node.js",
+      "note": "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
+      "pushedAt": "2026-04-22T04:03:03.617Z",
       "homepage": ""
     }
   ],
@@ -73,24 +41,23 @@
       "featured": true,
       "badge": "Flagship AWS build",
       "icon": "RP",
-      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-mark.svg?v=2026-05-19T03%3A29%3A20Z",
-      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/branding/portfolio-brand-lockup.svg?v=2026-05-19T03%3A29%3A20Z",
-      "summary": "I built ReceiptPulse as a AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, rename labels, and manage the results inside a private dashboard.",
+      "iconImage": "",
+      "lockupImage": "",
+      "summary": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results. Designed to reduce manual expense tracking time by 80%.",
       "proof": "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and product-grade dashboard delivery.",
       "details": [
-        "I built a full upload-to-insight pipeline around private per-user receipt processing.",
-        "I added sign-up/sign-in, receipt-only validation, duplicate decision handling, compact auto labels, rename actions, delete actions, and analytics.",
-        "I pushed it beyond a backend demo by building a real dashboard flow around uploads, history, review, and stored results."
+        "Built a full upload-to-insight pipeline around private per-user receipt processing.",
+        "Added sign-up/sign-in, receipt-only validation, duplicate decision handling, and analytics.",
+        "Pushed it beyond a backend demo by building a real dashboard flow around uploads, history, and stored results."
       ],
       "architecture": [
         "Signed-in users get a private workspace through Cognito-backed auth.",
         "Receipt uploads land in user-scoped S3 paths.",
         "Lambda processes files, validates them, and calls Textract.",
         "The data is normalized, categorized, labeled, and stored in DynamoDB.",
-        "API routes power uploads, history, duplicate decisions, rename/delete actions, and analytics views.",
-        "The dashboard code is versioned with the repo so the product flow remains inspectable while hosting changes."
+        "The dashboard code is versioned with the repo so the product flow remains inspectable."
       ],
-      "tradeoff": "I optimized for a believable product-style AWS build with strong user flow first; budget analysis and deeper reporting are the next layer.",
+      "tradeoff": "I optimized for a believable product-style AWS build with strong user flow first; deeper reporting and a portable redeploy path are the next layer.",
       "tags": [
         "aws",
         "backend",
@@ -148,8 +115,8 @@
       "featured": true,
       "badge": "Flagship AI build",
       "icon": "LS",
-      "iconImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-mark.svg?v=2026-04-22T04%3A04%3A31Z",
-      "lockupImage": "https://raw.githubusercontent.com/agarwalujala3-lang/LumenStack-AI/main/branding/portfolio-brand-lockup.svg?v=2026-04-22T04%3A04%3A31Z",
+      "iconImage": "",
+      "lockupImage": "",
       "summary": "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
       "proof": "This project proves backend analysis flow, AI-assisted explanation, project framing, and multi-page product design.",
       "details": [

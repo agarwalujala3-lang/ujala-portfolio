@@ -3,7 +3,7 @@
   "id": "receiptpulse",
   "title": "ReceiptPulse",
   "kind": "Flagship System",
-  "status": "Live",
+  "status": "GitHub Proof",
   "priority": 100,
   "featured": true,
   "lensPriority": {
@@ -12,7 +12,7 @@
     "founder": 92,
     "friend": 74
   },
-  "tags": ["aws", "backend", "full-stack", "live"],
+  "tags": ["aws", "backend", "full-stack", "repo"],
   "stack": ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "JavaScript"],
   "summary": "Short card summary",
   "proof": "What this project proves",
@@ -21,10 +21,10 @@
   "tradeoff": "Main tradeoff",
   "badge": "Flagship AWS build",
   "icon": "RP",
-  "iconImage": "https://raw.githubusercontent.com/your-user/your-repo/main/branding/portfolio-brand-mark.svg",
-  "lockupImage": "https://raw.githubusercontent.com/your-user/your-repo/main/branding/portfolio-brand-lockup.svg",
+  "iconImage": "branding/portfolio-brand-mark.svg",
+  "lockupImage": "branding/portfolio-brand-lockup.svg",
   "links": {
-    "live": "https://your-live-site.example.com"
+    "repo": "https://github.com/your-user/your-repo"
   },
   "theme": {
     "surface1": "rgba(247, 251, 249, 0.96)",

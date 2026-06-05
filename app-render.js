@@ -1072,7 +1072,7 @@
             </div>
             <h3>${App.escapeHtml(resume.label)}</h3>
             <p class="resume-card__note">${App.escapeHtml(resume.note)}</p>
-            <a class="text-link" href="${App.escapeHtml(resume.href)}" download rel="noreferrer">Download PDF</a>
+            <a class="text-link" href="${App.escapeHtml(resume.href)}" target="_blank" rel="noreferrer">Open PDF</a>
           </article>
         `
       )
