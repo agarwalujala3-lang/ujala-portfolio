@@ -141,6 +141,8 @@
     App.initHeroDepthScene();
     App.initSurfaceSpotlights();
     App.syncCurrentNav();
+    App.updateVoiceAgentBrief?.();
+    App.showVoiceAgent?.({ auto: true, duration: 5200 });
     App.toast(`${data.modes[mode].label} lens is active now.`);
   }
 

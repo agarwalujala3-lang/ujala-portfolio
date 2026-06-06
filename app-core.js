@@ -1,6 +1,46 @@
 (function () {
   const MODE_KEY = "ujala-portfolio-mode";
   const INTRO_KEY = "ujala-portfolio-intro-seen";
+  const VOICE_AGENT_AUTO_MS = 7600;
+
+  const PAGE_VOICE_BRIEFS = {
+    home: {
+      title: "Home security briefing",
+      message:
+        "I am Ujala Agarwal. This is my portfolio OS: a static-safe command space for my cloud systems, AI tooling, resume routes, and repo-backed proof.",
+      commands: "Try: case studies, systems, contact, engineer lens.",
+    },
+    work: {
+      title: "Case study briefing",
+      message:
+        "This page opens the strongest project proof. I use it to compare ReceiptPulse, LumenStack AI, and Safety Copilot by architecture, product depth, and repo evidence.",
+      commands: "Try: compare projects, systems, recruiter lens.",
+    },
+    systems: {
+      title: "Systems briefing",
+      message:
+        "This page explains how the builds work under the surface: event flow, API choices, cloud paths, AI analysis, and the tradeoffs behind each system.",
+      commands: "Try: case studies, lab, engineer lens.",
+    },
+    about: {
+      title: "Journey briefing",
+      message:
+        "This page explains my path as a builder: how I moved through Java, JavaScript, AWS systems, AI tooling, and product-grade interfaces.",
+      commands: "Try: contact, resume, founder lens.",
+    },
+    playground: {
+      title: "Lab briefing",
+      message:
+        "This page shows what I am improving next: stronger release quality, better interface motion, sharper cloud proof, and more useful AI workflows.",
+      commands: "Try: systems, contact, friend lens.",
+    },
+    contact: {
+      title: "Contact briefing",
+      message:
+        "This page gives the direct routes to reach me, download the right resume, and review my GitHub or LinkedIn proof without extra friction.",
+      commands: "Try: home, resume, recruiter lens.",
+    },
+  };
 
   function sanitizeCopy(value) {
     const replacements = [
@@ -50,6 +90,9 @@
     brainPending: false,
     compareIds: [],
   };
+
+  let voiceAgentTimer = 0;
+  let voiceRecognition = null;
 
   function storeMode(mode) {
     try {
@@ -331,17 +374,24 @@
       intro.setAttribute("aria-hidden", "true");
       intro.innerHTML = `
         <div class="intro-portal__matrix" aria-hidden="true"></div>
-        <div class="intro-portal__panel">
-          <span class="intro-portal__status">Static-safe GitHub Pages build</span>
-          <h2>Welcome to Ujala's build world.</h2>
-          <p>Cloud systems, AI tooling, and product-grade interfaces are coming online.</p>
+        <div class="intro-portal__scanner" aria-hidden="true"></div>
+        <div class="intro-portal__panel intro-portal__panel--security">
+          <span class="intro-portal__status">AI security app initializing</span>
+          <h2>Ujala OS security core online.</h2>
+          <p>Identity, repo proof, static hosting, and project intelligence are being verified before the portfolio opens.</p>
+          <div class="intro-portal__console" aria-label="Boot verification">
+            <span><strong>Identity</strong> Ujala Agarwal</span>
+            <span><strong>Runtime</strong> Static-safe</span>
+            <span><strong>Proof</strong> GitHub repos</span>
+          </div>
           <div class="intro-portal__scan">
             <span></span>
           </div>
           <div class="intro-portal__boot">
-            <span>Verifying repo proof</span>
-            <span>Loading project routes</span>
-            <span>Opening portfolio OS</span>
+            <span>Running AI security scan</span>
+            <span>Verifying resume routes</span>
+            <span>Loading lens-aware guide</span>
+            <span>Opening Ujala OS</span>
           </div>
         </div>
       `;
@@ -396,9 +446,50 @@
       dock.innerHTML = `
         <button class="dock-chip" type="button" id="dock-mode-chip" data-command-open>Recruiter Lens</button>
         <button class="dock-chip" type="button" data-command-open>Quick Routes</button>
+        <button class="dock-chip" type="button" data-voice-open>Voice Agent</button>
         <button class="dock-chip" type="button" data-scroll-top>Back To Top</button>
       `;
       document.body.appendChild(dock);
+    }
+
+    if (!document.querySelector(".voice-agent")) {
+      const voiceAgent = document.createElement("section");
+      voiceAgent.className = "voice-agent";
+      voiceAgent.id = "voice-agent";
+      voiceAgent.setAttribute("aria-live", "polite");
+      voiceAgent.setAttribute("aria-hidden", "true");
+      voiceAgent.innerHTML = `
+        <div class="voice-agent__beam" aria-hidden="true"></div>
+        <div class="voice-agent__robot" aria-hidden="true">
+          <div class="voice-agent__halo"></div>
+          <div class="voice-agent__head">
+            <span class="voice-agent__eye voice-agent__eye--left"></span>
+            <span class="voice-agent__eye voice-agent__eye--right"></span>
+            <span class="voice-agent__mouth"></span>
+          </div>
+          <div class="voice-agent__neck"></div>
+          <div class="voice-agent__body">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="voice-agent__arm voice-agent__arm--left"></div>
+          <div class="voice-agent__arm voice-agent__arm--right"></div>
+        </div>
+        <div class="voice-agent__panel">
+          <span class="voice-agent__kicker">Native voice guide</span>
+          <h2 id="voice-agent-title">Page briefing online.</h2>
+          <p id="voice-agent-message">Loading the current page briefing.</p>
+          <div class="voice-agent__command-line" id="voice-agent-commands">Try: case studies, systems, contact.</div>
+          <div class="voice-agent__actions">
+            <button class="voice-agent__button" type="button" data-voice-listen>Voice commands</button>
+            <button class="voice-agent__button" type="button" data-voice-speak>Speak brief</button>
+            <button class="voice-agent__button voice-agent__button--ghost" type="button" data-voice-dismiss>Dismiss</button>
+          </div>
+          <p class="voice-agent__status" id="voice-agent-status">Mic starts only when you press Voice commands.</p>
+        </div>
+      `;
+      document.body.appendChild(voiceAgent);
     }
 
     if (!document.querySelector(".toast-stack")) {
@@ -453,12 +544,12 @@
       } catch {
         // Ignore storage failures.
       }
-    }, 1550);
+    }, 2850);
 
     window.setTimeout(() => {
       intro.hidden = true;
       intro.classList.remove("is-active", "is-dismissing");
-    }, 2050);
+    }, 3500);
   }
 
   function initPointerExperience() {
@@ -511,6 +602,310 @@
       document.body.appendChild(pulse);
       window.setTimeout(() => pulse.remove(), 620);
     }, { passive: true });
+  }
+
+  function getPageVoiceBrief() {
+    const page = document.body.dataset.page || "home";
+    const baseBrief = PAGE_VOICE_BRIEFS[page] || PAGE_VOICE_BRIEFS.home;
+    const mode = getModeConfig();
+    const primaryProject = getProjectsForMode()[0];
+    const lensFocus = Array.isArray(mode?.focus) && mode.focus.length
+      ? mode.focus.slice(0, 3).join(", ")
+      : mode?.summary || "the clearest project proof";
+    const projectProof = primaryProject?.proof || primaryProject?.summary || "";
+    const shortProof = projectProof.length > 150 ? `${projectProof.slice(0, 147)}...` : projectProof;
+    const modeLine = mode
+      ? `${mode.label} lens is active, so I am prioritizing ${lensFocus}.`
+      : "The portfolio lens is focused on the clearest project proof.";
+    const projectLine = primaryProject
+      ? `Current lead proof: ${primaryProject.title}. ${shortProof}`
+      : "Project proof is loading from the static portfolio snapshot.";
+
+    return {
+      title: baseBrief.title,
+      message: `${baseBrief.message} ${modeLine} ${projectLine}`.trim(),
+      commands: baseBrief.commands,
+    };
+  }
+
+  function updateVoiceAgentBrief() {
+    const agent = document.getElementById("voice-agent");
+    if (!agent) {
+      return null;
+    }
+
+    const brief = getPageVoiceBrief();
+    const title = document.getElementById("voice-agent-title");
+    const message = document.getElementById("voice-agent-message");
+    const commands = document.getElementById("voice-agent-commands");
+
+    if (title) {
+      title.textContent = brief.title;
+    }
+    if (message) {
+      message.textContent = brief.message;
+    }
+    if (commands) {
+      commands.textContent = brief.commands;
+    }
+
+    return brief;
+  }
+
+  function setVoiceAgentStatus(message) {
+    const status = document.getElementById("voice-agent-status");
+    if (status) {
+      status.textContent = message;
+    }
+  }
+
+  function showVoiceAgent(options = {}) {
+    const agent = document.getElementById("voice-agent");
+    if (!agent) {
+      return;
+    }
+
+    window.clearTimeout(voiceAgentTimer);
+    updateVoiceAgentBrief();
+    agent.hidden = false;
+    agent.setAttribute("aria-hidden", "false");
+    agent.classList.add("is-active");
+
+    if (options.auto !== false) {
+      voiceAgentTimer = window.setTimeout(() => {
+        hideVoiceAgent();
+      }, options.duration || VOICE_AGENT_AUTO_MS);
+    }
+  }
+
+  function hideVoiceAgent() {
+    const agent = document.getElementById("voice-agent");
+    if (!agent) {
+      return;
+    }
+
+    window.clearTimeout(voiceAgentTimer);
+    agent.classList.remove("is-active", "is-speaking", "is-listening");
+    agent.setAttribute("aria-hidden", "true");
+    window.setTimeout(() => {
+      if (!agent.classList.contains("is-active")) {
+        agent.hidden = true;
+      }
+    }, 260);
+  }
+
+  function chooseRobotVoice() {
+    if (!("speechSynthesis" in window)) {
+      return null;
+    }
+
+    const voices = window.speechSynthesis.getVoices();
+    return (
+      voices.find((voice) => /en-IN|India/i.test(voice.lang)) ||
+      voices.find((voice) => /Google|Microsoft|Natural|Neural/i.test(voice.name)) ||
+      voices.find((voice) => /^en/i.test(voice.lang)) ||
+      null
+    );
+  }
+
+  function speakVoiceAgentBrief() {
+    if (!("speechSynthesis" in window)) {
+      setVoiceAgentStatus("Speech output is not supported in this browser.");
+      return;
+    }
+
+    const agent = document.getElementById("voice-agent");
+    const brief = updateVoiceAgentBrief() || getPageVoiceBrief();
+    const speech = `${brief.title}. ${brief.message}`;
+    const utterance = new SpeechSynthesisUtterance(speech);
+    const voice = chooseRobotVoice();
+
+    if (voice) {
+      utterance.voice = voice;
+    }
+
+    utterance.lang = voice?.lang || "en-IN";
+    utterance.rate = 0.88;
+    utterance.pitch = 0.72;
+    utterance.volume = 0.92;
+    utterance.onstart = () => {
+      agent?.classList.add("is-speaking");
+      setVoiceAgentStatus("Robot voice is speaking the current page briefing.");
+    };
+    utterance.onend = () => {
+      agent?.classList.remove("is-speaking");
+      setVoiceAgentStatus("Say a command or press Voice commands to navigate.");
+    };
+    utterance.onerror = () => {
+      agent?.classList.remove("is-speaking");
+      setVoiceAgentStatus("Speech output was blocked by the browser. Use the text briefing instead.");
+    };
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function getSpeechRecognitionConstructor() {
+    return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+  }
+
+  function commandIncludes(command, words) {
+    return words.some((word) => command.includes(word));
+  }
+
+  function handleVoiceCommand(transcript) {
+    const command = String(transcript || "").toLowerCase();
+    const modeCommands = Object.entries(data.modes || {}).find(([key, mode]) => {
+      return command.includes(key) || command.includes(String(mode.label || "").toLowerCase());
+    });
+
+    if (modeCommands && window.PortfolioApp.setMode) {
+      window.PortfolioApp.setMode(modeCommands[0]);
+      showVoiceAgent({ auto: true });
+      setVoiceAgentStatus(`${modeCommands[1].label} lens activated from voice command.`);
+      return;
+    }
+
+    if (commandIncludes(command, ["home", "start", "main page"])) {
+      goTo("index.html");
+      return;
+    }
+    if (commandIncludes(command, ["case", "project", "work"])) {
+      goTo("work.html");
+      return;
+    }
+    if (commandIncludes(command, ["system", "architecture", "route"])) {
+      goTo("systems.html");
+      return;
+    }
+    if (commandIncludes(command, ["journey", "about", "story"])) {
+      goTo("about.html");
+      return;
+    }
+    if (commandIncludes(command, ["lab", "playground", "roadmap"])) {
+      goTo("playground.html");
+      return;
+    }
+    if (commandIncludes(command, ["contact", "email", "hire"])) {
+      goTo("contact.html");
+      return;
+    }
+    if (commandIncludes(command, ["navigator", "command", "search"])) {
+      openCommandPalette();
+      setVoiceAgentStatus("Navigator opened from voice command.");
+      return;
+    }
+    if (commandIncludes(command, ["resume", "cv"])) {
+      const resume = data.profile?.resumes?.[0];
+      if (resume?.href) {
+        openExternal(resume.href);
+        setVoiceAgentStatus("Opening the general resume download.");
+      }
+      return;
+    }
+    if (commandIncludes(command, ["speak", "explain", "brief"])) {
+      speakVoiceAgentBrief();
+      return;
+    }
+    if (commandIncludes(command, ["stop", "mute", "quiet"])) {
+      window.speechSynthesis?.cancel();
+      setVoiceAgentStatus("Speech stopped.");
+      return;
+    }
+    if (commandIncludes(command, ["close", "dismiss", "hide"])) {
+      hideVoiceAgent();
+      return;
+    }
+
+    setVoiceAgentStatus(`I heard "${transcript}". Try: case studies, systems, contact, or engineer lens.`);
+  }
+
+  function startVoiceCommands() {
+    const Recognition = getSpeechRecognitionConstructor();
+    const agent = document.getElementById("voice-agent");
+
+    if (!Recognition) {
+      setVoiceAgentStatus("Voice commands are not supported in this browser. The text guide still works.");
+      return;
+    }
+
+    if (voiceRecognition) {
+      try {
+        voiceRecognition.abort();
+      } catch {
+        // Ignore abort failures.
+      }
+    }
+
+    voiceRecognition = new Recognition();
+    voiceRecognition.lang = "en-IN";
+    voiceRecognition.interimResults = false;
+    voiceRecognition.continuous = false;
+    voiceRecognition.maxAlternatives = 1;
+    voiceRecognition.onstart = () => {
+      agent?.classList.add("is-listening");
+      setVoiceAgentStatus("Listening. Say: case studies, systems, contact, or engineer lens.");
+    };
+    voiceRecognition.onresult = (event) => {
+      const transcript = event.results?.[0]?.[0]?.transcript || "";
+      agent?.classList.remove("is-listening");
+      handleVoiceCommand(transcript);
+    };
+    voiceRecognition.onerror = (event) => {
+      agent?.classList.remove("is-listening");
+      setVoiceAgentStatus(`Voice command unavailable: ${event.error || "browser blocked microphone"}.`);
+    };
+    voiceRecognition.onend = () => {
+      agent?.classList.remove("is-listening");
+    };
+
+    showVoiceAgent({ auto: false });
+    try {
+      voiceRecognition.start();
+    } catch (error) {
+      agent?.classList.remove("is-listening");
+      setVoiceAgentStatus("Voice command startup was blocked. Press the button again after allowing microphone access.");
+    }
+  }
+
+  function initVoiceAgent() {
+    const agent = document.getElementById("voice-agent");
+    if (!agent || agent.dataset.bound === "true") {
+      return;
+    }
+
+    agent.dataset.bound = "true";
+    updateVoiceAgentBrief();
+
+    document.addEventListener("click", (event) => {
+      if (event.target.closest("[data-voice-open]")) {
+        showVoiceAgent({ auto: false });
+        return;
+      }
+      if (event.target.closest("[data-voice-listen]")) {
+        startVoiceCommands();
+        return;
+      }
+      if (event.target.closest("[data-voice-speak]")) {
+        showVoiceAgent({ auto: false });
+        speakVoiceAgentBrief();
+        return;
+      }
+      if (event.target.closest("[data-voice-dismiss]")) {
+        window.speechSynthesis?.cancel();
+        hideVoiceAgent();
+      }
+    });
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      return;
+    }
+
+    const introActive = document.getElementById("intro-portal")?.classList.contains("is-active");
+    window.setTimeout(() => {
+      showVoiceAgent({ auto: true });
+    }, introActive ? 3850 : 900);
   }
 
   function openCommandPalette() {
@@ -838,6 +1233,12 @@
     initFloatingDockObserver,
     initIntroSequence,
     initPointerExperience,
+    initVoiceAgent,
+    updateVoiceAgentBrief,
+    showVoiceAgent,
+    hideVoiceAgent,
+    startVoiceCommands,
+    speakVoiceAgentBrief,
     goTo,
     openExternal,
     escapeHtml,
