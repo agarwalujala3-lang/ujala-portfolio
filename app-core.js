@@ -1,6 +1,6 @@
 (function () {
   const MODE_KEY = "ujala-portfolio-mode";
-  const INTRO_KEY = "ujala-portfolio-cinematic-intro-seen-v2";
+  const INTRO_KEY = "ujala-portfolio-identity-forge-intro-seen-v3";
 
   function sanitizeCopy(value) {
     const replacements = [
@@ -331,22 +331,29 @@
       intro.id = "intro-portal";
       intro.setAttribute("aria-hidden", "true");
       intro.innerHTML = `
-        <div class="intro-portal__void" aria-hidden="true"></div>
-        <div class="intro-portal__name" aria-hidden="true">
-          <span>Entering</span>
-          <strong>Ujala OS</strong>
-        </div>
-        <div class="intro-portal__bang" aria-hidden="true">
+        <div class="intro-portal__backdrop" aria-hidden="true"></div>
+        <div class="intro-portal__signal-field" aria-hidden="true">
+          <span></span>
+          <span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div class="intro-portal__fog" aria-hidden="true"></div>
-        <div class="intro-portal__welcome">
-          <span class="intro-portal__status">Ujala Agarwal Portfolio</span>
-          <h2>You are most welcomed to my own world.</h2>
-          <p>Cloud systems, AI tools, polished interfaces, and repo-backed proof are opening now.</p>
+        <div class="intro-portal__identity">
+          <span class="intro-portal__status">Portfolio Access Sequence</span>
+          <h2><span>Ujala</span><span>Agarwal</span></h2>
+          <p>Cloud systems, AI product craft, and proof-backed engineering are assembling.</p>
+        </div>
+        <div class="intro-portal__forge" aria-hidden="true">
+          <div class="intro-portal__ring intro-portal__ring--outer"></div>
+          <div class="intro-portal__ring intro-portal__ring--middle"></div>
+          <div class="intro-portal__ring intro-portal__ring--inner"></div>
+          <div class="intro-portal__monogram">UA</div>
+        </div>
+        <div class="intro-portal__reveal">
+          <span>Welcome to<br>Ujala's World</span>
+          <strong>Entering the build space</strong>
         </div>
       `;
       document.body.appendChild(intro);
@@ -356,6 +363,13 @@
       const cursor = document.createElement("div");
       cursor.className = "cursor-orb";
       cursor.setAttribute("aria-hidden", "true");
+      cursor.innerHTML = `
+        <span class="cursor-orb__tail"></span>
+        <span class="cursor-orb__halo"></span>
+        <span class="cursor-orb__core"></span>
+        <span class="cursor-orb__spark cursor-orb__spark--a"></span>
+        <span class="cursor-orb__spark cursor-orb__spark--b"></span>
+      `;
       document.body.appendChild(cursor);
     }
 
@@ -451,17 +465,22 @@
     if (forceIntro) {
       intro.classList.add("is-forced");
     }
-    intro.classList.add("is-active", "intro-stage-name");
+    intro.classList.add("is-active", "intro-stage-seed");
 
     window.setTimeout(() => {
-      intro.classList.remove("intro-stage-name");
-      intro.classList.add("intro-stage-bang");
-    }, 1700);
+      intro.classList.remove("intro-stage-seed");
+      intro.classList.add("intro-stage-forge");
+    }, 1500);
 
     window.setTimeout(() => {
-      intro.classList.remove("intro-stage-bang");
-      intro.classList.add("intro-stage-welcome");
-    }, 3150);
+      intro.classList.remove("intro-stage-forge");
+      intro.classList.add("intro-stage-gate");
+    }, 3300);
+
+    window.setTimeout(() => {
+      intro.classList.remove("intro-stage-gate");
+      intro.classList.add("intro-stage-release");
+    }, 5300);
 
     window.setTimeout(() => {
       intro.classList.add("is-dismissing");
@@ -473,12 +492,12 @@
       } catch {
         // Ignore storage failures.
       }
-    }, 6200);
+    }, 7100);
 
     window.setTimeout(() => {
       intro.hidden = true;
-      intro.classList.remove("is-active", "is-dismissing", "is-forced", "intro-stage-name", "intro-stage-bang", "intro-stage-welcome");
-    }, 6900);
+      intro.classList.remove("is-active", "is-dismissing", "is-forced", "intro-stage-seed", "intro-stage-forge", "intro-stage-gate", "intro-stage-release");
+    }, 7900);
   }
 
   function initPointerExperience() {
@@ -487,32 +506,71 @@
     }
 
     document.body.dataset.pointerExperience = "true";
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const cursor = document.querySelector(".cursor-orb");
 
-    if (!reducedMotion && cursor) {
+    if (cursor) {
       let cursorX = window.innerWidth / 2;
       let cursorY = window.innerHeight / 2;
       let targetX = cursorX;
       let targetY = cursorY;
+      let cursorActive = false;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const revealCursor = () => {
+        if (document.body.classList.contains("intro-lock")) {
+          cursor.style.removeProperty("opacity");
+          return;
+        }
+        cursor.style.setProperty("opacity", "1", "important");
+      };
+
+      const setCursorTarget = (event) => {
+        targetX = event.clientX;
+        targetY = event.clientY;
+        cursorActive = true;
+        document.body.dataset.cursorReady = "true";
+        revealCursor();
+        document.body.style.setProperty("--cursor-x", `${event.clientX}px`);
+        document.body.style.setProperty("--cursor-y", `${event.clientY}px`);
+
+        const interactive = event.target.closest("a, button, input, textarea, select, [data-command-action], [data-open-project], [data-copy], [role='button']");
+        cursor.classList.toggle("is-interactive", Boolean(interactive));
+      };
 
       const renderCursor = () => {
-        cursorX += (targetX - cursorX) * 0.2;
-        cursorY += (targetY - cursorY) * 0.2;
+        const speed = reducedMotion ? 1 : 0.24;
+        cursorX += (targetX - cursorX) * speed;
+        cursorY += (targetY - cursorY) * speed;
         cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+        if (cursorActive) {
+          cursor.classList.add("is-live");
+          revealCursor();
+        }
         window.requestAnimationFrame(renderCursor);
       };
 
       document.addEventListener("pointermove", (event) => {
-        targetX = event.clientX;
-        targetY = event.clientY;
-        document.body.style.setProperty("--cursor-x", `${event.clientX}px`);
-        document.body.style.setProperty("--cursor-y", `${event.clientY}px`);
+        setCursorTarget(event);
       }, { passive: true });
 
       document.addEventListener("pointerover", (event) => {
-        const interactive = event.target.closest("a, button, input, textarea, [data-command-action], [data-open-project]");
+        const interactive = event.target.closest("a, button, input, textarea, select, [data-command-action], [data-open-project], [data-copy], [role='button']");
         cursor.classList.toggle("is-interactive", Boolean(interactive));
+      }, { passive: true });
+
+      document.addEventListener("pointerdown", (event) => {
+        setCursorTarget(event);
+        cursor.classList.add("is-pressed");
+      }, { passive: true });
+
+      document.addEventListener("pointerup", () => {
+        cursor.classList.remove("is-pressed");
+      }, { passive: true });
+
+      document.addEventListener("pointerleave", () => {
+        cursor.classList.remove("is-live", "is-interactive", "is-pressed");
+        cursor.style.removeProperty("opacity");
+        document.body.dataset.cursorReady = "false";
       }, { passive: true });
 
       window.requestAnimationFrame(renderCursor);
@@ -520,7 +578,7 @@
 
     document.addEventListener("click", (event) => {
       const interactive = event.target.closest("a, button, [data-copy], [data-open-project], [data-command-action]");
-      if (!interactive || reducedMotion) {
+      if (!interactive) {
         return;
       }
 
