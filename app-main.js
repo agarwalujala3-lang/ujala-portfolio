@@ -565,7 +565,6 @@
     App.injectChrome();
     App.initIntroSequence();
     App.initPointerExperience();
-    App.initVoiceAgent();
     App.applyMode();
     App.syncCurrentNav();
     hydrateCompareIds();
