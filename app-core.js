@@ -1,6 +1,6 @@
 (function () {
   const MODE_KEY = "ujala-portfolio-mode";
-  const INTRO_KEY = "ujala-portfolio-identity-forge-intro-seen-v3";
+  const INTRO_KEY = "ujala-portfolio-studio-intro-seen-v4";
 
   function sanitizeCopy(value) {
     const replacements = [
@@ -331,44 +331,48 @@
       intro.id = "intro-portal";
       intro.setAttribute("aria-hidden", "true");
       intro.innerHTML = `
-        <div class="intro-portal__backdrop" aria-hidden="true"></div>
-        <div class="intro-portal__signal-field" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="intro-portal__surface" aria-hidden="true"></div>
+        <div class="intro-portal__frame" aria-hidden="true">
+          <span class="intro-portal__line intro-portal__line--top"></span>
+          <span class="intro-portal__line intro-portal__line--right"></span>
+          <span class="intro-portal__line intro-portal__line--bottom"></span>
+          <span class="intro-portal__line intro-portal__line--left"></span>
+          <span class="intro-portal__corner intro-portal__corner--tl"></span>
+          <span class="intro-portal__corner intro-portal__corner--tr"></span>
+          <span class="intro-portal__corner intro-portal__corner--bl"></span>
+          <span class="intro-portal__corner intro-portal__corner--br"></span>
         </div>
-        <div class="intro-portal__identity">
-          <span class="intro-portal__status">Portfolio Access Sequence</span>
-          <h2><span>Ujala</span><span>Agarwal</span></h2>
-          <p>Cloud systems, AI product craft, and proof-backed engineering are assembling.</p>
+        <div class="intro-portal__brand">
+          <span class="intro-portal__status">Portfolio Studio</span>
+          <h2>Ujala Agarwal</h2>
+          <p>Cloud systems, AI products, and full-stack engineering with visible proof.</p>
         </div>
-        <div class="intro-portal__forge" aria-hidden="true">
-          <div class="intro-portal__ring intro-portal__ring--outer"></div>
-          <div class="intro-portal__ring intro-portal__ring--middle"></div>
-          <div class="intro-portal__ring intro-portal__ring--inner"></div>
-          <div class="intro-portal__monogram">UA</div>
+        <div class="intro-portal__proof" aria-hidden="true">
+          <span>Cloud Systems</span>
+          <span>AI Products</span>
+          <span>Full-Stack Build</span>
         </div>
-        <div class="intro-portal__reveal">
-          <span>Welcome to<br>Ujala's World</span>
-          <strong>Entering the build space</strong>
+        <div class="intro-portal__handoff">
+          <span>Entering Portfolio</span>
+          <strong>Built with proof, polish, and production instinct.</strong>
         </div>
+        <span class="intro-portal__skip-hint">Press Esc to skip</span>
       `;
       document.body.appendChild(intro);
     }
 
-    if (!document.querySelector(".cursor-orb")) {
+    if (!document.querySelector(".cursor-mark")) {
       const cursor = document.createElement("div");
-      cursor.className = "cursor-orb";
+      cursor.className = "cursor-mark";
       cursor.setAttribute("aria-hidden", "true");
       cursor.innerHTML = `
-        <span class="cursor-orb__tail"></span>
-        <span class="cursor-orb__halo"></span>
-        <span class="cursor-orb__core"></span>
-        <span class="cursor-orb__spark cursor-orb__spark--a"></span>
-        <span class="cursor-orb__spark cursor-orb__spark--b"></span>
+        <span class="cursor-mark__axis cursor-mark__axis--x"></span>
+        <span class="cursor-mark__axis cursor-mark__axis--y"></span>
+        <span class="cursor-mark__corner cursor-mark__corner--tl"></span>
+        <span class="cursor-mark__corner cursor-mark__corner--tr"></span>
+        <span class="cursor-mark__corner cursor-mark__corner--bl"></span>
+        <span class="cursor-mark__corner cursor-mark__corner--br"></span>
+        <span class="cursor-mark__point"></span>
       `;
       document.body.appendChild(cursor);
     }
@@ -465,26 +469,18 @@
     if (forceIntro) {
       intro.classList.add("is-forced");
     }
-    intro.classList.add("is-active", "intro-stage-seed");
+    intro.classList.add("is-active", "intro-stage-brand");
 
-    window.setTimeout(() => {
-      intro.classList.remove("intro-stage-seed");
-      intro.classList.add("intro-stage-forge");
-    }, 1500);
+    const timers = [];
+    let introFinished = false;
+    const stageClasses = ["intro-stage-brand", "intro-stage-proof", "intro-stage-handoff"];
 
-    window.setTimeout(() => {
-      intro.classList.remove("intro-stage-forge");
-      intro.classList.add("intro-stage-gate");
-    }, 3300);
+    const scheduleIntroStep = (callback, delay) => {
+      const timer = window.setTimeout(callback, delay);
+      timers.push(timer);
+    };
 
-    window.setTimeout(() => {
-      intro.classList.remove("intro-stage-gate");
-      intro.classList.add("intro-stage-release");
-    }, 5300);
-
-    window.setTimeout(() => {
-      intro.classList.add("is-dismissing");
-      document.body.classList.remove("intro-lock");
+    const rememberIntro = () => {
       try {
         if (!forceIntro) {
           window.sessionStorage.setItem(INTRO_KEY, "true");
@@ -492,12 +488,50 @@
       } catch {
         // Ignore storage failures.
       }
-    }, 7100);
+    };
 
-    window.setTimeout(() => {
-      intro.hidden = true;
-      intro.classList.remove("is-active", "is-dismissing", "is-forced", "intro-stage-seed", "intro-stage-forge", "intro-stage-gate", "intro-stage-release");
-    }, 7900);
+    const finishIntro = (skip = false) => {
+      if (introFinished) {
+        return;
+      }
+
+      introFinished = true;
+      timers.forEach((timer) => window.clearTimeout(timer));
+      document.removeEventListener("keydown", handleIntroKeydown);
+      intro.classList.add("is-dismissing");
+      if (skip) {
+        intro.classList.add("is-skipped");
+      }
+      document.body.classList.remove("intro-lock");
+      rememberIntro();
+
+      window.setTimeout(() => {
+        intro.hidden = true;
+        intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", ...stageClasses);
+      }, skip ? 220 : 650);
+    };
+
+    function handleIntroKeydown(event) {
+      if (event.key === "Escape") {
+        finishIntro(true);
+      }
+    }
+
+    document.addEventListener("keydown", handleIntroKeydown);
+
+    scheduleIntroStep(() => {
+      intro.classList.remove("intro-stage-brand");
+      intro.classList.add("intro-stage-proof");
+    }, 1350);
+
+    scheduleIntroStep(() => {
+      intro.classList.remove("intro-stage-proof");
+      intro.classList.add("intro-stage-handoff");
+    }, 2550);
+
+    scheduleIntroStep(() => {
+      finishIntro(false);
+    }, 4300);
   }
 
   function initPointerExperience() {
@@ -506,9 +540,16 @@
     }
 
     document.body.dataset.pointerExperience = "true";
-    const cursor = document.querySelector(".cursor-orb");
+    const cursor = document.querySelector(".cursor-mark");
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    if (!finePointer.matches) {
+      cursor?.setAttribute("hidden", "");
+      return;
+    }
 
     if (cursor) {
+      cursor.removeAttribute("hidden");
       let cursorX = window.innerWidth / 2;
       let cursorY = window.innerHeight / 2;
       let targetX = cursorX;
@@ -871,7 +912,14 @@
   }
 
   function openExternal(url) {
-    window.open(url, "_blank", "noopener,noreferrer");
+    const normalizedUrl = String(url || "").trim();
+
+    if (!/^(https?:|mailto:|tel:)/i.test(normalizedUrl)) {
+      toast("Blocked unsafe external link.");
+      return;
+    }
+
+    window.open(normalizedUrl, "_blank", "noopener,noreferrer");
   }
 
   function escapeHtml(value) {
