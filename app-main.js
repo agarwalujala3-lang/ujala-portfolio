@@ -90,6 +90,7 @@
       project.proof ? `Proof: ${project.proof}` : "",
       project.summary ? `What it does: ${project.summary}` : "",
       project.stack?.length ? `Core stack: ${project.stack.slice(0, 8).join(", ")}` : "",
+      project.links?.live ? `Live: ${project.links.live}` : "",
       project.links?.repo ? `Repo: ${project.links.repo}` : "",
     ]
       .filter(Boolean)

@@ -455,7 +455,7 @@
   }
 
   function projectDeliveryLabel(project) {
-    const parts = [project.links?.repo ? "Repo" : null].filter(Boolean);
+    const parts = [project.links?.live ? "Live" : null, project.links?.repo ? "Repo" : null].filter(Boolean);
     return parts.length ? parts.join(" + ") : "Portfolio";
   }
 
@@ -607,7 +607,8 @@
           <button class="button button--ghost" type="button" data-compare-project="${App.escapeHtml(project.id)}">
             ${compareLabel}
           </button>
-          ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noreferrer">Repo</a>` : ""}
+          ${project.links?.live ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer">Live</a>` : ""}
+          ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noopener noreferrer">Repo</a>` : ""}
         </div>
       </article>
     `;
@@ -811,7 +812,8 @@
           ${project.badge ? `<p class="project-badge project-badge--modal">${App.escapeHtml(project.badge)}</p>` : ""}
           <p>${App.escapeHtml(project.summary)}</p>
           <div class="modal-link-row">
-            ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noreferrer">View Repo</a>` : ""}
+            ${project.links?.live ? `<a class="button button--solid" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer">Open Live App</a>` : ""}
+            ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noopener noreferrer">View Repo</a>` : ""}
           </div>
         </section>
         <section class="modal-section">
