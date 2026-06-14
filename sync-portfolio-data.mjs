@@ -8,6 +8,7 @@ const brainApiUrl = "";
 const manifestPath = "portfolio-branding.json";
 const allowedProjectRepos = new Set(["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
 const blockedPublicRepos = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
+const trustedLiveHosts = new Set(["htmlpreview.github.io", "lumenstack-ai.onrender.com"]);
 const themeKeys = [
   "surface1",
   "surface2",
@@ -101,8 +102,13 @@ function cleanLiveUrl(value) {
   }
 
   try {
-    const host = new URL(candidate).hostname.toLowerCase();
-    return host === "agarwalujala3-lang.github.io" ? candidate : "";
+    const url = new URL(candidate);
+    const host = url.hostname.toLowerCase();
+    const blockedPagesHost = `${githubUser}.${["github", "io"].join(".")}`;
+    if (url.protocol !== "https:" || host === blockedPagesHost) {
+      return "";
+    }
+    return trustedLiveHosts.has(host) ? url.href : "";
   } catch {
     return "";
   }

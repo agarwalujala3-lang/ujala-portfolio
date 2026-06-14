@@ -2821,8 +2821,25 @@ body[data-page="home"] .main-nav__link.is-current {
   }
 
   .main-nav {
-    padding: 4px;
-    gap: 4px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    padding: 6px;
+    gap: 6px;
+    overflow: visible;
+    border-radius: 24px;
+  }
+
+  .main-nav__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    min-width: 0;
+    padding: 8px 6px;
+    font-size: 0.78rem;
+    line-height: 1.1;
+    text-align: center;
   }
 
   .header-chip {
