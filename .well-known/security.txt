@@ -1,5 +1,5 @@
 Contact: mailto:agarwalujala3@gmail.com
 Preferred-Languages: en
-Canonical: https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/index.html
+Canonical: https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/safe/index.html
 Expires: 2027-06-14T00:00:00Z
 Policy: https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/README.md

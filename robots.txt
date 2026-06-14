@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/index.html
+Sitemap: https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/safe/index.html
