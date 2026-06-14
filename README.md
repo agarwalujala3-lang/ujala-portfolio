@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://agarwalujala3-lang.github.io/ujala-portfolio">Live Portfolio</a> |
+  <a href="https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/index.html">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://lumenstack-ai.onrender.com/">LumenStack AI Live</a> |
   <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">LumenStack AI Repo</a> |
@@ -122,7 +122,7 @@ http://127.0.0.1:4173
 
 ## Current Live Portfolio
 
-- Portfolio: https://agarwalujala3-lang.github.io/ujala-portfolio
+- Portfolio: https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/index.html
 
 ## Free Hosting
 

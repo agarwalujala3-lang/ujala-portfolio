@@ -92,7 +92,7 @@ button {
   border: 0;
   background: none;
   color: inherit;
-  cursor: pointer;
+  cursor: none;
 }
 
 a {
@@ -1806,7 +1806,7 @@ li {
 }
 
 .route-card--static {
-  cursor: default;
+  cursor: none;
 }
 
 .cta-panel .cta-link {
@@ -4302,5 +4302,35 @@ body[data-scroll-depth="deep"] .ambient--two {
     opacity: 1;
     transform: none;
     filter: none;
+  }
+}
+
+/* Keep the native browser cursor fully hidden anywhere the custom cursor is active. */
+@media (hover: hover) and (pointer: fine) {
+  :root,
+  :root *,
+  :root *::before,
+  :root *::after,
+  button,
+  button:hover,
+  button:active,
+  a,
+  a:hover,
+  a:active,
+  input,
+  input:hover,
+  input:focus,
+  textarea,
+  textarea:hover,
+  textarea:focus,
+  select,
+  summary,
+  [role="button"],
+  [tabindex],
+  [data-command-action],
+  [data-open-project],
+  [data-compare-project],
+  [data-copy] {
+    cursor: none !important;
   }
 }

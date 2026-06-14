@@ -13,22 +13,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "Ujala_Agarwal_Resume.pdf?v=20260614a",
+        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@main/Ujala_Agarwal_Resume.pdf?v=20260614b",
         note: "Use this if you want a balanced overview of my work.",
       },
       {
         label: "Software Resume",
-        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260614a",
+        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@main/Ujala_Agarwal_Resume_Software.pdf?v=20260614b",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260614a",
+        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@main/Ujala_Agarwal_Resume_Cloud.pdf?v=20260614b",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260614a",
+        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@main/Ujala_Agarwal_Resume_Frontend.pdf?v=20260614b",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -178,7 +178,7 @@ window.UJOS_DATA = {
       ],
       tags: ["aws", "backend", "full-stack", "repo"],
       links: {
-        live: "https://agarwalujala3-lang.github.io/ReceiptPulse/app.html",
+        live: "https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ReceiptPulse/blob/main/dashboard/app.html",
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [

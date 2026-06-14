@@ -912,11 +912,12 @@
   }
 
   const TRUSTED_LINK_HOSTS = new Set([
-    "agarwalujala3-lang.github.io",
     "github.com",
     "www.linkedin.com",
     "linkedin.com",
     "lumenstack-ai.onrender.com",
+    "htmlpreview.github.io",
+    "cdn.jsdelivr.net",
   ]);
 
   function safeHref(value, options = {}) {
