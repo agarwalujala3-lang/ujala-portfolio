@@ -911,10 +911,48 @@
     }, 280);
   }
 
-  function openExternal(url) {
-    const normalizedUrl = String(url || "").trim();
+  const TRUSTED_LINK_HOSTS = new Set([
+    "agarwalujala3-lang.github.io",
+    "github.com",
+    "www.linkedin.com",
+    "linkedin.com",
+    "lumenstack-ai.onrender.com",
+  ]);
 
-    if (!/^(https?:|mailto:|tel:)/i.test(normalizedUrl)) {
+  function safeHref(value, options = {}) {
+    const { allowContact = false, allowRelative = true } = options;
+    const raw = String(value || "").trim();
+
+    if (!raw) {
+      return "#";
+    }
+
+    if (allowRelative && !/^[a-z][a-z0-9+.-]*:/i.test(raw) && !raw.startsWith("//")) {
+      return raw;
+    }
+
+    try {
+      const url = new URL(raw);
+      const host = url.hostname.toLowerCase();
+
+      if (url.protocol === "https:" && TRUSTED_LINK_HOSTS.has(host)) {
+        return url.href;
+      }
+
+      if (allowContact && (url.protocol === "mailto:" || url.protocol === "tel:")) {
+        return raw;
+      }
+    } catch (_error) {
+      return "#";
+    }
+
+    return "#";
+  }
+
+  function openExternal(url) {
+    const normalizedUrl = safeHref(url, { allowContact: true, allowRelative: false });
+
+    if (normalizedUrl === "#") {
       toast("Blocked unsafe external link.");
       return;
     }
@@ -966,6 +1004,7 @@
     initPointerExperience,
     goTo,
     openExternal,
+    safeHref,
     escapeHtml,
     formatMultilineText,
   };

@@ -13,22 +13,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "Ujala_Agarwal_Resume.pdf?v=20260613a",
+        href: "Ujala_Agarwal_Resume.pdf?v=20260614a",
         note: "Use this if you want a balanced overview of my work.",
       },
       {
         label: "Software Resume",
-        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260613a",
+        href: "Ujala_Agarwal_Resume_Software.pdf?v=20260614a",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260613a",
+        href: "Ujala_Agarwal_Resume_Cloud.pdf?v=20260614a",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260613a",
+        href: "Ujala_Agarwal_Resume_Frontend.pdf?v=20260614a",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -251,6 +251,7 @@ window.UJOS_DATA = {
       ],
       tags: ["ai", "backend", "full-stack", "repo"],
       links: {
+        live: "https://lumenstack-ai.onrender.com/",
         repo: "https://github.com/agarwalujala3-lang/LumenStack-AI",
       },
       details: [

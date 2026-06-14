@@ -9,6 +9,7 @@
 <p align="center">
   <a href="https://agarwalujala3-lang.github.io/ujala-portfolio">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
+  <a href="https://lumenstack-ai.onrender.com/">LumenStack AI Live</a> |
   <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">LumenStack AI Repo</a> |
   <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">ReceiptPulse Repo</a> |
   <a href="https://github.com/agarwalujala3-lang/Safety-Copilot">Safety Copilot Repo</a>
@@ -138,7 +139,8 @@ This portfolio is configured for free static hosting with GitHub Pages and a Ren
   - private per-user receipt workspace with sign-in, OCR extraction, duplicate decision flow, label rename, and dashboard management
 - Safety Copilot: https://github.com/agarwalujala3-lang/Safety-Copilot
   - cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS or silent SOS escalation
-- LumenStack AI: https://github.com/agarwalujala3-lang/LumenStack-AI
+- LumenStack AI Live: https://lumenstack-ai.onrender.com/
+- LumenStack AI Repo: https://github.com/agarwalujala3-lang/LumenStack-AI
   - AI-powered codebase analysis with diagrams, compare mode, exports, and guided explanations
 - GitHub Profile: https://github.com/agarwalujala3-lang
 - LinkedIn: https://www.linkedin.com/in/ujala-agarwal-30aa28283/

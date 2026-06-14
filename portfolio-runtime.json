@@ -27,7 +27,7 @@
       "language": "Node.js",
       "note": "I built LumenStack AI as a codebase architecture analyzer that parses repositories, detects structure, and generates Mermaid diagrams with guided explanations.",
       "pushedAt": "2026-04-22T04:03:03.617Z",
-      "homepage": ""
+      "homepage": "https://lumenstack-ai.onrender.com/"
     }
   ],
   "projects": [
@@ -147,7 +147,7 @@
         "CSS"
       ],
       "links": {
-        "live": "",
+        "live": "https://lumenstack-ai.onrender.com/",
         "repo": "https://github.com/agarwalujala3-lang/LumenStack-AI"
       },
       "theme": {

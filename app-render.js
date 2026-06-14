@@ -67,7 +67,7 @@
         <div class="footer-links">
           <a class="text-link" href="work.html">Case studies</a>
           <a class="text-link" href="systems.html">Systems</a>
-          <a class="text-link" href="${App.escapeHtml(data.profile.github)}" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="text-link" href="${App.escapeHtml(App.safeHref(data.profile.github, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <div class="footer-status">
           <span>Mode: ${App.escapeHtml(App.getModeConfig().label)}</span>
@@ -607,8 +607,8 @@
           <button class="button button--ghost" type="button" data-compare-project="${App.escapeHtml(project.id)}">
             ${compareLabel}
           </button>
-          ${project.links?.live ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer">Live</a>` : ""}
-          ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noopener noreferrer">Repo</a>` : ""}
+          ${project.links?.live ? `<a class="button button--ghost" href="${App.escapeHtml(App.safeHref(project.links.live, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">Live</a>` : ""}
+          ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(App.safeHref(project.links.repo, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">Repo</a>` : ""}
         </div>
       </article>
     `;
@@ -812,8 +812,8 @@
           ${project.badge ? `<p class="project-badge project-badge--modal">${App.escapeHtml(project.badge)}</p>` : ""}
           <p>${App.escapeHtml(project.summary)}</p>
           <div class="modal-link-row">
-            ${project.links?.live ? `<a class="button button--solid" href="${App.escapeHtml(project.links.live)}" target="_blank" rel="noopener noreferrer">Open Live App</a>` : ""}
-            ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(project.links.repo)}" target="_blank" rel="noopener noreferrer">View Repo</a>` : ""}
+            ${project.links?.live ? `<a class="button button--solid" href="${App.escapeHtml(App.safeHref(project.links.live, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">Open Live App</a>` : ""}
+            ${project.links?.repo ? `<a class="button button--ghost" href="${App.escapeHtml(App.safeHref(project.links.repo, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">View Repo</a>` : ""}
           </div>
         </section>
         <section class="modal-section">
@@ -1030,7 +1030,7 @@
               <span class="feed-card__meta">${App.escapeHtml(repo.language || "Repo")}</span>
             </div>
             <p>${App.escapeHtml(repo.note || "Public repository activity.")}</p>
-            <a class="text-link" href="${App.escapeHtml(repo.url)}" target="_blank" rel="noreferrer">Open repository</a>
+            <a class="text-link" href="${App.escapeHtml(App.safeHref(repo.url, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">Open repository</a>
           </article>
         `
       )
@@ -1062,8 +1062,8 @@
         <span class="contact-card__label">Profiles</span>
         <h2>Public proof layer</h2>
         <div class="contact-card__links">
-          <a class="button button--ghost" href="${App.escapeHtml(data.profile.github)}" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="button button--ghost" href="${App.escapeHtml(data.profile.linkedin)}" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="button button--ghost" href="${App.escapeHtml(App.safeHref(data.profile.github, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="button button--ghost" href="${App.escapeHtml(App.safeHref(data.profile.linkedin, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <p>GitHub is strongest for code proof. LinkedIn is strongest for role context.</p>
       </article>
@@ -1078,7 +1078,7 @@
             </div>
             <h3>${App.escapeHtml(resume.label)}</h3>
             <p class="resume-card__note">${App.escapeHtml(resume.note)}</p>
-            <a class="text-link" href="${App.escapeHtml(resume.href)}" target="_blank" rel="noreferrer">Open PDF</a>
+            <a class="text-link" href="${App.escapeHtml(App.safeHref(resume.href))}" target="_blank" rel="noopener noreferrer">Open PDF</a>
           </article>
         `
       )

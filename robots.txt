@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agarwalujala3-lang.github.io/ujala-portfolio/sitemap.xml

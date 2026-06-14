@@ -131,7 +131,7 @@
       ].join("\n");
     }
 
-    if (prompt.includes("safe") || prompt.includes("security") || prompt.includes("dangerous")) {
+    if (prompt.includes("safe") || prompt.includes("security") || prompt.includes("trust")) {
       return [
         "This portfolio is currently designed as a static-safe GitHub Pages site.",
         "",
