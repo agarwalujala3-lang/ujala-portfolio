@@ -4479,22 +4479,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume.pdf",
-        note: "Use this if you want a balanced overview of my work.",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
+        note: "Use this if you want a balanced overview of my GitHub-backed work.",
       },
       {
         label: "Software Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume_Software.pdf",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume_Cloud.pdf",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Cloud.pdf",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume_Frontend.pdf",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Frontend.pdf",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -4644,7 +4644,7 @@ window.UJOS_DATA = {
       ],
       tags: ["aws", "backend", "full-stack", "repo"],
       links: {
-        live: "https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ReceiptPulse/blob/main/dashboard/app.html",
+        live: "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/dashboard/app.html",
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [
@@ -5193,9 +5193,40 @@ window.UJOS_DATA = {
     };
   }
 
-  function combineProjects(baseProjects, runtimeProjects, syncedCatalog) {
+  function repoNameFromGithubUrl(value) {
+    const candidate = cleanString(value);
+    if (!candidate) {
+      return "";
+    }
+
+    try {
+      const url = new URL(candidate);
+      if (url.hostname.toLowerCase() !== "github.com") {
+        return "";
+      }
+      const parts = url.pathname.split("/").filter(Boolean);
+      return parts.length >= 2 ? parts[1].replace(/\.git$/i, "") : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function projectVerifiedByGithub(project, verifiedRepoNames) {
+    if (!verifiedRepoNames || verifiedRepoNames.size === 0) {
+      return true;
+    }
+
+    const repoName = cleanString(project?.repoSync?.repo) || repoNameFromGithubUrl(project?.links?.repo);
+    return repoName ? verifiedRepoNames.has(repoName) : true;
+  }
+
+  function combineProjects(baseProjects, runtimeProjects, syncedCatalog, verifiedRepoNames) {
     const seed = (Array.isArray(baseProjects) ? baseProjects : []).filter((project) => {
       if (!project || project.enabled === false) {
+        return false;
+      }
+
+      if (syncedCatalog && !projectVerifiedByGithub(project, verifiedRepoNames)) {
         return false;
       }
 
@@ -5234,11 +5265,13 @@ window.UJOS_DATA = {
     const runtimeOverrides = runtimeData.overrides || {};
     const nextGithubActivity = runtimeData.githubActivity || data.runtime?.githubActivity || [];
     const syncedCatalog = runtimeData.sync?.status === "synced" && Array.isArray(runtimeData.projects);
+    const verifiedRepoNames = new Set(Array.isArray(runtimeData.sync?.verifiedRepoNames) ? runtimeData.sync.verifiedRepoNames : []);
     const mergedProjects = versionProjectAssets(
       combineProjects(
         runtimeOverrides.projects || data.projects || [],
         runtimeData.projects,
-        syncedCatalog
+        syncedCatalog,
+        verifiedRepoNames
       ),
       nextGithubActivity
     );
@@ -5246,6 +5279,7 @@ window.UJOS_DATA = {
     setData({
       ...data,
       ...runtimeOverrides,
+      ...(runtimeOverrides.profile ? { profile: { ...(data.profile || {}), ...runtimeOverrides.profile } } : {}),
       ...(Array.isArray(mergedProjects) ? { projects: mergedProjects } : {}),
       runtime: {
         ...(data.runtime || {}),
@@ -5979,6 +6013,7 @@ window.UJOS_DATA = {
     "lumenstack-ai.onrender.com",
     "htmlpreview.github.io",
     "cdn.jsdelivr.net",
+    "raw.githubusercontent.com",
   ]);
 
   function safeHref(value, options = {}) {

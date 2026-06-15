@@ -1,302 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-resume-variant="general">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ujala Agarwal - ATS Resume</title>
+  <script src="resume-data.js"></script>
   <script>
     (() => {
       const params = new URLSearchParams(window.location.search);
       if (!params.has("export")) {
-        window.location.replace("https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume.pdf");
+        const variantKey = document.documentElement.dataset.resumeVariant || "general";
+        const variant = window.UJOS_RESUME_DATA?.variants?.[variantKey] || window.UJOS_RESUME_DATA?.variants?.general;
+        if (variant?.pdfFile) {
+          window.location.replace(variant.pdfFile);
+        }
       }
     })();
   </script>
   <style>
-    :root {
-      color-scheme: light;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111111;
-      background: #ffffff;
-      line-height: 1.4;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-
-    .page {
-      width: 210mm;
-      min-height: 297mm;
-      margin: 0 auto;
-      padding: 14mm 13mm 14mm;
-    }
-
-    h1,
-    h2,
-    h3,
-    p,
-    ul {
-      margin: 0;
-    }
-
-    .header {
-      border-bottom: 2px solid #111111;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
-    }
-
-    .name {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .title {
-      margin-top: 4px;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .contact {
-      margin-top: 8px;
-      font-size: 11px;
-      word-break: break-word;
-    }
-
-    .contact + .contact {
-      margin-top: 4px;
-    }
-
-    .section {
-      margin-top: 12px;
-    }
-
-    .section h2 {
-      font-size: 12.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      border-bottom: 1px solid #111111;
-      padding-bottom: 4px;
-      margin-bottom: 8px;
-    }
-
-    .summary {
-      font-size: 11.5px;
-    }
-
-    .item {
-      margin-bottom: 10px;
-    }
-
-    .item:last-child {
-      margin-bottom: 0;
-    }
-
-    .item-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-      font-size: 11.5px;
-    }
-
-    .item-head strong {
-      font-size: 12px;
-    }
-
-    .item-sub {
-      margin-top: 2px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    ul {
-      padding-left: 17px;
-      margin-top: 3px;
-      font-size: 11px;
-    }
-
-    li {
-      margin: 2px 0;
-    }
-
-    .skills-grid {
-      display: grid;
-      gap: 6px;
-      font-size: 11px;
-    }
-
-    .skills-grid p strong {
-      display: inline-block;
-      min-width: 140px;
-    }
-
-    .links {
-      margin-top: 4px;
-      font-size: 10.5px;
-      word-break: break-word;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    @page {
-      size: A4;
-      margin: 10mm;
-    }
-
-    @media print {
-      html,
-      body {
-        background: #ffffff;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .page {
-        width: auto;
-        min-height: auto;
-        margin: 0;
-        padding: 0;
-      }
-    }
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #111111; background: #ffffff; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 14mm 13mm 14mm; }
+    h1, h2, h3, p, ul { margin: 0; }
+    .header { border-bottom: 2px solid #111111; padding-bottom: 10px; margin-bottom: 12px; }
+    .name { font-size: 28px; font-weight: 700; letter-spacing: 0.02em; }
+    .title { margin-top: 4px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    .contact { margin-top: 8px; font-size: 11px; word-break: break-word; }
+    .contact + .contact { margin-top: 4px; }
+    a { color: inherit; text-decoration: none; }
+    .section { margin-top: 12px; }
+    .section h2 { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; border-bottom: 1px solid #111111; padding-bottom: 4px; margin-bottom: 8px; }
+    .summary { font-size: 11.5px; }
+    .item { margin-bottom: 10px; break-inside: avoid; }
+    .item:last-child { margin-bottom: 0; }
+    .item-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; font-size: 11.5px; }
+    .item-head strong { font-size: 12px; }
+    .item-sub { margin-top: 2px; font-size: 11px; font-weight: 700; }
+    ul { padding-left: 17px; margin-top: 3px; font-size: 11px; }
+    li { margin: 2px 0; }
+    .skills-grid { display: grid; gap: 6px; font-size: 11px; }
+    .skills-grid p strong { display: inline-block; min-width: 140px; }
+    .links { margin-top: 4px; font-size: 10.5px; word-break: break-word; }
+    @page { size: A4; margin: 10mm; }
+    @media print { html, body { background: #ffffff; -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } }
   </style>
 </head>
 <body>
-  <main class="page">
+  <main class="page" id="resume-root" data-resume-variant="general">
     <section class="header">
       <h1 class="name">Ujala Agarwal</h1>
-      <p class="title">Software Engineer | Cloud, AI, and Full-Stack Developer</p>
-      <p class="contact">Bareilly, Uttar Pradesh | +91 7906786403 | agarwalujala3@gmail.com</p>
-      <p class="contact">
-        Portfolio: <a href="https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ujala-portfolio/blob/main/safe/index.html">htmlpreview.github.io Ujala OS mirror</a> |
-        GitHub: <a href="https://github.com/agarwalujala3-lang">github.com/agarwalujala3-lang</a> |
-        LinkedIn: <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">linkedin.com/in/ujala-agarwal-30aa28283</a>
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Professional Summary</h2>
-      <p class="summary">
-        Software engineer building shipped GitHub products across AWS serverless systems,
-        AI-assisted developer tooling, and full-stack web applications. Delivered ReceiptPulse
-        (private OCR receipt workspace), Safety Copilot (cloud-first safety platform), LumenStack AI
-        (repository intelligence with compare mode), and Ujala OS Portfolio (static-safe repo-driven runtime).
-        Strong in JavaScript, Java, Node.js, Express, Lambda, API Gateway, S3, DynamoDB, Cognito,
-        Textract, and CloudFront. Seeking backend, cloud, or full-stack software engineering roles.
-      </p>
-    </section>
-
-    <section class="section">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <p><strong>Languages:</strong> Java, JavaScript, C</p>
-        <p><strong>Backend and Web:</strong> Node.js, Express, REST APIs, HTML, CSS, Responsive UI, Modular Client-Side JavaScript</p>
-        <p><strong>AWS Cloud:</strong> Lambda, S3, DynamoDB, API Gateway, IAM, Rekognition, Textract, CloudFront, Cognito</p>
-        <p><strong>Databases:</strong> DynamoDB, MySQL</p>
-        <p><strong>Tools:</strong> Git, GitHub, Docker (Basics), OpenAI API, Mermaid</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Experience</h2>
-      <article class="item">
-        <div class="item-head">
-          <strong>CETPA Infotech Pvt. Ltd.</strong>
-          <span>June 2025 - August 2025</span>
-        </div>
-        <p class="item-sub">Cloud Computing Intern | Noida, Uttar Pradesh</p>
-        <ul>
-          <li>Worked with AWS services including Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition to support scalable cloud-based application workflows.</li>
-          <li>Developed and tested serverless backend processes and automation flows, reducing manual intervention by approximately 40-50%.</li>
-          <li>Strengthened understanding of service integration, deployment basics, and practical software delivery in AWS environments.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section class="section">
-      <h2>Projects</h2>
-
-      <article class="item">
-        <div class="item-head">
-          <strong>ReceiptPulse</strong>
-          <span>GitHub</span>
-        </div>
-        <p class="item-sub">AWS Lambda, S3, DynamoDB, API Gateway, Cognito, Textract, CloudFront, JavaScript</p>
-        <ul>
-          <li>Built and deployed a private receipt operations workspace with Cognito sign-in, user-scoped uploads, Textract extraction, duplicate decision flow, rename and delete actions, and analytics-ready history.</li>
-          <li>Designed a serverless architecture with Lambda, S3, DynamoDB, API Gateway, and CloudFront to automate document processing, storage, and retrieval.</li>
-          <li>Shipped a product-grade dashboard experience so complex backend workflow stays usable and clear for real users.</li>
-        </ul>
-        <p class="links">Live: <a href="https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ReceiptPulse/blob/main/dashboard/app.html">https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ReceiptPulse/blob/main/dashboard/app.html</a> | Repo: <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">https://github.com/agarwalujala3-lang/ReceiptPulse</a></p>
-      </article>
-
-      <article class="item">
-        <div class="item-head">
-          <strong>Safety Copilot</strong>
-          <span>GitHub</span>
-        </div>
-        <p class="item-sub">React, Vite, Node.js, AWS API Gateway, Lambda, Flutter, CloudFront</p>
-        <ul>
-          <li>Built a cloud-first personal safety platform with trusted-circle management, live trip monitoring, and SOS plus silent SOS escalation flows.</li>
-          <li>Integrated web and Android clients with cloud APIs for trip telemetry, alert acknowledgments, and operational safety workflows.</li>
-          <li>Shipped a production-style operator console with high-clarity visual states for threat and route tracking.</li>
-        </ul>
-        <p class="links">Repo: <a href="https://github.com/agarwalujala3-lang/Safety-Copilot">https://github.com/agarwalujala3-lang/Safety-Copilot</a></p>
-      </article>
-
-      <article class="item">
-        <div class="item-head">
-          <strong>LumenStack AI</strong>
-          <span>GitHub</span>
-        </div>
-        <p class="item-sub">Node.js, Express, JavaScript, OpenAI API, Mermaid</p>
-        <ul>
-          <li>Built a repository intelligence tool that ingests GitHub or ZIP inputs, maps architecture, and generates Mermaid diagrams.</li>
-          <li>Implemented compare mode, quality signals, and retrieval-backed chat to speed up engineering review and onboarding.</li>
-          <li>Combined deterministic static analysis with AI explanation to keep outputs grounded and readable.</li>
-        </ul>
-        <p class="links">Live: <a href="https://lumenstack-ai.onrender.com/">https://lumenstack-ai.onrender.com/</a> | Repo: <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">https://github.com/agarwalujala3-lang/LumenStack-AI</a></p>
-      </article>
-    </section>
-
-    <section class="section">
-      <h2>Education</h2>
-      <article class="item">
-        <div class="item-head">
-          <strong>Shri Ram Murti Smarak College of Engineering and Technology</strong>
-          <span>Completed May 2026</span>
-        </div>
-        <p class="item-sub">Bachelor of Science in Computer Science | Bareilly, Uttar Pradesh</p>
-      </article>
-    </section>
-
-    <section class="section">
-      <h2>Certifications and Training</h2>
-      <ul>
-        <li>Cloud Computing Internship Completion Certificate - CETPA Infotech Pvt. Ltd.</li>
-        <li>IBM Introduction to Large Language Models</li>
-        <li>IBM Getting Started with Artificial Intelligence</li>
-        <li>IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant</li>
-      </ul>
+      <p class="title">Loading GitHub-verified resume...</p>
+      <p class="contact">Run sync-portfolio-data.mjs if this fallback remains visible.</p>
     </section>
   </main>
+  <script src="resume-renderer.js"></script>
 </body>
 </html>
-
-

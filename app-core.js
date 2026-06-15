@@ -132,9 +132,40 @@
     };
   }
 
-  function combineProjects(baseProjects, runtimeProjects, syncedCatalog) {
+  function repoNameFromGithubUrl(value) {
+    const candidate = cleanString(value);
+    if (!candidate) {
+      return "";
+    }
+
+    try {
+      const url = new URL(candidate);
+      if (url.hostname.toLowerCase() !== "github.com") {
+        return "";
+      }
+      const parts = url.pathname.split("/").filter(Boolean);
+      return parts.length >= 2 ? parts[1].replace(/\.git$/i, "") : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function projectVerifiedByGithub(project, verifiedRepoNames) {
+    if (!verifiedRepoNames || verifiedRepoNames.size === 0) {
+      return true;
+    }
+
+    const repoName = cleanString(project?.repoSync?.repo) || repoNameFromGithubUrl(project?.links?.repo);
+    return repoName ? verifiedRepoNames.has(repoName) : true;
+  }
+
+  function combineProjects(baseProjects, runtimeProjects, syncedCatalog, verifiedRepoNames) {
     const seed = (Array.isArray(baseProjects) ? baseProjects : []).filter((project) => {
       if (!project || project.enabled === false) {
+        return false;
+      }
+
+      if (syncedCatalog && !projectVerifiedByGithub(project, verifiedRepoNames)) {
         return false;
       }
 
@@ -173,11 +204,13 @@
     const runtimeOverrides = runtimeData.overrides || {};
     const nextGithubActivity = runtimeData.githubActivity || data.runtime?.githubActivity || [];
     const syncedCatalog = runtimeData.sync?.status === "synced" && Array.isArray(runtimeData.projects);
+    const verifiedRepoNames = new Set(Array.isArray(runtimeData.sync?.verifiedRepoNames) ? runtimeData.sync.verifiedRepoNames : []);
     const mergedProjects = versionProjectAssets(
       combineProjects(
         runtimeOverrides.projects || data.projects || [],
         runtimeData.projects,
-        syncedCatalog
+        syncedCatalog,
+        verifiedRepoNames
       ),
       nextGithubActivity
     );
@@ -185,6 +218,7 @@
     setData({
       ...data,
       ...runtimeOverrides,
+      ...(runtimeOverrides.profile ? { profile: { ...(data.profile || {}), ...runtimeOverrides.profile } } : {}),
       ...(Array.isArray(mergedProjects) ? { projects: mergedProjects } : {}),
       runtime: {
         ...(data.runtime || {}),
@@ -918,6 +952,7 @@
     "lumenstack-ai.onrender.com",
     "htmlpreview.github.io",
     "cdn.jsdelivr.net",
+    "raw.githubusercontent.com",
   ]);
 
   function safeHref(value, options = {}) {

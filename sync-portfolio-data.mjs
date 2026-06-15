@@ -1,6 +1,7 @@
 import { readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildResumeRuntime, createPortfolioResumeLinks, createResumeDataScript } from "./resume-pipeline.mjs";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const githubUser = "agarwalujala3-lang";
@@ -480,10 +481,12 @@ async function main() {
   let repoCount = 0;
   let status = "offline";
   let source = "none";
+  let verifiedRepos = [];
 
   try {
     const githubData = await fetchGithubRepos();
     githubActivity = githubData.activity;
+    verifiedRepos = githubData.repos;
     repoCount = githubData.repos.length;
     const catalog = await fetchProjectCatalog(githubData.repos);
     projects = catalog.projects;
@@ -501,6 +504,7 @@ async function main() {
       const localCatalog = await fetchLocalManifestCatalog();
       githubActivity = localCatalog.activity;
       projects = localCatalog.projects;
+      verifiedRepos = localCatalog.repos;
       repoCount = localCatalog.repos.length;
       if (localCatalog.warnings.length) {
         console.warn("Local manifest warnings:");
@@ -523,6 +527,8 @@ async function main() {
       repoCount,
       githubUser,
       source,
+      verifiedRepoNames: verifiedRepos.map((repo) => repo.name).filter(Boolean).sort(),
+      includedProjectRepos: projects.map((project) => project.repoSync?.repo || "").filter(Boolean).sort(),
     },
     brain: {
       status: brainApiUrl ? "live" : "fallback",
@@ -538,8 +544,24 @@ async function main() {
     roadmap,
   };
 
+  const resumeRuntime = buildResumeRuntime({
+    githubUser,
+    githubRepos: verifiedRepos,
+    projects,
+    sync: runtime.sync,
+  });
+  runtime.overrides = {
+    profile: {
+      resumes: createPortfolioResumeLinks(resumeRuntime),
+    },
+  };
+
   await writeFile(path.join(rootDir, "portfolio-runtime.json"), `${JSON.stringify(runtime, null, 2)}\n`, "utf8");
-  console.log(`portfolio-runtime.json updated with ${projects.length} manifest-backed projects.`);
+  await writeFile(path.join(rootDir, "resume-runtime.json"), `${JSON.stringify(resumeRuntime, null, 2)}\n`, "utf8");
+  await writeFile(path.join(rootDir, "resume-data.js"), createResumeDataScript(resumeRuntime), "utf8");
+  console.log(
+    `portfolio-runtime.json updated with ${projects.length} manifest-backed projects; resume-runtime.json updated with ${resumeRuntime.projects.length} GitHub-verified resume projects.`
+  );
 }
 
 main().catch((error) => {

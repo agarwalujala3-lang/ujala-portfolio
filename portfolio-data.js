@@ -13,22 +13,22 @@ window.UJOS_DATA = {
     resumes: [
       {
         label: "General Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume.pdf",
-        note: "Use this if you want a balanced overview of my work.",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
+        note: "Use this if you want a balanced overview of my GitHub-backed work.",
       },
       {
         label: "Software Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume_Software.pdf",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
         note: "Best fit if you are hiring me for software engineering roles.",
       },
       {
         label: "Cloud Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume_Cloud.pdf",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Cloud.pdf",
         note: "Use this if you want my AWS and cloud work highlighted first.",
       },
       {
         label: "Frontend Resume",
-        href: "https://cdn.jsdelivr.net/gh/agarwalujala3-lang/ujala-portfolio@d0833e8/Ujala_Agarwal_Resume_Frontend.pdf",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Frontend.pdf",
         note: "Best fit if you want to see my interface and product-facing work.",
       },
     ],
@@ -178,7 +178,7 @@ window.UJOS_DATA = {
       ],
       tags: ["aws", "backend", "full-stack", "repo"],
       links: {
-        live: "https://htmlpreview.github.io/?https://github.com/agarwalujala3-lang/ReceiptPulse/blob/main/dashboard/app.html",
+        live: "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/dashboard/app.html",
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [
