@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "sync": "node sync-portfolio-data.mjs",
+    "build:safe": "node build-safe-mirror.mjs",
+    "build": "node build-safe-mirror.mjs",
+    "refresh": "node sync-portfolio-data.mjs && node build-safe-mirror.mjs",
+    "export:resumes": "powershell -ExecutionPolicy Bypass -File ./export-resumes.ps1"
+  }
+}

@@ -3,7 +3,7 @@ services:
     name: ujala-portfolio
     runtime: static
     plan: free
-    buildCommand: "true"
+    buildCommand: "npm run build"
     staticPublishPath: .
     routes:
       - type: rewrite

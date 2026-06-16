@@ -319,6 +319,17 @@
 
   async function loadRuntimeData() {
     try {
+      if (window.UJOS_RUNTIME_DATA && typeof window.UJOS_RUNTIME_DATA === "object") {
+        mergeRuntimeData(sanitizeCopy(window.UJOS_RUNTIME_DATA));
+        window.PortfolioApp.renderAll();
+        initRevealObserver();
+        initHeroDepthScene();
+        initSurfaceSpotlights();
+        updateViewportUi();
+        initFloatingDockObserver();
+        return;
+      }
+
       const response = await window.fetch("portfolio-runtime.json", { cache: "no-store" });
       if (!response.ok) {
         return;

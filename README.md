@@ -77,7 +77,29 @@ The static snapshot layer adds:
 node sync-portfolio-data.mjs
 ```
 
-That pulls public GitHub repository activity and rebuilds `portfolio-runtime.json`.
+That pulls public GitHub repository activity and rebuilds `portfolio-runtime.json`, `resume-runtime.json`, and `resume-data.js`.
+
+## Build Safe Mirror
+
+```bash
+node build-safe-mirror.mjs
+```
+
+That generates the self-contained `safe/` mirror from the main source pages, `styles.css`, `portfolio-data.js`, `portfolio-runtime.json`, and the app scripts. Do not edit files in `safe/` directly; edit the main page/data/runtime source, then rebuild.
+
+Safe mirror build:
+
+```bash
+npm run build
+```
+
+Full data refresh plus safe mirror rebuild:
+
+```bash
+npm run refresh
+```
+
+Use `npm run build` after navigation, resume links, runtime data, or visual polish changes so the public mirror stays aligned with the main site. Use `npm run refresh` when you also want to pull current GitHub repo/manifest data first.
 
 ## Future Project Auto-Onboarding (Important)
 
@@ -131,7 +153,7 @@ This portfolio is configured for free static hosting with GitHub Pages and a Ren
 - GitHub Pages workflow: `.github/workflows/deploy-pages.yml`
 - Render Blueprint: `render.yaml`
 - Publish directory: `.`
-- Build command: not required
+- Build command: `npm run build`
 
 ## Key Proof Links
 
