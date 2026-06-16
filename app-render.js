@@ -65,8 +65,8 @@
           <p>${App.escapeHtml(data.profile.tagline)}</p>
         </div>
         <div class="footer-links">
-          <a class="text-link" href="work.html">Case studies</a>
-          <a class="text-link" href="systems.html">Systems</a>
+          <a class="text-link" href="${App.escapeHtml(App.resolveRouteHref("work.html"))}">Case studies</a>
+          <a class="text-link" href="${App.escapeHtml(App.resolveRouteHref("systems.html"))}">Systems</a>
           <a class="text-link" href="${App.escapeHtml(App.safeHref(data.profile.github, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <div class="footer-status">
@@ -76,12 +76,12 @@
         </div>
       </div>
       <div class="footer-route-nav">
-        <a class="footer-route-card" href="${App.escapeHtml(previousRoute.href)}">
+        <a class="footer-route-card" href="${App.escapeHtml(App.resolveRouteHref(previousRoute.href))}">
           <span class="footer-route-card__eyebrow">Previous page</span>
           <strong>${App.escapeHtml(previousRoute.label)}</strong>
           <p>${App.escapeHtml(previousRoute.kicker)}</p>
         </a>
-        <a class="footer-route-card footer-route-card--next" href="${App.escapeHtml(nextRoute.href)}">
+        <a class="footer-route-card footer-route-card--next" href="${App.escapeHtml(App.resolveRouteHref(nextRoute.href))}">
           <span class="footer-route-card__eyebrow">Next page</span>
           <strong>${App.escapeHtml(nextRoute.label)}</strong>
           <p>${App.escapeHtml(nextRoute.kicker)}</p>
@@ -355,7 +355,7 @@
     title.textContent = active.title;
     text.textContent = active.answer;
     link.textContent = active.routeLabel;
-    link.href = active.routeHref;
+    link.href = App.resolveRouteHref(active.routeHref);
   }
 
   function renderBrainSection() {

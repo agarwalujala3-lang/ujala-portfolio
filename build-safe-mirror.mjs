@@ -39,6 +39,12 @@ function normalizePublicUrls(html, page) {
     .replace(/<meta property="og:url" content="[^"]+">/, `<meta property="og:url" content="${url}">`);
 }
 
+function rewriteStaticRouteLinks(html) {
+  return html.replace(/href="(index|work|systems|about|playground|contact)\.html([?#][^"]*)?"/g, (_match, pageName, suffix = "") => {
+    return `href="${safePublicUrl(`${pageName}.html${suffix}`)}"`;
+  });
+}
+
 function safePortfolioDataScript(source) {
   return source.replaceAll("content/branding/", "../content/branding/");
 }
@@ -78,6 +84,7 @@ async function main() {
     let html = await readFile(sourcePath, "utf8");
     html = stripExternalHeadAssets(html);
     html = normalizePublicUrls(html, page);
+    html = rewriteStaticRouteLinks(html);
     html = html.replace(/\s*<link rel="stylesheet" href="styles\.css">/, `\n${styleBlock}`);
     html = html.replace(
       /\s*<script src="portfolio-data\.js"><\/script>\s*<script src="script\.js"><\/script>/,
@@ -94,4 +101,3 @@ main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-

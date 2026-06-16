@@ -130,7 +130,7 @@ const variants = {
       "Turns cloud services into usable product flows instead of isolated infrastructure demos.",
       "Documents live links, repos, and project tradeoffs so cloud work is easy to verify.",
     ],
-    projectOrder: ["ReceiptPulse", "Safety-Copilot", "ujala-portfolio"],
+    projectOrder: ["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"],
     skills: skills.cloud,
   },
   frontend: {

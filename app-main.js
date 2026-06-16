@@ -506,12 +506,12 @@
       }
 
       const href = anchor.getAttribute("href") || "";
-      const isInternalPage = !anchor.target && !/^https?:\/\//.test(href) && href.endsWith(".html");
+      const isInternalPage = !anchor.target && App.isRouteHref(href);
       if (isInternalPage) {
         event.preventDefault();
         App.triggerCurtain("Opening route");
         window.setTimeout(() => {
-          window.location.href = href;
+          window.location.href = App.resolveRouteHref(href);
         }, 280);
       }
     });

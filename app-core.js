@@ -949,10 +949,73 @@
     });
   }
 
+  const ROUTE_PAGES = new Set([
+    "index.html",
+    "work.html",
+    "systems.html",
+    "about.html",
+    "playground.html",
+    "contact.html",
+  ]);
+  const SAFE_MIRROR_RAW_BASE = "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/safe/";
+  const SAFE_MIRROR_PREVIEW_BASE = "https://htmlpreview.github.io/?";
+
+  function routeFileFromHref(value) {
+    const raw = cleanString(value).split("#")[0].split("?")[0];
+    const directFile = raw.split("/").pop();
+    if (ROUTE_PAGES.has(directFile)) {
+      return directFile;
+    }
+
+    try {
+      const parsed = new URL(value, window.location.href);
+      const query = parsed.search ? parsed.search.slice(1) : "";
+      const queryFile = query.split("/").pop();
+      if (ROUTE_PAGES.has(queryFile)) {
+        return queryFile;
+      }
+
+      const pathFile = parsed.pathname.split("/").pop();
+      return ROUTE_PAGES.has(pathFile) ? pathFile : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function routeHashFromHref(value) {
+    try {
+      return new URL(value, window.location.href).hash || "";
+    } catch {
+      const hashIndex = cleanString(value).indexOf("#");
+      return hashIndex >= 0 ? cleanString(value).slice(hashIndex) : "";
+    }
+  }
+
+  function isSafeMirrorContext() {
+    return window.location.hostname === "htmlpreview.github.io" && window.location.search.includes("/safe/");
+  }
+
+  function resolveRouteHref(value) {
+    const routeFile = routeFileFromHref(value);
+    if (!routeFile) {
+      return value;
+    }
+
+    if (isSafeMirrorContext()) {
+      return `${SAFE_MIRROR_PREVIEW_BASE}${SAFE_MIRROR_RAW_BASE}${routeFile}${routeHashFromHref(value)}`;
+    }
+
+    return `${routeFile}${routeHashFromHref(value)}`;
+  }
+
+  function isRouteHref(value) {
+    return Boolean(routeFileFromHref(value));
+  }
+
   function goTo(url) {
     triggerCurtain("Opening route");
     window.setTimeout(() => {
-      window.location.href = url;
+      window.location.href = resolveRouteHref(url);
     }, 280);
   }
 
@@ -1050,6 +1113,8 @@
     initIntroSequence,
     initPointerExperience,
     goTo,
+    resolveRouteHref,
+    isRouteHref,
     openExternal,
     safeHref,
     escapeHtml,
