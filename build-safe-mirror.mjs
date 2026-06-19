@@ -4,8 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const safeDir = path.join(rootDir, "safe");
-const githubRawBase = "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main";
-const htmlPreviewBase = "https://htmlpreview.github.io/?";
+const publicSiteBase = "https://agarwalujala3-lang.github.io/ujala-portfolio";
 
 const sourcePages = [
   "index.html",
@@ -17,7 +16,7 @@ const sourcePages = [
 ];
 
 function safePublicUrl(page) {
-  return `${htmlPreviewBase}${githubRawBase}/safe/${page}`;
+  return `${publicSiteBase}/safe/${page}`;
 }
 
 function escapeScript(value) {

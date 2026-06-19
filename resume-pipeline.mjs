@@ -1,5 +1,5 @@
 const portfolioUrl =
-  "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/safe/index.html";
+  "https://agarwalujala3-lang.github.io/ujala-portfolio/";
 
 const profile = {
   name: "Ujala Agarwal",
@@ -160,7 +160,7 @@ const projectBlueprints = {
     summary:
       "Private receipt operations workspace with Cognito sign-in, user-scoped uploads, Textract extraction, duplicate decision flow, rename/delete actions, and analytics-ready history.",
     stack: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "JavaScript"],
-    liveUrl: "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/dashboard/app.html",
+    liveUrl: "https://agarwalujala3-lang.github.io/ReceiptPulse/",
     bullets: {
       general: [
         "Built a private receipt operations workspace with Cognito sign-in, user-scoped uploads, Textract extraction, duplicate review, label rename/delete actions, and analytics-ready history.",

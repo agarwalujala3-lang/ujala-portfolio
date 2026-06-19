@@ -1,6 +1,6 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-16T03:03:41.946Z",
+  "generatedAt": "2026-06-19T06:40:57.885Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -28,7 +28,7 @@ window.UJOS_RESUME_DATA = {
     "location": "Bareilly, Uttar Pradesh",
     "phone": "+91 7906786403",
     "email": "agarwalujala3@gmail.com",
-    "portfolioUrl": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/safe/index.html",
+    "portfolioUrl": "https://agarwalujala3-lang.github.io/ujala-portfolio/",
     "githubUrl": "https://github.com/agarwalujala3-lang",
     "linkedinUrl": "https://www.linkedin.com/in/ujala-agarwal-30aa28283/"
   },
@@ -352,10 +352,10 @@ window.UJOS_RESUME_DATA = {
         "JavaScript"
       ],
       "source": "github-manifest",
-      "pushedAt": "2026-06-16T03:03:24Z",
+      "pushedAt": "2026-06-18T03:16:52Z",
       "language": "CSS",
       "links": {
-        "live": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ReceiptPulse/main/dashboard/app.html",
+        "live": "https://agarwalujala3-lang.github.io/ReceiptPulse/",
         "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
       },
       "bullets": {
@@ -484,10 +484,10 @@ window.UJOS_RESUME_DATA = {
         "Static Runtime Snapshot"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-06-16T02:42:13Z",
+      "pushedAt": "2026-06-16T14:35:23Z",
       "language": "HTML",
       "links": {
-        "live": "https://htmlpreview.github.io/?https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/safe/index.html",
+        "live": "https://agarwalujala3-lang.github.io/ujala-portfolio/",
         "repo": "https://github.com/agarwalujala3-lang/ujala-portfolio"
       },
       "bullets": {
