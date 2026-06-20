@@ -136,11 +136,25 @@ function normalizeHostedCopy(value, liveUrl) {
   }
 
   const copy = cleanString(value);
-  if (!copy || liveUrl) {
+  if (!copy) {
     return copy;
   }
 
-  return copy
+  const saferCopy = copy
+    .replace(
+      "Balanced deterministic static analysis with AI explanation so the tool stays 100% accurate and grounded, rather than blindly relying on the LLM.",
+      "Kept static parsing and AI explanation as separate parts so generated output is easier to review and explain."
+    )
+    .replace(
+      "I balanced deterministic analysis with AI explanation so the tool stays useful without relying blindly on the model.",
+      "I kept static parsing and AI explanation as separate parts so the generated output is easier to review and explain."
+    );
+
+  if (liveUrl) {
+    return saferCopy;
+  }
+
+  return saferCopy
     .replace("live AWS receipt workspace", "AWS receipt workspace")
     .replace("full live deployment", "product-grade dashboard delivery")
     .replace("AWS-hosted deployment", "cloud product execution")

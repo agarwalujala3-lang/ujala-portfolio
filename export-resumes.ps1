@@ -9,9 +9,8 @@ if (-not (Test-Path -LiteralPath $edgePath)) {
 
 $exports = @(
   @{ Source = "Ujala_Agarwal_Resume_ATS.html"; Output = "Ujala_Agarwal_Resume.pdf" },
-  @{ Source = "Ujala_Agarwal_Resume_Cloud.html"; Output = "Ujala_Agarwal_Resume_Cloud.pdf" },
-  @{ Source = "Ujala_Agarwal_Resume_Frontend.html"; Output = "Ujala_Agarwal_Resume_Frontend.pdf" },
-  @{ Source = "Ujala_Agarwal_Resume_Software.html"; Output = "Ujala_Agarwal_Resume_Software.pdf" }
+  @{ Source = "Ujala_Agarwal_Resume_Software.html"; Output = "Ujala_Agarwal_Resume_Software.pdf" },
+  @{ Source = "Ujala_Agarwal_Resume_UnitedHealth_Data.html"; Output = "Ujala_Agarwal_Resume_UnitedHealth_Data.pdf" }
 )
 
 $profileRoot = Join-Path $workspace ".edge-resume-export"

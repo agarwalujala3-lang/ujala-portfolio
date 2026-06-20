@@ -123,11 +123,11 @@
 
     if (prompt.includes("resume") || prompt.includes("cv")) {
       return [
-        "Use the resume route that matches the role:",
+        "Use one of the two focused fresher resume routes:",
         "",
         ...(data.profile.resumes || []).map((resume) => `- ${resume.label}: ${resume.href}`),
         "",
-        "The current resume set is aligned around Java, JavaScript, AWS/serverless, Node.js, frontend UI, and repo-backed projects.",
+        "The current resume set is focused on fresher software roles, backend basics, AWS project work, and GitHub-backed proof.",
       ].join("\n");
     }
 

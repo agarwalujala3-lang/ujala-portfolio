@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-19T06:40:57.885Z",
+  "generatedAt": "2026-06-20T13:13:22.536Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -34,93 +34,12 @@
   },
   "variants": {
     "general": {
-      "label": "General Resume",
+      "label": "Fresher Software Resume",
       "htmlFile": "Ujala_Agarwal_Resume_ATS.html",
       "pdfFile": "Ujala_Agarwal_Resume.pdf",
-      "documentTitle": "Ujala Agarwal - ATS Resume",
-      "headline": "Software Engineer | Cloud, AI, and Full-Stack Developer",
-      "summary": "Software engineer with public GitHub proof across AWS serverless systems, AI-assisted developer tooling, and full-stack product interfaces. Builds end-to-end flows across JavaScript, Java, Node.js, Express, Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, and CloudFront. Seeking backend, cloud, or full-stack software engineering roles where implementation quality and product clarity both matter.",
-      "coreStrengths": [
-        "Builds repo-verified projects with clear source links, live routes, and role-specific proof.",
-        "Connects backend workflows, cloud services, and user-facing UI into complete product experiences.",
-        "Explains architecture decisions, tradeoffs, and implementation paths in recruiter- and engineer-readable language."
-      ],
-      "projectOrder": [
-        "ReceiptPulse",
-        "Safety-Copilot",
-        "LumenStack-AI"
-      ],
-      "skills": [
-        {
-          "label": "Languages",
-          "values": [
-            "Java",
-            "JavaScript",
-            "C"
-          ]
-        },
-        {
-          "label": "Backend and Web",
-          "values": [
-            "Node.js",
-            "Express",
-            "REST APIs",
-            "HTML",
-            "CSS",
-            "Responsive UI",
-            "Modular Client-Side JavaScript"
-          ]
-        },
-        {
-          "label": "AWS Cloud",
-          "values": [
-            "Lambda",
-            "S3",
-            "DynamoDB",
-            "API Gateway",
-            "IAM",
-            "Rekognition",
-            "Textract",
-            "CloudFront",
-            "Cognito"
-          ]
-        },
-        {
-          "label": "Databases",
-          "values": [
-            "DynamoDB",
-            "MySQL"
-          ]
-        },
-        {
-          "label": "Tools",
-          "values": [
-            "Git",
-            "GitHub",
-            "Docker Basics",
-            "OpenAI API",
-            "Mermaid"
-          ]
-        }
-      ],
-      "projects": [
-        "ReceiptPulse",
-        "Safety-Copilot",
-        "LumenStack-AI"
-      ]
-    },
-    "software": {
-      "label": "Software Resume",
-      "htmlFile": "Ujala_Agarwal_Resume_Software.html",
-      "pdfFile": "Ujala_Agarwal_Resume_Software.pdf",
-      "documentTitle": "Ujala Agarwal - Software Developer Resume",
-      "headline": "Software Engineer | Full-Stack and Backend Developer",
-      "summary": "Software engineer building full-stack, cloud-backed GitHub products with JavaScript, Java, Node.js, Express, REST APIs, AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Strongest work sits at the overlap of backend logic, API design, cloud workflows, AI integration, and product-quality user-facing delivery.",
-      "coreStrengths": [
-        "Implements API-driven product flows from frontend events to backend storage and review states.",
-        "Keeps code proof visible through GitHub repos, structured project metadata, and live/static demo routes.",
-        "Uses AI assistance where it adds product value, while keeping deterministic logic and source-backed behavior explicit."
-      ],
+      "documentTitle": "Ujala Agarwal - Fresher Software Resume",
+      "headline": "Entry-Level Software Engineer | Backend, AWS, and Full-Stack Projects",
+      "summary": "Entry-level software engineer with hands-on project experience in backend development, AWS serverless applications, and full-stack web projects. Built applications using JavaScript, Node.js, Express, AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract, with public GitHub repositories and live demos. Seeking software engineering roles focused on backend development, cloud systems, and practical problem solving.",
       "projectOrder": [
         "ReceiptPulse",
         "LumenStack-AI",
@@ -136,165 +55,11 @@
           ]
         },
         {
-          "label": "Web and Backend",
+          "label": "Backend",
           "values": [
-            "HTML",
-            "CSS",
-            "JavaScript",
             "Node.js",
-            "Express",
-            "Responsive UI",
+            "Express.js",
             "REST APIs"
-          ]
-        },
-        {
-          "label": "Cloud and Services",
-          "values": [
-            "AWS Lambda",
-            "S3",
-            "DynamoDB",
-            "API Gateway",
-            "IAM",
-            "Rekognition",
-            "Textract",
-            "CloudFront",
-            "Cognito"
-          ]
-        },
-        {
-          "label": "Databases",
-          "values": [
-            "DynamoDB",
-            "MySQL"
-          ]
-        },
-        {
-          "label": "Tools",
-          "values": [
-            "Git",
-            "GitHub",
-            "Docker Basics",
-            "OpenAI API",
-            "Mermaid"
-          ]
-        }
-      ],
-      "projects": [
-        "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
-      ]
-    },
-    "cloud": {
-      "label": "Cloud Resume",
-      "htmlFile": "Ujala_Agarwal_Resume_Cloud.html",
-      "pdfFile": "Ujala_Agarwal_Resume_Cloud.pdf",
-      "documentTitle": "Ujala Agarwal - Cloud Resume",
-      "headline": "AWS Serverless Developer | Cloud and Backend Engineer",
-      "summary": "Cloud-focused engineer building GitHub-backed AWS workflows with Lambda, S3, DynamoDB, API Gateway, Cognito, Textract, IAM, and CloudFront. Strong at connecting identity, storage, processing, API layers, and frontend delivery into usable product workflows with clear service boundaries.",
-      "coreStrengths": [
-        "Designs serverless workflows around identity, upload paths, processing, persistence, and API access.",
-        "Turns cloud services into usable product flows instead of isolated infrastructure demos.",
-        "Documents live links, repos, and project tradeoffs so cloud work is easy to verify."
-      ],
-      "projectOrder": [
-        "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
-      ],
-      "skills": [
-        {
-          "label": "AWS Cloud",
-          "values": [
-            "Lambda",
-            "S3",
-            "DynamoDB",
-            "API Gateway",
-            "IAM",
-            "Rekognition",
-            "Textract",
-            "CloudFront",
-            "Cognito"
-          ]
-        },
-        {
-          "label": "Languages",
-          "values": [
-            "Java",
-            "JavaScript",
-            "C"
-          ]
-        },
-        {
-          "label": "Backend and Web",
-          "values": [
-            "Node.js",
-            "Express",
-            "HTML",
-            "CSS",
-            "REST APIs"
-          ]
-        },
-        {
-          "label": "Databases",
-          "values": [
-            "DynamoDB",
-            "MySQL"
-          ]
-        },
-        {
-          "label": "Tools",
-          "values": [
-            "Git",
-            "GitHub",
-            "Docker Basics",
-            "OpenAI API",
-            "Mermaid"
-          ]
-        }
-      ],
-      "projects": [
-        "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
-      ]
-    },
-    "frontend": {
-      "label": "Frontend Resume",
-      "htmlFile": "Ujala_Agarwal_Resume_Frontend.html",
-      "pdfFile": "Ujala_Agarwal_Resume_Frontend.pdf",
-      "documentTitle": "Ujala Agarwal - Frontend Resume",
-      "headline": "Frontend Developer | Product UI and Full-Stack Web",
-      "summary": "Frontend and product-focused developer building polished, responsive interfaces for GitHub-backed products. Current work emphasizes interaction clarity, reusable visual systems, runtime-driven UI, command navigation, and multi-page product storytelling while staying connected to real backend and cloud workflows.",
-      "coreStrengths": [
-        "Builds responsive, recruiter-readable product surfaces with clear navigation and strong visual hierarchy.",
-        "Connects frontend states to real backend/API workflows rather than static mockups.",
-        "Uses animation, routing, and interface polish to clarify technical proof instead of hiding it."
-      ],
-      "projectOrder": [
-        "ujala-portfolio",
-        "ReceiptPulse",
-        "Safety-Copilot"
-      ],
-      "skills": [
-        {
-          "label": "Frontend",
-          "values": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Responsive UI",
-            "Interaction Design"
-          ]
-        },
-        {
-          "label": "Full-Stack",
-          "values": [
-            "Node.js",
-            "Express",
-            "REST APIs",
-            "JavaScript",
-            "Java"
           ]
         },
         {
@@ -304,16 +69,25 @@
             "S3",
             "DynamoDB",
             "API Gateway",
-            "CloudFront",
             "Cognito",
-            "Textract"
+            "Textract",
+            "CloudFront",
+            "IAM"
           ]
         },
         {
           "label": "Databases",
           "values": [
-            "DynamoDB",
-            "MySQL"
+            "MySQL",
+            "DynamoDB"
+          ]
+        },
+        {
+          "label": "Web",
+          "values": [
+            "HTML",
+            "CSS",
+            "Responsive UI"
           ]
         },
         {
@@ -321,15 +95,86 @@
           "values": [
             "Git",
             "GitHub",
-            "Docker Basics",
-            "OpenAI API",
-            "Mermaid"
+            "Docker Basics"
           ]
         }
       ],
       "projects": [
-        "ujala-portfolio",
         "ReceiptPulse",
+        "LumenStack-AI",
+        "Safety-Copilot"
+      ]
+    },
+    "backend": {
+      "label": "Backend/AWS Fresher Resume",
+      "htmlFile": "Ujala_Agarwal_Resume_Software.html",
+      "pdfFile": "Ujala_Agarwal_Resume_Software.pdf",
+      "documentTitle": "Ujala Agarwal - Backend AWS Fresher Resume",
+      "headline": "Entry-Level Backend Developer | Node.js, REST APIs, and AWS Projects",
+      "summary": "Entry-level backend-focused developer with project experience in REST APIs, Node.js/Express services, and AWS serverless workflows. Built GitHub-backed projects using JavaScript, Node.js, Express, Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking fresher backend or software engineering roles where I can grow in backend fundamentals, debugging, and cloud-based application development.",
+      "projectOrder": [
+        "ReceiptPulse",
+        "LumenStack-AI",
+        "Safety-Copilot"
+      ],
+      "skills": [
+        {
+          "label": "Languages",
+          "values": [
+            "Java",
+            "JavaScript",
+            "C"
+          ]
+        },
+        {
+          "label": "Backend",
+          "values": [
+            "Node.js",
+            "Express.js",
+            "REST APIs",
+            "JSON"
+          ]
+        },
+        {
+          "label": "AWS",
+          "values": [
+            "Lambda",
+            "API Gateway",
+            "S3",
+            "DynamoDB",
+            "Cognito",
+            "Textract",
+            "CloudFront",
+            "IAM"
+          ]
+        },
+        {
+          "label": "Databases",
+          "values": [
+            "MySQL",
+            "DynamoDB"
+          ]
+        },
+        {
+          "label": "Web",
+          "values": [
+            "HTML",
+            "CSS",
+            "Client-Side JavaScript"
+          ]
+        },
+        {
+          "label": "Tools",
+          "values": [
+            "Git",
+            "GitHub",
+            "Docker Basics"
+          ]
+        }
+      ],
+      "projects": [
+        "ReceiptPulse",
+        "LumenStack-AI",
         "Safety-Copilot"
       ]
     }
@@ -360,24 +205,14 @@
       },
       "bullets": {
         "general": [
-          "Built a private receipt operations workspace with Cognito sign-in, user-scoped uploads, Textract extraction, duplicate review, label rename/delete actions, and analytics-ready history.",
-          "Connected Lambda, S3, DynamoDB, API Gateway, and CloudFront into an event-driven document workflow with clear processing, storage, and retrieval boundaries.",
-          "Designed dashboard states for upload, review, results, and account-scoped data so backend processing stays visible and usable."
+          "Built a receipt processing web application with user authentication, file upload, OCR extraction, and receipt history tracking.",
+          "Integrated AWS Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract in a serverless workflow.",
+          "Added duplicate review and receipt label management features for authenticated users."
         ],
-        "software": [
-          "Implemented the full stack flow from file upload to stored receipt records using JavaScript, Lambda functions, REST endpoints, and DynamoDB.",
-          "Added receipt-only validation, duplicate decision handling, rename/delete actions, and history retrieval for a complete review workflow.",
-          "Structured UI/API behavior around private user sessions, error states, and repeatable receipt-management flows."
-        ],
-        "cloud": [
-          "Architected a user-scoped serverless pipeline across Cognito identity, S3 storage, Lambda/Textract processing, DynamoDB persistence, and API Gateway access.",
-          "Separated upload, extraction, review, and analytics responsibilities so the cloud workflow remains maintainable.",
-          "Used CloudFront/static dashboard delivery to wrap AWS backend services in a recruiter-demoable product surface."
-        ],
-        "frontend": [
-          "Designed dashboard UX for receipt upload, duplicate decisions, history, analytics, and receipt management.",
-          "Built responsive HTML/CSS/JavaScript interactions around asynchronous cloud APIs and user-scoped data states.",
-          "Presented the OCR/backend workflow as a clear product journey from upload to review to stored result."
+        "backend": [
+          "Built backend workflows for authenticated receipt upload, OCR extraction, duplicate review, and receipt history retrieval.",
+          "Connected AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract in a serverless application flow.",
+          "Implemented receipt validation, duplicate handling, and label update/delete features around user-scoped data."
         ]
       }
     },
@@ -405,24 +240,14 @@
       },
       "bullets": {
         "general": [
-          "Built a repository intelligence tool that accepts GitHub or ZIP inputs, maps code structure, and generates Mermaid architecture diagrams.",
-          "Implemented compare mode, quality signals, exports, and an explanation layer to make codebase review easier to scan.",
-          "Balanced deterministic static analysis with AI-generated explanations so outputs stay grounded in repository structure."
+          "Built a codebase analysis tool that accepts GitHub or ZIP input and summarizes project structure for easier review.",
+          "Used Node.js, Express, JavaScript, Mermaid, and OpenAI API features to generate diagrams and guided explanations.",
+          "Added compare, export, and explanation features to make repository review easier to scan."
         ],
-        "software": [
-          "Built a Node.js/Express analysis workflow that transforms repository input into architecture summaries, Mermaid diagrams, and guided technical insight.",
-          "Added compare mode and export paths so engineers can inspect differences and keep generated findings portable.",
-          "Kept static parsing and AI explanation as separate layers to reduce vague or unsupported output."
-        ],
-        "cloud": [
-          "Structured the backend as a hosted Node.js analysis service with clear input, parsing, inference, and explanation stages.",
-          "Kept deterministic static analysis separate from AI explanation so generated outputs remain traceable to repository structure.",
-          "Designed the product around architecture review, compare mode, and exportable technical insight."
-        ],
-        "frontend": [
-          "Built a developer-tool interface for repo analysis, architecture diagrams, compare mode, chat, and exports.",
-          "Used Mermaid visualization and guided explanation states to make unfamiliar codebases easier to inspect.",
-          "Balanced product polish with technical readability so the interface supports real engineering review."
+        "backend": [
+          "Built Node.js and Express routes for repository input, analysis sessions, generated summaries, and export flows.",
+          "Separated static parsing from AI-assisted explanation so outputs stay connected to repository structure.",
+          "Added compare and export paths to support repeatable codebase review workflows."
         ]
       }
     },
@@ -431,7 +256,7 @@
       "repo": "Safety-Copilot",
       "title": "Safety Copilot",
       "status": "GitHub",
-      "summary": "Cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS escalation across web and Android surfaces.",
+      "summary": "Personal safety project with trusted-circle management, trip monitoring screens, and SOS workflow concepts across web and Android surfaces.",
       "stack": [
         "React",
         "Vite",
@@ -450,24 +275,14 @@
       },
       "bullets": {
         "general": [
-          "Built a personal safety platform concept with trusted-circle management, live trip monitoring, and SOS plus silent SOS escalation flows.",
-          "Connected web and Android client paths to cloud/API workflows for trip telemetry, alert acknowledgments, and safety response states.",
-          "Designed operator-style console states for route, threat, incident, and acknowledgment visibility."
+          "Built a personal safety project with trusted-circle management, live trip monitoring screens, and SOS workflow concepts.",
+          "Created web and Android-facing interfaces for alerts, trip state, and response flow visibility.",
+          "Practiced connecting frontend states with API-oriented workflow design across multiple user surfaces."
         ],
-        "software": [
-          "Built trusted-circle, live trip, SOS, and silent SOS workflows across web and Android-facing surfaces.",
-          "Implemented API-oriented client behavior for alerts, telemetry, acknowledgments, and incident state transitions.",
-          "Kept high-risk actions clear through explicit UI states and structured workflow boundaries."
-        ],
-        "cloud": [
-          "Modeled live trip monitoring, trusted-circle coordination, and SOS escalation around cloud/API workflow boundaries.",
-          "Integrated web and mobile surfaces with API-driven alert, telemetry, and response-state behavior.",
-          "Structured the system as public GitHub proof for cloud-backed safety workflows and multi-surface product thinking."
-        ],
-        "frontend": [
-          "Built a web console for trusted circles, live trip tracking, alert feeds, and SOS escalation workflows.",
-          "Designed high-clarity route, threat, and incident surfaces to support fast operational decisions.",
-          "Integrated responsive client states with API-driven safety workflows while preserving polished UI behavior."
+        "backend": [
+          "Modeled backend-friendly workflows for trusted-circle coordination, trip updates, alert states, and SOS actions.",
+          "Worked with API-oriented client behavior for alerts, acknowledgments, and incident state transitions.",
+          "Built the project as GitHub proof of product workflow thinking across web and mobile-facing surfaces."
         ]
       }
     },
@@ -476,7 +291,7 @@
       "repo": "ujala-portfolio",
       "title": "Ujala OS Portfolio",
       "status": "Live + GitHub",
-      "summary": "Repo-driven portfolio system with static-safe runtime data, project routing, command navigation, compare studio, and role-specific resume pack.",
+      "summary": "Portfolio website with static runtime data, GitHub-backed project sync, and downloadable fresher resume links.",
       "stack": [
         "HTML",
         "CSS",
@@ -484,27 +299,22 @@
         "Static Runtime Snapshot"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-06-16T14:35:23Z",
+      "pushedAt": "2026-06-19T06:44:10Z",
       "language": "HTML",
       "links": {
         "live": "https://agarwalujala3-lang.github.io/ujala-portfolio/",
         "repo": "https://github.com/agarwalujala3-lang/ujala-portfolio"
       },
       "bullets": {
-        "software": [
-          "Built a static-safe portfolio runtime that merges committed project data, GitHub activity, and resume metadata without unsafe browser-side API calls.",
-          "Implemented command navigation, route transitions, project filtering, compare studio behavior, and contact/resume routing across a multi-page site.",
-          "Extended the sync pipeline so portfolio cards, runtime data, and role-specific resume links stay aligned with GitHub-backed source data."
+        "general": [
+          "Built a multi-page portfolio website with project routes, contact links, and downloadable resume files.",
+          "Connected committed runtime data with GitHub-backed project information so the portfolio can be updated consistently.",
+          "Kept the public profile independent from AWS hosting by using static pages and generated data snapshots."
         ],
-        "cloud": [
-          "Built a repo-driven portfolio system where project metadata, branding, and resume links are maintained through committed runtime snapshots.",
-          "Implemented static-safe rendering, proof-first project routing, and compare studio behavior to present engineering work with stronger clarity.",
-          "Kept the portfolio runtime independent from AWS so the public profile remains usable even when cloud hosting changes."
-        ],
-        "frontend": [
-          "Rebuilt the portfolio as a multi-page product experience with audience lenses, project compare studio, command navigation, and static-runtime content.",
-          "Designed a cohesive visual system with dark-theme polish, responsive layout rhythm, guided interaction states, and proof-focused UX.",
-          "Implemented committed project metadata so cards, accents, and resume links stay aligned without unsafe browser-side API calls."
+        "backend": [
+          "Built a static portfolio workflow that keeps resume links and project metadata generated from source data.",
+          "Added build steps for safe static pages so updates can be regenerated instead of edited manually.",
+          "Used GitHub-backed source data to keep public project proof and downloadable assets aligned."
         ]
       }
     }
@@ -516,9 +326,9 @@
       "location": "Noida, Uttar Pradesh",
       "dates": "June 2025 - August 2025",
       "bullets": [
-        "Built practical AWS service-integration experience across Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition while supporting cloud application workflows.",
-        "Developed and tested serverless backend processes and automation flows, reducing manual intervention by approximately 40-50%.",
-        "Practiced deployment basics, service boundaries, and debugging habits needed to move cloud workflows from concept to usable delivery."
+        "Worked with AWS services including Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition during cloud application tasks.",
+        "Developed and tested basic serverless backend workflows as part of internship assignments.",
+        "Gained hands-on experience in deployment, debugging, and service integration across AWS-based applications."
       ]
     }
   ],

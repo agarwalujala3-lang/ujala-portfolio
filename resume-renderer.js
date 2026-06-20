@@ -128,7 +128,7 @@
         <p class="title">${escapeHtml(variant.headline)}</p>
         <p class="contact">${escapeHtml(profile.location)} | ${escapeHtml(profile.phone)} | ${escapeHtml(profile.email)}</p>
         <p class="contact">
-          Portfolio: <a href="${escapeHtml(portfolioUrl)}">Ujala OS live mirror</a> |
+          Portfolio: <a href="${escapeHtml(portfolioUrl)}">ujala-portfolio</a> |
           GitHub: <a href="${escapeHtml(githubUrl)}">github.com/agarwalujala3-lang</a> |
           LinkedIn: <a href="${escapeHtml(linkedinUrl)}">linkedin.com/in/ujala-agarwal-30aa28283</a>
         </p>

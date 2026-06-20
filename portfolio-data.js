@@ -2,34 +2,24 @@ window.UJOS_DATA = {
   profile: {
     name: "Ujala Agarwal",
     shortName: "Ujala",
-    title: "Cloud, AI, and product engineer",
+    title: "Entry-level software engineer",
     location: "India",
     github: "https://github.com/agarwalujala3-lang",
     linkedin: "https://www.linkedin.com/in/ujala-agarwal-30aa28283/",
     email: "agarwalujala3@gmail.com",
     phone: "+91 7906786403",
     tagline:
-      "I built this portfolio as Ujala OS: a static-safe, repo-verified space for cloud systems, AI tooling, and product-grade interfaces.",
+      "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
     resumes: [
       {
-        label: "General Resume",
+        label: "Fresher Software Resume",
         href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
-        note: "Use this if you want a balanced overview of my GitHub-backed work.",
+        note: "Best all-purpose fresher resume for software, backend, and cloud-trainee applications.",
       },
       {
-        label: "Software Resume",
+        label: "Backend/AWS Fresher Resume",
         href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
-        note: "Best fit if you are hiring me for software engineering roles.",
-      },
-      {
-        label: "Cloud Resume",
-        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Cloud.pdf",
-        note: "Use this if you want my AWS and cloud work highlighted first.",
-      },
-      {
-        label: "Frontend Resume",
-        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Frontend.pdf",
-        note: "Best fit if you want to see my interface and product-facing work.",
+        note: "Use this when the role emphasizes backend APIs, Node.js, or AWS project work.",
       },
     ],
   },
@@ -266,7 +256,7 @@ window.UJOS_DATA = {
         "The frontend presents the output as a guided developer product.",
       ],
       tradeoff:
-        "I balanced deterministic analysis with AI explanation so the tool stays useful without relying blindly on the model.",
+        "I kept static parsing and AI explanation as separate parts so the generated output is easier to review and explain.",
     },
     {
       enabled: true,
@@ -461,7 +451,7 @@ window.UJOS_DATA = {
         label: "AI work",
         title: "My AI direction is grounded in product usefulness.",
         answer:
-          "LumenStack AI is the clearest example. I used deterministic analysis first, then layered AI explanation and Mermaid generation on top so the output stays useful and not purely model-driven.",
+          "LumenStack AI is the clearest example. I used repository parsing, Mermaid diagrams, and guided explanations to make codebases easier to review.",
         routeLabel: "Open project dossiers",
         routeHref: "work.html",
       },
