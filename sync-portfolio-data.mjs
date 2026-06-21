@@ -148,6 +148,14 @@ function normalizeHostedCopy(value, liveUrl) {
     .replace(
       "I balanced deterministic analysis with AI explanation so the tool stays useful without relying blindly on the model.",
       "I kept static parsing and AI explanation as separate parts so the generated output is easier to review and explain."
+    )
+    .replace(
+      " Designed to reduce manual expense tracking time by 80%.",
+      ""
+    )
+    .replace(
+      "Designed to reduce manual expense tracking time by 80%.",
+      ""
     );
 
   if (liveUrl) {

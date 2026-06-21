@@ -1,6 +1,6 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-20T13:13:22.536Z",
+  "generatedAt": "2026-06-21T12:58:15.172Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -34,16 +34,15 @@ window.UJOS_RESUME_DATA = {
   },
   "variants": {
     "general": {
-      "label": "Fresher Software Resume",
-      "htmlFile": "Ujala_Agarwal_Resume_ATS.html",
-      "pdfFile": "Ujala_Agarwal_Resume.pdf",
-      "documentTitle": "Ujala Agarwal - Fresher Software Resume",
-      "headline": "Entry-Level Software Engineer | Backend, AWS, and Full-Stack Projects",
-      "summary": "Entry-level software engineer with hands-on project experience in backend development, AWS serverless applications, and full-stack web projects. Built applications using JavaScript, Node.js, Express, AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract, with public GitHub repositories and live demos. Seeking software engineering roles focused on backend development, cloud systems, and practical problem solving.",
+      "label": "BTech CSE Fresher Software Resume",
+      "htmlFile": "resume/Ujala_Agarwal_Resume_ATS.html",
+      "pdfFile": "resume/Ujala_Agarwal_Resume.pdf",
+      "documentTitle": "Ujala Agarwal - BTech CSE Fresher Software Resume",
+      "headline": "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
+      "summary": "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, and AWS serverless workflows. Completed a cloud computing internship and built GitHub-backed projects using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
       "projectOrder": [
         "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
+        "LumenStack-AI"
       ],
       "skills": [
         {
@@ -59,19 +58,19 @@ window.UJOS_RESUME_DATA = {
           "values": [
             "Node.js",
             "Express.js",
-            "REST APIs"
+            "REST APIs",
+            "JSON"
           ]
         },
         {
           "label": "Cloud",
           "values": [
             "AWS Lambda",
+            "API Gateway",
             "S3",
             "DynamoDB",
-            "API Gateway",
             "Cognito",
             "Textract",
-            "CloudFront",
             "IAM"
           ]
         },
@@ -101,21 +100,19 @@ window.UJOS_RESUME_DATA = {
       ],
       "projects": [
         "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
+        "LumenStack-AI"
       ]
     },
     "backend": {
-      "label": "Backend/AWS Fresher Resume",
-      "htmlFile": "Ujala_Agarwal_Resume_Software.html",
-      "pdfFile": "Ujala_Agarwal_Resume_Software.pdf",
-      "documentTitle": "Ujala Agarwal - Backend AWS Fresher Resume",
-      "headline": "Entry-Level Backend Developer | Node.js, REST APIs, and AWS Projects",
-      "summary": "Entry-level backend-focused developer with project experience in REST APIs, Node.js/Express services, and AWS serverless workflows. Built GitHub-backed projects using JavaScript, Node.js, Express, Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking fresher backend or software engineering roles where I can grow in backend fundamentals, debugging, and cloud-based application development.",
+      "label": "Backend/AWS BTech Fresher Resume",
+      "htmlFile": "resume/Ujala_Agarwal_Resume_Software.html",
+      "pdfFile": "resume/Ujala_Agarwal_Resume_Software.pdf",
+      "documentTitle": "Ujala Agarwal - Backend AWS BTech Fresher Resume",
+      "headline": "BTech CSE Fresher | Backend Developer | Node.js and AWS",
+      "summary": "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, and AWS serverless workflows. Built project workflows for authenticated upload, OCR extraction, repository analysis, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract.",
       "projectOrder": [
         "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
+        "LumenStack-AI"
       ],
       "skills": [
         {
@@ -144,7 +141,6 @@ window.UJOS_RESUME_DATA = {
             "DynamoDB",
             "Cognito",
             "Textract",
-            "CloudFront",
             "IAM"
           ]
         },
@@ -156,7 +152,7 @@ window.UJOS_RESUME_DATA = {
           ]
         },
         {
-          "label": "Web",
+          "label": "Frontend Basics",
           "values": [
             "HTML",
             "CSS",
@@ -174,8 +170,7 @@ window.UJOS_RESUME_DATA = {
       ],
       "projects": [
         "ReceiptPulse",
-        "LumenStack-AI",
-        "Safety-Copilot"
+        "LumenStack-AI"
       ]
     }
   },
@@ -185,7 +180,7 @@ window.UJOS_RESUME_DATA = {
       "repo": "ReceiptPulse",
       "title": "ReceiptPulse",
       "status": "GitHub",
-      "summary": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results. Designed to reduce manual expense tracking time by 80%.",
+      "summary": "Receipt processing web application with user authentication, file upload, OCR extraction, duplicate review, and receipt history tracking.",
       "stack": [
         "AWS Lambda",
         "S3",
@@ -206,13 +201,11 @@ window.UJOS_RESUME_DATA = {
       "bullets": {
         "general": [
           "Built a receipt processing web application with user authentication, file upload, OCR extraction, and receipt history tracking.",
-          "Integrated AWS Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract in a serverless workflow.",
-          "Added duplicate review and receipt label management features for authenticated users."
+          "Integrated AWS Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract in a serverless workflow."
         ],
         "backend": [
           "Built backend workflows for authenticated receipt upload, OCR extraction, duplicate review, and receipt history retrieval.",
-          "Connected AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract in a serverless application flow.",
-          "Implemented receipt validation, duplicate handling, and label update/delete features around user-scoped data."
+          "Connected AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract in a serverless application flow."
         ]
       }
     },
@@ -221,7 +214,7 @@ window.UJOS_RESUME_DATA = {
       "repo": "LumenStack-AI",
       "title": "LumenStack AI",
       "status": "GitHub",
-      "summary": "I built LumenStack AI as a codebase architecture analyzer that parses repositories and generates Mermaid diagrams. Architected to accelerate developer onboarding and technical reviews.",
+      "summary": "Codebase analysis tool that accepts repository input, maps project structure, and generates architecture summaries and Mermaid diagrams.",
       "stack": [
         "Node.js",
         "Express.js",
@@ -241,13 +234,11 @@ window.UJOS_RESUME_DATA = {
       "bullets": {
         "general": [
           "Built a codebase analysis tool that accepts GitHub or ZIP input and summarizes project structure for easier review.",
-          "Used Node.js, Express, JavaScript, Mermaid, and OpenAI API features to generate diagrams and guided explanations.",
-          "Added compare, export, and explanation features to make repository review easier to scan."
+          "Used Node.js, Express, JavaScript, Mermaid, and OpenAI API features to generate diagrams and guided explanations."
         ],
         "backend": [
           "Built Node.js and Express routes for repository input, analysis sessions, generated summaries, and export flows.",
-          "Separated static parsing from AI-assisted explanation so outputs stay connected to repository structure.",
-          "Added compare and export paths to support repeatable codebase review workflows."
+          "Separated static parsing from AI-assisted explanation so outputs stay connected to repository structure."
         ]
       }
     },
@@ -299,7 +290,7 @@ window.UJOS_RESUME_DATA = {
         "Static Runtime Snapshot"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-06-19T06:44:10Z",
+      "pushedAt": "2026-06-20T13:18:58Z",
       "language": "HTML",
       "links": {
         "live": "https://agarwalujala3-lang.github.io/ujala-portfolio/",
@@ -327,23 +318,21 @@ window.UJOS_RESUME_DATA = {
       "dates": "June 2025 - August 2025",
       "bullets": [
         "Worked with AWS services including Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition during cloud application tasks.",
-        "Developed and tested basic serverless backend workflows as part of internship assignments.",
-        "Gained hands-on experience in deployment, debugging, and service integration across AWS-based applications."
+        "Developed and tested basic serverless backend workflows as part of internship assignments."
       ]
     }
   ],
   "education": [
     {
       "school": "Shri Ram Murti Smarak College of Engineering and Technology",
-      "degree": "Bachelor of Science in Computer Science",
+      "degree": "Bachelor of Technology in Computer Science and Engineering",
       "location": "Bareilly, Uttar Pradesh",
-      "dates": "Completed May 2026"
+      "dates": "Graduated May 2026"
     }
   ],
   "certifications": [
     "Cloud Computing Internship Completion Certificate - CETPA Infotech Pvt. Ltd.",
     "IBM Introduction to Large Language Models",
-    "IBM Getting Started with Artificial Intelligence",
     "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant"
   ]
 };

@@ -2,6 +2,7 @@ $ErrorActionPreference = "Stop"
 
 $workspace = Split-Path -Parent $MyInvocation.MyCommand.Path
 $edgePath = Join-Path ${env:ProgramFiles(x86)} "Microsoft\Edge\Application\msedge.exe"
+$resumeDir = Join-Path $workspace "resume"
 
 if (-not (Test-Path -LiteralPath $edgePath)) {
   throw "Microsoft Edge was not found at $edgePath"
@@ -9,9 +10,12 @@ if (-not (Test-Path -LiteralPath $edgePath)) {
 
 $exports = @(
   @{ Source = "Ujala_Agarwal_Resume_ATS.html"; Output = "Ujala_Agarwal_Resume.pdf" },
-  @{ Source = "Ujala_Agarwal_Resume_Software.html"; Output = "Ujala_Agarwal_Resume_Software.pdf" },
-  @{ Source = "Ujala_Agarwal_Resume_UnitedHealth_Data.html"; Output = "Ujala_Agarwal_Resume_UnitedHealth_Data.pdf" }
+  @{ Source = "Ujala_Agarwal_Resume_Software.html"; Output = "Ujala_Agarwal_Resume_Software.pdf" }
 )
+
+if (-not (Test-Path -LiteralPath $resumeDir)) {
+  New-Item -ItemType Directory -Path $resumeDir | Out-Null
+}
 
 $profileRoot = Join-Path $workspace ".edge-resume-export"
 
@@ -23,9 +27,9 @@ New-Item -ItemType Directory -Path $profileRoot | Out-Null
 
 try {
   foreach ($export in $exports) {
-    $sourcePath = Join-Path $workspace $export.Source
-    $outputPath = Join-Path $workspace $export.Output
-    $tempOutputPath = Join-Path $workspace ("temp-" + $export.Output)
+    $sourcePath = Join-Path $resumeDir $export.Source
+    $outputPath = Join-Path $resumeDir $export.Output
+    $tempOutputPath = Join-Path $resumeDir ("temp-" + $export.Output)
     $profileDir = Join-Path $profileRoot ([System.IO.Path]::GetFileNameWithoutExtension($export.Output))
     $sourceUri = ([System.Uri]::new($sourcePath).AbsoluteUri) + "?export=1"
 
@@ -41,7 +45,7 @@ try {
       "--no-first-run",
       "--run-all-compositor-stages-before-draw",
       "--virtual-time-budget=2500",
-      "--print-to-pdf-no-header",
+      "--no-pdf-header-footer",
       "--user-data-dir=$profileDir",
       "--print-to-pdf=$tempOutputPath",
       $sourceUri

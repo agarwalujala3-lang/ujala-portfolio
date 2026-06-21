@@ -20,7 +20,6 @@ const experience = [
     bullets: [
       "Worked with AWS services including Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition during cloud application tasks.",
       "Developed and tested basic serverless backend workflows as part of internship assignments.",
-      "Gained hands-on experience in deployment, debugging, and service integration across AWS-based applications.",
     ],
   },
 ];
@@ -28,27 +27,23 @@ const experience = [
 const education = [
   {
     school: "Shri Ram Murti Smarak College of Engineering and Technology",
-    degree: "Bachelor of Science in Computer Science",
+    degree: "Bachelor of Technology in Computer Science and Engineering",
     location: "Bareilly, Uttar Pradesh",
-    dates: "Completed May 2026",
+    dates: "Graduated May 2026",
   },
 ];
 
 const certifications = [
   "Cloud Computing Internship Completion Certificate - CETPA Infotech Pvt. Ltd.",
   "IBM Introduction to Large Language Models",
-  "IBM Getting Started with Artificial Intelligence",
   "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant",
 ];
 
 const skills = {
-  fresher: [
+  general: [
     { label: "Languages", values: ["Java", "JavaScript", "C"] },
-    { label: "Backend", values: ["Node.js", "Express.js", "REST APIs"] },
-    {
-      label: "Cloud",
-      values: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "IAM"],
-    },
+    { label: "Backend", values: ["Node.js", "Express.js", "REST APIs", "JSON"] },
+    { label: "Cloud", values: ["AWS Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
     { label: "Databases", values: ["MySQL", "DynamoDB"] },
     { label: "Web", values: ["HTML", "CSS", "Responsive UI"] },
     { label: "Tools", values: ["Git", "GitHub", "Docker Basics"] },
@@ -56,41 +51,39 @@ const skills = {
   backend: [
     { label: "Languages", values: ["Java", "JavaScript", "C"] },
     { label: "Backend", values: ["Node.js", "Express.js", "REST APIs", "JSON"] },
-    {
-      label: "AWS",
-      values: ["Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "CloudFront", "IAM"],
-    },
+    { label: "AWS", values: ["Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
     { label: "Databases", values: ["MySQL", "DynamoDB"] },
-    { label: "Web", values: ["HTML", "CSS", "Client-Side JavaScript"] },
+    { label: "Frontend Basics", values: ["HTML", "CSS", "Client-Side JavaScript"] },
     { label: "Tools", values: ["Git", "GitHub", "Docker Basics"] },
   ],
 };
 
+const defaultProjectOrder = ["ReceiptPulse", "LumenStack-AI"];
+
 const variants = {
   general: {
-    label: "Fresher Software Resume",
-    htmlFile: "Ujala_Agarwal_Resume_ATS.html",
-    pdfFile: "Ujala_Agarwal_Resume.pdf",
-    documentTitle: "Ujala Agarwal - Fresher Software Resume",
-    headline: "Entry-Level Software Engineer | Backend, AWS, and Full-Stack Projects",
+    label: "BTech CSE Fresher Software Resume",
+    htmlFile: "resume/Ujala_Agarwal_Resume_ATS.html",
+    pdfFile: "resume/Ujala_Agarwal_Resume.pdf",
+    documentTitle: "Ujala Agarwal - BTech CSE Fresher Software Resume",
+    headline: "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
     summary:
-      "Entry-level software engineer with hands-on project experience in backend development, AWS serverless applications, and full-stack web projects. Built applications using JavaScript, Node.js, Express, AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract, with public GitHub repositories and live demos. Seeking software engineering roles focused on backend development, cloud systems, and practical problem solving.",
-    projectOrder: ["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"],
-    skills: skills.fresher,
+      "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, and AWS serverless workflows. Completed a cloud computing internship and built GitHub-backed projects using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
+    projectOrder: defaultProjectOrder,
+    skills: skills.general,
   },
   backend: {
-    label: "Backend/AWS Fresher Resume",
-    htmlFile: "Ujala_Agarwal_Resume_Software.html",
-    pdfFile: "Ujala_Agarwal_Resume_Software.pdf",
-    documentTitle: "Ujala Agarwal - Backend AWS Fresher Resume",
-    headline: "Entry-Level Backend Developer | Node.js, REST APIs, and AWS Projects",
+    label: "Backend/AWS BTech Fresher Resume",
+    htmlFile: "resume/Ujala_Agarwal_Resume_Software.html",
+    pdfFile: "resume/Ujala_Agarwal_Resume_Software.pdf",
+    documentTitle: "Ujala Agarwal - Backend AWS BTech Fresher Resume",
+    headline: "BTech CSE Fresher | Backend Developer | Node.js and AWS",
     summary:
-      "Entry-level backend-focused developer with project experience in REST APIs, Node.js/Express services, and AWS serverless workflows. Built GitHub-backed projects using JavaScript, Node.js, Express, Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking fresher backend or software engineering roles where I can grow in backend fundamentals, debugging, and cloud-based application development.",
-    projectOrder: ["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"],
+      "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, and AWS serverless workflows. Built project workflows for authenticated upload, OCR extraction, repository analysis, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract.",
+    projectOrder: defaultProjectOrder,
     skills: skills.backend,
   },
 };
-
 const projectBlueprints = {
   ReceiptPulse: {
     repo: "ReceiptPulse",
@@ -105,12 +98,10 @@ const projectBlueprints = {
       general: [
         "Built a receipt processing web application with user authentication, file upload, OCR extraction, and receipt history tracking.",
         "Integrated AWS Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract in a serverless workflow.",
-        "Added duplicate review and receipt label management features for authenticated users.",
       ],
       backend: [
         "Built backend workflows for authenticated receipt upload, OCR extraction, duplicate review, and receipt history retrieval.",
         "Connected AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract in a serverless application flow.",
-        "Implemented receipt validation, duplicate handling, and label update/delete features around user-scoped data.",
       ],
     },
   },
@@ -127,12 +118,10 @@ const projectBlueprints = {
       general: [
         "Built a codebase analysis tool that accepts GitHub or ZIP input and summarizes project structure for easier review.",
         "Used Node.js, Express, JavaScript, Mermaid, and OpenAI API features to generate diagrams and guided explanations.",
-        "Added compare, export, and explanation features to make repository review easier to scan.",
       ],
       backend: [
         "Built Node.js and Express routes for repository input, analysis sessions, generated summaries, and export flows.",
         "Separated static parsing from AI-assisted explanation so outputs stay connected to repository structure.",
-        "Added compare and export paths to support repeatable codebase review workflows.",
       ],
     },
   },
@@ -222,7 +211,7 @@ function mergeBlueprintWithSyncedProject(blueprint, syncedProject, repo, githubU
     repo: blueprint.repo,
     title: cleanString(syncedProject?.title) || blueprint.title,
     status: blueprint.status,
-    summary: cleanString(syncedProject?.summary) || blueprint.summary,
+    summary: blueprint.summary,
     stack,
     source: syncedProject ? "github-manifest" : "github-repo-blueprint",
     pushedAt: cleanString(repo?.pushed_at),
@@ -317,3 +306,4 @@ export function createPortfolioResumeLinks(resumeRuntime) {
     note: noteByVariant[key] || "Generated from GitHub-verified resume source data.",
   }));
 }
+

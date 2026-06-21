@@ -82,19 +82,28 @@
   }
 
   function getProjectsForMode() {
-    return [...(data.projects || [])]
+    const activeProjects = [...(data.projects || [])].filter((project) => project && project.enabled !== false);
+    const freshnessBoosts = buildProjectFreshnessBoosts(activeProjects);
+
+    return activeProjects
       .filter((project) => project && project.enabled !== false)
       .sort((left, right) => {
-        const leftLens = Number(left?.lensPriority?.[state.mode] || 0);
-        const rightLens = Number(right?.lensPriority?.[state.mode] || 0);
+        const leftBoost = freshnessBoosts.get(left?.id) || 0;
+        const rightBoost = freshnessBoosts.get(right?.id) || 0;
+        const leftLens = Number(left?.lensPriority?.[state.mode] || 0) + leftBoost;
+        const rightLens = Number(right?.lensPriority?.[state.mode] || 0) + rightBoost;
         if (rightLens !== leftLens) {
           return rightLens - leftLens;
         }
 
-        const leftPriority = Number(left?.priority || 0);
-        const rightPriority = Number(right?.priority || 0);
+        const leftPriority = Number(left?.priority || 0) + leftBoost;
+        const rightPriority = Number(right?.priority || 0) + rightBoost;
         if (rightPriority !== leftPriority) {
           return rightPriority - leftPriority;
+        }
+
+        if (rightBoost !== leftBoost) {
+          return rightBoost - leftBoost;
         }
 
         return String(left?.title || "").localeCompare(String(right?.title || ""));
@@ -148,6 +157,45 @@
     } catch {
       return "";
     }
+  }
+
+  function buildProjectFreshnessBoosts(projects) {
+    const activityByRepo = new Map(
+      (Array.isArray(data.runtime?.githubActivity) ? data.runtime.githubActivity : [])
+        .filter((entry) => cleanString(entry?.name) && cleanString(entry?.pushedAt))
+        .map((entry) => [cleanString(entry.name), Date.parse(entry.pushedAt)])
+        .filter(([, timestamp]) => Number.isFinite(timestamp))
+    );
+
+    const activityEntries = (Array.isArray(projects) ? projects : [])
+      .map((project) => {
+        const repoName = cleanString(project?.repoSync?.repo) || repoNameFromGithubUrl(project?.links?.repo);
+        return {
+          id: project?.id,
+          timestamp: repoName ? activityByRepo.get(repoName) : undefined,
+        };
+      })
+      .filter((entry) => entry.id && Number.isFinite(entry.timestamp));
+
+    const newestTimestamp = activityEntries.reduce(
+      (latest, entry) => Math.max(latest, entry.timestamp),
+      0
+    );
+
+    return new Map(
+      activityEntries.map((entry) => {
+        const ageInDays = newestTimestamp > 0 ? Math.floor((newestTimestamp - entry.timestamp) / 86400000) : Number.POSITIVE_INFINITY;
+        let boost = 0;
+        if (ageInDays <= 14) {
+          boost = 8;
+        } else if (ageInDays <= 45) {
+          boost = 4;
+        } else if (ageInDays <= 120) {
+          boost = 1;
+        }
+        return [entry.id, boost];
+      })
+    );
   }
 
   function projectVerifiedByGithub(project, verifiedRepoNames) {
@@ -1122,3 +1170,5 @@
     formatMultilineText,
   };
 })();
+
+

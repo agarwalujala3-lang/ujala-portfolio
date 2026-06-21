@@ -204,6 +204,8 @@
     const orderedProjects = App.getProjectsForMode();
     const primaryProject = orderedProjects[0] || null;
     const secondaryProject = orderedProjects.find((project) => project.id !== primaryProject?.id) || primaryProject;
+    const primaryActivitySummary = projectActivitySummary(primaryProject);
+    const secondaryActivitySummary = secondaryProject ? projectActivitySummary(secondaryProject) : "";
 
     heroTitle.textContent = mode.heroTitle;
     if (heroLead) {
@@ -242,9 +244,9 @@
 
     if (heroProof) {
       heroProof.innerHTML = `
-        <span class="hero-stage__proof-label">What changes</span>
+        <span class="hero-stage__proof-label">Current GitHub lead</span>
         <p>${App.escapeHtml(
-          `One portfolio that reshapes itself for ${mode.label.toLowerCase()} review while keeping ${primaryProject?.title || "the strongest project"} and ${secondaryProject?.title || "the second signal"} visible at a glance.`
+          `${primaryProject?.title || "The lead project"} is carrying the homepage right now, ${primaryActivitySummary}${secondaryProject ? `, with ${secondaryProject.title} next at ${secondaryActivitySummary}` : ""}. The emphasis follows fresh repo activity instead of older portfolio ordering.`
         )}</p>
       `;
     }
@@ -459,6 +461,76 @@
     return parts.length ? parts.join(" + ") : "Portfolio";
   }
 
+  function repoNameFromGithubUrl(value) {
+    if (typeof value !== "string" || !value.trim()) {
+      return "";
+    }
+
+    try {
+      const url = new URL(value);
+      if (url.hostname.toLowerCase() !== "github.com") {
+        return "";
+      }
+      const parts = url.pathname.split("/").filter(Boolean);
+      return parts.length >= 2 ? parts[1].replace(/\.git$/i, "") : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function getGithubActivityByRepo() {
+    return new Map(
+      ((App.getData().runtime && App.getData().runtime.githubActivity) || [])
+        .filter((entry) => entry?.name)
+        .map((entry) => [entry.name, entry])
+    );
+  }
+
+  function getProjectActivity(project) {
+    const repoName = project?.repoSync?.repo || repoNameFromGithubUrl(project?.links?.repo);
+    return repoName ? getGithubActivityByRepo().get(repoName) || null : null;
+  }
+
+  function formatProjectActivityDate(value) {
+    const timestamp = Date.parse(value || "");
+    if (!Number.isFinite(timestamp)) {
+      return "recently";
+    }
+
+    return new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(timestamp));
+  }
+
+  function projectActivityLabel(project) {
+    const activity = getProjectActivity(project);
+    if (!activity?.pushedAt) {
+      return "Portfolio snapshot";
+    }
+
+    return `Updated ${formatProjectActivityDate(activity.pushedAt)}`;
+  }
+
+  function projectActivitySummary(project) {
+    const activity = getProjectActivity(project);
+    if (!activity?.pushedAt) {
+      return "running on the current portfolio snapshot";
+    }
+
+    return `updated on ${formatProjectActivityDate(activity.pushedAt)}`;
+  }
+
+  function projectActivityNote(project) {
+    const activity = getProjectActivity(project);
+    if (activity?.note) {
+      return activity.note;
+    }
+
+    return "Recent public repo activity is shaping current portfolio emphasis.";
+  }
+
   function projectSignalLabel(project) {
     const tags = project.tags || [];
     if (tags.includes("aws")) {
@@ -506,14 +578,19 @@
 
     return [
       {
-        label: "Delivery",
-        value: projectDeliveryLabel(project),
-        note: project.links?.repo ? "Repository proof is ready to inspect." : "Portfolio case study is the main proof.",
-      },
-      {
         label: "Strongest Signal",
         value: projectSignalLabel(project),
         note: projectFocusLabel(project),
+      },
+      {
+        label: "Repo Activity",
+        value: projectActivityLabel(project),
+        note: projectActivityNote(project),
+      },
+      {
+        label: "Delivery",
+        value: projectDeliveryLabel(project),
+        note: project.links?.repo ? "Repository proof is ready to inspect." : "Portfolio case study is the main proof.",
       },
       {
         label: "Core Stack",
@@ -1093,3 +1170,4 @@
   App.renderProjectModal = renderProjectModal;
   App.buildGithubFeed = buildGithubFeed;
 })();
+

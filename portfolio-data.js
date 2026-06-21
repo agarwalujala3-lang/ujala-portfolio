@@ -12,13 +12,13 @@ window.UJOS_DATA = {
       "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
     resumes: [
       {
-        label: "Fresher Software Resume",
-        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
+        label: "BTech CSE Fresher Software Resume",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume.pdf",
         note: "Best all-purpose fresher resume for software, backend, and cloud-trainee applications.",
       },
       {
-        label: "Backend/AWS Fresher Resume",
-        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
+        label: "Backend/AWS BTech Fresher Resume",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume_Software.pdf",
         note: "Use this when the role emphasizes backend APIs, Node.js, or AWS project work.",
       },
     ],
@@ -37,8 +37,8 @@ window.UJOS_DATA = {
         "AWS + AI + full-stack proof",
         "Resume routing by role",
       ],
-      focus: ["ReceiptPulse", "Safety Copilot", "LumenStack AI", "Resume pack"],
-      projectOrder: ["receiptpulse", "safety-copilot", "lumenstack"],
+      focus: ["ReceiptPulse", "LumenStack AI", "Current GitHub proof", "Resume pack"],
+      projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
         "Recruiter route ready. I'll keep this fast, clear, and proof-first.",
     },
@@ -73,8 +73,8 @@ window.UJOS_DATA = {
         "Design + engineering overlap",
         "Memorable UI with clear proof",
       ],
-      focus: ["Product thinking", "Repo proof", "Cloud execution", "Cross-platform delivery"],
-      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack"],
+      focus: ["ReceiptPulse", "Product thinking", "Repo proof", "Cloud execution"],
+      projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
         "Founder route online. I'll show you how I think about product feel and shipping quality.",
     },
@@ -91,8 +91,8 @@ window.UJOS_DATA = {
         "Current build momentum",
         "Projects with repo-backed proof",
       ],
-      focus: ["Journey", "Learning", "Current products", "Contact"],
-      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack"],
+      focus: ["Journey", "ReceiptPulse", "Current products", "Contact"],
+      projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
         "Friend route feels warmer. I'll show the story, not just the scorecard.",
     },
@@ -578,5 +578,7 @@ window.UJOS_DATA = {
     },
   ],
 };
+
+
 
 

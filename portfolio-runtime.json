@@ -1,8 +1,8 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-06-20T13:13:22.536Z",
-    "syncedAtLabel": "20 Jun 2026, 06:43 pm",
+    "syncedAt": "2026-06-21T12:58:15.172Z",
+    "syncedAtLabel": "21 Jun 2026, 06:28 pm",
     "repoCount": 7,
     "githubUser": "agarwalujala3-lang",
     "source": "github",
@@ -31,7 +31,7 @@
       "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
       "language": "HTML",
       "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-06-19T06:44:10Z",
+      "pushedAt": "2026-06-20T13:18:58Z",
       "homepage": ""
     },
     {
@@ -88,7 +88,7 @@
       "icon": "RP",
       "iconImage": "",
       "lockupImage": "",
-      "summary": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results. Designed to reduce manual expense tracking time by 80%.",
+      "summary": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results.",
       "proof": "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and product-grade dashboard delivery.",
       "details": [
         "Built a full upload-to-insight pipeline around private per-user receipt processing.",
@@ -280,13 +280,13 @@
     "profile": {
       "resumes": [
         {
-          "label": "Fresher Software Resume",
-          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
+          "label": "BTech CSE Fresher Software Resume",
+          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume.pdf",
           "note": "Best all-purpose fresher resume for software, backend, and cloud-trainee applications."
         },
         {
-          "label": "Backend/AWS Fresher Resume",
-          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
+          "label": "Backend/AWS BTech Fresher Resume",
+          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume_Software.pdf",
           "note": "Use this when the role emphasizes backend APIs, Node.js, or AWS project work."
         }
       ]

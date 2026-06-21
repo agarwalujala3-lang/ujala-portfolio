@@ -4486,13 +4486,13 @@ window.UJOS_DATA = {
       "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
     resumes: [
       {
-        label: "Fresher Software Resume",
-        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
+        label: "BTech CSE Fresher Software Resume",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume.pdf",
         note: "Best all-purpose fresher resume for software, backend, and cloud-trainee applications.",
       },
       {
-        label: "Backend/AWS Fresher Resume",
-        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
+        label: "Backend/AWS BTech Fresher Resume",
+        href: "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume_Software.pdf",
         note: "Use this when the role emphasizes backend APIs, Node.js, or AWS project work.",
       },
     ],
@@ -4511,8 +4511,8 @@ window.UJOS_DATA = {
         "AWS + AI + full-stack proof",
         "Resume routing by role",
       ],
-      focus: ["ReceiptPulse", "Safety Copilot", "LumenStack AI", "Resume pack"],
-      projectOrder: ["receiptpulse", "safety-copilot", "lumenstack"],
+      focus: ["ReceiptPulse", "LumenStack AI", "Current GitHub proof", "Resume pack"],
+      projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
         "Recruiter route ready. I'll keep this fast, clear, and proof-first.",
     },
@@ -4547,8 +4547,8 @@ window.UJOS_DATA = {
         "Design + engineering overlap",
         "Memorable UI with clear proof",
       ],
-      focus: ["Product thinking", "Repo proof", "Cloud execution", "Cross-platform delivery"],
-      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack"],
+      focus: ["ReceiptPulse", "Product thinking", "Repo proof", "Cloud execution"],
+      projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
         "Founder route online. I'll show you how I think about product feel and shipping quality.",
     },
@@ -4565,8 +4565,8 @@ window.UJOS_DATA = {
         "Current build momentum",
         "Projects with repo-backed proof",
       ],
-      focus: ["Journey", "Learning", "Current products", "Contact"],
-      projectOrder: ["safety-copilot", "receiptpulse", "lumenstack"],
+      focus: ["Journey", "ReceiptPulse", "Current products", "Contact"],
+      projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
         "Friend route feels warmer. I'll show the story, not just the scorecard.",
     },
@@ -5055,13 +5055,15 @@ window.UJOS_DATA = {
 
 
 
+
+
 </script>
 <script>
 window.UJOS_RUNTIME_DATA = {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-06-20T13:13:22.536Z",
-    "syncedAtLabel": "20 Jun 2026, 06:43 pm",
+    "syncedAt": "2026-06-21T12:58:15.172Z",
+    "syncedAtLabel": "21 Jun 2026, 06:28 pm",
     "repoCount": 7,
     "githubUser": "agarwalujala3-lang",
     "source": "github",
@@ -5090,7 +5092,7 @@ window.UJOS_RUNTIME_DATA = {
       "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
       "language": "HTML",
       "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-06-19T06:44:10Z",
+      "pushedAt": "2026-06-20T13:18:58Z",
       "homepage": ""
     },
     {
@@ -5147,7 +5149,7 @@ window.UJOS_RUNTIME_DATA = {
       "icon": "RP",
       "iconImage": "",
       "lockupImage": "",
-      "summary": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results. Designed to reduce manual expense tracking time by 80%.",
+      "summary": "I built ReceiptPulse as an AWS receipt workspace where each signed-in user can upload receipts, extract structured fields, resolve duplicates, and manage results.",
       "proof": "This project proves event-driven AWS architecture, private user-scoped product flow, extraction workflows, review tooling, and product-grade dashboard delivery.",
       "details": [
         "Built a full upload-to-insight pipeline around private per-user receipt processing.",
@@ -5339,13 +5341,13 @@ window.UJOS_RUNTIME_DATA = {
     "profile": {
       "resumes": [
         {
-          "label": "Fresher Software Resume",
-          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume.pdf",
+          "label": "BTech CSE Fresher Software Resume",
+          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume.pdf",
           "note": "Best all-purpose fresher resume for software, backend, and cloud-trainee applications."
         },
         {
-          "label": "Backend/AWS Fresher Resume",
-          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/Ujala_Agarwal_Resume_Software.pdf",
+          "label": "Backend/AWS BTech Fresher Resume",
+          "href": "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/resume/Ujala_Agarwal_Resume_Software.pdf",
           "note": "Use this when the role emphasizes backend APIs, Node.js, or AWS project work."
         }
       ]
@@ -5438,19 +5440,28 @@ window.UJOS_RUNTIME_DATA = {
   }
 
   function getProjectsForMode() {
-    return [...(data.projects || [])]
+    const activeProjects = [...(data.projects || [])].filter((project) => project && project.enabled !== false);
+    const freshnessBoosts = buildProjectFreshnessBoosts(activeProjects);
+
+    return activeProjects
       .filter((project) => project && project.enabled !== false)
       .sort((left, right) => {
-        const leftLens = Number(left?.lensPriority?.[state.mode] || 0);
-        const rightLens = Number(right?.lensPriority?.[state.mode] || 0);
+        const leftBoost = freshnessBoosts.get(left?.id) || 0;
+        const rightBoost = freshnessBoosts.get(right?.id) || 0;
+        const leftLens = Number(left?.lensPriority?.[state.mode] || 0) + leftBoost;
+        const rightLens = Number(right?.lensPriority?.[state.mode] || 0) + rightBoost;
         if (rightLens !== leftLens) {
           return rightLens - leftLens;
         }
 
-        const leftPriority = Number(left?.priority || 0);
-        const rightPriority = Number(right?.priority || 0);
+        const leftPriority = Number(left?.priority || 0) + leftBoost;
+        const rightPriority = Number(right?.priority || 0) + rightBoost;
         if (rightPriority !== leftPriority) {
           return rightPriority - leftPriority;
+        }
+
+        if (rightBoost !== leftBoost) {
+          return rightBoost - leftBoost;
         }
 
         return String(left?.title || "").localeCompare(String(right?.title || ""));
@@ -5504,6 +5515,45 @@ window.UJOS_RUNTIME_DATA = {
     } catch {
       return "";
     }
+  }
+
+  function buildProjectFreshnessBoosts(projects) {
+    const activityByRepo = new Map(
+      (Array.isArray(data.runtime?.githubActivity) ? data.runtime.githubActivity : [])
+        .filter((entry) => cleanString(entry?.name) && cleanString(entry?.pushedAt))
+        .map((entry) => [cleanString(entry.name), Date.parse(entry.pushedAt)])
+        .filter(([, timestamp]) => Number.isFinite(timestamp))
+    );
+
+    const activityEntries = (Array.isArray(projects) ? projects : [])
+      .map((project) => {
+        const repoName = cleanString(project?.repoSync?.repo) || repoNameFromGithubUrl(project?.links?.repo);
+        return {
+          id: project?.id,
+          timestamp: repoName ? activityByRepo.get(repoName) : undefined,
+        };
+      })
+      .filter((entry) => entry.id && Number.isFinite(entry.timestamp));
+
+    const newestTimestamp = activityEntries.reduce(
+      (latest, entry) => Math.max(latest, entry.timestamp),
+      0
+    );
+
+    return new Map(
+      activityEntries.map((entry) => {
+        const ageInDays = newestTimestamp > 0 ? Math.floor((newestTimestamp - entry.timestamp) / 86400000) : Number.POSITIVE_INFINITY;
+        let boost = 0;
+        if (ageInDays <= 14) {
+          boost = 8;
+        } else if (ageInDays <= 45) {
+          boost = 4;
+        } else if (ageInDays <= 120) {
+          boost = 1;
+        }
+        return [entry.id, boost];
+      })
+    );
   }
 
   function projectVerifiedByGithub(project, verifiedRepoNames) {
@@ -6479,6 +6529,8 @@ window.UJOS_RUNTIME_DATA = {
   };
 })();
 
+
+
 </script>
 <script>
 (function () {
@@ -6687,6 +6739,8 @@ window.UJOS_RUNTIME_DATA = {
     const orderedProjects = App.getProjectsForMode();
     const primaryProject = orderedProjects[0] || null;
     const secondaryProject = orderedProjects.find((project) => project.id !== primaryProject?.id) || primaryProject;
+    const primaryActivitySummary = projectActivitySummary(primaryProject);
+    const secondaryActivitySummary = secondaryProject ? projectActivitySummary(secondaryProject) : "";
 
     heroTitle.textContent = mode.heroTitle;
     if (heroLead) {
@@ -6725,9 +6779,9 @@ window.UJOS_RUNTIME_DATA = {
 
     if (heroProof) {
       heroProof.innerHTML = `
-        <span class="hero-stage__proof-label">What changes</span>
+        <span class="hero-stage__proof-label">Current GitHub lead</span>
         <p>${App.escapeHtml(
-          `One portfolio that reshapes itself for ${mode.label.toLowerCase()} review while keeping ${primaryProject?.title || "the strongest project"} and ${secondaryProject?.title || "the second signal"} visible at a glance.`
+          `${primaryProject?.title || "The lead project"} is carrying the homepage right now, ${primaryActivitySummary}${secondaryProject ? `, with ${secondaryProject.title} next at ${secondaryActivitySummary}` : ""}. The emphasis follows fresh repo activity instead of older portfolio ordering.`
         )}</p>
       `;
     }
@@ -6942,6 +6996,76 @@ window.UJOS_RUNTIME_DATA = {
     return parts.length ? parts.join(" + ") : "Portfolio";
   }
 
+  function repoNameFromGithubUrl(value) {
+    if (typeof value !== "string" || !value.trim()) {
+      return "";
+    }
+
+    try {
+      const url = new URL(value);
+      if (url.hostname.toLowerCase() !== "github.com") {
+        return "";
+      }
+      const parts = url.pathname.split("/").filter(Boolean);
+      return parts.length >= 2 ? parts[1].replace(/\.git$/i, "") : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function getGithubActivityByRepo() {
+    return new Map(
+      ((App.getData().runtime && App.getData().runtime.githubActivity) || [])
+        .filter((entry) => entry?.name)
+        .map((entry) => [entry.name, entry])
+    );
+  }
+
+  function getProjectActivity(project) {
+    const repoName = project?.repoSync?.repo || repoNameFromGithubUrl(project?.links?.repo);
+    return repoName ? getGithubActivityByRepo().get(repoName) || null : null;
+  }
+
+  function formatProjectActivityDate(value) {
+    const timestamp = Date.parse(value || "");
+    if (!Number.isFinite(timestamp)) {
+      return "recently";
+    }
+
+    return new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(new Date(timestamp));
+  }
+
+  function projectActivityLabel(project) {
+    const activity = getProjectActivity(project);
+    if (!activity?.pushedAt) {
+      return "Portfolio snapshot";
+    }
+
+    return `Updated ${formatProjectActivityDate(activity.pushedAt)}`;
+  }
+
+  function projectActivitySummary(project) {
+    const activity = getProjectActivity(project);
+    if (!activity?.pushedAt) {
+      return "running on the current portfolio snapshot";
+    }
+
+    return `updated on ${formatProjectActivityDate(activity.pushedAt)}`;
+  }
+
+  function projectActivityNote(project) {
+    const activity = getProjectActivity(project);
+    if (activity?.note) {
+      return activity.note;
+    }
+
+    return "Recent public repo activity is shaping current portfolio emphasis.";
+  }
+
   function projectSignalLabel(project) {
     const tags = project.tags || [];
     if (tags.includes("aws")) {
@@ -6989,14 +7113,19 @@ window.UJOS_RUNTIME_DATA = {
 
     return [
       {
-        label: "Delivery",
-        value: projectDeliveryLabel(project),
-        note: project.links?.repo ? "Repository proof is ready to inspect." : "Portfolio case study is the main proof.",
-      },
-      {
         label: "Strongest Signal",
         value: projectSignalLabel(project),
         note: projectFocusLabel(project),
+      },
+      {
+        label: "Repo Activity",
+        value: projectActivityLabel(project),
+        note: projectActivityNote(project),
+      },
+      {
+        label: "Delivery",
+        value: projectDeliveryLabel(project),
+        note: project.links?.repo ? "Repository proof is ready to inspect." : "Portfolio case study is the main proof.",
       },
       {
         label: "Core Stack",
@@ -7576,6 +7705,7 @@ window.UJOS_RUNTIME_DATA = {
   App.renderProjectModal = renderProjectModal;
   App.buildGithubFeed = buildGithubFeed;
 })();
+
 
 </script>
 <script>

@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-resume-variant="cloud">
+<html lang="en" data-resume-variant="general">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ujala Agarwal - Cloud Resume</title>
-  <script src="resume-data.js"></script>
+  <title>Ujala Agarwal - BTech CSE Fresher Software Resume</title>
+  <script src="../resume-data.js"></script>
   <script>
     (() => {
       const params = new URLSearchParams(window.location.search);
       if (!params.has("export")) {
         const variantKey = document.documentElement.dataset.resumeVariant || "general";
         const variant = window.UJOS_RESUME_DATA?.variants?.[variantKey] || window.UJOS_RESUME_DATA?.variants?.general;
-        if (variant?.pdfFile) {
-          window.location.replace(variant.pdfFile);
+        const pdfTarget = typeof variant?.pdfFile === "string" ? variant.pdfFile.split("/").pop() : "";
+        if (pdfTarget) {
+          window.location.replace(pdfTarget);
         }
       }
     })();
@@ -48,13 +49,14 @@
   </style>
 </head>
 <body>
-  <main class="page" id="resume-root" data-resume-variant="cloud">
+  <main class="page" id="resume-root" data-resume-variant="general">
     <section class="header">
       <h1 class="name">Ujala Agarwal</h1>
       <p class="title">Loading GitHub-verified resume...</p>
       <p class="contact">Run sync-portfolio-data.mjs if this fallback remains visible.</p>
     </section>
   </main>
-  <script src="resume-renderer.js"></script>
+  <script src="../resume-renderer.js"></script>
 </body>
 </html>
+
