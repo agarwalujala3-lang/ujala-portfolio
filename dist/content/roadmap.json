@@ -1,0 +1,17 @@
+[
+  {
+    "stage": "Stage 01",
+    "title": "Keep flagship products release-ready",
+    "note": "Maintain ReceiptPulse and LumenStack AI with stronger reliability, clearer proof layers, and cleaner production polish."
+  },
+  {
+    "stage": "Stage 02",
+    "title": "Keep portfolio proof truly repo-driven",
+    "note": "Continue aligning manifests, branding assets, and committed snapshots so project cards, logos, themes, and resume links stay current."
+  },
+  {
+    "stage": "Stage 03",
+    "title": "Scale production discipline",
+    "note": "Push stronger CI/CD checks, observability, and deployment hygiene across the most important public projects."
+  }
+]

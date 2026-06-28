@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" data-resume-variant="backend">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ujala Agarwal - Backend AWS BTech Fresher Resume</title>
+  <script src="../resume-data.js"></script>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      if (!params.has("export")) {
+        const variantKey = document.documentElement.dataset.resumeVariant || "general";
+        const variant = window.UJOS_RESUME_DATA?.variants?.[variantKey] || window.UJOS_RESUME_DATA?.variants?.general;
+        const pdfTarget = typeof variant?.pdfFile === "string" ? variant.pdfFile.split("/").pop() : "";
+        if (pdfTarget) {
+          window.location.replace(pdfTarget);
+        }
+      }
+    })();
+  </script>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #111111; background: #ffffff; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 14mm 13mm 14mm; }
+    h1, h2, h3, p, ul { margin: 0; }
+    .header { border-bottom: 2px solid #111111; padding-bottom: 10px; margin-bottom: 12px; }
+    .name { font-size: 28px; font-weight: 700; letter-spacing: 0.02em; }
+    .title { margin-top: 4px; font-size: 14px; font-weight: 700; text-transform: uppercase; }
+    .contact { margin-top: 8px; font-size: 11px; word-break: break-word; }
+    .contact + .contact { margin-top: 4px; }
+    a { color: inherit; text-decoration: none; }
+    .section { margin-top: 12px; }
+    .section h2 { font-size: 12.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; border-bottom: 1px solid #111111; padding-bottom: 4px; margin-bottom: 8px; }
+    .summary { font-size: 11.5px; }
+    .item { margin-bottom: 10px; break-inside: avoid; }
+    .item:last-child { margin-bottom: 0; }
+    .item-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; font-size: 11.5px; }
+    .item-head strong { font-size: 12px; }
+    .item-sub { margin-top: 2px; font-size: 11px; font-weight: 700; }
+    ul { padding-left: 17px; margin-top: 3px; font-size: 11px; }
+    li { margin: 2px 0; }
+    .skills-grid { display: grid; gap: 6px; font-size: 11px; }
+    .skills-grid p strong { display: inline-block; min-width: 140px; }
+    .links { margin-top: 4px; font-size: 10.5px; word-break: break-word; }
+    @page { size: A4; margin: 10mm; }
+    @media print { html, body { background: #ffffff; -webkit-print-color-adjust: exact; print-color-adjust: exact; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } }
+  </style>
+</head>
+<body>
+  <main class="page" id="resume-root" data-resume-variant="backend">
+    <section class="header">
+      <h1 class="name">Ujala Agarwal</h1>
+      <p class="title">Loading GitHub-verified resume...</p>
+      <p class="contact">Run sync-portfolio-data.mjs if this fallback remains visible.</p>
+    </section>
+  </main>
+  <script src="../resume-renderer.js"></script>
+</body>
+</html>
+

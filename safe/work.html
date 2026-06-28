@@ -8,8 +8,8 @@
   <meta name="description" content="Explore Ujala Agarwal's case studies across AWS systems, AI tooling, and polished frontend delivery.">
   <meta name="theme-color" content="#050913">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="canonical" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/work.html">
-  <meta property="og:url" content="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/work.html">
+  <link rel="canonical" href="https://ujala-portfolio-world.netlify.app/safe/work.html">
+  <meta property="og:url" content="https://ujala-portfolio-world.netlify.app/safe/work.html">
   <title>Ujala Agarwal | Case Studies</title>
   <style>html,body{background:#050913;color:#eef4ff;}</style>
 <style>
@@ -1410,6 +1410,577 @@ li {
   background: rgba(255, 255, 255, 0.82);
   box-shadow: var(--shadow-md);
   overflow: hidden;
+}
+
+.signal-deck,
+.visual-proof-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+}
+
+.command-card {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(198, 111, 55, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(32, 74, 68, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(255, 252, 247, 0.95), rgba(244, 237, 227, 0.92));
+  box-shadow:
+    0 24px 56px rgba(27, 30, 36, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.command-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0.36), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 100%);
+  pointer-events: none;
+}
+
+.command-card__head,
+.capability-row__head,
+.pulse-card__top,
+.launch-strip,
+.proof-mini-grid {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.command-card__head h3,
+.pulse-card__top h3 {
+  margin: 4px 0 0;
+  font-family: "Fraunces", serif;
+  font-size: 1.42rem;
+}
+
+.command-card__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.95fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 22px;
+}
+
+.radar-shell {
+  position: relative;
+}
+
+.radar-chart-card {
+  position: relative;
+  min-height: 320px;
+  border-radius: 28px;
+  border: 1px solid rgba(32, 74, 68, 0.12);
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.66), rgba(235, 228, 218, 0.82));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.radar-chart {
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+}
+
+.radar-chart__rings polygon,
+.radar-chart__axes line {
+  fill: none;
+  stroke: rgba(46, 67, 76, 0.16);
+  stroke-width: 1;
+}
+
+.radar-chart__axes text {
+  fill: var(--ink);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-anchor: middle;
+}
+
+.radar-chart__shape {
+  fill: rgba(198, 111, 55, 0.18);
+  stroke: rgba(152, 100, 63, 0.9);
+  stroke-width: 2.4;
+}
+
+.radar-chart__points circle {
+  fill: rgba(32, 74, 68, 0.96);
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 2;
+}
+
+.radar-chart__center-glow {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198, 111, 55, 0.26), transparent 70%);
+  filter: blur(12px);
+  animation: pulseSoft 6s ease-in-out infinite;
+}
+
+.signal-insight-list,
+.capability-matrix,
+.pulse-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.command-network {
+  position: relative;
+  margin-top: 18px;
+  min-height: 250px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(49, 72, 98, 0.12);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.72), rgba(241, 232, 221, 0.84));
+}
+
+.network-shell {
+  position: relative;
+  min-height: inherit;
+  padding: 18px;
+}
+
+.network-grid,
+.network-svg,
+.network-node-stack {
+  position: absolute;
+  inset: 0;
+}
+
+.network-grid {
+  background-image:
+    linear-gradient(rgba(49, 72, 98, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(49, 72, 98, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.95) 12%, rgba(0, 0, 0, 0.95) 88%, transparent);
+}
+
+.network-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.network-svg__line {
+  fill: none;
+  stroke: url(#network-flow);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 10 12;
+  animation: networkFlow 14s linear infinite;
+}
+
+.network-svg__line--b {
+  animation-direction: reverse;
+  animation-duration: 17s;
+  opacity: 0.7;
+}
+
+.network-svg__node {
+  fill: rgba(255, 255, 255, 0.94);
+  stroke: rgba(198, 111, 55, 0.9);
+  stroke-width: 2;
+  animation: networkPulse 4.8s ease-in-out infinite;
+}
+
+.network-lanes {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 10px;
+  width: min(230px, 52%);
+}
+
+.network-lane {
+  position: relative;
+  display: grid;
+  gap: 8px;
+}
+
+.network-lane__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.network-lane__beam {
+  display: block;
+  height: 10px;
+  width: var(--lane-width);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(32, 74, 68, 0.78), rgba(198, 111, 55, 0.88));
+  box-shadow: 0 10px 24px rgba(198, 111, 55, 0.2);
+  transform-origin: left center;
+  animation: laneGrow 1.4s ease-out both;
+  animation-delay: var(--lane-delay, 0s);
+}
+
+.network-node-stack {
+  pointer-events: none;
+}
+
+.network-node {
+  position: absolute;
+  display: grid;
+  gap: 4px;
+  min-width: 136px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid var(--project-ring, rgba(255,255,255,0.7));
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(244,236,227,0.94));
+  box-shadow: 0 18px 36px rgba(18, 27, 35, 0.12);
+  animation: floatCard 7s ease-in-out infinite;
+}
+
+.network-node strong {
+  color: var(--project-accent-strong, var(--brand));
+}
+
+.network-node p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.84rem;
+}
+
+.network-node__halo {
+  position: absolute;
+  inset: -12px;
+  border-radius: inherit;
+  background: radial-gradient(circle, var(--project-glow, rgba(198,111,55,0.24)), transparent 68%);
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.network-node--1 { left: 56%; top: 20%; }
+.network-node--2 { right: 8%; top: 46%; animation-delay: -2.3s; }
+.network-node--3 { left: 46%; bottom: 10%; animation-delay: -4s; }
+
+.constellation-panel {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 16px 18px 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(49, 72, 98, 0.12);
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.72), rgba(239,231,220,0.92));
+  overflow: hidden;
+}
+
+.constellation-svg {
+  width: 100%;
+  height: 190px;
+}
+
+.constellation-svg__line {
+  fill: none;
+  stroke: url(#constellation-stroke);
+  stroke-width: 3;
+  stroke-dasharray: 12 10;
+  animation: networkFlow 18s linear infinite;
+}
+
+.constellation-svg__line--soft {
+  opacity: 0.45;
+  stroke-width: 2;
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
+
+.constellation-svg__point {
+  fill: rgba(255,255,255,0.98);
+  stroke: rgba(32, 74, 68, 0.84);
+  stroke-width: 2;
+  animation: networkPulse 5s ease-in-out infinite;
+}
+
+.constellation-copy {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  width: min(220px, 48%);
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(49, 72, 98, 0.12);
+  box-shadow: 0 12px 28px rgba(18,27,35,0.08);
+}
+
+.constellation-copy strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.constellation-copy p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.capability-row__fill,
+.pulse-card__meter span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  box-shadow: 0 10px 20px rgba(198, 111, 55, 0.24);
+  transform-origin: left center;
+  animation: laneGrow 1.2s ease-out both;
+}
+
+.radar-chart__shape {
+  fill: rgba(198, 111, 55, 0.18);
+  stroke: rgba(152, 100, 63, 0.9);
+  stroke-width: 2.4;
+  stroke-dasharray: 560;
+  stroke-dashoffset: 560;
+  animation: radarDraw 2.8s ease forwards;
+}
+
+.radar-chart__points circle {
+  fill: rgba(32, 74, 68, 0.96);
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 2;
+  transform-origin: center;
+  animation: nodeBloom 3s ease infinite;
+}
+
+.signal-insight-card,
+.pulse-card,
+.orbit-chip,
+.launch-stat,
+.proof-mini-card {
+  position: relative;
+}
+
+.signal-insight-card::after,
+.pulse-card::after,
+.orbit-chip::after {
+  content: "";
+  position: absolute;
+  inset: -30% auto -30% -40%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.42), transparent);
+  transform: rotate(16deg);
+  animation: sheenSweep 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes radarDraw {
+  0% { stroke-dashoffset: 560; opacity: 0.2; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes laneGrow {
+  0% { transform: scaleX(0.16); opacity: 0.25; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes nodeBloom {
+  0%, 100% { transform: scale(0.9); }
+  50% { transform: scale(1.18); }
+}
+
+@keyframes networkFlow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -220; }
+}
+
+@keyframes networkPulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.82; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes sheenSweep {
+  0% { transform: translateX(-160%) rotate(16deg); opacity: 0; }
+  20% { opacity: 0.55; }
+  55%, 100% { transform: translateX(360%) rotate(16deg); opacity: 0; }
+}
+.signal-insight-card,
+.launch-stat,
+.proof-mini-card,
+.orbit-chip,
+.pulse-card {
+  border: 1px solid rgba(49, 72, 98, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 14px 30px rgba(18, 27, 35, 0.08);
+}
+
+.signal-insight-card {
+  padding: 18px;
+}
+
+.signal-insight-card strong,
+.proof-mini-card strong,
+.launch-stat strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.signal-insight-card p,
+.capability-row__head p,
+.pulse-card__summary,
+.launch-stat span,
+.proof-mini-card span {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.capability-matrix {
+  margin-top: 20px;
+}
+
+.capability-row {
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(49, 72, 98, 0.12);
+}
+
+.capability-row__head strong {
+  color: var(--ink);
+}
+
+.capability-row__head span {
+  color: var(--brand-strong);
+  font-family: "Fraunces", serif;
+  font-size: 1.2rem;
+}
+
+.capability-row__track,
+.pulse-card__meter {
+  position: relative;
+  height: 10px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: rgba(49, 72, 98, 0.1);
+  overflow: hidden;
+}
+
+.capability-row__fill,
+.pulse-card__meter span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  box-shadow: 0 10px 20px rgba(198, 111, 55, 0.24);
+}
+
+.launch-strip,
+.proof-mini-grid {
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.launch-stat,
+.proof-mini-card {
+  flex: 1 1 140px;
+  padding: 16px 18px;
+}
+
+.launch-stat strong {
+  font-family: "Fraunces", serif;
+  font-size: 1.6rem;
+}
+
+.pulse-grid {
+  margin-top: 20px;
+}
+
+.pulse-card {
+  padding: 18px;
+  background:
+    radial-gradient(circle at top right, var(--project-glow, rgba(198, 111, 55, 0.18)), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(243, 236, 227, 0.92));
+}
+
+.pulse-card .project-icon {
+  width: 52px;
+  height: 52px;
+}
+
+.pulse-card__top p,
+.pulse-card__meta {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+.pulse-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.tool-orbit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.orbit-chip {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  min-height: 120px;
+  padding: 16px;
+  flex: 1 1 150px;
+}
+
+.orbit-chip.is-large {
+  min-height: 148px;
+}
+
+.orbit-chip.is-medium {
+  min-height: 132px;
+}
+
+.orbit-chip__mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(32, 74, 68, 0.16), rgba(198, 111, 55, 0.16));
+  color: var(--brand-strong);
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+}
+
+.orbit-chip strong {
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
 }
 
 .marquee-track {
@@ -4296,6 +4867,73 @@ body[data-scroll-depth="deep"] .ambient--two {
 
 
 
+@media (max-width: 1080px) {
+  .signal-deck,
+  .visual-proof-grid,
+  .command-card__body {
+    grid-template-columns: 1fr;
+  }
+
+  .network-lanes {
+    width: min(280px, 100%);
+  }
+
+  .network-node--1 { left: 48%; top: 16%; }
+  .network-node--2 { right: 6%; top: 52%; }
+  .network-node--3 { left: 42%; bottom: 8%; }
+}
+
+@media (max-width: 720px) {
+  .command-card {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .command-network {
+    min-height: 340px;
+  }
+
+  .network-lanes,
+  .constellation-copy {
+    width: 100%;
+    position: relative;
+    right: auto;
+    bottom: auto;
+  }
+
+  .network-node {
+    min-width: 0;
+    width: 44%;
+  }
+
+  .network-node--1 { left: 8%; top: 18%; }
+  .network-node--2 { right: 8%; top: 48%; }
+  .network-node--3 { left: 28%; bottom: 10%; }
+
+  .constellation-svg {
+    height: 160px;
+  }
+
+  .command-card__head,
+  .capability-row__head,
+  .pulse-card__meta,
+  .launch-strip,
+  .proof-mini-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .radar-chart-card {
+    min-height: 280px;
+  }
+
+  .orbit-chip,
+  .launch-stat,
+  .proof-mini-card {
+    flex-basis: 100%;
+  }
+}
+
 @media (pointer: coarse) {
   .cursor-mark {
     display: none;
@@ -4376,24 +5014,24 @@ body[data-scroll-depth="deep"] .ambient--two {
 
   <div class="site-shell">
     <header class="masthead">
-      <a class="brand" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/index.html" aria-label="Ujala Agarwal portfolio home">
+      <a class="brand" href="https://ujala-portfolio-world.netlify.app/safe/index.html" aria-label="Ujala Agarwal portfolio home">
         <span class="brand__kicker">Ujala OS</span>
         <span class="brand__name">Ujala Agarwal</span>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a class="main-nav__link" data-nav="home" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/index.html">Home</a>
-        <a class="main-nav__link" data-nav="work" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/work.html">Case Studies</a>
-        <a class="main-nav__link" data-nav="systems" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/systems.html">Systems</a>
-        <a class="main-nav__link" data-nav="about" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/about.html">Journey</a>
-        <a class="main-nav__link" data-nav="playground" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/playground.html">Lab</a>
-        <a class="main-nav__link" data-nav="contact" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/contact.html">Contact</a>
+        <a class="main-nav__link" data-nav="home" href="https://ujala-portfolio-world.netlify.app/safe/index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="https://ujala-portfolio-world.netlify.app/safe/work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="https://ujala-portfolio-world.netlify.app/safe/systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="https://ujala-portfolio-world.netlify.app/safe/about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="https://ujala-portfolio-world.netlify.app/safe/playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="https://ujala-portfolio-world.netlify.app/safe/contact.html">Contact</a>
       </nav>
 
       <div class="masthead__actions">
         <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
         <button class="button button--ghost" type="button" data-command-open>Navigator</button>
-        <a class="button button--solid" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/systems.html">System View</a>
+        <a class="button button--solid" href="https://ujala-portfolio-world.netlify.app/safe/systems.html">System View</a>
       </div>
     </header>
 
@@ -4465,7 +5103,7 @@ body[data-scroll-depth="deep"] .ambient--two {
           </ul>
         </section>
 
-        <a class="panel panel--link cta-panel" href="https://agarwalujala3-lang.github.io/ujala-portfolio/safe/systems.html">
+        <a class="panel panel--link cta-panel" href="https://ujala-portfolio-world.netlify.app/safe/systems.html">
           <p class="eyebrow">Next Route</p>
           <h2>Move from case studies into architecture and decision flow.</h2>
           <p>The systems route translates each build into readable backend behavior and design choices.</p>
@@ -5069,8 +5707,8 @@ window.UJOS_DATA = {
 window.UJOS_RUNTIME_DATA = {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-06-21T12:58:15.172Z",
-    "syncedAtLabel": "21 Jun 2026, 06:28 pm",
+    "syncedAt": "2026-06-22T05:10:53.324Z",
+    "syncedAtLabel": "22 Jun 2026, 10:40 am",
     "repoCount": 7,
     "githubUser": "agarwalujala3-lang",
     "source": "github",
@@ -5099,7 +5737,7 @@ window.UJOS_RUNTIME_DATA = {
       "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
       "language": "HTML",
       "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-06-20T13:18:58Z",
+      "pushedAt": "2026-06-21T13:36:23Z",
       "homepage": ""
     },
     {
@@ -6370,8 +7008,6 @@ window.UJOS_RUNTIME_DATA = {
     "playground.html",
     "contact.html",
   ]);
-  const SAFE_MIRROR_RAW_BASE = "https://raw.githubusercontent.com/agarwalujala3-lang/ujala-portfolio/main/safe/";
-  const SAFE_MIRROR_PREVIEW_BASE = "https://htmlpreview.github.io/?";
 
   function routeFileFromHref(value) {
     const raw = cleanString(value).split("#")[0].split("?")[0];
@@ -6404,9 +7040,6 @@ window.UJOS_RUNTIME_DATA = {
     }
   }
 
-  function isSafeMirrorContext() {
-    return window.location.hostname === "htmlpreview.github.io" && window.location.search.includes("/safe/");
-  }
 
   function resolveRouteHref(value) {
     const routeFile = routeFileFromHref(value);
@@ -6414,9 +7047,6 @@ window.UJOS_RUNTIME_DATA = {
       return value;
     }
 
-    if (isSafeMirrorContext()) {
-      return `${SAFE_MIRROR_PREVIEW_BASE}${SAFE_MIRROR_RAW_BASE}${routeFile}${routeHashFromHref(value)}`;
-    }
 
     return `${routeFile}${routeHashFromHref(value)}`;
   }
@@ -6436,11 +7066,9 @@ window.UJOS_RUNTIME_DATA = {
     "github.com",
     "www.linkedin.com",
     "linkedin.com",
-    "agarwalujala3-lang.github.io",
     "lumenstack-ai.onrender.com",
-    "htmlpreview.github.io",
+    "ujala-portfolio-world.netlify.app",
     "cdn.jsdelivr.net",
-    "raw.githubusercontent.com",
   ]);
 
   function safeHref(value, options = {}) {
@@ -6732,6 +7360,15 @@ window.UJOS_RUNTIME_DATA = {
     const runtimeGrid = document.getElementById("home-runtime-grid");
     const highlights = document.getElementById("home-highlights");
     const marquee = document.getElementById("marquee-track");
+    const capabilityRadar = document.getElementById("capability-radar");
+    const signalInsightList = document.getElementById("signal-insight-list");
+    const capabilityMatrix = document.getElementById("capability-matrix");
+    const commandNetwork = document.getElementById("command-network");
+    const launchStrip = document.getElementById("launch-strip");
+    const projectPulseGrid = document.getElementById("project-pulse-grid");
+    const orbitConstellation = document.getElementById("orbit-constellation");
+    const toolOrbit = document.getElementById("tool-orbit");
+    const proofMiniGrid = document.getElementById("proof-mini-grid");
     const featuredProjects = document.getElementById("featured-projects");
     const githubFeed = document.getElementById("home-github-activity");
     const heroStage = document.getElementById("hero-stage");
@@ -6742,8 +7379,8 @@ window.UJOS_RUNTIME_DATA = {
     const heroSceneProof = document.getElementById("hero-scene-proof");
     const heroSceneLens = document.getElementById("hero-scene-lens");
     const heroRuntimeLabel = document.getElementById("hero-stage-runtime-label");
-
     const orderedProjects = App.getProjectsForMode();
+    const capabilityScores = buildCapabilityScores(orderedProjects);
     const primaryProject = orderedProjects[0] || null;
     const secondaryProject = orderedProjects.find((project) => project.id !== primaryProject?.id) || primaryProject;
     const primaryActivitySummary = projectActivitySummary(primaryProject);
@@ -6842,11 +7479,46 @@ window.UJOS_RUNTIME_DATA = {
         )
         .join("");
     }
-
     if (marquee) {
       const items = [...new Set([...(data.lab?.toolkit || []), "Product thinking", "Case studies"])].slice(0, 12);
       const repeated = [...items, ...items];
       marquee.innerHTML = repeated.map((item) => `<span class="marquee-item">${App.escapeHtml(item)}</span>`).join("");
+    }
+
+    if (capabilityRadar) {
+      capabilityRadar.innerHTML = buildCapabilityRadar(capabilityScores);
+    }
+
+    if (signalInsightList) {
+      signalInsightList.innerHTML = buildSignalInsights(capabilityScores);
+    }
+
+    if (capabilityMatrix) {
+      capabilityMatrix.innerHTML = buildCapabilityMatrix(capabilityScores);
+    }
+
+    if (commandNetwork) {
+      commandNetwork.innerHTML = buildCommandNetwork(capabilityScores, orderedProjects);
+    }
+
+    if (launchStrip) {
+      launchStrip.innerHTML = buildLaunchStrip(data, orderedProjects);
+    }
+
+    if (projectPulseGrid) {
+      projectPulseGrid.innerHTML = buildProjectPulseGrid(orderedProjects.slice(0, 3));
+    }
+
+    if (orbitConstellation) {
+      orbitConstellation.innerHTML = buildOrbitConstellation(orderedProjects);
+    }
+
+    if (toolOrbit) {
+      toolOrbit.innerHTML = buildToolOrbit(data, orderedProjects);
+    }
+
+    if (proofMiniGrid) {
+      proofMiniGrid.innerHTML = buildProofMiniGrid(data, orderedProjects);
     }
 
     if (featuredProjects) {
@@ -6866,8 +7538,273 @@ window.UJOS_RUNTIME_DATA = {
       githubFeed.innerHTML = buildGithubFeed((data.runtime && data.runtime.githubActivity) || [], 3);
     }
   }
+  function normalizeSignalToken(value) {
+    return String(value || "").toLowerCase();
+  }
+
+  function projectSearchText(project) {
+    return [project.title, project.kind, project.summary, project.proof, ...(project.tags || []), ...(project.stack || []), ...(project.details || [])].join(" ").toLowerCase();
+  }
+
+  function scoreCapability(projects, tokens) {
+    let score = 18;
+    projects.forEach((project, index) => {
+      const haystack = projectSearchText(project);
+      const hit = tokens.some((token) => haystack.includes(normalizeSignalToken(token)));
+      if (!hit) {
+        return;
+      }
+
+      const weight = Math.max(8, 22 - index * 4);
+      score += weight;
+      if (project.links?.repo) {
+        score += 6;
+      }
+      if (project.links?.live) {
+        score += 5;
+      }
+      if (project.featured) {
+        score += 4;
+      }
+    });
+
+    return Math.max(24, Math.min(98, score));
+  }
+
+  function buildCapabilityScores(projects) {
+    return [
+      { label: "Cloud Systems", shortLabel: "Cloud", note: "AWS flow, serverless routes, and backend delivery proof.", value: scoreCapability(projects, ["aws", "lambda", "dynamodb", "textract", "cognito", "s3", "api gateway", "cloudfront", "serverless"]) },
+      { label: "AI Workflow", shortLabel: "AI", note: "Analysis, explanation, and guided AI-assisted product work.", value: scoreCapability(projects, ["ai", "openai", "mermaid", "diagram", "analysis", "analyzer", "chat"]) },
+      { label: "Frontend Craft", shortLabel: "UI", note: "Visual polish, interaction quality, and readable app surfaces.", value: scoreCapability(projects, ["frontend", "ui", "css", "html", "dashboard", "interactive", "product"]) },
+      { label: "Product Thinking", shortLabel: "Product", note: "User flow clarity, review tooling, and portfolio storytelling.", value: scoreCapability(projects, ["workflow", "review", "product", "experience", "compare", "dashboard", "usability"]) },
+      { label: "Delivery Trust", shortLabel: "Trust", note: "Repo-backed proof, live routes, and stable public presentation.", value: scoreCapability(projects, ["repo", "github", "deploy", "deployment", "static", "safe", "hosting", "live"]) },
+    ];
+  }
+
+  function radarPoint(value, index, total, radius, center) {
+    const angle = (-Math.PI / 2) + ((Math.PI * 2) / total) * index;
+    const length = (radius * value) / 100;
+    const x = center + Math.cos(angle) * length;
+    const y = center + Math.sin(angle) * length;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }
+
+  function buildCapabilityRadar(scores) {
+    const size = 320;
+    const center = size / 2;
+    const radius = 112;
+    const levels = [20, 40, 60, 80, 100];
+    const polygon = scores.map((item, index) => radarPoint(item.value, index, scores.length, radius, center)).join(" ");
+    const axes = scores.map((item, index) => {
+      const angle = (-Math.PI / 2) + ((Math.PI * 2) / scores.length) * index;
+      const x = center + Math.cos(angle) * radius;
+      const y = center + Math.sin(angle) * radius;
+      const labelX = center + Math.cos(angle) * (radius + 34);
+      const labelY = center + Math.sin(angle) * (radius + 34);
+      return `
+          <line x1="${center}" y1="${center}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"></line>
+          <text x="${labelX.toFixed(1)}" y="${labelY.toFixed(1)}">${App.escapeHtml(item.shortLabel)}</text>
+        `;
+    }).join("");
+
+    const rings = levels.map((level) => {
+      const points = scores.map((_, index) => radarPoint(level, index, scores.length, radius, center)).join(" ");
+      return `<polygon points="${points}"></polygon>`;
+    }).join("");
+
+    const points = scores.map((item, index) => {
+      const angle = (-Math.PI / 2) + ((Math.PI * 2) / scores.length) * index;
+      const length = (radius * item.value) / 100;
+      const x = center + Math.cos(angle) * length;
+      const y = center + Math.sin(angle) * length;
+      return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5"></circle>`;
+    }).join("");
+
+    return `
+      <div class="radar-chart-card">
+        <svg class="radar-chart" viewBox="0 0 ${size} ${size}" aria-label="Capability radar chart">
+          <g class="radar-chart__rings">${rings}</g>
+          <g class="radar-chart__axes">${axes}</g>
+          <polygon class="radar-chart__shape" points="${polygon}"></polygon>
+          <g class="radar-chart__points">${points}</g>
+        </svg>
+        <div class="radar-chart__center-glow"></div>
+      </div>
+    `;
+  }
+
+  function buildSignalInsights(scores) {
+    const ordered = [...scores].sort((a, b) => b.value - a.value);
+    const average = Math.round(scores.reduce((sum, item) => sum + item.value, 0) / Math.max(scores.length, 1));
+    return [
+      { title: `${ordered[0].label} leads the story`, body: `${ordered[0].value}% signal strength from the current project mix and proof links.` },
+      { title: `${ordered[1].label} is close behind`, body: `${ordered[1].note}` },
+      { title: "Overall portfolio readiness", body: `${average}% average across cloud, AI, frontend, product, and delivery trust.` },
+    ].map((item) => `
+          <article class="signal-insight-card">
+            <strong>${App.escapeHtml(item.title)}</strong>
+            <p>${App.escapeHtml(item.body)}</p>
+          </article>
+        `).join("");
+  }
+
+  function buildCapabilityMatrix(scores) {
+    return scores.map((item) => `
+          <article class="capability-row">
+            <div class="capability-row__head">
+              <div>
+                <strong>${App.escapeHtml(item.label)}</strong>
+                <p>${App.escapeHtml(item.note)}</p>
+              </div>
+              <span>${App.escapeHtml(String(item.value))}%</span>
+            </div>
+            <div class="capability-row__track">
+              <span class="capability-row__fill" style="width: ${App.escapeHtml(String(item.value))}%"></span>
+            </div>
+          </article>
+        `).join("");
+  }
+
+  function buildCommandNetwork(scores, projects) {
+    const featured = projects.slice(0, 3);
+    const lanes = scores.slice(0, 4).map((item, index) => {
+      const phase = (index * 0.9).toFixed(2);
+      return `
+        <div class="network-lane" style="--lane-width: ${Math.max(30, item.value)}%; --lane-delay: ${phase}s">
+          <span class="network-lane__label">${App.escapeHtml(item.shortLabel)}</span>
+          <span class="network-lane__beam"></span>
+        </div>`;
+    }).join("");
+
+    const nodes = featured.map((project, index) => `
+      <article class="network-node network-node--${index + 1}" style="${App.escapeHtml(projectThemeStyle(project))}">
+        <span class="network-node__halo"></span>
+        <strong>${App.escapeHtml(project.title)}</strong>
+        <p>${App.escapeHtml(project.kind)}</p>
+      </article>
+    `).join("");
+
+    return `
+      <div class="network-shell">
+        <div class="network-grid" aria-hidden="true"></div>
+        <svg class="network-svg" viewBox="0 0 560 240" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="network-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="rgba(32, 74, 68, 0.18)"></stop>
+              <stop offset="50%" stop-color="rgba(198, 111, 55, 0.88)"></stop>
+              <stop offset="100%" stop-color="rgba(63, 96, 121, 0.18)"></stop>
+            </linearGradient>
+          </defs>
+          <path class="network-svg__line network-svg__line--a" d="M24 122 C116 42, 194 46, 282 118 S440 198, 536 112"></path>
+          <path class="network-svg__line network-svg__line--b" d="M26 160 C120 214, 196 194, 282 132 S426 42, 536 154"></path>
+          <circle class="network-svg__node" cx="106" cy="64" r="6"></circle>
+          <circle class="network-svg__node" cx="278" cy="118" r="7"></circle>
+          <circle class="network-svg__node" cx="450" cy="176" r="6"></circle>
+        </svg>
+        <div class="network-lanes">${lanes}</div>
+        <div class="network-node-stack">${nodes}</div>
+      </div>
+    `;
+  }
+
+  function buildOrbitConstellation(projects) {
+    const accents = projects.slice(0, 3).map((project) => project.theme?.accentStrong || "#204a44");
+    return `
+      <div class="constellation-panel">
+        <svg class="constellation-svg" viewBox="0 0 520 210" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="constellation-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="${accents[0] || "#204a44"}"></stop>
+              <stop offset="50%" stop-color="${accents[1] || "#c66f37"}"></stop>
+              <stop offset="100%" stop-color="${accents[2] || "#3f6079"}"></stop>
+            </linearGradient>
+          </defs>
+          <path class="constellation-svg__line" d="M38 160 C120 80, 186 70, 266 112 S396 184, 480 66"></path>
+          <path class="constellation-svg__line constellation-svg__line--soft" d="M74 38 C148 118, 236 152, 320 120 S414 70, 488 156"></path>
+          <circle class="constellation-svg__point" cx="74" cy="38" r="5"></circle>
+          <circle class="constellation-svg__point" cx="186" cy="78" r="7"></circle>
+          <circle class="constellation-svg__point" cx="322" cy="118" r="6"></circle>
+          <circle class="constellation-svg__point" cx="480" cy="66" r="7"></circle>
+        </svg>
+        <div class="constellation-copy">
+          <strong>Stack Constellation</strong>
+          <p>Tools orbit around cloud systems, AI workflow, and product-facing craft instead of sitting in a flat list.</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function buildLaunchStrip(data, projects) {
+    const liveCount = projects.filter((project) => project.links?.live).length;
+    const repoCount = projects.filter((project) => project.links?.repo).length;
+    const featuredCount = projects.filter((project) => project.featured).length;
+    const resumeCount = (data.profile?.resumes || []).length;
+    return [
+      { value: String(liveCount), label: "Live routes" },
+      { value: String(repoCount), label: "Repo proofs" },
+      { value: String(featuredCount), label: "Flagship stories" },
+      { value: String(resumeCount), label: "Resume paths" },
+    ].map((item) => `
+          <article class="launch-stat">
+            <strong>${App.escapeHtml(item.value)}</strong>
+            <span>${App.escapeHtml(item.label)}</span>
+          </article>
+        `).join("");
+  }
+
+  function buildProjectPulseGrid(projects) {
+    return projects.map((project, index) => `
+          <article class="pulse-card" style="${App.escapeHtml(projectThemeStyle(project))}">
+            <div class="pulse-card__top">
+              ${renderProjectIcon(project)}
+              <div>
+                <p>${App.escapeHtml(index === 0 ? "Lead surface" : index === 1 ? "Next signal" : "Supporting proof")}</p>
+                <h3>${App.escapeHtml(project.title)}</h3>
+              </div>
+            </div>
+            <div class="pulse-card__meter">
+              <span style="width: ${App.escapeHtml(String(Math.max(54, 92 - index * 11)))}%"></span>
+            </div>
+            <p class="pulse-card__summary">${App.escapeHtml(project.proof || project.summary)}</p>
+            <div class="pulse-card__meta">
+              <span>${App.escapeHtml(projectDeliveryLabel(project))}</span>
+              <span>${App.escapeHtml(projectActivityLabel(project))}</span>
+            </div>
+          </article>
+        `).join("");
+  }
+
+  function buildToolOrbit(data, projects) {
+    const items = [...new Set([...(data.lab?.toolkit || []), ...projects.flatMap((project) => project.stack || [])])].slice(0, 11);
+    return items.map((item, index) => {
+      const initials = item.split(/\s+/).map((part) => part[0]).join("").slice(0, 2).toUpperCase();
+      const size = index % 3 === 0 ? "is-large" : index % 3 === 1 ? "is-medium" : "is-small";
+      return `
+          <article class="orbit-chip ${size}">
+            <span class="orbit-chip__mark">${App.escapeHtml(initials)}</span>
+            <strong>${App.escapeHtml(item)}</strong>
+          </article>
+        `;
+    }).join("");
+  }
+
+  function buildProofMiniGrid(data, projects) {
+    const modeFocus = App.getModeConfig().focus || [];
+    return [
+      { label: "Lens focus", value: modeFocus[0] || "Proof-first" },
+      { label: "Current lead", value: projects[0]?.title || "Portfolio route" },
+      { label: "Proof style", value: data.signals?.[2]?.value || "Product + System" },
+      { label: "Primary track", value: data.signals?.[1]?.value || "AWS" },
+    ].map((item) => `
+          <article class="proof-mini-card">
+            <span>${App.escapeHtml(item.label)}</span>
+            <strong>${App.escapeHtml(item.value)}</strong>
+          </article>
+        `).join("");
+  }
 
   function renderGuideSection() {
+
     const data = App.getData();
     const prompts = data.guide?.prompts || [];
     const intro = document.getElementById("guide-intro");

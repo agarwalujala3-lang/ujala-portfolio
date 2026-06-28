@@ -1,13 +1,12 @@
 {
   "sync": {
     "status": "synced",
-    "syncedAt": "2026-06-28T03:03:44.847Z",
-    "syncedAtLabel": "28 Jun 2026, 08:33 am",
-    "repoCount": 8,
+    "syncedAt": "2026-06-22T05:10:53.324Z",
+    "syncedAtLabel": "22 Jun 2026, 10:40 am",
+    "repoCount": 7,
     "githubUser": "agarwalujala3-lang",
     "source": "github",
     "verifiedRepoNames": [
-      "Atlasiq-Ops-Platform",
       "DockerTestApp",
       "LumenStack-AI",
       "Nexora-Prime",
@@ -28,51 +27,51 @@
   },
   "githubActivity": [
     {
-      "name": "ReceiptPulse",
-      "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
-      "language": "CSS",
-      "note": "Serverless receipt processing system using AWS Textract and Lambda.",
-      "pushedAt": "2026-06-28T02:57:54Z",
-      "homepage": ""
-    },
-    {
-      "name": "Atlasiq-Ops-Platform",
-      "url": "https://github.com/agarwalujala3-lang/Atlasiq-Ops-Platform",
-      "language": "JavaScript",
-      "note": "Updated 28 Jun 2026, 08:19 am",
-      "pushedAt": "2026-06-28T02:49:34Z",
-      "homepage": ""
-    },
-    {
       "name": "ujala-portfolio",
       "url": "https://github.com/agarwalujala3-lang/ujala-portfolio",
       "language": "HTML",
       "note": "Interactive portfolio website for Ujala Agarwal",
-      "pushedAt": "2026-06-27T17:23:30Z",
+      "pushedAt": "2026-06-21T13:36:23Z",
       "homepage": ""
     },
     {
-      "name": "Safety-Copilot",
-      "url": "https://github.com/agarwalujala3-lang/Safety-Copilot",
-      "language": "Dart",
-      "note": "Updated 27 Jun 2026, 10:53 pm",
-      "pushedAt": "2026-06-27T17:23:24Z",
+      "name": "ReceiptPulse",
+      "url": "https://github.com/agarwalujala3-lang/ReceiptPulse",
+      "language": "CSS",
+      "note": "Serverless receipt processing system using AWS Textract and Lambda.",
+      "pushedAt": "2026-06-18T03:16:52Z",
       "homepage": ""
     },
     {
-      "name": "Nexora-Prime",
-      "url": "https://github.com/agarwalujala3-lang/Nexora-Prime",
+      "name": "agarwalujala3-lang",
+      "url": "https://github.com/agarwalujala3-lang/agarwalujala3-lang",
+      "language": "Repo update",
+      "note": "Updated 15 Jun 2026, 02:16 pm",
+      "pushedAt": "2026-06-15T08:46:03Z",
+      "homepage": ""
+    },
+    {
+      "name": "LumenStack-AI",
+      "url": "https://github.com/agarwalujala3-lang/LumenStack-AI",
       "language": "JavaScript",
-      "note": "Updated 27 Jun 2026, 10:53 pm",
-      "pushedAt": "2026-06-27T17:23:12Z",
+      "note": "Updated 14 Jun 2026, 11:53 am",
+      "pushedAt": "2026-06-14T06:23:33Z",
       "homepage": ""
     },
     {
       "name": "DockerTestApp",
       "url": "https://github.com/agarwalujala3-lang/DockerTestApp",
       "language": "JavaScript",
-      "note": "Updated 27 Jun 2026, 10:53 pm",
-      "pushedAt": "2026-06-27T17:23:08Z",
+      "note": "Updated 08 Jun 2026, 01:20 pm",
+      "pushedAt": "2026-06-08T07:50:53Z",
+      "homepage": ""
+    },
+    {
+      "name": "Safety-Copilot",
+      "url": "https://github.com/agarwalujala3-lang/Safety-Copilot",
+      "language": "Dart",
+      "note": "Updated 19 Apr 2026, 01:34 pm",
+      "pushedAt": "2026-04-19T08:04:28Z",
       "homepage": ""
     }
   ],

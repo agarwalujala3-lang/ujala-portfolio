@@ -1,0 +1,22 @@
+[
+  {
+    "phase": "Now",
+    "title": "Operating a static-safe portfolio OS",
+    "note": "I am actively maintaining committed project snapshots, manifest branding, and project storytelling so live proof stays accurate without unsafe browser-side API calls."
+  },
+  {
+    "phase": "Current Focus",
+    "title": "Making systems feel product-grade",
+    "note": "I am tightening AWS, AI, and frontend projects so each one feels like a production-style product, not a disconnected demo."
+  },
+  {
+    "phase": "Practice Layer",
+    "title": "Using motion with stronger visual hierarchy",
+    "note": "I am learning how motion, depth, and contrast can improve comprehension while still keeping technical clarity."
+  },
+  {
+    "phase": "System Habit",
+    "title": "Keeping repos and portfolio aligned",
+    "note": "I am using committed metadata snapshots so future project changes reflect in the portfolio with less manual rework."
+  }
+]

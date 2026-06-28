@@ -1,36 +1,38 @@
 # Contributing
 
-Thanks for contributing to this repository.
+This repository is maintained as a portfolio product surface, so changes should improve clarity, proof quality, visual polish, or data consistency.
 
-## Development Expectations
+## Working Principles
 
-Please keep changes focused, production-minded, and easy to review. Favor clean structure, clear naming, and maintainable implementation details.
+- Keep the portfolio professional, intentional, and production-minded.
+- Prefer source-of-truth updates over manual edits to generated files.
+- Preserve the visual language unless a change is clearly an upgrade.
+- Treat resume files, runtime data, and public URLs as user-facing product assets.
 
-## Workflow
+## Before You Change Anything
 
-- Create a short-lived branch for each change.
-- Keep pull requests scoped to one purpose.
-- Document visible behavior changes.
-- Include validation notes with each pull request.
+1. Identify whether the source of truth lives in page HTML, runtime JSON, resume pipeline files, or content assets.
+2. Avoid editing generated outputs directly unless the workflow specifically requires it.
+3. If you update links, resume metadata, or project proof, rebuild affected artifacts.
 
-## Code Quality
+## Common Commands
 
-Before opening a pull request:
+```bash
+node local-server.js
+npm run build:render
+npm run build:safe
+npm run build
+npm run refresh
+npm run export:resumes
+```
 
-- Run the relevant local checks for the stack used in this repository.
-- Verify that the change does not break the primary user flow.
-- Remove dead code, stray debug logs, and unrelated edits.
+## Pull Request Expectations
 
-## Pull Request Checklist
+- Explain the user-facing improvement clearly.
+- Mention whether `dist/`, `safe/`, or resume files were regenerated.
+- Include screenshots for visual changes when possible.
+- Call out any URL, SEO, or metadata updates explicitly.
 
-A strong pull request should include:
+## Visual Standard
 
-- A concise summary of the change.
-- Why the change is needed.
-- Screenshots for UI updates, if applicable.
-- Notes about testing performed.
-- Any known limitations or follow-up work.
-
-## Communication
-
-If a change is large, risky, or architectural, explain the tradeoffs clearly in the pull request so reviewers can evaluate it quickly.
+Do not settle for generic UI changes. Updates should feel clean, deliberate, and high-end.

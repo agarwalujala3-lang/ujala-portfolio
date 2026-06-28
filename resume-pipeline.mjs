@@ -1,5 +1,5 @@
 const portfolioUrl =
-  "https://agarwalujala3-lang.github.io/ujala-portfolio/";
+  "https://ujala-portfolio-world.netlify.app/";
 
 const profile = {
   name: "Ujala Agarwal",
@@ -27,7 +27,7 @@ const experience = [
 const education = [
   {
     school: "Shri Ram Murti Smarak College of Engineering and Technology",
-    degree: "Bachelor of Technology in Computer Science and Engineering",
+    degree: "B.Tech in Computer Science and Engineering (CSE)",
     location: "Bareilly, Uttar Pradesh",
     dates: "Graduated May 2026",
   },

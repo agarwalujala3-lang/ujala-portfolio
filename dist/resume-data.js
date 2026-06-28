@@ -1,12 +1,11 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-28T03:03:44.847Z",
+  "generatedAt": "2026-06-22T05:10:53.324Z",
   "sync": {
     "status": "synced",
     "source": "github",
     "githubUser": "agarwalujala3-lang",
     "verifiedRepoNames": [
-      "Atlasiq-Ops-Platform",
       "DockerTestApp",
       "LumenStack-AI",
       "Nexora-Prime",
@@ -193,7 +192,7 @@ window.UJOS_RESUME_DATA = {
         "JavaScript"
       ],
       "source": "github-manifest",
-      "pushedAt": "2026-06-28T02:57:54Z",
+      "pushedAt": "2026-06-18T03:16:52Z",
       "language": "CSS",
       "links": {
         "live": "https://receipt-pulse.netlify.app/",
@@ -226,7 +225,7 @@ window.UJOS_RESUME_DATA = {
         "CSS"
       ],
       "source": "github-manifest",
-      "pushedAt": "2026-06-27T17:01:55Z",
+      "pushedAt": "2026-06-14T06:23:33Z",
       "language": "JavaScript",
       "links": {
         "live": "https://lumenstack-ai.onrender.com/",
@@ -259,7 +258,7 @@ window.UJOS_RESUME_DATA = {
         "Flutter"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-06-27T17:23:24Z",
+      "pushedAt": "2026-04-19T08:04:28Z",
       "language": "Dart",
       "links": {
         "live": "",
@@ -291,7 +290,7 @@ window.UJOS_RESUME_DATA = {
         "Static Runtime Snapshot"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-06-27T17:23:30Z",
+      "pushedAt": "2026-06-21T13:36:23Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio-world.netlify.app/",

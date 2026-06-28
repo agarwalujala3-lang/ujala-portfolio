@@ -1,176 +1,259 @@
 <p align="center">
-  <img src="./content/portfolio-lockup.svg" alt="Ujala Agarwal Portfolio" width="460" />
+  <img src="./content/portfolio-lockup.svg" alt="Ujala Agarwal Portfolio lockup" width="520" />
 </p>
 
 <p align="center">
-  Adaptive cinematic portfolio system built for live proof, stronger product signal, and a much sharper first read than a standard personal site.
+  <img src="https://img.shields.io/badge/Portfolio-Cinematic%20Product%20Surface-1f4d47?style=for-the-badge&labelColor=0f1720" alt="Portfolio badge" />
+  <img src="https://img.shields.io/badge/Runtime-GitHub%20Backed-c96f3b?style=for-the-badge&labelColor=0f1720" alt="Runtime badge" />
+  <img src="https://img.shields.io/badge/Live-Netlify-117a65?style=for-the-badge&labelColor=0f1720" alt="Live badge" />
 </p>
 
 <p align="center">
-  <a href="https://ujala-portfolio-world.netlify.app/">Live Portfolio</a> |
-  <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
-  <a href="https://lumenstack-ai.onrender.com/">LumenStack AI Live</a> |
-  <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">LumenStack AI Repo</a> |
-  <a href="https://github.com/agarwalujala3-lang/ReceiptPulse">ReceiptPulse Repo</a> |
-  <a href="https://github.com/agarwalujala3-lang/Safety-Copilot">Safety Copilot Repo</a>
+  A premium multi-page portfolio system designed to present engineering proof, product taste, and recruiter-ready clarity with the energy of a launch microsite.
 </p>
 
 <p align="center">
-  <img src="./content/github-preview.svg?v=20260408c" alt="Cinematic preview banner for the Ujala Agarwal portfolio showing layered portfolio surfaces, runtime callouts, and premium product storytelling." width="100%" />
+  <a href="https://ujala-portfolio-world.netlify.app/"><strong>Live Experience</strong></a>
+  ·
+  <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">LinkedIn</a>
+  ·
+  <a href="https://github.com/agarwalujala3-lang">GitHub</a>
 </p>
 
-# Ujala Agarwal Portfolio
+<p align="center">
+  <img src="./content/github-preview.svg?v=20260408c" alt="Preview of the Ujala Agarwal portfolio showing cinematic layered UI, telemetry cards, and premium product storytelling." width="100%" />
+</p>
 
-Adaptive cinematic portfolio for Ujala Agarwal, built as a multi-page personal system instead of a standard portfolio site. It is centered around repo-verified proof, especially ReceiptPulse, Safety Copilot, and LumenStack AI, rather than static project cards alone.
+---
 
-## Core Idea
+## The Idea
 
-This portfolio changes how it presents the work depending on the visitor:
+Most portfolios feel like static archives.
 
-- `Recruiter` mode for fast signal and role fit
-- `Engineer` mode for systems, architecture, and proof
-- `Founder` mode for product taste and execution
-- `Friend` mode for the personal story and human side
+This one is built like a product.
 
-It also includes `Pico`, a small guided assistant that adds warmth and navigation without taking over the page.
+`ujala-portfolio` is a cinematic personal platform for Ujala Agarwal that turns real project proof into a sharper public experience. It blends frontend polish, portfolio telemetry, guided storytelling, resume sync, and GitHub-backed freshness so the work feels alive instead of frozen.
 
-## Pages
+It is designed to answer three questions fast:
 
-- `index.html` - adaptive home runtime
-- `work.html` - project dossiers
-- `systems.html` - architecture and system routes
-- `about.html` - journey and working principles
-- `playground.html` - current experiments and active toolkit
-- `contact.html` - direct contact console and resume pack
+- Is the work real?
+- Is the thinking strong?
+- Does the presentation feel high-level?
 
-## Data Layer
+---
 
-Most portfolio content is driven from:
+## Why It Hits Different
 
-- `portfolio-data.js`
-- `portfolio-runtime.json`
-- `content/learning-log.json`
-- `content/idea-inbox.json`
-- `content/roadmap.json`
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>Product-Level Presentation</h3>
+      <p>Animated proof surfaces, signal cards, connector graphics, visual telemetry, and a homepage that feels closer to a modern launch page than a resume website.</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Proof Over Claims</h3>
+      <p>The experience is centered around repository-backed projects like ReceiptPulse, Safety Copilot, and LumenStack AI instead of vague skill lists.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>Audience-Aware Storytelling</h3>
+      <p>The portfolio changes emphasis depending on whether the visitor is a recruiter, engineer, founder, or friend.</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>Source-Driven Consistency</h3>
+      <p>Runtime data, resume files, public links, and generated outputs stay aligned through repeatable local build flows instead of manual patching.</p>
+    </td>
+  </tr>
+</table>
 
-That file controls:
+---
 
-- visitor modes
-- profile links
-- project data
-- systems routes
-- journey timeline
-- lab content
-- resume pack
+## Experience Modes
 
-The static snapshot layer adds:
+| Mode | Experience |
+| --- | --- |
+| `Recruiter` | Fast-read signal, role fit, visible proof, and clarity under pressure |
+| `Engineer` | Architecture routes, technical depth, systems thinking, and repo credibility |
+| `Founder` | Product judgment, execution quality, and interface taste |
+| `Friend` | Story, personality, and human context |
 
-- GitHub activity feed
-- snapshot status metadata
-- learning log
-- idea inbox
-- roadmap updates
+The result is a portfolio that adapts its framing without losing the truth of the work.
 
-## Refresh Snapshot Data
+---
 
-```bash
-node sync-portfolio-data.mjs
+## Visual System
+
+The frontend is intentionally treated as a premium surface, not an afterthought.
+
+- Layered hero storytelling with cinematic composition
+- Motion-backed proof cards and telemetry panels
+- SVG connector networks and constellation graphics
+- Audience-lens switching
+- Guided navigation through `Pico`
+- High-contrast product framing without generic template styling
+
+<p align="center">
+  <img src="./content/github-preview.svg?v=20260408c" alt="Portfolio visual system preview" width="92%" />
+</p>
+
+---
+
+## Core Pages
+
+| Page | Purpose |
+| --- | --- |
+| `index.html` | Adaptive homepage with flagship proof, visual signal surfaces, and guided framing |
+| `work.html` | Case-study route for project proof, tradeoffs, and delivery quality |
+| `systems.html` | Architecture-first route for engineering readers |
+| `about.html` | Journey, principles, and working style |
+| `playground.html` | Current experiments, tools, and learning surfaces |
+| `contact.html` | Contact routes, resume access, and direct handoff |
+
+---
+
+## Featured Proof
+
+### ReceiptPulse
+Private receipt-processing workflow with authentication, OCR extraction, duplicate handling, rename flows, dashboard management, and strong AWS delivery proof.
+
+### LumenStack AI
+AI-powered repository analysis product with diagrams, compare flows, guided explanation, and product-style interface decisions.
+
+### Safety Copilot
+Cross-platform safety product exploration with trusted-circle coordination, trip monitoring, and escalation-oriented workflow design.
+
+---
+
+## Stack
+
+```text
+Frontend: HTML, CSS, JavaScript
+Runtime: Static JSON + GitHub-backed refresh flow
+Rendering: app-core.js + app-render.js
+Content: portfolio-data.js + content/*.json
+Resumes: resume-pipeline.mjs + export-resumes.ps1
+Output Targets: dist/ and safe/
+Hosting: Netlify live URL, optional Render blueprint
 ```
 
-That pulls public GitHub repository activity and rebuilds `portfolio-runtime.json`, `resume-runtime.json`, and `resume-data.js`.
+---
 
-## Build Safe Mirror
+## Repository Architecture
 
-```bash
-node build-safe-mirror.mjs
-```
+| Path | Role |
+| --- | --- |
+| `portfolio-data.js` | Main source of truth for profile content, modes, links, and project metadata |
+| `portfolio-runtime.json` | Generated runtime state, freshness, and synced GitHub data |
+| `app-core.js` | App behavior, navigation systems, safe links, UI mechanics |
+| `app-render.js` | Page rendering and premium homepage composition |
+| `styles.css` | Full visual language, motion, layout, and advanced UI styling |
+| `content/` | Branding assets, roadmap, learning log, and idea inbox |
+| `resume/` | Generated resume HTML/PDF outputs |
+| `dist/` | Public deployment bundle |
+| `safe/` | Self-contained mirror build |
 
-That generates the self-contained `safe/` mirror from the main source pages, `styles.css`, `portfolio-data.js`, `portfolio-runtime.json`, and the app scripts. Do not edit files in `safe/` directly; edit the main page/data/runtime source, then rebuild.
+---
 
-Safe mirror build:
+## Local Workflow
 
-```bash
-npm run build
-```
-
-Full data refresh plus safe mirror rebuild:
-
-```bash
-npm run refresh
-```
-
-Use `npm run build` after navigation, resume links, runtime data, or visual polish changes so the public mirror stays aligned with the main site. Use `npm run refresh` when you also want to pull current GitHub repo/manifest data first.
-
-## Future Project Auto-Onboarding (Important)
-
-Use this every time you add a new project so it appears automatically in the portfolio.
-
-1. In the project repo, add `portfolio-branding.json` at repo root.
-2. Add branding assets:
-   - `branding/portfolio-brand-mark.svg`
-   - `branding/portfolio-brand-lockup.svg`
-3. In `portfolio-branding.json`, include all required fields:
-   - `enabled`, `id`, `title`, `kind`, `status`
-   - `priority`, `featured`
-   - `lensPriority.recruiter`, `lensPriority.engineer`, `lensPriority.founder`, `lensPriority.friend`
-   - `tags`, `summary`, `proof`, `details`, `architecture`, `tradeoff`
-   - `badge`, `icon`, `iconImage`, `lockupImage`
-   - `links` object (`links.repo` required; use `links.live` only for a safe, current public deployment)
-   - full `theme` object (`surface1`, `surface2`, `ring`, `glow`, `glowSoft`, `accentStrong`, `accentSoft`, `badgeBg`, `badgeBorder`, `proofBg`, `signalBg`, `signalBorder`, `iconBg`)
-4. Commit and push that project repo.
-5. In this portfolio repo run:
-   - `node sync-portfolio-data.mjs`
-6. Deploy the portfolio.
-
-### Hide Older Projects Without Deleting Repos
-
-Set `"enabled": false` in that repo's `portfolio-branding.json`. The repo stays on GitHub but disappears from portfolio cards.
-
-### Schema Helper
-
-Use `project-branding.example.json` as your base template.
-
-## Run Locally
+### Run Locally
 
 ```bash
 node local-server.js
 ```
 
-Then open:
+Open `http://127.0.0.1:4173`
 
-```text
-http://127.0.0.1:4173
+### Refresh Runtime Data
+
+```bash
+node sync-portfolio-data.mjs
 ```
 
-## Current Live Portfolio
+### Build Public Output
 
-- Portfolio: https://ujala-portfolio-world.netlify.app/
+```bash
+npm run build:render
+```
 
-## Free Hosting
+### Build Safe Mirror
 
-This portfolio is configured for free static hosting with GitHub Pages and a Render Blueprint. It has no AWS deploy requirement.
+```bash
+npm run build:safe
+```
 
-- GitHub Pages workflow: `.github/workflows/deploy-pages.yml`
-- Render Blueprint: `render.yaml`
-- Publish directory: `.`
-- Build command: `npm run build`
+### Build Everything
 
-## Key Proof Links
+```bash
+npm run build
+```
 
-- ReceiptPulse: https://github.com/agarwalujala3-lang/ReceiptPulse
-  - private per-user receipt workspace with sign-in, OCR extraction, duplicate decision flow, label rename, and dashboard management
-- Safety Copilot: https://github.com/agarwalujala3-lang/Safety-Copilot
-  - cloud-first personal safety platform with trusted circles, live trip monitoring, and SOS or silent SOS escalation
-- LumenStack AI Live: https://lumenstack-ai.onrender.com/
-- LumenStack AI Repo: https://github.com/agarwalujala3-lang/LumenStack-AI
-  - AI-powered codebase analysis with diagrams, compare mode, exports, and guided explanations
-- GitHub Profile: https://github.com/agarwalujala3-lang
-- LinkedIn: https://www.linkedin.com/in/ujala-agarwal-30aa28283/
+### Refresh + Rebuild
 
-## Current Project Positioning
+```bash
+npm run refresh
+```
 
-- `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and repo-inspectable dashboard flow
-- `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud API workflow design
-- `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
+### Regenerate Resume PDFs
 
+```bash
+npm run export:resumes
+```
 
+---
+
+## Deployment Surface
+
+**Canonical public URL**  
+`https://ujala-portfolio-world.netlify.app/`
+
+**Primary deployment output**  
+`dist/`
+
+**Default public base variable**  
+`PUBLIC_SITE_BASE=https://ujala-portfolio-world.netlify.app`
+
+The repository still includes `render.yaml` as an optional static deployment path, but the GitHub-facing identity and public portfolio references should remain aligned with the Netlify live URL unless intentionally migrated everywhere.
+
+---
+
+## Resume Sync System
+
+This repository treats resumes like product artifacts, not separate documents.
+
+The following are kept aligned with the live site and source data:
+
+- `resume-data.js`
+- `resume-runtime.json`
+- `resume/Ujala_Agarwal_Resume.pdf`
+- `resume/Ujala_Agarwal_Resume_Software.pdf`
+
+If live URLs, flagship projects, or public proof links change, rebuild the site and re-export resumes so GitHub, portfolio pages, and local assets stay consistent.
+
+---
+
+## Design Standard
+
+This repo aims to feel like it belongs to a professional high-level product team.
+
+That means:
+
+- stronger visual taste
+- cleaner proof storytelling
+- real system thinking
+- less filler, more signal
+- better GitHub presentation
+- consistency across UI, copy, links, and downloadable assets
+
+---
+
+## Contact
+
+<p align="center">
+  <a href="https://ujala-portfolio-world.netlify.app/">Portfolio</a>
+  ·
+  <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">LinkedIn</a>
+  ·
+  <a href="https://github.com/agarwalujala3-lang">GitHub</a>
+</p>
