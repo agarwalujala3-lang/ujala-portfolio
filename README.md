@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://agarwalujala3-lang.github.io/ujala-portfolio/">Live Portfolio</a> |
+  <a href="https://ujala-portfolio-world.netlify.app/">Live Portfolio</a> |
   <a href="https://github.com/agarwalujala3-lang/ujala-portfolio">Repository</a> |
   <a href="https://lumenstack-ai.onrender.com/">LumenStack AI Live</a> |
   <a href="https://github.com/agarwalujala3-lang/LumenStack-AI">LumenStack AI Repo</a> |
@@ -144,7 +144,7 @@ http://127.0.0.1:4173
 
 ## Current Live Portfolio
 
-- Portfolio: https://agarwalujala3-lang.github.io/ujala-portfolio/
+- Portfolio: https://ujala-portfolio-world.netlify.app/
 
 ## Free Hosting
 
@@ -172,4 +172,5 @@ This portfolio is configured for free static hosting with GitHub Pages and a Ren
 - `ReceiptPulse` is the flagship AWS system proof: private user-scoped uploads, Textract extraction, duplicate handling, rename/delete actions, and repo-inspectable dashboard flow
 - `Safety Copilot` is the strongest cross-platform product proof: trusted-circle safety workflows, trip orchestration, alert handling, and cloud API workflow design
 - `LumenStack AI` is the strongest AI product proof: repository analysis, Mermaid generation, compare flows, exports, and product-style UI
+
 
