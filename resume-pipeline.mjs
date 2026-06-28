@@ -93,7 +93,7 @@ const projectBlueprints = {
     summary:
       "Receipt processing web application with user authentication, file upload, OCR extraction, duplicate review, and receipt history tracking.",
     stack: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "JavaScript"],
-    liveUrl: "https://agarwalujala3-lang.github.io/ReceiptPulse/",
+    liveUrl: "https://receipt-pulse.netlify.app/",
     bullets: {
       general: [
         "Built a receipt processing web application with user authentication, file upload, OCR extraction, and receipt history tracking.",

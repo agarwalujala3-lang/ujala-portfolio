@@ -168,7 +168,7 @@ window.UJOS_DATA = {
       ],
       tags: ["aws", "backend", "full-stack", "repo"],
       links: {
-        live: "https://agarwalujala3-lang.github.io/ReceiptPulse/",
+        live: "https://receipt-pulse.netlify.app/",
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [

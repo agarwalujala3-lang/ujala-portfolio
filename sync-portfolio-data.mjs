@@ -9,7 +9,7 @@ const brainApiUrl = "";
 const manifestPath = "portfolio-branding.json";
 const allowedProjectRepos = new Set(["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
 const blockedPublicRepos = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
-const trustedLiveHosts = new Set(["htmlpreview.github.io", "lumenstack-ai.onrender.com", "agarwalujala3-lang.github.io"]);
+const trustedLiveHosts = new Set(["htmlpreview.github.io", "lumenstack-ai.onrender.com", "receipt-pulse.netlify.app", "agarwalujala3-lang.github.io"]);
 const themeKeys = [
   "surface1",
   "surface2",
