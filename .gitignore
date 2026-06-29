@@ -11,3 +11,4 @@ tunnel.err
 cloudfront-distribution.json
 s3-bucket-policy.json
 Ujala_Agarwal_Resume_Original.pdf
+.qa-*
