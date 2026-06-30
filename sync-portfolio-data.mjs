@@ -7,26 +7,10 @@ const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const githubUser = "agarwalujala3-lang";
 const brainApiUrl = "";
 const manifestPath = "portfolio-branding.json";
-const allowedProjectRepos = new Set(["ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
+const allowedProjectRepos = new Set(["Atlasiq-Ops-Platform", "ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
 const blockedPublicRepos = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
-const trustedLiveHosts = new Set(["lumenstack-ai.onrender.com", "receipt-pulse.netlify.app", "ujala-portfolio.onrender.com"]);
+const trustedLiveHosts = new Set(["atlasiq-ops-platform.onrender.com", "lumenstack-ai.onrender.com", "receipt-pulse.netlify.app", "ujala-portfolio.onrender.com"]);
 const themeKeys = [
-  "surface1",
-  "surface2",
-  "ring",
-  "glow",
-  "glowSoft",
-  "accentStrong",
-  "accentSoft",
-  "badgeBg",
-  "badgeBorder",
-  "proofBg",
-  "signalBg",
-  "signalBorder",
-  "iconBg",
-];
-const lensKeys = ["recruiter", "engineer", "founder", "friend"];
-const requiredStringKeys = ["id", "title", "kind", "status", "summary", "proof", "tradeoff", "badge", "icon"];const themeKeys = [
   "surface1",
   "surface2",
   "ring",

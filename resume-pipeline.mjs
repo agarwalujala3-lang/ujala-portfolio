@@ -58,7 +58,7 @@ const skills = {
   ],
 };
 
-const defaultProjectOrder = ["ReceiptPulse", "LumenStack-AI"];
+const defaultProjectOrder = ["Atlasiq-Ops-Platform", "ReceiptPulse", "LumenStack-AI"];
 
 const variants = {
   general: {
@@ -85,6 +85,26 @@ const variants = {
   },
 };
 const projectBlueprints = {
+  "Atlasiq-Ops-Platform": {
+    repo: "Atlasiq-Ops-Platform",
+    id: "atlasiq-ops",
+    title: "AtlasIQ Ops",
+    status: "Live + GitHub",
+    summary:
+      "AI-powered visual knowledge transformation platform with authentication, per-user workspaces, summaries, concept maps, charts, cheat notes, flashcards, and review workflows.",
+    stack: ["Node.js", "Express.js", "JavaScript", "OpenAI API", "HTML", "CSS", "Render"],
+    liveUrl: "https://atlasiq-ops-platform.onrender.com/",
+    bullets: {
+      general: [
+        "Built a live knowledge operations platform that transforms raw content into summaries, visual maps, charts, cheat notes, flashcards, and review recommendations.",
+        "Added authentication, per-user workspaces, secure server-backed sessions, source traceability, exports, and a polished responsive dashboard experience.",
+      ],
+      backend: [
+        "Built Node.js and Express APIs for authentication, sessions, workspace storage, AI generation, exports, and secure JSON request handling.",
+        "Deployed the full frontend and backend on one Render URL with persistent disk-backed data configuration and GitHub auto-deploy.",
+      ],
+    },
+  },
   ReceiptPulse: {
     repo: "ReceiptPulse",
     id: "receiptpulse",

@@ -1,6 +1,6 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-28T03:03:44.847Z",
+  "generatedAt": "2026-06-30T11:08:54.118Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -16,6 +16,7 @@ window.UJOS_RESUME_DATA = {
       "ujala-portfolio"
     ],
     "includedRepos": [
+      "Atlasiq-Ops-Platform",
       "ReceiptPulse",
       "LumenStack-AI",
       "Safety-Copilot",
@@ -42,6 +43,7 @@ window.UJOS_RESUME_DATA = {
       "headline": "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
       "summary": "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, and AWS serverless workflows. Completed a cloud computing internship and built GitHub-backed projects using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
       "projectOrder": [
+        "Atlasiq-Ops-Platform",
         "ReceiptPulse",
         "LumenStack-AI"
       ],
@@ -100,6 +102,7 @@ window.UJOS_RESUME_DATA = {
         }
       ],
       "projects": [
+        "Atlasiq-Ops-Platform",
         "ReceiptPulse",
         "LumenStack-AI"
       ]
@@ -112,6 +115,7 @@ window.UJOS_RESUME_DATA = {
       "headline": "BTech CSE Fresher | Backend Developer | Node.js and AWS",
       "summary": "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, and AWS serverless workflows. Built project workflows for authenticated upload, OCR extraction, repository analysis, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract.",
       "projectOrder": [
+        "Atlasiq-Ops-Platform",
         "ReceiptPulse",
         "LumenStack-AI"
       ],
@@ -170,12 +174,46 @@ window.UJOS_RESUME_DATA = {
         }
       ],
       "projects": [
+        "Atlasiq-Ops-Platform",
         "ReceiptPulse",
         "LumenStack-AI"
       ]
     }
   },
   "projects": [
+    {
+      "id": "atlasiq-ops",
+      "repo": "Atlasiq-Ops-Platform",
+      "title": "AtlasIQ Ops",
+      "status": "Live + GitHub",
+      "summary": "AI-powered visual knowledge transformation platform with authentication, per-user workspaces, summaries, concept maps, charts, cheat notes, flashcards, and review workflows.",
+      "stack": [
+        "Node.js",
+        "Express.js",
+        "JavaScript",
+        "OpenAI API",
+        "HTML",
+        "CSS",
+        "Render"
+      ],
+      "source": "github-manifest",
+      "pushedAt": "2026-06-30T11:07:40Z",
+      "language": "JavaScript",
+      "links": {
+        "live": "https://atlasiq-ops-platform.onrender.com/",
+        "repo": "https://github.com/agarwalujala3-lang/Atlasiq-Ops-Platform"
+      },
+      "bullets": {
+        "general": [
+          "Built a live knowledge operations platform that transforms raw content into summaries, visual maps, charts, cheat notes, flashcards, and review recommendations.",
+          "Added authentication, per-user workspaces, secure server-backed sessions, source traceability, exports, and a polished responsive dashboard experience."
+        ],
+        "backend": [
+          "Built Node.js and Express APIs for authentication, sessions, workspace storage, AI generation, exports, and secure JSON request handling.",
+          "Deployed the full frontend and backend on one Render URL with persistent disk-backed data configuration and GitHub auto-deploy."
+        ]
+      }
+    },
     {
       "id": "receiptpulse",
       "repo": "ReceiptPulse",
@@ -193,7 +231,7 @@ window.UJOS_RESUME_DATA = {
         "JavaScript"
       ],
       "source": "github-manifest",
-      "pushedAt": "2026-06-28T02:57:54Z",
+      "pushedAt": "2026-06-28T07:55:54Z",
       "language": "CSS",
       "links": {
         "live": "https://receipt-pulse.netlify.app/",
@@ -226,7 +264,7 @@ window.UJOS_RESUME_DATA = {
         "CSS"
       ],
       "source": "github-manifest",
-      "pushedAt": "2026-06-27T17:01:55Z",
+      "pushedAt": "2026-06-30T11:08:38Z",
       "language": "JavaScript",
       "links": {
         "live": "https://lumenstack-ai.onrender.com/",
@@ -291,7 +329,7 @@ window.UJOS_RESUME_DATA = {
         "Static Runtime Snapshot"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-06-27T17:23:30Z",
+      "pushedAt": "2026-06-30T05:55:00Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio.onrender.com/",
