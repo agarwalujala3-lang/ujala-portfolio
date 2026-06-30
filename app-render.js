@@ -144,14 +144,25 @@
     App.toast(`${data.modes[mode].label} lens is active now.`);
   }
 
+  function clampCopy(value, maxLength = 140) {
+    const text = String(value || "").trim();
+    if (!text) {
+      return "";
+    }
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return `${text.slice(0, Math.max(0, maxLength - 1)).trimEnd()}...`;
+  }
+
   function buildHeroSceneProject(project, variant) {
     if (!project) {
       return "";
     }
 
     const delivery = projectDeliveryLabel(project);
-    const summary = project.summary || project.proof || "Portfolio proof layer.";
-    const stack = (project.stack || []).slice(0, 2);
+    const summary = clampCopy(project.summary || project.proof || "Portfolio proof layer.", 150);
+    const stack = (project.stack || []).slice(0, 1);
 
     return `
       <article class="hero-scene-card__inner" style="${App.escapeHtml(projectThemeStyle(project))}">
@@ -211,6 +222,7 @@
     const heroRuntimeLabel = document.getElementById("hero-stage-runtime-label");
     const orderedProjects = App.getProjectsForMode();
     const capabilityScores = buildCapabilityScores(orderedProjects);
+    const isMobileViewport = window.matchMedia("(max-width: 760px)").matches;
     const primaryProject = orderedProjects[0] || null;
     const secondaryProject = orderedProjects.find((project) => project.id !== primaryProject?.id) || primaryProject;
     const primaryActivitySummary = projectActivitySummary(primaryProject);
@@ -223,12 +235,13 @@
 
     if (heroSignals) {
       heroSignals.innerHTML = (data.signals || [])
+        .slice(0, isMobileViewport ? 2 : 3)
         .map(
           (signal) => `
             <article class="metric-card">
               <span class="metric-card__value">${App.escapeHtml(signal.value)}</span>
               <span class="metric-card__label">${App.escapeHtml(signal.label)}</span>
-              <p>${App.escapeHtml(signal.note)}</p>
+              ${isMobileViewport ? "" : `<p>${App.escapeHtml(signal.note)}</p>`}
             </article>
           `
         )
@@ -252,11 +265,12 @@
     }
 
     if (heroProof) {
+      const proofLine = secondaryProject
+        ? `${primaryProject?.title || "The lead project"} leads right now, ${primaryActivitySummary}, with ${secondaryProject.title} next at ${secondaryActivitySummary}.`
+        : `${primaryProject?.title || "The lead project"} leads right now, ${primaryActivitySummary}.`;
       heroProof.innerHTML = `
         <span class="hero-stage__proof-label">Current GitHub lead</span>
-        <p>${App.escapeHtml(
-          `${primaryProject?.title || "The lead project"} is carrying the homepage right now, ${primaryActivitySummary}${secondaryProject ? `, with ${secondaryProject.title} next at ${secondaryActivitySummary}` : ""}. The emphasis follows fresh repo activity instead of older portfolio ordering.`
-        )}</p>
+        <p>${App.escapeHtml(clampCopy(proofLine, isMobileViewport ? 120 : 180))}</p>
       `;
     }
 
@@ -281,12 +295,18 @@
     if (runtimeGrid) {
       const repoProofCount = (data.projects || []).filter((project) => project.links?.repo).length || (data.projects || []).length || 0;
       const brainMode = brain.status === "connected" ? "connected" : "local";
-      runtimeGrid.innerHTML = [
-        { value: "static", label: "Hosting mode" },
-        { value: String(repoProofCount), label: "Repo proofs" },
-        { value: brainMode, label: "Guide mode" },
-        { value: mode.label, label: "Active lens" },
-      ]
+      const runtimeItems = isMobileViewport
+        ? [
+            { value: String(repoProofCount), label: "Repo proofs" },
+            { value: mode.label, label: "Active lens" },
+          ]
+        : [
+            { value: "static", label: "Hosting mode" },
+            { value: String(repoProofCount), label: "Repo proofs" },
+            { value: brainMode, label: "Guide mode" },
+            { value: mode.label, label: "Active lens" },
+          ];
+      runtimeGrid.innerHTML = runtimeItems
         .map(
           (item) => `
             <article class="metric-card">
@@ -300,6 +320,7 @@
 
     if (highlights) {
       highlights.innerHTML = (mode.highlights || [])
+        .slice(0, isMobileViewport ? 2 : 3)
         .map(
           (item) => `
             <article class="highlight-card">
@@ -1479,4 +1500,6 @@
   App.renderProjectModal = renderProjectModal;
   App.buildGithubFeed = buildGithubFeed;
 })();
+
+
 

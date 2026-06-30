@@ -1064,7 +1064,7 @@
     "www.linkedin.com",
     "linkedin.com",
     "lumenstack-ai.onrender.com",
-    "ujala-portfolio-world.netlify.app",
+    "ujala-portfolio.onrender.com",
     "cdn.jsdelivr.net",
   ]);
 

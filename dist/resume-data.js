@@ -29,7 +29,7 @@ window.UJOS_RESUME_DATA = {
     "location": "Bareilly, Uttar Pradesh",
     "phone": "+91 7906786403",
     "email": "agarwalujala3@gmail.com",
-    "portfolioUrl": "https://ujala-portfolio-world.netlify.app/",
+    "portfolioUrl": "https://ujala-portfolio.onrender.com/",
     "githubUrl": "https://github.com/agarwalujala3-lang",
     "linkedinUrl": "https://www.linkedin.com/in/ujala-agarwal-30aa28283/"
   },
@@ -294,7 +294,7 @@ window.UJOS_RESUME_DATA = {
       "pushedAt": "2026-06-27T17:23:30Z",
       "language": "HTML",
       "links": {
-        "live": "https://ujala-portfolio-world.netlify.app/",
+        "live": "https://ujala-portfolio.onrender.com/",
         "repo": "https://github.com/agarwalujala3-lang/ujala-portfolio"
       },
       "bullets": {

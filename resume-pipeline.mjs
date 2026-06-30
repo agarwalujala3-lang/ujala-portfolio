@@ -1,5 +1,5 @@
 const portfolioUrl =
-  "https://ujala-portfolio-world.netlify.app/";
+  "https://ujala-portfolio.onrender.com/";
 
 const profile = {
   name: "Ujala Agarwal",

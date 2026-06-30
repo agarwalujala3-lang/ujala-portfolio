@@ -8,8 +8,8 @@
   <meta name="description" content="Follow Ujala Agarwal's journey from frontend builds to cloud systems, AI tools, and product-centered execution.">
   <meta name="theme-color" content="#050913">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="canonical" href="https://ujala-portfolio-world.netlify.app/safe/about.html">
-  <meta property="og:url" content="https://ujala-portfolio-world.netlify.app/safe/about.html">
+  <link rel="canonical" href="https://ujala-portfolio.onrender.com/safe/about.html">
+  <meta property="og:url" content="https://ujala-portfolio.onrender.com/safe/about.html">
   <title>Ujala Agarwal | Journey</title>
   <style>html,body{background:#050913;color:#eef4ff;}</style>
 <style>
@@ -102,7 +102,7 @@ button {
   border: 0;
   background: none;
   color: inherit;
-  cursor: none;
+  cursor: pointer;
 }
 
 a {
@@ -2316,7 +2316,7 @@ li {
 }
 
 .route-card--static {
-  cursor: none;
+  cursor: default;
 }
 
 .cta-panel .cta-link {
@@ -4092,7 +4092,7 @@ body[data-pointer-experience="true"][data-cursor-ready="true"]:not(.intro-lock) 
   html,
   body,
   body * {
-    cursor: none !important;
+    cursor: auto !important;
   }
 }
 
@@ -4925,7 +4925,7 @@ body[data-scroll-depth="deep"] .ambient--two {
   [data-open-project],
   [data-compare-project],
   [data-copy] {
-    cursor: none !important;
+    cursor: auto !important;
   }
 }
 
@@ -5296,6 +5296,239 @@ body[data-scroll-depth="deep"] .ambient--two {
   }
 }
 
+/* Frontend stabilization pass: restore native usability and compact the hero */
+body,
+body * {
+  cursor: auto;
+}
+
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+summary {
+  cursor: pointer;
+}
+
+html,
+body,
+body * {
+  cursor: auto !important;
+}
+
+input,
+textarea,
+select {
+  cursor: text !important;
+}
+
+.cursor-mark,
+.click-pulse {
+  display: none !important;
+}
+
+body::after {
+  opacity: 0.28;
+}
+
+.hero-stage {
+  min-height: auto;
+  gap: 18px;
+}
+
+.hero-stage__scene {
+  min-height: 760px;
+}
+
+.hero-stage__main {
+  left: 9%;
+  width: min(760px, 82%);
+  padding: 20px;
+}
+
+.hero-stage__project-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
+  gap: 14px;
+}
+
+.hero-scene-card--secondary {
+  padding-top: 26px;
+}
+
+.hero-scene-card__summary {
+  min-height: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.hero-stage__proof {
+  gap: 10px;
+  padding: 16px 18px;
+}
+
+.hero-stage__proof p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.hero--home .metric-grid--compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero--home .metric-card,
+.hero-glass .metric-card,
+.hero-glass .highlight-card {
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.hero--home .metric-card__value,
+.hero-glass .metric-card__value {
+  font-size: 1.34rem;
+}
+
+.hero--home .metric-card p {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.hero-glass {
+  margin-top: 18px;
+}
+
+.hero-glass .section-head h2 {
+  max-width: none;
+  font-size: clamp(1.34rem, 1.6vw, 1.82rem);
+}
+
+.highlight-stack {
+  gap: 10px;
+}
+
+.highlight-card strong {
+  display: block;
+  line-height: 1.45;
+}
+
+@media (max-width: 1120px) {
+  .hero-stage__scene {
+    min-height: 690px;
+  }
+
+  .hero-stage__main {
+    left: 6%;
+    width: min(700px, 88%);
+  }
+}
+
+@media (max-width: 760px) {
+  .masthead {
+    position: relative;
+    top: 0;
+  }
+
+  .hero--home {
+    gap: 18px;
+  }
+
+  .hero-stage {
+    gap: 14px;
+  }
+
+  .hero-stage__scene {
+    min-height: 1120px;
+  }
+
+  .hero-stage__main {
+    left: 0;
+    top: 14%;
+    width: 100%;
+    padding: 16px;
+    transform: none;
+  }
+
+  .hero-stage__project-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-scene-card--secondary {
+    padding-top: 0;
+  }
+
+  .hero-stage__proof {
+    padding: 14px 16px;
+  }
+
+  .hero--home .metric-grid--compact,
+  .hero-glass .metric-grid--mini {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero--home .metric-card p {
+    display: none;
+  }
+
+  .hero-glass {
+    margin-top: 12px;
+  }
+
+  .hero-glass .section-head h2 {
+    font-size: 1.26rem;
+  }
+
+  .highlight-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cursor override fix for fine-pointer rule */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  body *,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  [role="button"],
+  [tabindex],
+  [data-command-action],
+  [data-open-project],
+  [data-compare-project],
+  [data-copy] {
+    cursor: auto !important;
+  }
+
+  a,
+  button,
+  summary,
+  [role="button"],
+  [data-command-action],
+  [data-open-project],
+  [data-compare-project],
+  [data-copy] {
+    cursor: pointer !important;
+  }
+
+  input,
+  textarea,
+  select {
+    cursor: text !important;
+  }
+}
+
+
+
 </style>
 </head>
 <body data-page="about">
@@ -5305,24 +5538,24 @@ body[data-scroll-depth="deep"] .ambient--two {
 
   <div class="site-shell">
     <header class="masthead">
-      <a class="brand" href="https://ujala-portfolio-world.netlify.app/safe/index.html" aria-label="Ujala Agarwal portfolio home">
+      <a class="brand" href="https://ujala-portfolio.onrender.com/safe/index.html" aria-label="Ujala Agarwal portfolio home">
         <span class="brand__kicker">Ujala OS</span>
         <span class="brand__name">Ujala Agarwal</span>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a class="main-nav__link" data-nav="home" href="https://ujala-portfolio-world.netlify.app/safe/index.html">Home</a>
-        <a class="main-nav__link" data-nav="work" href="https://ujala-portfolio-world.netlify.app/safe/work.html">Case Studies</a>
-        <a class="main-nav__link" data-nav="systems" href="https://ujala-portfolio-world.netlify.app/safe/systems.html">Systems</a>
-        <a class="main-nav__link" data-nav="about" href="https://ujala-portfolio-world.netlify.app/safe/about.html">Journey</a>
-        <a class="main-nav__link" data-nav="playground" href="https://ujala-portfolio-world.netlify.app/safe/playground.html">Lab</a>
-        <a class="main-nav__link" data-nav="contact" href="https://ujala-portfolio-world.netlify.app/safe/contact.html">Contact</a>
+        <a class="main-nav__link" data-nav="home" href="https://ujala-portfolio.onrender.com/safe/index.html">Home</a>
+        <a class="main-nav__link" data-nav="work" href="https://ujala-portfolio.onrender.com/safe/work.html">Case Studies</a>
+        <a class="main-nav__link" data-nav="systems" href="https://ujala-portfolio.onrender.com/safe/systems.html">Systems</a>
+        <a class="main-nav__link" data-nav="about" href="https://ujala-portfolio.onrender.com/safe/about.html">Journey</a>
+        <a class="main-nav__link" data-nav="playground" href="https://ujala-portfolio.onrender.com/safe/playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="contact" href="https://ujala-portfolio.onrender.com/safe/contact.html">Contact</a>
       </nav>
 
       <div class="masthead__actions">
         <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
         <button class="button button--ghost" type="button" data-command-open>Navigator</button>
-        <a class="button button--solid" href="https://ujala-portfolio-world.netlify.app/safe/contact.html">Contact</a>
+        <a class="button button--solid" href="https://ujala-portfolio.onrender.com/safe/contact.html">Contact</a>
       </div>
     </header>
 
@@ -5380,7 +5613,7 @@ body[data-scroll-depth="deep"] .ambient--two {
             <h3>Use AI where it clarifies, not where it decorates.</h3>
             <p>I care most about grounded tools that become more useful because AI is applied carefully.</p>
           </article>
-          <a class="route-card" href="https://ujala-portfolio-world.netlify.app/safe/playground.html">
+          <a class="route-card" href="https://ujala-portfolio.onrender.com/safe/playground.html">
             <span class="route-card__label">Lab Route</span>
             <h3>Open the experiments, learning log, and roadmap.</h3>
             <p>The lab page shows the active growth edge in a more live format.</p>
@@ -7345,7 +7578,7 @@ window.UJOS_RUNTIME_DATA = {
     "www.linkedin.com",
     "linkedin.com",
     "lumenstack-ai.onrender.com",
-    "ujala-portfolio-world.netlify.app",
+    "ujala-portfolio.onrender.com",
     "cdn.jsdelivr.net",
   ]);
 
@@ -7592,14 +7825,25 @@ window.UJOS_RUNTIME_DATA = {
     App.toast(`${data.modes[mode].label} lens is active now.`);
   }
 
+  function clampCopy(value, maxLength = 140) {
+    const text = String(value || "").trim();
+    if (!text) {
+      return "";
+    }
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return `${text.slice(0, Math.max(0, maxLength - 1)).trimEnd()}...`;
+  }
+
   function buildHeroSceneProject(project, variant) {
     if (!project) {
       return "";
     }
 
     const delivery = projectDeliveryLabel(project);
-    const summary = project.summary || project.proof || "Portfolio proof layer.";
-    const stack = (project.stack || []).slice(0, 2);
+    const summary = clampCopy(project.summary || project.proof || "Portfolio proof layer.", 150);
+    const stack = (project.stack || []).slice(0, 1);
 
     return `
       <article class="hero-scene-card__inner" style="${App.escapeHtml(projectThemeStyle(project))}">
@@ -7659,6 +7903,7 @@ window.UJOS_RUNTIME_DATA = {
     const heroRuntimeLabel = document.getElementById("hero-stage-runtime-label");
     const orderedProjects = App.getProjectsForMode();
     const capabilityScores = buildCapabilityScores(orderedProjects);
+    const isMobileViewport = window.matchMedia("(max-width: 760px)").matches;
     const primaryProject = orderedProjects[0] || null;
     const secondaryProject = orderedProjects.find((project) => project.id !== primaryProject?.id) || primaryProject;
     const primaryActivitySummary = projectActivitySummary(primaryProject);
@@ -7671,12 +7916,13 @@ window.UJOS_RUNTIME_DATA = {
 
     if (heroSignals) {
       heroSignals.innerHTML = (data.signals || [])
+        .slice(0, isMobileViewport ? 2 : 3)
         .map(
           (signal) => `
             <article class="metric-card">
               <span class="metric-card__value">${App.escapeHtml(signal.value)}</span>
               <span class="metric-card__label">${App.escapeHtml(signal.label)}</span>
-              <p>${App.escapeHtml(signal.note)}</p>
+              ${isMobileViewport ? "" : `<p>${App.escapeHtml(signal.note)}</p>`}
             </article>
           `
         )
@@ -7700,11 +7946,12 @@ window.UJOS_RUNTIME_DATA = {
     }
 
     if (heroProof) {
+      const proofLine = secondaryProject
+        ? `${primaryProject?.title || "The lead project"} leads right now, ${primaryActivitySummary}, with ${secondaryProject.title} next at ${secondaryActivitySummary}.`
+        : `${primaryProject?.title || "The lead project"} leads right now, ${primaryActivitySummary}.`;
       heroProof.innerHTML = `
         <span class="hero-stage__proof-label">Current GitHub lead</span>
-        <p>${App.escapeHtml(
-          `${primaryProject?.title || "The lead project"} is carrying the homepage right now, ${primaryActivitySummary}${secondaryProject ? `, with ${secondaryProject.title} next at ${secondaryActivitySummary}` : ""}. The emphasis follows fresh repo activity instead of older portfolio ordering.`
-        )}</p>
+        <p>${App.escapeHtml(clampCopy(proofLine, isMobileViewport ? 120 : 180))}</p>
       `;
     }
 
@@ -7729,12 +7976,18 @@ window.UJOS_RUNTIME_DATA = {
     if (runtimeGrid) {
       const repoProofCount = (data.projects || []).filter((project) => project.links?.repo).length || (data.projects || []).length || 0;
       const brainMode = brain.status === "connected" ? "connected" : "local";
-      runtimeGrid.innerHTML = [
-        { value: "static", label: "Hosting mode" },
-        { value: String(repoProofCount), label: "Repo proofs" },
-        { value: brainMode, label: "Guide mode" },
-        { value: mode.label, label: "Active lens" },
-      ]
+      const runtimeItems = isMobileViewport
+        ? [
+            { value: String(repoProofCount), label: "Repo proofs" },
+            { value: mode.label, label: "Active lens" },
+          ]
+        : [
+            { value: "static", label: "Hosting mode" },
+            { value: String(repoProofCount), label: "Repo proofs" },
+            { value: brainMode, label: "Guide mode" },
+            { value: mode.label, label: "Active lens" },
+          ];
+      runtimeGrid.innerHTML = runtimeItems
         .map(
           (item) => `
             <article class="metric-card">
@@ -7748,6 +8001,7 @@ window.UJOS_RUNTIME_DATA = {
 
     if (highlights) {
       highlights.innerHTML = (mode.highlights || [])
+        .slice(0, isMobileViewport ? 2 : 3)
         .map(
           (item) => `
             <article class="highlight-card">
@@ -8927,6 +9181,8 @@ window.UJOS_RUNTIME_DATA = {
   App.renderProjectModal = renderProjectModal;
   App.buildGithubFeed = buildGithubFeed;
 })();
+
+
 
 
 </script>

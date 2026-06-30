@@ -13,10 +13,10 @@
 </p>
 
 <p align="center">
-  <a href="https://ujala-portfolio-world.netlify.app/"><strong>Live Experience</strong></a>
-  ·
+  <a href="https://ujala-portfolio.onrender.com/"><strong>Live Experience</strong></a>
+  ï¿½
   <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">LinkedIn</a>
-  ·
+  ï¿½
   <a href="https://github.com/agarwalujala3-lang">GitHub</a>
 </p>
 
@@ -206,13 +206,13 @@ npm run export:resumes
 ## Deployment Surface
 
 **Canonical public URL**  
-`https://ujala-portfolio-world.netlify.app/`
+`https://ujala-portfolio.onrender.com/`
 
 **Primary deployment output**  
 `dist/`
 
 **Default public base variable**  
-`PUBLIC_SITE_BASE=https://ujala-portfolio-world.netlify.app`
+`PUBLIC_SITE_BASE=https://ujala-portfolio.onrender.com`
 
 The repository still includes `render.yaml` as an optional static deployment path, but the GitHub-facing identity and public portfolio references should remain aligned with the Netlify live URL unless intentionally migrated everywhere.
 
@@ -251,9 +251,9 @@ That means:
 ## Contact
 
 <p align="center">
-  <a href="https://ujala-portfolio-world.netlify.app/">Portfolio</a>
-  ·
+  <a href="https://ujala-portfolio.onrender.com/">Portfolio</a>
+  ï¿½
   <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">LinkedIn</a>
-  ·
+  ï¿½
   <a href="https://github.com/agarwalujala3-lang">GitHub</a>
 </p>

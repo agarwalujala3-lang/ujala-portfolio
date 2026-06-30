@@ -9,7 +9,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: PUBLIC_SITE_BASE
-        value: https://ujala-portfolio-world.netlify.app
+        value: https://ujala-portfolio.onrender.com
     headers:
       - path: /*
         name: X-Content-Type-Options

@@ -87,7 +87,7 @@ button {
   border: 0;
   background: none;
   color: inherit;
-  cursor: none;
+  cursor: pointer;
 }
 
 a {
@@ -2301,7 +2301,7 @@ li {
 }
 
 .route-card--static {
-  cursor: none;
+  cursor: default;
 }
 
 .cta-panel .cta-link {
@@ -4077,7 +4077,7 @@ body[data-pointer-experience="true"][data-cursor-ready="true"]:not(.intro-lock) 
   html,
   body,
   body * {
-    cursor: none !important;
+    cursor: auto !important;
   }
 }
 
@@ -4910,7 +4910,7 @@ body[data-scroll-depth="deep"] .ambient--two {
   [data-open-project],
   [data-compare-project],
   [data-copy] {
-    cursor: none !important;
+    cursor: auto !important;
   }
 }
 
@@ -5280,3 +5280,236 @@ body[data-scroll-depth="deep"] .ambient--two {
     transform: none;
   }
 }
+
+/* Frontend stabilization pass: restore native usability and compact the hero */
+body,
+body * {
+  cursor: auto;
+}
+
+a,
+button,
+[role="button"],
+input,
+textarea,
+select,
+summary {
+  cursor: pointer;
+}
+
+html,
+body,
+body * {
+  cursor: auto !important;
+}
+
+input,
+textarea,
+select {
+  cursor: text !important;
+}
+
+.cursor-mark,
+.click-pulse {
+  display: none !important;
+}
+
+body::after {
+  opacity: 0.28;
+}
+
+.hero-stage {
+  min-height: auto;
+  gap: 18px;
+}
+
+.hero-stage__scene {
+  min-height: 760px;
+}
+
+.hero-stage__main {
+  left: 9%;
+  width: min(760px, 82%);
+  padding: 20px;
+}
+
+.hero-stage__project-grid {
+  grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
+  gap: 14px;
+}
+
+.hero-scene-card--secondary {
+  padding-top: 26px;
+}
+
+.hero-scene-card__summary {
+  min-height: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.hero-stage__proof {
+  gap: 10px;
+  padding: 16px 18px;
+}
+
+.hero-stage__proof p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.hero--home .metric-grid--compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero--home .metric-card,
+.hero-glass .metric-card,
+.hero-glass .highlight-card {
+  padding: 14px;
+  border-radius: 18px;
+}
+
+.hero--home .metric-card__value,
+.hero-glass .metric-card__value {
+  font-size: 1.34rem;
+}
+
+.hero--home .metric-card p {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.hero-glass {
+  margin-top: 18px;
+}
+
+.hero-glass .section-head h2 {
+  max-width: none;
+  font-size: clamp(1.34rem, 1.6vw, 1.82rem);
+}
+
+.highlight-stack {
+  gap: 10px;
+}
+
+.highlight-card strong {
+  display: block;
+  line-height: 1.45;
+}
+
+@media (max-width: 1120px) {
+  .hero-stage__scene {
+    min-height: 690px;
+  }
+
+  .hero-stage__main {
+    left: 6%;
+    width: min(700px, 88%);
+  }
+}
+
+@media (max-width: 760px) {
+  .masthead {
+    position: relative;
+    top: 0;
+  }
+
+  .hero--home {
+    gap: 18px;
+  }
+
+  .hero-stage {
+    gap: 14px;
+  }
+
+  .hero-stage__scene {
+    min-height: 1120px;
+  }
+
+  .hero-stage__main {
+    left: 0;
+    top: 14%;
+    width: 100%;
+    padding: 16px;
+    transform: none;
+  }
+
+  .hero-stage__project-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-scene-card--secondary {
+    padding-top: 0;
+  }
+
+  .hero-stage__proof {
+    padding: 14px 16px;
+  }
+
+  .hero--home .metric-grid--compact,
+  .hero-glass .metric-grid--mini {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero--home .metric-card p {
+    display: none;
+  }
+
+  .hero-glass {
+    margin-top: 12px;
+  }
+
+  .hero-glass .section-head h2 {
+    font-size: 1.26rem;
+  }
+
+  .highlight-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cursor override fix for fine-pointer rule */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  body *,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary,
+  [role="button"],
+  [tabindex],
+  [data-command-action],
+  [data-open-project],
+  [data-compare-project],
+  [data-copy] {
+    cursor: auto !important;
+  }
+
+  a,
+  button,
+  summary,
+  [role="button"],
+  [data-command-action],
+  [data-open-project],
+  [data-compare-project],
+  [data-copy] {
+    cursor: pointer !important;
+  }
+
+  input,
+  textarea,
+  select {
+    cursor: text !important;
+  }
+}
+
+

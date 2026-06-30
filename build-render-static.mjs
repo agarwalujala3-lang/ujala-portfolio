@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(rootDir, "dist");
-const publicSiteBase = (process.env.PUBLIC_SITE_BASE || "https://ujala-portfolio-world.netlify.app").replace(/\/+$/, "");
+const publicSiteBase = (process.env.PUBLIC_SITE_BASE || "https://ujala-portfolio.onrender.com").replace(/\/+$/, "");
 const sourcePages = [
   "index.html",
   "work.html",
