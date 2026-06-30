@@ -1,259 +1,183 @@
 <p align="center">
-  <img src="./content/portfolio-lockup.svg" alt="Ujala Agarwal Portfolio lockup" width="520" />
+  <img src="./content/portfolio-lockup.svg" alt="Ujala Agarwal adaptive portfolio lockup" width="560" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Portfolio-Cinematic%20Product%20Surface-1f4d47?style=for-the-badge&labelColor=0f1720" alt="Portfolio badge" />
-  <img src="https://img.shields.io/badge/Runtime-GitHub%20Backed-c96f3b?style=for-the-badge&labelColor=0f1720" alt="Runtime badge" />
-  <img src="https://img.shields.io/badge/Live-Netlify-117a65?style=for-the-badge&labelColor=0f1720" alt="Live badge" />
+  <a href="https://ujala-portfolio.onrender.com/"><img src="https://img.shields.io/badge/Live-Render-74E6B6?style=for-the-badge&labelColor=07111F&color=74E6B6" alt="Live on Render" /></a>
+  <img src="https://img.shields.io/badge/Portfolio-Premium%20Product%20OS-8DEFFF?style=for-the-badge&labelColor=07111F&color=8DEFFF" alt="Premium product OS" />
+  <img src="https://img.shields.io/badge/Proof-GitHub%20Backed-F6C58D?style=for-the-badge&labelColor=07111F&color=F6C58D" alt="GitHub backed proof" />
 </p>
 
+<h1 align="center">Ujala Portfolio OS</h1>
+
 <p align="center">
-  A premium multi-page portfolio system designed to present engineering proof, product taste, and recruiter-ready clarity with the energy of a launch microsite.
+  A high-polish portfolio system for engineering proof, product taste, cloud systems, AI tooling, resume routing, and recruiter-ready storytelling.
 </p>
 
 <p align="center">
   <a href="https://ujala-portfolio.onrender.com/"><strong>Live Experience</strong></a>
-  �
+  |
   <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">LinkedIn</a>
-  �
+  |
   <a href="https://github.com/agarwalujala3-lang">GitHub</a>
 </p>
 
 <p align="center">
-  <img src="./content/github-preview.svg?v=20260408c" alt="Preview of the Ujala Agarwal portfolio showing cinematic layered UI, telemetry cards, and premium product storytelling." width="100%" />
+  <img src="./content/readme-hero.svg" alt="Premium README hero preview for Ujala OS portfolio" width="100%" />
 </p>
 
----
+## What This Is
 
-## The Idea
+`ujala-portfolio` is a multi-page portfolio product built to make proof easy to inspect.
 
-Most portfolios feel like static archives.
+The experience brings together polished frontend design, real project case studies, audience-aware storytelling, resume data, GitHub-backed freshness, and Render deployment output. The goal is simple: make the work feel credible within the first screen and deeper as someone explores.
 
-This one is built like a product.
-
-`ujala-portfolio` is a cinematic personal platform for Ujala Agarwal that turns real project proof into a sharper public experience. It blends frontend polish, portfolio telemetry, guided storytelling, resume sync, and GitHub-backed freshness so the work feels alive instead of frozen.
-
-It is designed to answer three questions fast:
-
-- Is the work real?
-- Is the thinking strong?
-- Does the presentation feel high-level?
-
----
-
-## Why It Hits Different
+## Why It Stands Out
 
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3>Product-Level Presentation</h3>
-      <p>Animated proof surfaces, signal cards, connector graphics, visual telemetry, and a homepage that feels closer to a modern launch page than a resume website.</p>
+      <h3>Product-Grade Presentation</h3>
+      <p>The site uses a premium dark visual system, cinematic hero composition, motion, proof cards, charts, section-specific panels, and cleaner interaction details.</p>
     </td>
     <td width="50%" valign="top">
-      <h3>Proof Over Claims</h3>
-      <p>The experience is centered around repository-backed projects like ReceiptPulse, Safety Copilot, and LumenStack AI instead of vague skill lists.</p>
+      <h3>Proof Before Claims</h3>
+      <p>ReceiptPulse, LumenStack AI, and Safety Copilot are presented as evidence surfaces with live links, repos, tradeoffs, and architecture context.</p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>Audience-Aware Storytelling</h3>
-      <p>The portfolio changes emphasis depending on whether the visitor is a recruiter, engineer, founder, or friend.</p>
+      <h3>Audience-Aware Narrative</h3>
+      <p>The portfolio can shift emphasis for recruiters, engineers, founders, and personal readers while keeping the underlying work consistent.</p>
     </td>
     <td width="50%" valign="top">
-      <h3>Source-Driven Consistency</h3>
-      <p>Runtime data, resume files, public links, and generated outputs stay aligned through repeatable local build flows instead of manual patching.</p>
+      <h3>Deployable System</h3>
+      <p>Source content, runtime data, resumes, SEO files, generated output, and Render configuration are kept aligned through repeatable build scripts.</p>
     </td>
   </tr>
 </table>
 
----
+## Visual Proof Board
+
+<p align="center">
+  <img src="./content/readme-proof-board.svg" alt="Project proof board with ReceiptPulse, LumenStack AI, and Safety Copilot cards" width="100%" />
+</p>
+
+| Project | Signal | Proof |
+| --- | --- | --- |
+| `ReceiptPulse` | AWS receipt workspace | Auth, upload, OCR extraction, duplicate review, label management, dashboard flow |
+| `LumenStack AI` | AI architecture analyzer | Repository parsing, Mermaid diagrams, guided explanations, comparison UX |
+| `Safety Copilot` | Cloud safety platform | Trusted circles, trip monitoring, SOS escalation, web and Android surfaces |
 
 ## Experience Modes
 
-| Mode | Experience |
+| Mode | What It Optimizes |
 | --- | --- |
-| `Recruiter` | Fast-read signal, role fit, visible proof, and clarity under pressure |
-| `Engineer` | Architecture routes, technical depth, systems thinking, and repo credibility |
-| `Founder` | Product judgment, execution quality, and interface taste |
-| `Friend` | Story, personality, and human context |
-
-The result is a portfolio that adapts its framing without losing the truth of the work.
-
----
-
-## Visual System
-
-The frontend is intentionally treated as a premium surface, not an afterthought.
-
-- Layered hero storytelling with cinematic composition
-- Motion-backed proof cards and telemetry panels
-- SVG connector networks and constellation graphics
-- Audience-lens switching
-- Guided navigation through `Pico`
-- High-contrast product framing without generic template styling
-
-<p align="center">
-  <img src="./content/github-preview.svg?v=20260408c" alt="Portfolio visual system preview" width="92%" />
-</p>
-
----
+| `Recruiter` | Fast signal, role fit, strongest projects, clean resume access |
+| `Engineer` | Architecture routes, tradeoffs, repo credibility, implementation depth |
+| `Founder` | Product judgment, usability, polish, execution quality |
+| `Friend` | Journey, personality, learning path, human context |
 
 ## Core Pages
 
-| Page | Purpose |
+| Page | Role |
 | --- | --- |
-| `index.html` | Adaptive homepage with flagship proof, visual signal surfaces, and guided framing |
-| `work.html` | Case-study route for project proof, tradeoffs, and delivery quality |
-| `systems.html` | Architecture-first route for engineering readers |
-| `about.html` | Journey, principles, and working style |
-| `playground.html` | Current experiments, tools, and learning surfaces |
-| `contact.html` | Contact routes, resume access, and direct handoff |
+| `index.html` | Premium homepage with hero proof, visual telemetry, mode switching, and featured work |
+| `work.html` | Case-study route for project proof, delivery details, links, and comparison |
+| `systems.html` | Architecture route for engineering readers and technical review |
+| `about.html` | Journey, principles, learning arc, and working style |
+| `playground.html` | Current experiments, roadmap, learning log, and idea inbox |
+| `contact.html` | Contact routes, public profiles, and resume access |
 
----
+## Architecture
 
-## Featured Proof
+<p align="center">
+  <img src="./content/readme-architecture-map.svg" alt="Architecture map showing source data, runtime sync, build scripts, generated output, and Render deployment" width="100%" />
+</p>
 
-### ReceiptPulse
-Private receipt-processing workflow with authentication, OCR extraction, duplicate handling, rename flows, dashboard management, and strong AWS delivery proof.
+| Layer | Files |
+| --- | --- |
+| Source of truth | `portfolio-data.js`, `resume-data.js`, `content/*.json` |
+| Runtime state | `portfolio-runtime.json`, `resume-runtime.json` |
+| Rendering | `app-core.js`, `app-render.js`, `app-main.js` |
+| Visual system | `styles.css`, `content/*.svg` |
+| Public output | `dist/` |
+| Standalone mirror | `safe/` |
+| Deployment | `render.yaml`, `robots.txt`, `sitemap.xml` |
 
-### LumenStack AI
-AI-powered repository analysis product with diagrams, compare flows, guided explanation, and product-style interface decisions.
-
-### Safety Copilot
-Cross-platform safety product exploration with trusted-circle coordination, trip monitoring, and escalation-oriented workflow design.
-
----
-
-## Stack
+## Tech Stack
 
 ```text
 Frontend: HTML, CSS, JavaScript
-Runtime: Static JSON + GitHub-backed refresh flow
-Rendering: app-core.js + app-render.js
-Content: portfolio-data.js + content/*.json
-Resumes: resume-pipeline.mjs + export-resumes.ps1
-Output Targets: dist/ and safe/
-Hosting: Netlify live URL, optional Render blueprint
+Data: Static JS and JSON sources
+Rendering: App shell plus page-specific render logic
+Visuals: SVG assets, CSS motion, responsive product UI surfaces
+Resumes: HTML/PDF resume pipeline
+Deployment: Render static site, publish directory dist/
 ```
 
----
-
-## Repository Architecture
-
-| Path | Role |
-| --- | --- |
-| `portfolio-data.js` | Main source of truth for profile content, modes, links, and project metadata |
-| `portfolio-runtime.json` | Generated runtime state, freshness, and synced GitHub data |
-| `app-core.js` | App behavior, navigation systems, safe links, UI mechanics |
-| `app-render.js` | Page rendering and premium homepage composition |
-| `styles.css` | Full visual language, motion, layout, and advanced UI styling |
-| `content/` | Branding assets, roadmap, learning log, and idea inbox |
-| `resume/` | Generated resume HTML/PDF outputs |
-| `dist/` | Public deployment bundle |
-| `safe/` | Self-contained mirror build |
-
----
-
 ## Local Workflow
-
-### Run Locally
 
 ```bash
 node local-server.js
 ```
 
-Open `http://127.0.0.1:4173`
-
-### Refresh Runtime Data
+Open `http://127.0.0.1:4173`.
 
 ```bash
-node sync-portfolio-data.mjs
-```
-
-### Build Public Output
-
-```bash
+npm run sync
 npm run build:render
-```
-
-### Build Safe Mirror
-
-```bash
 npm run build:safe
-```
-
-### Build Everything
-
-```bash
 npm run build
-```
-
-### Refresh + Rebuild
-
-```bash
 npm run refresh
-```
-
-### Regenerate Resume PDFs
-
-```bash
 npm run export:resumes
 ```
 
----
+## Render Deployment
 
-## Deployment Surface
+Canonical URL:
 
-**Canonical public URL**  
-`https://ujala-portfolio.onrender.com/`
+```text
+https://ujala-portfolio.onrender.com/
+```
 
-**Primary deployment output**  
-`dist/`
+Render settings:
 
-**Default public base variable**  
-`PUBLIC_SITE_BASE=https://ujala-portfolio.onrender.com`
+```text
+Service type: Static Site
+Branch: main
+Build command: npm run build:render
+Publish directory: dist
+Environment: PUBLIC_SITE_BASE=https://ujala-portfolio.onrender.com
+```
 
-The repository still includes `render.yaml` as an optional static deployment path, but the GitHub-facing identity and public portfolio references should remain aligned with the Netlify live URL unless intentionally migrated everywhere.
+The repository includes `render.yaml` so the deployment contract is visible in source control.
 
----
+## Quality Bar
 
-## Resume Sync System
+This portfolio is maintained like a public product surface:
 
-This repository treats resumes like product artifacts, not separate documents.
+- No stale live links across README, SEO files, resume data, and generated output
+- No horizontal overflow across desktop and mobile smoke checks
+- No console errors in the primary routes
+- Clear canonical URL alignment with Render
+- Visual polish that supports the proof instead of burying it
 
-The following are kept aligned with the live site and source data:
+## Current Focus
 
-- `resume-data.js`
-- `resume-runtime.json`
-- `resume/Ujala_Agarwal_Resume.pdf`
-- `resume/Ujala_Agarwal_Resume_Software.pdf`
-
-If live URLs, flagship projects, or public proof links change, rebuild the site and re-export resumes so GitHub, portfolio pages, and local assets stay consistent.
-
----
-
-## Design Standard
-
-This repo aims to feel like it belongs to a professional high-level product team.
-
-That means:
-
-- stronger visual taste
-- cleaner proof storytelling
-- real system thinking
-- less filler, more signal
-- better GitHub presentation
-- consistency across UI, copy, links, and downloadable assets
-
----
+| Track | Direction |
+| --- | --- |
+| Frontend polish | Keep the premium system sharp while preserving readability and usability |
+| Project depth | Push ReceiptPulse, LumenStack AI, and Safety Copilot into clearer proof surfaces |
+| Resume sync | Keep portfolio, resume data, and public links aligned |
+| Deployment maturity | Keep Render as the canonical live home and generated output clean |
 
 ## Contact
 
 <p align="center">
   <a href="https://ujala-portfolio.onrender.com/">Portfolio</a>
-  �
+  |
   <a href="https://www.linkedin.com/in/ujala-agarwal-30aa28283/">LinkedIn</a>
-  �
+  |
   <a href="https://github.com/agarwalujala3-lang">GitHub</a>
 </p>

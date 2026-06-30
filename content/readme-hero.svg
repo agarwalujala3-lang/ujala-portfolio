@@ -1,0 +1,59 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ujala OS portfolio showcase</title>
+  <desc id="desc">Premium portfolio hero graphic with product UI panels, proof cards, charts, and Render deployment status.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#050914"/><stop offset="0.55" stop-color="#0A1726"/><stop offset="1" stop-color="#13151F"/></linearGradient>
+    <linearGradient id="cyan" x1="100" y1="90" x2="610" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#9AF3FF"/><stop offset="1" stop-color="#7198FF"/></linearGradient>
+    <linearGradient id="amber" x1="760" y1="130" x2="1140" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD29F"/><stop offset="1" stop-color="#D98C5E"/></linearGradient>
+    <linearGradient id="green" x1="760" y1="500" x2="1110" y2="660" gradientUnits="userSpaceOnUse"><stop stop-color="#7AF0C5"/><stop offset="1" stop-color="#96F3FF"/></linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" stroke="#A7DFFF" stroke-opacity="0.07"/></pattern>
+    <filter id="blur"><feGaussianBlur stdDeviation="34"/></filter>
+  </defs>
+  <rect width="1280" height="720" rx="42" fill="url(#bg)"/>
+  <rect width="1280" height="720" rx="42" fill="url(#grid)"/>
+  <circle cx="190" cy="150" r="170" fill="#6DF1FF" fill-opacity="0.12" filter="url(#blur)"/>
+  <circle cx="1070" cy="238" r="210" fill="#FFB06E" fill-opacity="0.11" filter="url(#blur)"/>
+  <circle cx="780" cy="608" r="190" fill="#83EEC0" fill-opacity="0.1" filter="url(#blur)"/>
+  <rect x="52" y="48" width="1176" height="624" rx="34" fill="#07111F" fill-opacity="0.82" stroke="#8DEFFF" stroke-opacity="0.22"/>
+  <rect x="82" y="78" width="1116" height="58" rx="22" fill="#0D1B2C" stroke="#B2EFFF" stroke-opacity="0.18"/>
+  <rect x="106" y="94" width="28" height="28" rx="8" fill="#8DEFFF" fill-opacity="0.18" stroke="#8DEFFF" stroke-opacity="0.55"/>
+  <path d="M113 101V113.5C113 122 118.2 126 124.2 126C130.2 126 135 122 135 113.5V101" stroke="#DDFBFF" stroke-width="3" stroke-linecap="round"/>
+  <text x="154" y="116" fill="#F3FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="20" font-weight="800">Ujala OS</text>
+  <text x="298" y="116" fill="#9FB3C8" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.4">CLOUD  AI  PRODUCT  PROOF</text>
+  <rect x="1018" y="91" width="151" height="32" rx="16" fill="#173525" stroke="#82F0BA" stroke-opacity="0.35"/>
+  <circle cx="1038" cy="107" r="5" fill="#82F0BA"/>
+  <text x="1052" y="112" fill="#CFFFE4" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="800">Live on Render</text>
+  <g transform="translate(98 172)">
+    <text x="0" y="28" fill="#8DEFFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="3">PORTFOLIO SYSTEM</text>
+    <text x="0" y="96" fill="#F6FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="58" font-weight="900">Engineering proof</text>
+    <text x="0" y="154" fill="#F6FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="58" font-weight="900">with product taste.</text>
+    <text x="0" y="204" fill="#B9CBDA" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="20" font-weight="500">A GitHub-backed portfolio surface for cloud systems, AI tooling,</text>
+    <text x="0" y="234" fill="#B9CBDA" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="20" font-weight="500">case studies, resume routing, and recruiter-ready proof.</text>
+    <rect x="0" y="286" width="170" height="86" rx="22" fill="#0D1B2C" stroke="#8DEFFF" stroke-opacity="0.24"/>
+    <text x="24" y="324" fill="#F8FBFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="30" font-weight="900">3</text>
+    <text x="24" y="352" fill="#A8B9CA" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="14" font-weight="700">Flagship builds</text>
+    <rect x="190" y="286" width="190" height="86" rx="22" fill="#0D1B2C" stroke="#FFD29F" stroke-opacity="0.26"/>
+    <text x="214" y="324" fill="#F8FBFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="30" font-weight="900">AWS</text>
+    <text x="214" y="352" fill="#A8B9CA" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="14" font-weight="700">Serverless proof</text>
+    <rect x="400" y="286" width="198" height="86" rx="22" fill="#0D1B2C" stroke="#82F0BA" stroke-opacity="0.24"/>
+    <text x="424" y="324" fill="#F8FBFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="30" font-weight="900">AI</text>
+    <text x="424" y="352" fill="#A8B9CA" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="14" font-weight="700">Workflow products</text>
+  </g>
+  <g transform="translate(760 178)">
+    <rect x="0" y="0" width="378" height="196" rx="28" fill="#0D1B2C" stroke="#8DEFFF" stroke-opacity="0.24"/>
+    <text x="28" y="44" fill="#8DEFFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="2.4">SIGNAL RADAR</text>
+    <polygon points="188,54 276,116 242,174 134,174 96,116" fill="#83EFFF" fill-opacity="0.12" stroke="#8DEFFF" stroke-width="2"/>
+    <polygon points="188,84 248,126 224,158 150,158 128,126" fill="#FFD29F" fill-opacity="0.13" stroke="#FFD29F" stroke-opacity="0.8"/>
+    <circle cx="188" cy="54" r="5" fill="#8DEFFF"/><circle cx="276" cy="116" r="5" fill="#8DEFFF"/><circle cx="242" cy="174" r="5" fill="#8DEFFF"/><circle cx="134" cy="174" r="5" fill="#8DEFFF"/><circle cx="96" cy="116" r="5" fill="#8DEFFF"/>
+    <rect x="0" y="222" width="378" height="128" rx="28" fill="#121B25" stroke="#FFD29F" stroke-opacity="0.25"/>
+    <text x="28" y="264" fill="#FFD29F" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="2.4">FEATURED PROOF</text>
+    <text x="28" y="302" fill="#F7FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="26" font-weight="900">ReceiptPulse</text>
+    <text x="28" y="330" fill="#AFC1D2" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="600">Private AWS receipt workspace</text>
+    <rect x="0" y="376" width="178" height="108" rx="24" fill="#0D1B2C" stroke="#88F0C5" stroke-opacity="0.25"/>
+    <text x="24" y="416" fill="#88F0C5" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="12" font-weight="900" letter-spacing="2">LENS</text>
+    <text x="24" y="454" fill="#F7FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="24" font-weight="900">Recruiter</text>
+    <rect x="200" y="376" width="178" height="108" rx="24" fill="#0D1B2C" stroke="#8DEFFF" stroke-opacity="0.25"/>
+    <text x="224" y="416" fill="#8DEFFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="12" font-weight="900" letter-spacing="2">OUTPUT</text>
+    <text x="224" y="454" fill="#F7FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="24" font-weight="900">dist + safe</text>
+  </g>
+</svg>

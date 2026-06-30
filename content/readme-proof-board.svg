@@ -1,0 +1,52 @@
+<svg width="1280" height="610" viewBox="0 0 1280 610" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio proof board</title>
+  <desc id="desc">Three project cards for ReceiptPulse, LumenStack AI, and Safety Copilot with proof signals.</desc>
+  <defs>
+    <linearGradient id="boardBg" x1="0" y1="0" x2="1280" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#07101D"/><stop offset="1" stop-color="#14141E"/></linearGradient>
+    <linearGradient id="receipt" x1="72" y1="112" x2="376" y2="500" gradientUnits="userSpaceOnUse"><stop stop-color="#91F2FF"/><stop offset="1" stop-color="#6E8FFF"/></linearGradient>
+    <linearGradient id="lumen" x1="468" y1="108" x2="764" y2="510" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD7A6"/><stop offset="1" stop-color="#E98661"/></linearGradient>
+    <linearGradient id="safety" x1="858" y1="108" x2="1174" y2="508" gradientUnits="userSpaceOnUse"><stop stop-color="#8CF0C4"/><stop offset="1" stop-color="#7DDFFF"/></linearGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" stroke="#DDFBFF" stroke-opacity="0.055"/></pattern>
+  </defs>
+  <rect width="1280" height="610" rx="36" fill="url(#boardBg)"/>
+  <rect width="1280" height="610" rx="36" fill="url(#grid)"/>
+  <text x="72" y="72" fill="#8DEFFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="3">FEATURED PROOF</text>
+  <text x="72" y="118" fill="#F6FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="42" font-weight="900">Real projects, not filler sections.</text>
+  <text x="72" y="152" fill="#AFC1D2" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="18" font-weight="500">Each card maps to a repo-backed project surface inside the portfolio.</text>
+  <g transform="translate(72 204)">
+    <rect width="344" height="322" rx="28" fill="#0D1A2A" stroke="#9AF3FF" stroke-opacity="0.26"/>
+    <rect x="26" y="26" width="58" height="58" rx="18" fill="url(#receipt)" fill-opacity="0.2" stroke="#9AF3FF" stroke-opacity="0.5"/>
+    <text x="43" y="66" fill="#EAFBFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="22" font-weight="900">RP</text>
+    <text x="104" y="48" fill="#9AF3FF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="12" font-weight="900" letter-spacing="2">AWS FLAGSHIP</text>
+    <text x="104" y="82" fill="#F6FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="26" font-weight="900">ReceiptPulse</text>
+    <text x="26" y="128" fill="#B7C8D9" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="500">Authenticated receipt workspace with OCR,</text>
+    <text x="26" y="152" fill="#B7C8D9" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="500">duplicates, labels, and AWS delivery.</text>
+    <rect x="26" y="192" width="292" height="12" rx="6" fill="#14243A"/><rect x="26" y="192" width="246" height="12" rx="6" fill="url(#receipt)"/>
+    <text x="26" y="238" fill="#EAFBFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="22" font-weight="900">Lambda / S3 / Textract</text>
+    <text x="26" y="274" fill="#8FA5BA" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="800">Proof depth: 94%</text>
+  </g>
+  <g transform="translate(468 204)">
+    <rect width="344" height="322" rx="28" fill="#141B25" stroke="#FFD29F" stroke-opacity="0.28"/>
+    <rect x="26" y="26" width="58" height="58" rx="18" fill="url(#lumen)" fill-opacity="0.2" stroke="#FFD29F" stroke-opacity="0.5"/>
+    <text x="43" y="66" fill="#FFF4E7" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="22" font-weight="900">LS</text>
+    <text x="104" y="48" fill="#FFD29F" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="12" font-weight="900" letter-spacing="2">AI PRODUCT</text>
+    <text x="104" y="82" fill="#F6FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="26" font-weight="900">LumenStack AI</text>
+    <text x="26" y="128" fill="#B7C8D9" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="500">Repository analyzer with Mermaid diagrams,</text>
+    <text x="26" y="152" fill="#B7C8D9" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="500">guided explanations, and comparison UX.</text>
+    <rect x="26" y="192" width="292" height="12" rx="6" fill="#242032"/><rect x="26" y="192" width="226" height="12" rx="6" fill="url(#lumen)"/>
+    <text x="26" y="238" fill="#FFF4E7" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="22" font-weight="900">Parsing / Diagrams / UX</text>
+    <text x="26" y="274" fill="#9FADBC" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="800">Product signal: 88%</text>
+  </g>
+  <g transform="translate(864 204)">
+    <rect width="344" height="322" rx="28" fill="#0D1D24" stroke="#8CF0C4" stroke-opacity="0.28"/>
+    <rect x="26" y="26" width="58" height="58" rx="18" fill="url(#safety)" fill-opacity="0.2" stroke="#8CF0C4" stroke-opacity="0.5"/>
+    <text x="43" y="66" fill="#E9FFF5" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="22" font-weight="900">SC</text>
+    <text x="104" y="48" fill="#8CF0C4" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="12" font-weight="900" letter-spacing="2">CLOUD SAFETY</text>
+    <text x="104" y="82" fill="#F6FAFF" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="26" font-weight="900">Safety Copilot</text>
+    <text x="26" y="128" fill="#B7C8D9" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="500">Trusted circles, live trip monitoring, SOS</text>
+    <text x="26" y="152" fill="#B7C8D9" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="15" font-weight="500">escalation, and mobile-aware safety flows.</text>
+    <rect x="26" y="192" width="292" height="12" rx="6" fill="#142D2C"/><rect x="26" y="192" width="212" height="12" rx="6" fill="url(#safety)"/>
+    <text x="26" y="238" fill="#E9FFF5" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="22" font-weight="900">Web / Android / Alerts</text>
+    <text x="26" y="274" fill="#98B5B3" font-family="Segoe UI, Aptos, Arial, sans-serif" font-size="13" font-weight="800">Workflow clarity: 84%</text>
+  </g>
+</svg>
