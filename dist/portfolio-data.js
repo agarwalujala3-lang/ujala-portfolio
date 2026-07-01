@@ -9,7 +9,7 @@ window.UJOS_DATA = {
     email: "agarwalujala3@gmail.com",
     phone: "+91 7906786403",
     tagline:
-      "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
+      "Entry-level software engineer focused on AWS, backend systems, full-stack products, and clear project proof.",
     resumes: [
       {
         label: "BTech CSE Fresher Software Resume",
@@ -26,10 +26,10 @@ window.UJOS_DATA = {
   modes: {
     recruiter: {
       label: "Recruiter",
-      kicker: "Fast Route",
-      heroTitle: "See my strongest proof in two minutes.",
+      kicker: "Fast Review",
+      heroTitle: "Ujala Agarwal",
       heroLead:
-        "This route removes noise and shows the most important things first: repo-verified products, deployed systems, and the project work that best represents how I build.",
+        "Entry-level software engineer focused on AWS, backend systems, full-stack products, and AI-assisted tools. This portfolio highlights my strongest projects, skills, resumes, and public proof in one clean place.",
       summary:
         "Use this view if you want a fast read on my projects, stack, and role fit.",
       highlights: [
@@ -40,14 +40,14 @@ window.UJOS_DATA = {
       focus: ["ReceiptPulse", "LumenStack AI", "Current GitHub proof", "Resume pack"],
       projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
-        "Recruiter route ready. I'll keep this fast, clear, and proof-first.",
+        "Recruiter view ready. I'll keep this fast, clear, and proof-first.",
     },
     engineer: {
       label: "Engineer",
-      kicker: "Systems Route",
+      kicker: "Technical Review",
       heroTitle: "Open the architecture, the tradeoffs, and the real proof.",
       heroLead:
-        "This route is for how things work. I focus on event flows, analysis logic, deployment choices, and why I structured each build the way I did.",
+        "This view is for how things work. I focus on event flows, analysis logic, deployment choices, and why I structured each build the way I did.",
       summary:
         "Use this view if you care more about systems and decisions than polished summaries.",
       highlights: [
@@ -58,14 +58,14 @@ window.UJOS_DATA = {
       focus: ["System flows", "Code proof", "Deployment paths", "Tradeoffs"],
       projectOrder: ["lumenstack", "receiptpulse", "safety-copilot"],
       picoGreeting:
-        "Engineer route locked. I'll point you toward flows, internals, and code proof.",
+        "Engineer view ready. I'll point you toward flows, internals, and code proof.",
     },
     founder: {
       label: "Founder",
-      kicker: "Product Route",
+      kicker: "Product Review",
       heroTitle: "See how I turn technical systems into product experiences.",
       heroLead:
-        "This route is about execution quality. I highlight product feel, interface decisions, deployment, and how quickly I can turn an idea into something usable.",
+        "This view is about execution quality. I highlight product feel, interface decisions, deployment, and how quickly I can turn an idea into something usable.",
       summary:
         "Use this view if you care about product thinking, polish, and speed of execution.",
       highlights: [
@@ -76,14 +76,14 @@ window.UJOS_DATA = {
       focus: ["ReceiptPulse", "Product thinking", "Repo proof", "Cloud execution"],
       projectOrder: ["receiptpulse", "lumenstack", "safety-copilot"],
       picoGreeting:
-        "Founder route online. I'll show you how I think about product feel and shipping quality.",
+        "Founder view ready. I'll show you how I think about product feel and shipping quality.",
     },
     friend: {
       label: "Friend",
-      kicker: "Human Route",
+      kicker: "Personal View",
       heroTitle: "See the person behind the systems.",
       heroLead:
-        "This route is lighter and more personal. I use it to show the journey, the curiosity behind my work, and the projects that shaped how I build now.",
+        "This view is lighter and more personal. I use it to show the journey, the curiosity behind my work, and the projects that shaped how I build now.",
       summary:
         "Use this view if you want the story, the personality, and the human side of the portfolio.",
       highlights: [
@@ -470,7 +470,7 @@ window.UJOS_DATA = {
         title: "The next serious step is deeper product depth plus cleaner repo-aware updates.",
         answer:
           "I am pushing ReceiptPulse, Safety Copilot, and LumenStack AI into stronger product depth while keeping the portfolio cleaner and aligned with my best GitHub repos.",
-        routeLabel: "Open Lab route",
+        routeLabel: "Open Experiments",
         routeHref: "playground.html",
       },
     ],
@@ -486,7 +486,7 @@ window.UJOS_DATA = {
       "What are you planning to build next?",
     ],
     fallback:
-      "The portfolio is running on the built-in guide and project routes, with no AWS runtime dependency.",
+      "The portfolio is running on the built-in guide and project pages, with no AWS runtime dependency.",
   },
   lab: {
     nowBuilding: [

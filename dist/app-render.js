@@ -18,7 +18,7 @@
   }
 
   function renderHeaderChip() {
-    const label = `${App.getModeConfig().label} Lens`;
+    const label = "Open to Work";
     const headerChip = document.getElementById("header-mode-chip");
     const dockChip = document.getElementById("dock-mode-chip");
 
@@ -34,7 +34,7 @@
   function renderDock() {
     const dockChip = document.getElementById("dock-mode-chip");
     if (dockChip) {
-      dockChip.textContent = `${App.getModeConfig().label} Lens`;
+      dockChip.textContent = "Open to Work";
     }
   }
 
@@ -48,10 +48,10 @@
     const sync = (data.runtime && data.runtime.sync) || {};
     const routes = [
       { id: "home", label: "Home", href: "index.html", kicker: "Start route" },
-      { id: "work", label: "Case Studies", href: "work.html", kicker: "Project route" },
-      { id: "systems", label: "Systems", href: "systems.html", kicker: "Architecture route" },
-      { id: "about", label: "Journey", href: "about.html", kicker: "Story route" },
-      { id: "playground", label: "Lab", href: "playground.html", kicker: "Build workshop" },
+      { id: "work", label: "Projects", href: "work.html", kicker: "Live demos + GitHub" },
+      { id: "systems", label: "Skills", href: "systems.html", kicker: "Stack + decisions" },
+      { id: "about", label: "About", href: "about.html", kicker: "Background + growth" },
+      { id: "playground", label: "Experiments", href: "playground.html", kicker: "Current practice" },
       { id: "contact", label: "Contact", href: "contact.html", kicker: "Direct route" },
     ];
     const currentIndex = routes.findIndex((route) => route.id === document.body.dataset.page);
@@ -65,8 +65,8 @@
           <p>${App.escapeHtml(data.profile.tagline)}</p>
         </div>
         <div class="footer-links">
-          <a class="text-link" href="${App.escapeHtml(App.resolveRouteHref("work.html"))}">Case studies</a>
-          <a class="text-link" href="${App.escapeHtml(App.resolveRouteHref("systems.html"))}">Systems</a>
+          <a class="text-link" href="${App.escapeHtml(App.resolveRouteHref("work.html"))}">Projects</a>
+          <a class="text-link" href="${App.escapeHtml(App.resolveRouteHref("systems.html"))}">Skills</a>
           <a class="text-link" href="${App.escapeHtml(App.safeHref(data.profile.github, { allowRelative: false }))}" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
         <div class="footer-status">
@@ -141,7 +141,7 @@
     App.initHeroDepthScene();
     App.initSurfaceSpotlights();
     App.syncCurrentNav();
-    App.toast(`${data.modes[mode].label} lens is active now.`);
+    App.toast(`${data.modes[mode].label} view is active now.`);
   }
 
   function clampCopy(value, maxLength = 140) {
@@ -285,7 +285,7 @@
     }
 
     if (heroSceneLens) {
-      heroSceneLens.textContent = `${mode.label} lens is shaping the homepage narrative right now.`;
+      heroSceneLens.textContent = `${mode.label} view is shaping the homepage narrative right now.`;
     }
 
     if (heroRuntimeLabel) {
@@ -298,13 +298,13 @@
       const runtimeItems = isMobileViewport
         ? [
             { value: String(repoProofCount), label: "Repo proofs" },
-            { value: mode.label, label: "Active lens" },
+            { value: mode.label, label: "Active view" },
           ]
         : [
             { value: "static", label: "Hosting mode" },
             { value: String(repoProofCount), label: "Repo proofs" },
             { value: brainMode, label: "Guide mode" },
-            { value: mode.label, label: "Active lens" },
+            { value: mode.label, label: "Active view" },
           ];
       runtimeGrid.innerHTML = runtimeItems
         .map(
@@ -331,7 +331,7 @@
         .join("");
     }
     if (marquee) {
-      const items = [...new Set([...(data.lab?.toolkit || []), "Product thinking", "Case studies"])].slice(0, 12);
+      const items = [...new Set([...(data.lab?.toolkit || []), "Product thinking", "Projects"])].slice(0, 12);
       const repeated = [...items, ...items];
       marquee.innerHTML = repeated.map((item) => `<span class="marquee-item">${App.escapeHtml(item)}</span>`).join("");
     }
@@ -591,7 +591,7 @@
     const featuredCount = projects.filter((project) => project.featured).length;
     const resumeCount = (data.profile?.resumes || []).length;
     return [
-      { value: String(liveCount), label: "Live routes" },
+      { value: String(liveCount), label: "Live links" },
       { value: String(repoCount), label: "Repo proofs" },
       { value: String(featuredCount), label: "Flagship stories" },
       { value: String(resumeCount), label: "Resume paths" },
@@ -642,8 +642,8 @@
   function buildProofMiniGrid(data, projects) {
     const modeFocus = App.getModeConfig().focus || [];
     return [
-      { label: "Lens focus", value: modeFocus[0] || "Proof-first" },
-      { label: "Current lead", value: projects[0]?.title || "Portfolio route" },
+      { label: "View focus", value: modeFocus[0] || "Proof-first" },
+      { label: "Current lead", value: projects[0]?.title || "Portfolio" },
       { label: "Proof style", value: data.signals?.[2]?.value || "Product + System" },
       { label: "Primary track", value: data.signals?.[1]?.value || "AWS" },
     ].map((item) => `
@@ -1030,7 +1030,7 @@
     const data = App.getData();
     const mode = App.getModeConfig();
     document.getElementById("projects-mode-kicker").textContent = mode.kicker;
-    document.getElementById("projects-mode-title").textContent = `${mode.label} lens is shaping this page right now.`;
+    document.getElementById("projects-mode-title").textContent = `${mode.label} view highlights the most relevant project proof.`;
     document.getElementById("projects-mode-summary").textContent = mode.summary;
 
     const projects = App.getProjectsForMode().filter((project) => {
@@ -1261,7 +1261,7 @@
     const proofProjects = (data.projects || []).filter((project) => project.links?.repo).length;
 
     summaryGrid.innerHTML = [
-      { value: String(systems.length), label: "System routes" },
+      { value: String(systems.length), label: "System maps" },
       { value: String(totalSteps), label: "Flow steps" },
       { value: String(proofProjects), label: "Repo-backed" },
       { value: App.getModeConfig().label, label: "Current lens" },

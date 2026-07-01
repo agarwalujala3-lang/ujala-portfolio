@@ -319,7 +319,7 @@ window.UJOS_RESUME_DATA = {
     {
       "id": "ujala-os",
       "repo": "ujala-portfolio",
-      "title": "Ujala OS Portfolio",
+      "title": "Ujala Agarwal Portfolio",
       "status": "Live + GitHub",
       "summary": "Portfolio website with static runtime data, GitHub-backed project sync, and downloadable fresher resume links.",
       "stack": [

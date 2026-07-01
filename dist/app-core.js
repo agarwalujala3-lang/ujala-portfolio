@@ -411,8 +411,8 @@
         <div class="page-curtain__grid" aria-hidden="true"></div>
         <div class="page-curtain__core">
           <span class="page-curtain__signal"></span>
-          <strong id="page-curtain-label">Switching route</strong>
-          <span>Ujala OS is loading the next surface.</span>
+          <strong id="page-curtain-label">Loading page</strong>
+          <span>The portfolio is loading the next surface.</span>
         </div>
       `;
       document.body.appendChild(curtain);
@@ -479,7 +479,7 @@
       palette.innerHTML = `
         <div class="command-palette__backdrop" data-command-close></div>
         <div class="command-palette__panel">
-          <button class="modal-close" type="button" data-command-close aria-label="Close navigator">x</button>
+          <button class="modal-close" type="button" data-command-close aria-label="Close quick find">x</button>
           <p class="eyebrow">Navigator</p>
           <h2>Jump anywhere fast.</h2>
           <input id="command-input" class="command-input" type="text" placeholder="Search pages, projects, links, and modes.">
@@ -498,7 +498,7 @@
       modal.innerHTML = `
         <div class="project-modal__backdrop" data-modal-close></div>
         <div class="project-modal__card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
-          <button class="modal-close" type="button" data-modal-close aria-label="Close case study">x</button>
+          <button class="modal-close" type="button" data-modal-close aria-label="Close project">x</button>
           <div id="project-modal-body"></div>
         </div>
       `;
@@ -509,8 +509,8 @@
       const dock = document.createElement("div");
       dock.className = "floating-dock";
       dock.innerHTML = `
-        <button class="dock-chip" type="button" id="dock-mode-chip" data-command-open>Recruiter Lens</button>
-        <button class="dock-chip" type="button" data-command-open>Quick Routes</button>
+        <button class="dock-chip" type="button" id="dock-mode-chip" data-command-open>Open to Work</button>
+        <button class="dock-chip" type="button" data-command-open>Quick Find</button>
         <button class="dock-chip" type="button" data-scroll-top>Back To Top</button>
       `;
       document.body.appendChild(dock);
@@ -524,7 +524,7 @@
     }
   }
 
-  function triggerCurtain(label = "Switching route") {
+  function triggerCurtain(label = "Loading page") {
     const labelNode = document.getElementById("page-curtain-label");
     if (labelNode) {
       labelNode.textContent = label;
@@ -1053,7 +1053,7 @@
   }
 
   function goTo(url) {
-    triggerCurtain("Opening route");
+    triggerCurtain("Opening page");
     window.setTimeout(() => {
       window.location.href = resolveRouteHref(url);
     }, 280);

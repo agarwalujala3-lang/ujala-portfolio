@@ -57,7 +57,7 @@
     const next = [...readStoredCompareIds().filter((item) => item !== id), id].slice(-2);
     App.state.compareIds = next;
     storeCompareIds(next);
-    App.toast("Added to Compare Studio. Opening Case Studies.");
+    App.toast("Added to Compare Studio. Opening Projects.");
     App.goTo("work.html#compare-studio");
   }
 
@@ -113,7 +113,7 @@
       return [
         formatProjectAnswer(mentionedProject),
         "",
-        "Best portfolio route: open Case Studies, then use the project card or Compare Studio.",
+        "Best path: open Projects, then use the project card or Compare Studio.",
       ].join("\n");
     }
 
@@ -137,7 +137,7 @@
         "",
         "- No AWS runtime dependency is required for the portfolio.",
         "- The public app reads committed local data instead of scraping GitHub in the browser.",
-        "- Project proof links route to GitHub repos and the live portfolio route.",
+        "- Project proof links to GitHub repos and the live portfolio.",
         "- A page-level CSP keeps browser connections restricted to self-hosted assets plus fonts.",
       ].join("\n");
     }
@@ -331,14 +331,14 @@
 
     return [
       { key: "home", label: "Open Home", hint: "Go to the rebuilt landing page", action: () => App.goTo("index.html") },
-      { key: "work", label: "Open Case Studies", hint: "See all project proof", action: () => App.goTo("work.html") },
-      { key: "systems", label: "Open Systems", hint: "Read architecture routes", action: () => App.goTo("systems.html") },
-      { key: "about", label: "Open Journey", hint: "See the growth path", action: () => App.goTo("about.html") },
-      { key: "lab", label: "Open Lab", hint: "See live experiments and roadmap", action: () => App.goTo("playground.html") },
+      { key: "work", label: "Open Projects", hint: "See all project proof", action: () => App.goTo("work.html") },
+      { key: "systems", label: "Open Skills", hint: "Read architecture and system decisions", action: () => App.goTo("systems.html") },
+      { key: "about", label: "Open About", hint: "See the growth path", action: () => App.goTo("about.html") },
+      { key: "lab", label: "Open Experiments", hint: "See active practice and roadmap", action: () => App.goTo("playground.html") },
       { key: "contact", label: "Open Contact", hint: "Email, phone, resumes, and links", action: () => App.goTo("contact.html") },
       ...Object.entries(data.modes || {}).map(([key, mode]) => ({
         key: `mode-${key}`,
-        label: `Switch to ${mode.label} Lens`,
+        label: `Switch to ${mode.label} view`,
         hint: mode.summary,
         action: () => {
           App.setMode(key);
@@ -368,7 +368,7 @@
       })),
       { key: "github", label: "Open GitHub Profile", hint: "See public code proof", action: () => App.openExternal(data.profile.github) },
       { key: "linkedin", label: "Open LinkedIn", hint: "See profile context", action: () => App.openExternal(data.profile.linkedin) },
-      { key: "email", label: "Email Ujala", hint: "Open the default mail route", action: () => App.openExternal(`mailto:${data.profile.email}`) },
+      { key: "email", label: "Email Ujala", hint: "Open the default email app", action: () => App.openExternal(`mailto:${data.profile.email}`) },
     ];
   }
 
@@ -387,7 +387,7 @@
     });
 
     if (!items.length) {
-      list.innerHTML = `<div class="command-empty">No routes match that search yet.</div>`;
+      list.innerHTML = `<div class="command-empty">No portfolio items match that search yet.</div>`;
       return;
     }
 
@@ -509,7 +509,7 @@
       const isInternalPage = !anchor.target && App.isRouteHref(href);
       if (isInternalPage) {
         event.preventDefault();
-        App.triggerCurtain("Opening route");
+        App.triggerCurtain("Opening page");
         window.setTimeout(() => {
           window.location.href = App.resolveRouteHref(href);
         }, 280);

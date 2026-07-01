@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://ujala-portfolio.onrender.com/"><img src="https://img.shields.io/badge/Live-Render-74E6B6?style=for-the-badge&labelColor=07111F&color=74E6B6" alt="Live on Render" /></a>
-  <img src="https://img.shields.io/badge/Portfolio-Premium%20Product%20OS-8DEFFF?style=for-the-badge&labelColor=07111F&color=8DEFFF" alt="Premium product OS" />
+  <img src="https://img.shields.io/badge/Portfolio-Professional%20Portfolio-8DEFFF?style=for-the-badge&labelColor=07111F&color=8DEFFF" alt="Professional portfolio" />
   <img src="https://img.shields.io/badge/Proof-GitHub%20Backed-F6C58D?style=for-the-badge&labelColor=07111F&color=F6C58D" alt="GitHub backed proof" />
 </p>
 
@@ -23,14 +23,14 @@
 </p>
 
 <p align="center">
-  <img src="./content/readme-hero.svg" alt="Premium README hero preview for Ujala OS portfolio" width="100%" />
+  <img src="./content/readme-hero.svg" alt="Premium README hero preview for Ujala Agarwal portfolio" width="100%" />
 </p>
 
 ## What This Is
 
 `ujala-portfolio` is a multi-page portfolio product built to make proof easy to inspect.
 
-The experience brings together polished frontend design, real project case studies, audience-aware storytelling, resume data, GitHub-backed freshness, and Render deployment output. The goal is simple: make the work feel credible within the first screen and deeper as someone explores.
+The experience brings together polished frontend design, real project pages, audience-aware storytelling, resume data, GitHub-backed freshness, and Render deployment output. The goal is simple: make the work feel credible within the first screen and deeper as someone explores.
 
 ## Why It Stands Out
 
@@ -74,7 +74,7 @@ The experience brings together polished frontend design, real project case studi
 | Mode | What It Optimizes |
 | --- | --- |
 | `Recruiter` | Fast signal, role fit, strongest projects, clean resume access |
-| `Engineer` | Architecture routes, tradeoffs, repo credibility, implementation depth |
+| `Engineer` | Architecture pages, tradeoffs, repo credibility, implementation depth |
 | `Founder` | Product judgment, usability, polish, execution quality |
 | `Friend` | Journey, personality, learning path, human context |
 
@@ -83,11 +83,11 @@ The experience brings together polished frontend design, real project case studi
 | Page | Role |
 | --- | --- |
 | `index.html` | Premium homepage with hero proof, visual telemetry, mode switching, and featured work |
-| `work.html` | Case-study route for project proof, delivery details, links, and comparison |
-| `systems.html` | Architecture route for engineering readers and technical review |
+| `work.html` | Project page for proof, delivery details, links, and comparison |
+| `systems.html` | Architecture page for engineering readers and technical review |
 | `about.html` | Journey, principles, learning arc, and working style |
 | `playground.html` | Current experiments, roadmap, learning log, and idea inbox |
-| `contact.html` | Contact routes, public profiles, and resume access |
+| `contact.html` | Contact options, public profiles, and resume access |
 
 ## Architecture
 
