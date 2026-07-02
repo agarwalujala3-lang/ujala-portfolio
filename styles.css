@@ -5987,3 +5987,149 @@ body[data-page="home"] .hero--home {
     box-shadow: none;
   }
 }
+
+
+/* Professional hotfix: remove theatrical overlays and keep the homepage portfolio-first */
+.intro-portal,
+.intro-portal.is-active,
+.intro-portal.is-forced,
+.page-curtain {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+body.intro-lock {
+  overflow: auto !important;
+}
+
+.command-palette[hidden],
+.project-modal[hidden],
+.command-palette:not(.is-open),
+.project-modal:not(.is-open) {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.command-palette.is-open,
+.project-modal.is-open {
+  display: grid !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+body[data-page="home"] .hero--home {
+  grid-template-columns: minmax(0, 1fr) !important;
+  max-width: 1120px;
+  margin-inline: auto;
+}
+
+body[data-page="home"] .hero__copy {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+body[data-page="home"] .hero__visual,
+body[data-page="home"] .section--split {
+  display: none !important;
+}
+
+body[data-page="home"] .hero--home h1 {
+  max-width: 100%;
+}
+
+body[data-page="home"] .hero--home .lede {
+  max-width: 68ch;
+}
+
+body[data-page="home"] .pill-row--hero .pill {
+  background: rgba(15, 118, 110, 0.08) !important;
+  color: var(--brand-strong) !important;
+  border-color: rgba(15, 118, 110, 0.16) !important;
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(100% - 20px, var(--max));
+    padding-top: 10px;
+  }
+
+  .masthead,
+  body[data-page="home"] .masthead,
+  body[data-page="home"] .masthead.is-compact {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .brand {
+    width: 100%;
+  }
+
+  .main-nav,
+  body[data-page="home"] .main-nav {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 5px;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav__link {
+    flex: 0 0 auto;
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+
+  .masthead__actions {
+    display: none !important;
+  }
+
+  .page {
+    gap: 36px;
+  }
+
+  body[data-page="home"] .hero--home,
+  .hero--page {
+    margin-top: 10px;
+    padding: 18px;
+  }
+
+  body[data-page="home"] .hero__copy {
+    gap: 18px;
+  }
+
+  body[data-page="home"] .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .hero__actions .button {
+    width: 100%;
+  }
+
+  body[data-page="home"] .metric-grid--compact {
+    gap: 10px;
+  }
+}
+
+
+/* Mobile portfolio polish: keep every page focused on content before decorative hero media */
+@media (max-width: 760px) {
+  .hero__visual {
+    display: none !important;
+  }
+}
