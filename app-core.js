@@ -119,6 +119,10 @@
   }
 
   function mergeProjectRecord(baseProject, overrideProject) {
+    const overrideLinks = Object.fromEntries(
+      Object.entries(overrideProject?.links || {}).filter(([, value]) => cleanString(value))
+    );
+
     return {
       ...baseProject,
       ...overrideProject,
@@ -128,7 +132,7 @@
       },
       links: {
         ...(baseProject?.links || {}),
-        ...(overrideProject?.links || {}),
+        ...overrideLinks,
       },
       lensPriority: {
         ...(baseProject?.lensPriority || {}),
@@ -208,6 +212,11 @@
   }
 
   function combineProjects(baseProjects, runtimeProjects, syncedCatalog, verifiedRepoNames) {
+    const canonicalProjects = new Map(
+      (Array.isArray(baseProjects) ? baseProjects : [])
+        .filter((project) => project && project.id)
+        .map((project) => [project.id, project])
+    );
     const seed = (Array.isArray(baseProjects) ? baseProjects : []).filter((project) => {
       if (!project || project.enabled === false) {
         return false;
@@ -237,8 +246,10 @@
         continue;
       }
 
-      indexMap.set(project.id, merged.length);
-      merged.push(project);
+      const canonicalProject = canonicalProjects.get(project.id);
+      const projectRecord = canonicalProject ? mergeProjectRecord(canonicalProject, project) : project;
+      indexMap.set(projectRecord.id, merged.length);
+      merged.push(projectRecord);
     }
 
     return merged;
