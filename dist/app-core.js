@@ -538,93 +538,12 @@
 
   function initIntroSequence() {
     const intro = document.getElementById("intro-portal");
-    if (!intro || intro.dataset.bound === "true") {
-      return;
-    }
-
-    intro.dataset.bound = "true";
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const forceIntro = new URLSearchParams(window.location.search).get("intro") === "1";
-    let alreadySeen = false;
-
-    try {
-      alreadySeen = window.sessionStorage.getItem(INTRO_KEY) === "true";
-    } catch {
-      alreadySeen = false;
-    }
-
-    if (!forceIntro && (reducedMotion || alreadySeen)) {
+    if (intro) {
       intro.hidden = true;
-      return;
+      intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", "intro-stage-brand", "intro-stage-proof", "intro-stage-handoff");
     }
-
-    document.body.classList.add("intro-lock");
-    if (forceIntro) {
-      intro.classList.add("is-forced");
-    }
-    intro.classList.add("is-active", "intro-stage-brand");
-
-    const timers = [];
-    let introFinished = false;
-    const stageClasses = ["intro-stage-brand", "intro-stage-proof", "intro-stage-handoff"];
-
-    const scheduleIntroStep = (callback, delay) => {
-      const timer = window.setTimeout(callback, delay);
-      timers.push(timer);
-    };
-
-    const rememberIntro = () => {
-      try {
-        if (!forceIntro) {
-          window.sessionStorage.setItem(INTRO_KEY, "true");
-        }
-      } catch {
-        // Ignore storage failures.
-      }
-    };
-
-    const finishIntro = (skip = false) => {
-      if (introFinished) {
-        return;
-      }
-
-      introFinished = true;
-      timers.forEach((timer) => window.clearTimeout(timer));
-      document.removeEventListener("keydown", handleIntroKeydown);
-      intro.classList.add("is-dismissing");
-      if (skip) {
-        intro.classList.add("is-skipped");
-      }
-      document.body.classList.remove("intro-lock");
-      rememberIntro();
-
-      window.setTimeout(() => {
-        intro.hidden = true;
-        intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", ...stageClasses);
-      }, skip ? 220 : 650);
-    };
-
-    function handleIntroKeydown(event) {
-      if (event.key === "Escape") {
-        finishIntro(true);
-      }
-    }
-
-    document.addEventListener("keydown", handleIntroKeydown);
-
-    scheduleIntroStep(() => {
-      intro.classList.remove("intro-stage-brand");
-      intro.classList.add("intro-stage-proof");
-    }, 1350);
-
-    scheduleIntroStep(() => {
-      intro.classList.remove("intro-stage-proof");
-      intro.classList.add("intro-stage-handoff");
-    }, 2550);
-
-    scheduleIntroStep(() => {
-      finishIntro(false);
-    }, 4300);
+    document.body.classList.remove("intro-lock");
+    // Intro disabled for professional portfolio: show Ujala's work immediately.
   }
 
   function initPointerExperience() {

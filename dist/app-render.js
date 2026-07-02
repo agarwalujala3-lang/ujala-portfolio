@@ -18,7 +18,7 @@
   }
 
   function renderHeaderChip() {
-    const label = `${App.getModeConfig().label} Lens`;
+    const label = "Open to Work";
     const headerChip = document.getElementById("header-mode-chip");
     const dockChip = document.getElementById("dock-mode-chip");
 
@@ -34,7 +34,7 @@
   function renderDock() {
     const dockChip = document.getElementById("dock-mode-chip");
     if (dockChip) {
-      dockChip.textContent = `${App.getModeConfig().label} Lens`;
+      dockChip.textContent = "Open to Work";
     }
   }
 

@@ -5529,6 +5529,760 @@ body::after {
 
 
 
+
+/* Professional high-tech portfolio repair: premium, readable, and Ujala-first */
+:root {
+  --pro-bg: #050913;
+  --pro-panel: rgba(8, 14, 26, 0.88);
+  --pro-panel-strong: rgba(10, 18, 34, 0.96);
+  --pro-line: rgba(141, 244, 255, 0.14);
+  --pro-line-strong: rgba(141, 244, 255, 0.26);
+  --pro-text: #eef6ff;
+  --pro-muted: rgba(225, 237, 252, 0.72);
+  --pro-cyan: #8df4ff;
+  --pro-mint: #74e6b6;
+  --pro-gold: #f6c58d;
+  --pro-blue: #8aa8ff;
+}
+
+html,
+body {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(116, 230, 182, 0.16), transparent 28%),
+    radial-gradient(circle at 86% 16%, rgba(141, 244, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, #050913 0%, #07111f 44%, #09131f 100%);
+}
+
+.intro-portal,
+.intro-portal.is-active,
+.intro-portal.is-forced,
+.page-curtain {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+body.intro-lock {
+  overflow: auto !important;
+}
+
+.command-palette[hidden],
+.project-modal[hidden],
+.command-palette:not(.is-open),
+.project-modal:not(.is-open) {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.command-palette.is-open,
+.project-modal.is-open {
+  display: grid !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+body[data-page="home"] .hero--home {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+  gap: clamp(24px, 4vw, 54px);
+  align-items: stretch;
+  overflow: hidden;
+  border-color: var(--pro-line);
+  background:
+    linear-gradient(135deg, rgba(9, 18, 34, 0.94), rgba(5, 9, 19, 0.94)),
+    radial-gradient(circle at 100% 0%, rgba(141, 244, 255, 0.2), transparent 34%);
+  box-shadow: 0 30px 110px rgba(0, 0, 0, 0.34);
+}
+
+body[data-page="home"] .hero__copy,
+body[data-page="home"] .hero__visual {
+  min-width: 0;
+}
+
+body[data-page="home"] .hero__copy {
+  gap: 22px;
+}
+
+body[data-page="home"] .hero--home h1 {
+  max-width: 10ch;
+  color: var(--pro-text);
+  text-shadow: none;
+}
+
+body[data-page="home"] .hero--home .lede {
+  max-width: 64ch;
+  color: var(--pro-muted);
+}
+
+body[data-page="home"] .hero__actions {
+  align-items: center;
+}
+
+.profile-console {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 22px;
+  height: 100%;
+  min-height: 540px;
+  padding: clamp(22px, 3vw, 32px);
+  overflow: hidden;
+  border: 1px solid var(--pro-line-strong);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(12, 22, 40, 0.96), rgba(5, 10, 20, 0.96)),
+    radial-gradient(circle at 90% 8%, rgba(141, 244, 255, 0.18), transparent 28%);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.profile-console::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(141, 244, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 244, 255, 0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 88%);
+}
+
+.profile-console__halo {
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(116, 230, 182, 0.22), transparent 66%);
+  filter: blur(4px);
+}
+
+.profile-console__header,
+.profile-console__timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-console__status,
+.profile-console__signal,
+.profile-console__timeline span,
+.skill-proof-card__label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 32px;
+  padding: 7px 11px;
+  border: 1px solid rgba(141, 244, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(141, 244, 255, 0.07);
+  color: var(--pro-cyan);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.profile-console__signal {
+  color: var(--pro-gold);
+  border-color: rgba(246, 197, 141, 0.2);
+  background: rgba(246, 197, 141, 0.08);
+}
+
+.profile-console__identity {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.profile-console__avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(141, 244, 255, 0.18), rgba(116, 230, 182, 0.16));
+  color: var(--pro-text);
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.profile-console__identity h2 {
+  margin: 6px 0 0;
+  color: var(--pro-text);
+  font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.profile-console__grid,
+.skills-board,
+.role-fit-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.profile-console__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.profile-console__grid article,
+.skill-proof-card,
+.role-fit-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(141, 244, 255, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.055);
+}
+
+.profile-console__grid article {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.profile-console__grid strong,
+.skill-proof-card h3,
+.role-fit-card h3 {
+  color: var(--pro-text);
+}
+
+.profile-console__grid span,
+.skill-proof-card p,
+.role-fit-card p {
+  color: var(--pro-muted);
+  line-height: 1.62;
+}
+
+.profile-console__timeline {
+  margin-top: auto;
+  padding-top: 4px;
+  justify-content: flex-start;
+}
+
+.section--skills-board,
+.section--role-fit {
+  position: relative;
+}
+
+.skills-board {
+  grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr));
+}
+
+.skill-proof-card,
+.role-fit-card {
+  padding: 24px;
+  background:
+    linear-gradient(150deg, rgba(9, 19, 36, 0.92), rgba(7, 13, 25, 0.92)),
+    radial-gradient(circle at 90% 0%, rgba(141, 244, 255, 0.12), transparent 34%);
+}
+
+.skill-proof-card--primary {
+  border-color: rgba(116, 230, 182, 0.24);
+  background:
+    linear-gradient(150deg, rgba(11, 32, 36, 0.92), rgba(7, 13, 25, 0.94)),
+    radial-gradient(circle at 90% 0%, rgba(116, 230, 182, 0.18), transparent 36%);
+}
+
+.skill-proof-card h3,
+.role-fit-card h3 {
+  margin: 14px 0 10px;
+  font-size: 1.18rem;
+  line-height: 1.2;
+}
+
+.skill-proof-card p,
+.role-fit-card p {
+  margin: 0;
+}
+
+.role-fit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.role-fit-card span {
+  color: var(--pro-cyan);
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+body[data-page="home"] .signal-deck,
+body[data-page="home"] .visual-proof-grid {
+  max-height: none;
+}
+
+body[data-page="home"] .section--skills-board .section-head h2,
+body[data-page="home"] .section--role-fit .section-head h2 {
+  max-width: 760px;
+}
+
+body[data-page="home"] .project-grid--featured {
+  align-items: stretch;
+}
+
+body[data-page="home"] .case-card,
+body[data-page="home"] .route-card,
+body[data-page="home"] .panel,
+body[data-page="home"] .skill-proof-card,
+body[data-page="home"] .role-fit-card {
+  transform: none !important;
+}
+
+@media (max-width: 1120px) {
+  body[data-page="home"] .hero--home,
+  .skills-board,
+  .role-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-console {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(100% - 20px, var(--max));
+  }
+
+  .masthead,
+  body[data-page="home"] .masthead {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .main-nav,
+  body[data-page="home"] .main-nav {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav__link {
+    flex: 0 0 auto;
+  }
+
+  .masthead__actions {
+    display: none !important;
+  }
+
+  body[data-page="home"] .hero--home {
+    gap: 20px;
+    padding: 22px;
+  }
+
+  body[data-page="home"] .hero--home h1 {
+    max-width: 100%;
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  body[data-page="home"] .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .hero__actions .button {
+    width: 100%;
+  }
+
+  .profile-console {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .profile-console__identity,
+  .profile-console__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-console__avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+  }
+
+  .skills-board,
+  .role-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-proof-card,
+  .role-fit-card {
+    padding: 20px;
+  }
+}
+
+
+/* Controlled premium motion: glow and electric lines stay inside cards */
+.premium-intro-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 8px;
+  max-width: 680px;
+  padding: 18px 20px 18px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(141, 244, 255, 0.2);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(141, 244, 255, 0.09), rgba(116, 230, 182, 0.06)),
+    rgba(8, 14, 26, 0.72);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: premiumCardIn 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.premium-intro-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 12% 20%, rgba(141, 244, 255, 0.22), transparent 26%);
+  opacity: 0.74;
+}
+
+.premium-intro-card__line {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pro-cyan), var(--pro-mint), transparent);
+  box-shadow: 0 0 18px rgba(141, 244, 255, 0.72);
+  animation: electricSweepX 3.8s ease-in-out infinite;
+}
+
+.premium-intro-card__kicker {
+  color: var(--pro-cyan);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.premium-intro-card strong {
+  max-width: 58ch;
+  color: var(--pro-text);
+  font-size: clamp(1rem, 1.5vw, 1.24rem);
+  line-height: 1.42;
+}
+
+.electric-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.electric-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 12px 0 12px;
+  z-index: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(141, 244, 255, 0.86), rgba(116, 230, 182, 0.8), transparent);
+  opacity: 0.58;
+  transform: translateX(-115%);
+  animation: electricCardTrace 5.8s cubic-bezier(0.7, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.electric-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.electric-card__line {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.78;
+}
+
+.electric-card__line--top {
+  left: 22px;
+  right: 22px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pro-cyan), transparent);
+  box-shadow: 0 0 22px rgba(141, 244, 255, 0.65);
+  animation: electricSweepX 4.4s ease-in-out infinite;
+}
+
+.electric-card__line--right {
+  right: 0;
+  top: 22px;
+  bottom: 22px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--pro-mint), transparent);
+  box-shadow: 0 0 22px rgba(116, 230, 182, 0.62);
+  animation: electricSweepY 5.4s ease-in-out infinite;
+}
+
+.profile-console__grid .electric-card::after,
+.skill-proof-card.electric-card::after,
+.role-fit-card.electric-card::after,
+.route-card.electric-card::after,
+.panel.electric-card::after {
+  animation-delay: calc(var(--trace-delay, 0) * 240ms);
+}
+
+.profile-console__grid article:nth-child(2),
+.skills-board article:nth-child(2),
+.role-fit-grid article:nth-child(2),
+.route-grid a:nth-child(2) { --trace-delay: 1; }
+.profile-console__grid article:nth-child(3),
+.skills-board article:nth-child(3),
+.role-fit-grid article:nth-child(3),
+.route-grid a:nth-child(3) { --trace-delay: 2; }
+.profile-console__grid article:nth-child(4),
+.skills-board article:nth-child(4),
+.route-grid a:nth-child(4) { --trace-delay: 3; }
+
+body[data-page="home"] .case-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(141, 244, 255, 0.15);
+  background:
+    linear-gradient(150deg, rgba(9, 18, 34, 0.92), rgba(6, 11, 22, 0.94)),
+    radial-gradient(circle at 92% 0%, rgba(141, 244, 255, 0.1), transparent 32%);
+}
+
+body[data-page="home"] .case-card::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(141, 244, 255, 0.74), transparent);
+  transform: translateX(-110%);
+  animation: electricCardTrace 6.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes premiumCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes electricCardTrace {
+  0%, 18% {
+    transform: translateX(-115%);
+    opacity: 0;
+  }
+  28%, 58% {
+    opacity: 0.78;
+  }
+  78%, 100% {
+    transform: translateX(115%);
+    opacity: 0;
+  }
+}
+
+@keyframes electricSweepX {
+  0%, 100% {
+    transform: translateX(-18%) scaleX(0.3);
+    opacity: 0.36;
+  }
+  48% {
+    transform: translateX(18%) scaleX(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes electricSweepY {
+  0%, 100% {
+    transform: translateY(-18%) scaleY(0.4);
+    opacity: 0.28;
+  }
+  52% {
+    transform: translateY(18%) scaleY(1);
+    opacity: 0.78;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-intro-card,
+  .premium-intro-card__line,
+  .electric-card::after,
+  .electric-card__line {
+    animation: none !important;
+  }
+}
+
+
+/* Final premium tuning: compressed mobile hero and contained motion */
+body[data-page="home"] .hero--home {
+  min-height: clamp(720px, 74vh, 900px);
+}
+
+body[data-page="home"] .hero__copy--immersive {
+  justify-content: center;
+}
+
+body[data-page="home"] .profile-console {
+  align-content: start;
+}
+
+body[data-page="home"] .profile-console__grid article,
+body[data-page="home"] .skill-proof-card,
+body[data-page="home"] .role-fit-card,
+body[data-page="home"] .route-card,
+body[data-page="home"] .panel {
+  backdrop-filter: blur(18px);
+}
+
+body[data-page="home"] .profile-console__grid article:hover,
+body[data-page="home"] .skill-proof-card:hover,
+body[data-page="home"] .role-fit-card:hover,
+body[data-page="home"] .route-card:hover,
+body[data-page="home"] .case-card:hover {
+  border-color: rgba(141, 244, 255, 0.36);
+  box-shadow:
+    0 18px 54px rgba(0, 0, 0, 0.28),
+    0 0 32px rgba(141, 244, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1120px) {
+  body[data-page="home"] .hero--home {
+    min-height: 0;
+    align-items: start;
+  }
+
+  body[data-page="home"] .profile-console {
+    height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .hero--home {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  body[data-page="home"] .hero__copy {
+    gap: 16px;
+  }
+
+  body[data-page="home"] .hero--home .lede {
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  body[data-page="home"] .premium-intro-card {
+    padding: 15px 16px;
+    border-radius: 18px;
+  }
+
+  body[data-page="home"] .hero-signals,
+  body[data-page="home"] .metric-grid--compact {
+    gap: 10px;
+  }
+
+  body[data-page="home"] .profile-console {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  body[data-page="home"] .profile-console__identity {
+    gap: 12px;
+  }
+
+  body[data-page="home"] .profile-console__identity h2 {
+    font-size: clamp(1.35rem, 8vw, 2rem);
+    line-height: 1.08;
+  }
+
+  body[data-page="home"] .profile-console__grid {
+    gap: 10px;
+  }
+
+  body[data-page="home"] .profile-console__grid article {
+    padding: 14px;
+  }
+
+  body[data-page="home"] .profile-console__grid span,
+  body[data-page="home"] .skill-proof-card p,
+  body[data-page="home"] .role-fit-card p {
+    line-height: 1.5;
+  }
+
+  body[data-page="home"] .profile-console__timeline {
+    gap: 8px;
+  }
+
+  body[data-page="home"] .profile-console__status,
+  body[data-page="home"] .profile-console__signal,
+  body[data-page="home"] .profile-console__timeline span,
+  body[data-page="home"] .skill-proof-card__label {
+    min-height: 28px;
+    padding: 6px 9px;
+    font-size: 0.66rem;
+  }
+}
+
+
+/* Final premium layout correction: decorative layers stay out of content flow */
+.electric-card > .electric-card__line,
+.electric-card > .profile-console__halo {
+  position: absolute;
+  z-index: 0;
+}
+
+body[data-page="home"] .profile-console > .electric-card__line,
+body[data-page="home"] .profile-console > .profile-console__halo {
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .profile-console__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="home"] .profile-console__grid strong {
+    font-size: 0.88rem;
+  }
+
+  body[data-page="home"] .profile-console__grid span {
+    font-size: 0.78rem;
+    line-height: 1.42;
+  }
+}
+
 </style>
 </head>
 <body data-page="work">
@@ -5652,7 +6406,7 @@ window.UJOS_DATA = {
     email: "agarwalujala3@gmail.com",
     phone: "+91 7906786403",
     tagline:
-      "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
+      "Entry-level software engineer focused on AWS, backend systems, full-stack products, AI-assisted workflows, and clear project proof.",
     resumes: [
       {
         label: "BTech CSE Fresher Software Resume",
@@ -5670,9 +6424,9 @@ window.UJOS_DATA = {
     recruiter: {
       label: "Recruiter",
       kicker: "Fast Route",
-      heroTitle: "See my strongest proof in two minutes.",
+      heroTitle: "Ujala Agarwal",
       heroLead:
-        "This route removes noise and shows the most important things first: repo-verified products, deployed systems, and the project work that best represents how I build.",
+        "Entry-level software engineer focused on AWS, backend systems, full-stack products, and AI-assisted workflows. This portfolio highlights my strongest projects, skills, resumes, and public proof in one polished high-tech experience.",
       summary:
         "Use this view if you want a fast read on my projects, stack, and role fit.",
       highlights: [
@@ -7142,93 +7896,12 @@ window.UJOS_RUNTIME_DATA = {
 
   function initIntroSequence() {
     const intro = document.getElementById("intro-portal");
-    if (!intro || intro.dataset.bound === "true") {
-      return;
-    }
-
-    intro.dataset.bound = "true";
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const forceIntro = new URLSearchParams(window.location.search).get("intro") === "1";
-    let alreadySeen = false;
-
-    try {
-      alreadySeen = window.sessionStorage.getItem(INTRO_KEY) === "true";
-    } catch {
-      alreadySeen = false;
-    }
-
-    if (!forceIntro && (reducedMotion || alreadySeen)) {
+    if (intro) {
       intro.hidden = true;
-      return;
+      intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", "intro-stage-brand", "intro-stage-proof", "intro-stage-handoff");
     }
-
-    document.body.classList.add("intro-lock");
-    if (forceIntro) {
-      intro.classList.add("is-forced");
-    }
-    intro.classList.add("is-active", "intro-stage-brand");
-
-    const timers = [];
-    let introFinished = false;
-    const stageClasses = ["intro-stage-brand", "intro-stage-proof", "intro-stage-handoff"];
-
-    const scheduleIntroStep = (callback, delay) => {
-      const timer = window.setTimeout(callback, delay);
-      timers.push(timer);
-    };
-
-    const rememberIntro = () => {
-      try {
-        if (!forceIntro) {
-          window.sessionStorage.setItem(INTRO_KEY, "true");
-        }
-      } catch {
-        // Ignore storage failures.
-      }
-    };
-
-    const finishIntro = (skip = false) => {
-      if (introFinished) {
-        return;
-      }
-
-      introFinished = true;
-      timers.forEach((timer) => window.clearTimeout(timer));
-      document.removeEventListener("keydown", handleIntroKeydown);
-      intro.classList.add("is-dismissing");
-      if (skip) {
-        intro.classList.add("is-skipped");
-      }
-      document.body.classList.remove("intro-lock");
-      rememberIntro();
-
-      window.setTimeout(() => {
-        intro.hidden = true;
-        intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", ...stageClasses);
-      }, skip ? 220 : 650);
-    };
-
-    function handleIntroKeydown(event) {
-      if (event.key === "Escape") {
-        finishIntro(true);
-      }
-    }
-
-    document.addEventListener("keydown", handleIntroKeydown);
-
-    scheduleIntroStep(() => {
-      intro.classList.remove("intro-stage-brand");
-      intro.classList.add("intro-stage-proof");
-    }, 1350);
-
-    scheduleIntroStep(() => {
-      intro.classList.remove("intro-stage-proof");
-      intro.classList.add("intro-stage-handoff");
-    }, 2550);
-
-    scheduleIntroStep(() => {
-      finishIntro(false);
-    }, 4300);
+    document.body.classList.remove("intro-lock");
+    // Intro disabled for professional portfolio: show Ujala's work immediately.
   }
 
   function initPointerExperience() {
@@ -7789,7 +8462,7 @@ window.UJOS_RUNTIME_DATA = {
   }
 
   function renderHeaderChip() {
-    const label = `${App.getModeConfig().label} Lens`;
+    const label = "Open to Work";
     const headerChip = document.getElementById("header-mode-chip");
     const dockChip = document.getElementById("dock-mode-chip");
 
@@ -7805,7 +8478,7 @@ window.UJOS_RUNTIME_DATA = {
   function renderDock() {
     const dockChip = document.getElementById("dock-mode-chip");
     if (dockChip) {
-      dockChip.textContent = `${App.getModeConfig().label} Lens`;
+      dockChip.textContent = "Open to Work";
     }
   }
 

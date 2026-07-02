@@ -9,7 +9,7 @@ window.UJOS_DATA = {
     email: "agarwalujala3@gmail.com",
     phone: "+91 7906786403",
     tagline:
-      "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
+      "Entry-level software engineer focused on AWS, backend systems, full-stack products, AI-assisted workflows, and clear project proof.",
     resumes: [
       {
         label: "BTech CSE Fresher Software Resume",
@@ -27,9 +27,9 @@ window.UJOS_DATA = {
     recruiter: {
       label: "Recruiter",
       kicker: "Fast Route",
-      heroTitle: "See my strongest proof in two minutes.",
+      heroTitle: "Ujala Agarwal",
       heroLead:
-        "This route removes noise and shows the most important things first: repo-verified products, deployed systems, and the project work that best represents how I build.",
+        "Entry-level software engineer focused on AWS, backend systems, full-stack products, and AI-assisted workflows. This portfolio highlights my strongest projects, skills, resumes, and public proof in one polished high-tech experience.",
       summary:
         "Use this view if you want a fast read on my projects, stack, and role fit.",
       highlights: [

@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2308121f'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-size='30' font-family='serif' fill='%239df3ff'%3EU%3C/text%3E%3C/svg%3E">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="High-tech portfolio OS for Ujala Agarwal featuring cloud systems, AI product work, and polished case studies.">
+  <meta name="description" content="Professional high-tech portfolio for Ujala Agarwal, focused on software engineering skills, shipped projects, cloud systems, and clear proof of work.">
   <meta name="theme-color" content="#050913">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://ujala-portfolio.onrender.com/safe/index.html">
   <meta property="og:url" content="https://ujala-portfolio.onrender.com/safe/index.html">
-  <meta property="og:title" content="Ujala Agarwal | Ujala OS">
-  <meta property="og:description" content="A high-tech portfolio OS for cloud systems, AI tooling, and product-minded engineering.">
+  <meta property="og:title" content="Ujala Agarwal | Software Engineer Portfolio">
+  <meta property="og:description" content="A premium portfolio for Ujala Agarwal showcasing AWS, full-stack, AI tooling, projects, and resume proof.">
   <meta property="og:type" content="website">
-  <title>Ujala Agarwal | Ujala OS</title>
+  <title>Ujala Agarwal | Software Engineer Portfolio</title>
   <style>html,body{background:#050913;color:#eef4ff;}</style>
 <style>
 :root {
@@ -5532,6 +5532,760 @@ body::after {
 
 
 
+
+/* Professional high-tech portfolio repair: premium, readable, and Ujala-first */
+:root {
+  --pro-bg: #050913;
+  --pro-panel: rgba(8, 14, 26, 0.88);
+  --pro-panel-strong: rgba(10, 18, 34, 0.96);
+  --pro-line: rgba(141, 244, 255, 0.14);
+  --pro-line-strong: rgba(141, 244, 255, 0.26);
+  --pro-text: #eef6ff;
+  --pro-muted: rgba(225, 237, 252, 0.72);
+  --pro-cyan: #8df4ff;
+  --pro-mint: #74e6b6;
+  --pro-gold: #f6c58d;
+  --pro-blue: #8aa8ff;
+}
+
+html,
+body {
+  background:
+    radial-gradient(circle at 14% 8%, rgba(116, 230, 182, 0.16), transparent 28%),
+    radial-gradient(circle at 86% 16%, rgba(141, 244, 255, 0.16), transparent 30%),
+    linear-gradient(180deg, #050913 0%, #07111f 44%, #09131f 100%);
+}
+
+.intro-portal,
+.intro-portal.is-active,
+.intro-portal.is-forced,
+.page-curtain {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+body.intro-lock {
+  overflow: auto !important;
+}
+
+.command-palette[hidden],
+.project-modal[hidden],
+.command-palette:not(.is-open),
+.project-modal:not(.is-open) {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.command-palette.is-open,
+.project-modal.is-open {
+  display: grid !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+body[data-page="home"] .hero--home {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.82fr);
+  gap: clamp(24px, 4vw, 54px);
+  align-items: stretch;
+  overflow: hidden;
+  border-color: var(--pro-line);
+  background:
+    linear-gradient(135deg, rgba(9, 18, 34, 0.94), rgba(5, 9, 19, 0.94)),
+    radial-gradient(circle at 100% 0%, rgba(141, 244, 255, 0.2), transparent 34%);
+  box-shadow: 0 30px 110px rgba(0, 0, 0, 0.34);
+}
+
+body[data-page="home"] .hero__copy,
+body[data-page="home"] .hero__visual {
+  min-width: 0;
+}
+
+body[data-page="home"] .hero__copy {
+  gap: 22px;
+}
+
+body[data-page="home"] .hero--home h1 {
+  max-width: 10ch;
+  color: var(--pro-text);
+  text-shadow: none;
+}
+
+body[data-page="home"] .hero--home .lede {
+  max-width: 64ch;
+  color: var(--pro-muted);
+}
+
+body[data-page="home"] .hero__actions {
+  align-items: center;
+}
+
+.profile-console {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 22px;
+  height: 100%;
+  min-height: 540px;
+  padding: clamp(22px, 3vw, 32px);
+  overflow: hidden;
+  border: 1px solid var(--pro-line-strong);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(12, 22, 40, 0.96), rgba(5, 10, 20, 0.96)),
+    radial-gradient(circle at 90% 8%, rgba(141, 244, 255, 0.18), transparent 28%);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.profile-console::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(141, 244, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 244, 255, 0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.85), transparent 88%);
+}
+
+.profile-console__halo {
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(116, 230, 182, 0.22), transparent 66%);
+  filter: blur(4px);
+}
+
+.profile-console__header,
+.profile-console__timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-console__status,
+.profile-console__signal,
+.profile-console__timeline span,
+.skill-proof-card__label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 32px;
+  padding: 7px 11px;
+  border: 1px solid rgba(141, 244, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(141, 244, 255, 0.07);
+  color: var(--pro-cyan);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.profile-console__signal {
+  color: var(--pro-gold);
+  border-color: rgba(246, 197, 141, 0.2);
+  background: rgba(246, 197, 141, 0.08);
+}
+
+.profile-console__identity {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.profile-console__avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(141, 244, 255, 0.18), rgba(116, 230, 182, 0.16));
+  color: var(--pro-text);
+  font-family: "Fraunces", serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.profile-console__identity h2 {
+  margin: 6px 0 0;
+  color: var(--pro-text);
+  font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.profile-console__grid,
+.skills-board,
+.role-fit-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.profile-console__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.profile-console__grid article,
+.skill-proof-card,
+.role-fit-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(141, 244, 255, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.055);
+}
+
+.profile-console__grid article {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.profile-console__grid strong,
+.skill-proof-card h3,
+.role-fit-card h3 {
+  color: var(--pro-text);
+}
+
+.profile-console__grid span,
+.skill-proof-card p,
+.role-fit-card p {
+  color: var(--pro-muted);
+  line-height: 1.62;
+}
+
+.profile-console__timeline {
+  margin-top: auto;
+  padding-top: 4px;
+  justify-content: flex-start;
+}
+
+.section--skills-board,
+.section--role-fit {
+  position: relative;
+}
+
+.skills-board {
+  grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr));
+}
+
+.skill-proof-card,
+.role-fit-card {
+  padding: 24px;
+  background:
+    linear-gradient(150deg, rgba(9, 19, 36, 0.92), rgba(7, 13, 25, 0.92)),
+    radial-gradient(circle at 90% 0%, rgba(141, 244, 255, 0.12), transparent 34%);
+}
+
+.skill-proof-card--primary {
+  border-color: rgba(116, 230, 182, 0.24);
+  background:
+    linear-gradient(150deg, rgba(11, 32, 36, 0.92), rgba(7, 13, 25, 0.94)),
+    radial-gradient(circle at 90% 0%, rgba(116, 230, 182, 0.18), transparent 36%);
+}
+
+.skill-proof-card h3,
+.role-fit-card h3 {
+  margin: 14px 0 10px;
+  font-size: 1.18rem;
+  line-height: 1.2;
+}
+
+.skill-proof-card p,
+.role-fit-card p {
+  margin: 0;
+}
+
+.role-fit-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.role-fit-card span {
+  color: var(--pro-cyan);
+  font-family: "Fraunces", serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+body[data-page="home"] .signal-deck,
+body[data-page="home"] .visual-proof-grid {
+  max-height: none;
+}
+
+body[data-page="home"] .section--skills-board .section-head h2,
+body[data-page="home"] .section--role-fit .section-head h2 {
+  max-width: 760px;
+}
+
+body[data-page="home"] .project-grid--featured {
+  align-items: stretch;
+}
+
+body[data-page="home"] .case-card,
+body[data-page="home"] .route-card,
+body[data-page="home"] .panel,
+body[data-page="home"] .skill-proof-card,
+body[data-page="home"] .role-fit-card {
+  transform: none !important;
+}
+
+@media (max-width: 1120px) {
+  body[data-page="home"] .hero--home,
+  .skills-board,
+  .role-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-console {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    width: min(100% - 20px, var(--max));
+  }
+
+  .masthead,
+  body[data-page="home"] .masthead {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .main-nav,
+  body[data-page="home"] .main-nav {
+    width: 100%;
+    overflow-x: auto;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav__link {
+    flex: 0 0 auto;
+  }
+
+  .masthead__actions {
+    display: none !important;
+  }
+
+  body[data-page="home"] .hero--home {
+    gap: 20px;
+    padding: 22px;
+  }
+
+  body[data-page="home"] .hero--home h1 {
+    max-width: 100%;
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  body[data-page="home"] .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .hero__actions .button {
+    width: 100%;
+  }
+
+  .profile-console {
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .profile-console__identity,
+  .profile-console__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-console__avatar {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+  }
+
+  .skills-board,
+  .role-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-proof-card,
+  .role-fit-card {
+    padding: 20px;
+  }
+}
+
+
+/* Controlled premium motion: glow and electric lines stay inside cards */
+.premium-intro-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  gap: 8px;
+  max-width: 680px;
+  padding: 18px 20px 18px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(141, 244, 255, 0.2);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(141, 244, 255, 0.09), rgba(116, 230, 182, 0.06)),
+    rgba(8, 14, 26, 0.72);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  animation: premiumCardIn 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.premium-intro-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 12% 20%, rgba(141, 244, 255, 0.22), transparent 26%);
+  opacity: 0.74;
+}
+
+.premium-intro-card__line {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pro-cyan), var(--pro-mint), transparent);
+  box-shadow: 0 0 18px rgba(141, 244, 255, 0.72);
+  animation: electricSweepX 3.8s ease-in-out infinite;
+}
+
+.premium-intro-card__kicker {
+  color: var(--pro-cyan);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.premium-intro-card strong {
+  max-width: 58ch;
+  color: var(--pro-text);
+  font-size: clamp(1rem, 1.5vw, 1.24rem);
+  line-height: 1.42;
+}
+
+.electric-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.electric-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 12px 0 12px;
+  z-index: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(141, 244, 255, 0.86), rgba(116, 230, 182, 0.8), transparent);
+  opacity: 0.58;
+  transform: translateX(-115%);
+  animation: electricCardTrace 5.8s cubic-bezier(0.7, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.electric-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.electric-card__line {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.78;
+}
+
+.electric-card__line--top {
+  left: 22px;
+  right: 22px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--pro-cyan), transparent);
+  box-shadow: 0 0 22px rgba(141, 244, 255, 0.65);
+  animation: electricSweepX 4.4s ease-in-out infinite;
+}
+
+.electric-card__line--right {
+  right: 0;
+  top: 22px;
+  bottom: 22px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--pro-mint), transparent);
+  box-shadow: 0 0 22px rgba(116, 230, 182, 0.62);
+  animation: electricSweepY 5.4s ease-in-out infinite;
+}
+
+.profile-console__grid .electric-card::after,
+.skill-proof-card.electric-card::after,
+.role-fit-card.electric-card::after,
+.route-card.electric-card::after,
+.panel.electric-card::after {
+  animation-delay: calc(var(--trace-delay, 0) * 240ms);
+}
+
+.profile-console__grid article:nth-child(2),
+.skills-board article:nth-child(2),
+.role-fit-grid article:nth-child(2),
+.route-grid a:nth-child(2) { --trace-delay: 1; }
+.profile-console__grid article:nth-child(3),
+.skills-board article:nth-child(3),
+.role-fit-grid article:nth-child(3),
+.route-grid a:nth-child(3) { --trace-delay: 2; }
+.profile-console__grid article:nth-child(4),
+.skills-board article:nth-child(4),
+.route-grid a:nth-child(4) { --trace-delay: 3; }
+
+body[data-page="home"] .case-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(141, 244, 255, 0.15);
+  background:
+    linear-gradient(150deg, rgba(9, 18, 34, 0.92), rgba(6, 11, 22, 0.94)),
+    radial-gradient(circle at 92% 0%, rgba(141, 244, 255, 0.1), transparent 32%);
+}
+
+body[data-page="home"] .case-card::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(141, 244, 255, 0.74), transparent);
+  transform: translateX(-110%);
+  animation: electricCardTrace 6.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes premiumCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes electricCardTrace {
+  0%, 18% {
+    transform: translateX(-115%);
+    opacity: 0;
+  }
+  28%, 58% {
+    opacity: 0.78;
+  }
+  78%, 100% {
+    transform: translateX(115%);
+    opacity: 0;
+  }
+}
+
+@keyframes electricSweepX {
+  0%, 100% {
+    transform: translateX(-18%) scaleX(0.3);
+    opacity: 0.36;
+  }
+  48% {
+    transform: translateX(18%) scaleX(1);
+    opacity: 0.9;
+  }
+}
+
+@keyframes electricSweepY {
+  0%, 100% {
+    transform: translateY(-18%) scaleY(0.4);
+    opacity: 0.28;
+  }
+  52% {
+    transform: translateY(18%) scaleY(1);
+    opacity: 0.78;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .premium-intro-card,
+  .premium-intro-card__line,
+  .electric-card::after,
+  .electric-card__line {
+    animation: none !important;
+  }
+}
+
+
+/* Final premium tuning: compressed mobile hero and contained motion */
+body[data-page="home"] .hero--home {
+  min-height: clamp(720px, 74vh, 900px);
+}
+
+body[data-page="home"] .hero__copy--immersive {
+  justify-content: center;
+}
+
+body[data-page="home"] .profile-console {
+  align-content: start;
+}
+
+body[data-page="home"] .profile-console__grid article,
+body[data-page="home"] .skill-proof-card,
+body[data-page="home"] .role-fit-card,
+body[data-page="home"] .route-card,
+body[data-page="home"] .panel {
+  backdrop-filter: blur(18px);
+}
+
+body[data-page="home"] .profile-console__grid article:hover,
+body[data-page="home"] .skill-proof-card:hover,
+body[data-page="home"] .role-fit-card:hover,
+body[data-page="home"] .route-card:hover,
+body[data-page="home"] .case-card:hover {
+  border-color: rgba(141, 244, 255, 0.36);
+  box-shadow:
+    0 18px 54px rgba(0, 0, 0, 0.28),
+    0 0 32px rgba(141, 244, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1120px) {
+  body[data-page="home"] .hero--home {
+    min-height: 0;
+    align-items: start;
+  }
+
+  body[data-page="home"] .profile-console {
+    height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .hero--home {
+    padding: 18px;
+    gap: 16px;
+  }
+
+  body[data-page="home"] .hero__copy {
+    gap: 16px;
+  }
+
+  body[data-page="home"] .hero--home .lede {
+    font-size: 1rem;
+    line-height: 1.58;
+  }
+
+  body[data-page="home"] .premium-intro-card {
+    padding: 15px 16px;
+    border-radius: 18px;
+  }
+
+  body[data-page="home"] .hero-signals,
+  body[data-page="home"] .metric-grid--compact {
+    gap: 10px;
+  }
+
+  body[data-page="home"] .profile-console {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  body[data-page="home"] .profile-console__identity {
+    gap: 12px;
+  }
+
+  body[data-page="home"] .profile-console__identity h2 {
+    font-size: clamp(1.35rem, 8vw, 2rem);
+    line-height: 1.08;
+  }
+
+  body[data-page="home"] .profile-console__grid {
+    gap: 10px;
+  }
+
+  body[data-page="home"] .profile-console__grid article {
+    padding: 14px;
+  }
+
+  body[data-page="home"] .profile-console__grid span,
+  body[data-page="home"] .skill-proof-card p,
+  body[data-page="home"] .role-fit-card p {
+    line-height: 1.5;
+  }
+
+  body[data-page="home"] .profile-console__timeline {
+    gap: 8px;
+  }
+
+  body[data-page="home"] .profile-console__status,
+  body[data-page="home"] .profile-console__signal,
+  body[data-page="home"] .profile-console__timeline span,
+  body[data-page="home"] .skill-proof-card__label {
+    min-height: 28px;
+    padding: 6px 9px;
+    font-size: 0.66rem;
+  }
+}
+
+
+/* Final premium layout correction: decorative layers stay out of content flow */
+.electric-card > .electric-card__line,
+.electric-card > .profile-console__halo {
+  position: absolute;
+  z-index: 0;
+}
+
+body[data-page="home"] .profile-console > .electric-card__line,
+body[data-page="home"] .profile-console > .profile-console__halo {
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .profile-console__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="home"] .profile-console__grid strong {
+    font-size: 0.88rem;
+  }
+
+  body[data-page="home"] .profile-console__grid span {
+    font-size: 0.78rem;
+    line-height: 1.42;
+  }
+}
+
 </style>
 </head>
 <body data-page="home">
@@ -5542,22 +6296,22 @@ body::after {
   <div class="site-shell">
     <header class="masthead">
       <a class="brand" href="https://ujala-portfolio.onrender.com/safe/index.html" aria-label="Ujala Agarwal portfolio home">
-        <span class="brand__kicker">Ujala OS</span>
+        <span class="brand__kicker">Software Engineer</span>
         <span class="brand__name">Ujala Agarwal</span>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
         <a class="main-nav__link" data-nav="home" href="https://ujala-portfolio.onrender.com/safe/index.html">Home</a>
-        <a class="main-nav__link" data-nav="work" href="https://ujala-portfolio.onrender.com/safe/work.html">Case Studies</a>
-        <a class="main-nav__link" data-nav="systems" href="https://ujala-portfolio.onrender.com/safe/systems.html">Systems</a>
-        <a class="main-nav__link" data-nav="about" href="https://ujala-portfolio.onrender.com/safe/about.html">Journey</a>
-        <a class="main-nav__link" data-nav="playground" href="https://ujala-portfolio.onrender.com/safe/playground.html">Lab</a>
+        <a class="main-nav__link" data-nav="work" href="https://ujala-portfolio.onrender.com/safe/work.html">Projects</a>
+        <a class="main-nav__link" data-nav="systems" href="https://ujala-portfolio.onrender.com/safe/systems.html">Skills</a>
+        <a class="main-nav__link" data-nav="about" href="https://ujala-portfolio.onrender.com/safe/about.html">About</a>
+        <a class="main-nav__link" data-nav="playground" href="https://ujala-portfolio.onrender.com/safe/playground.html">Experiments</a>
         <a class="main-nav__link" data-nav="contact" href="https://ujala-portfolio.onrender.com/safe/contact.html">Contact</a>
       </nav>
 
       <div class="masthead__actions">
-        <span class="header-chip" id="header-mode-chip">Recruiter Lens</span>
-        <button class="button button--ghost" type="button" data-command-open>Navigator</button>
+        <span class="header-chip" id="header-mode-chip">Open to Work</span>
+        <button class="button button--ghost" type="button" data-command-open>Quick Find</button>
         <a class="button button--solid" href="https://ujala-portfolio.onrender.com/safe/contact.html">Let's Talk</a>
       </div>
     </header>
@@ -5565,245 +6319,167 @@ body::after {
     <main class="page">
       <section class="hero hero--home reveal reveal--hero">
         <div class="hero__copy hero__copy--immersive">
-          <p class="eyebrow eyebrow--hero">Cloud + AI + Product Systems</p>
-          <h1 id="hero-title">Cloud systems with product taste.</h1>
+          <p class="eyebrow eyebrow--hero">Entry-Level Software Engineer</p>
+          <h1 id="hero-title">Ujala Agarwal</h1>
           <p class="lede" id="hero-lead"></p>
 
+          <div class="premium-intro-card" aria-label="Portfolio introduction">
+            <span class="premium-intro-card__line" aria-hidden="true"></span>
+            <span class="premium-intro-card__kicker">Premium proof portfolio</span>
+            <strong>A polished engineering portfolio for AWS, backend systems, full-stack products, and AI-assisted workflows.</strong>
+          </div>
+
           <div class="hero__actions">
-            <a class="button button--solid" href="https://ujala-portfolio.onrender.com/safe/work.html">Enter Case Studies</a>
-            <a class="button button--ghost" href="https://ujala-portfolio.onrender.com/safe/systems.html">Open System Routes</a>
-            <button class="button button--ghost" type="button" data-command-open>Ask The Navigator</button>
+            <a class="button button--solid" href="https://ujala-portfolio.onrender.com/safe/work.html">View Projects</a>
+            <a class="button button--ghost" href="https://ujala-portfolio.onrender.com/safe/systems.html">Skills & Systems</a>
+            <a class="button button--ghost" href="https://ujala-portfolio.onrender.com/safe/contact.html">Resume & Contact</a>
           </div>
 
           <div class="metric-grid metric-grid--compact" id="hero-signals"></div>
           <div class="pill-row pill-row--hero" id="mode-focus"></div>
         </div>
 
-        <div class="hero__visual">
-          <div class="hero-stage" id="hero-stage">
-            <div class="hero-stage__word" aria-hidden="true">UJALA OS</div>
-
-            <div class="hero-stage__scene" data-depth-scene>
-              <div class="hero-stage__glow hero-stage__glow--a" aria-hidden="true"></div>
-              <div class="hero-stage__glow hero-stage__glow--b" aria-hidden="true"></div>
-              <div class="hero-stage__nebula" aria-hidden="true"></div>
-              <div class="hero-stage__light-trail hero-stage__light-trail--a" aria-hidden="true"></div>
-              <div class="hero-stage__light-trail hero-stage__light-trail--b" aria-hidden="true"></div>
-              <div class="hero-stage__light-trail hero-stage__light-trail--c" aria-hidden="true"></div>
-              <div class="hero-stage__ring hero-stage__ring--outer" aria-hidden="true"></div>
-              <div class="hero-stage__ring hero-stage__ring--mid" aria-hidden="true"></div>
-              <div class="hero-stage__ring hero-stage__ring--inner" aria-hidden="true"></div>
-              <div class="hero-stage__node hero-stage__node--a" aria-hidden="true"></div>
-              <div class="hero-stage__node hero-stage__node--b" aria-hidden="true"></div>
-              <div class="hero-stage__node hero-stage__node--c" aria-hidden="true"></div>
-              <div class="hero-stage__plate hero-stage__plate--rear" aria-hidden="true"></div>
-              <div class="hero-stage__plate hero-stage__plate--mid" aria-hidden="true"></div>
-
-              <article class="hero-stage__main">
-                <div class="hero-stage__toolbar">
-                  <div class="hero-stage__toolbar-dots" aria-hidden="true">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <span class="hero-stage__toolbar-label" id="hero-stage-runtime-label">Static snapshot</span>
-                </div>
-
-                <div class="hero-stage__project-grid">
-                  <div class="hero-scene-card hero-scene-card--primary" id="hero-project-primary"></div>
-                  <div class="hero-scene-card hero-scene-card--secondary" id="hero-project-secondary"></div>
-                </div>
-
-                <div class="hero-stage__proof" id="hero-stage-proof"></div>
-              </article>
-
-              <div class="hero-stage__callout hero-stage__callout--sync">
-                <span class="hero-stage__callout-dot" aria-hidden="true"></span>
-                <div>
-                  <strong>Static snapshot</strong>
-                  <p id="hero-scene-sync">Loading committed portfolio data.</p>
-                </div>
-              </div>
-
-              <div class="hero-stage__callout hero-stage__callout--proof">
-                <span class="hero-stage__callout-dot" aria-hidden="true"></span>
-                <div>
-                  <strong>Proof-first</strong>
-                  <p id="hero-scene-proof">Leading project signal.</p>
-                </div>
-              </div>
-
-              <div class="hero-stage__callout hero-stage__callout--lens">
-                <span class="hero-stage__callout-dot" aria-hidden="true"></span>
-                <div>
-                  <strong>Lens-aware</strong>
-                  <p id="hero-scene-lens">Current visitor framing.</p>
-                </div>
+        <div class="hero__visual hero__visual--profile" aria-label="Ujala Agarwal professional proof console">
+          <aside class="profile-console electric-card">
+            <span class="electric-card__line electric-card__line--top" aria-hidden="true"></span>
+            <span class="electric-card__line electric-card__line--right" aria-hidden="true"></span>
+            <div class="profile-console__halo" aria-hidden="true"></div>
+            <div class="profile-console__header">
+              <span class="profile-console__status">Available for software roles</span>
+              <span class="profile-console__signal">Live proof</span>
+            </div>
+            <div class="profile-console__identity">
+              <span class="profile-console__avatar">UA</span>
+              <div>
+                <p class="eyebrow eyebrow--small">Portfolio Focus</p>
+                <h2>Cloud systems, backend engineering, full-stack UI, and AI tooling with real project proof.</h2>
               </div>
             </div>
-
-            <aside class="hero-glass">
-              <div class="section-head section-head--stack">
-                <div>
-                  <p class="eyebrow eyebrow--small">Audience Lens</p>
-                  <h2>Shift the framing without losing the proof.</h2>
-                </div>
-                <span class="tiny-status" id="mode-kicker">Fast Route</span>
-              </div>
-              <div class="mode-switch" id="mode-switch"></div>
-              <p class="panel-copy" id="mode-summary"></p>
-              <div class="metric-grid metric-grid--mini" id="home-runtime-grid"></div>
-              <div class="highlight-stack" id="home-highlights"></div>
-            </aside>
-          </div>
+            <div class="profile-console__grid">
+              <article class="electric-card electric-card--soft">
+                <strong>AWS</strong>
+                <span>Lambda, S3, DynamoDB, Cognito, API Gateway</span>
+              </article>
+              <article class="electric-card electric-card--soft">
+                <strong>Backend</strong>
+                <span>APIs, auth flows, data pipelines, review systems</span>
+              </article>
+              <article class="electric-card electric-card--soft">
+                <strong>Frontend</strong>
+                <span>Dashboards, responsive UI, product storytelling</span>
+              </article>
+              <article class="electric-card electric-card--soft">
+                <strong>AI Tools</strong>
+                <span>Prompt systems, analysis flows, AI-assisted products</span>
+              </article>
+            </div>
+            <div class="profile-console__timeline">
+              <span>ReceiptPulse</span>
+              <span>LumenStack AI</span>
+              <span>AtlasIQ Ops</span>
+            </div>
+          </aside>
         </div>
       </section>
 
       <section class="marquee-band reveal" aria-label="Stack highlights">
         <div class="marquee-track" id="marquee-track"></div>
       </section>
-      <section class="section reveal">
+
+      <section class="section section--skills-board reveal" id="skills">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Signal Command Deck</p>
-            <h2>Sharper visual proof, stronger product presence, and real portfolio telemetry.</h2>
+            <p class="eyebrow">Skills Snapshot</p>
+            <h2>Technical strengths mapped to shipped work, live demos, and clear proof.</h2>
           </div>
-          <p class="section-note">Built from live portfolio data instead of decorative placeholders.</p>
+          <p class="section-note">Premium motion stays contained so the work, skills, and resume stay clear.</p>
         </div>
-
-        <div class="signal-deck">
-          <section class="command-card command-card--radar">
-            <div class="command-card__head">
-              <div>
-                <p class="eyebrow eyebrow--small">Capability Radar</p>
-                <h3>How the portfolio reads at a glance.</h3>
-              </div>
-              <span class="tiny-status">Proof Map</span>
-            </div>
-            <div class="command-card__body">
-              <div class="radar-shell" id="capability-radar"></div>
-              <div class="signal-insight-list" id="signal-insight-list"></div>
-            </div>
-          </section>
-
-          <section class="command-card command-card--matrix">
-            <div class="command-card__head">
-              <div>
-                <p class="eyebrow eyebrow--small">Execution Matrix</p>
-                <h3>Craft, system depth, and recruiter-facing clarity in one surface.</h3>
-              </div>
-              <span class="tiny-status">Live Breakdown</span>
-            </div>
-            <div class="command-network" id="command-network"></div>
-            <div class="capability-matrix" id="capability-matrix"></div>
-            <div class="launch-strip" id="launch-strip"></div>
-          </section>
+        <div class="skills-board">
+          <article class="skill-proof-card skill-proof-card--primary electric-card">
+            <span class="skill-proof-card__label">Primary Track</span>
+            <h3>AWS + Backend Systems</h3>
+            <p>Serverless flows, private user workspaces, APIs, auth, storage, data extraction, and production-style tradeoffs.</p>
+          </article>
+          <article class="skill-proof-card electric-card">
+            <span class="skill-proof-card__label">Product UI</span>
+            <h3>Full-stack interfaces</h3>
+            <p>Dashboards, upload/review flows, project pages, responsive UI, and recruiter-friendly storytelling.</p>
+          </article>
+          <article class="skill-proof-card electric-card">
+            <span class="skill-proof-card__label">AI Tooling</span>
+            <h3>Useful AI products</h3>
+            <p>AI-assisted analysis, prompt workflows, knowledge tooling, and explainable product experiences.</p>
+          </article>
+          <article class="skill-proof-card electric-card">
+            <span class="skill-proof-card__label">Proof Style</span>
+            <h3>Live demos + repos</h3>
+            <p>Every major project route points to visible work, GitHub proof, and a clear reason the build matters.</p>
+          </article>
         </div>
       </section>
 
       <section class="section reveal">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Featured Proof</p>
-            <h2>Case studies that carry the strongest signal right now.</h2>
+            <p class="eyebrow">Featured Projects</p>
+            <h2>Shipped work with live demos, GitHub repos, and technical decisions.</h2>
           </div>
-          <a class="text-link" href="https://ujala-portfolio.onrender.com/safe/work.html">View every project</a>
+          <a class="text-link" href="https://ujala-portfolio.onrender.com/safe/work.html">View all projects</a>
         </div>
         <div class="project-grid project-grid--featured" id="featured-projects"></div>
       </section>
 
-      <section class="section section--split reveal">
-        <section class="panel">
-          <p class="eyebrow">Briefing Studio</p>
-          <h2>Pick the question you want answered first.</h2>
-          <p class="panel-copy" id="guide-intro"></p>
-          <div class="chip-grid" id="guide-chip-list"></div>
-          <div class="answer-block">
-            <p class="eyebrow eyebrow--small">Selected Answer</p>
-            <h3 id="guide-answer-title"></h3>
-            <p id="guide-answer-text"></p>
-            <a class="text-link" id="guide-answer-link" href="https://ujala-portfolio.onrender.com/safe/work.html">Open route</a>
-          </div>
-        </section>
-
-        <section class="panel panel--soft">
-          <p class="eyebrow">Ask Ujala</p>
-          <h2>Live portfolio brain with a built-in fallback.</h2>
-          <p class="panel-copy" id="brain-status-text"></p>
-          <div class="chip-row" id="brain-prompt-list"></div>
-          <form class="brain-form" id="brain-form">
-            <label class="eyebrow eyebrow--small" for="brain-input">Ask a question</label>
-            <textarea id="brain-input" class="field field--textarea" rows="4" placeholder="Ask about AWS work, project depth, role fit, or what I should build next."></textarea>
-            <div class="button-row">
-              <button class="button button--solid" type="submit" id="brain-submit">Ask Brain</button>
-              <button class="button button--ghost" type="button" id="brain-clear">Clear</button>
-            </div>
-          </form>
-          <div class="thread" id="brain-thread"></div>
-        </section>
-      </section>
-
-      
-      <section class="section reveal">
+      <section class="section section--role-fit reveal">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Visual Proof Strip</p>
-            <h2>Graphics, icons, and project storytelling that feel closer to a premium product launch.</h2>
+            <p class="eyebrow">Professional Fit</p>
+            <h2>What recruiters and engineering teams should understand quickly.</h2>
           </div>
-          <a class="text-link" href="https://ujala-portfolio.onrender.com/safe/work.html">Open the full project surface</a>
         </div>
-        <div class="visual-proof-grid">
-          <section class="command-card command-card--story">
-            <div class="command-card__head">
-              <div>
-                <p class="eyebrow eyebrow--small">Project Pulse</p>
-                <h3>Top projects presented as visual signal cards.</h3>
-              </div>
-              <span class="tiny-status">Top 3</span>
-            </div>
-            <div class="pulse-grid" id="project-pulse-grid"></div>
-          </section>
-
-          <section class="command-card command-card--orbit">
-            <div class="command-card__head">
-              <div>
-                <p class="eyebrow eyebrow--small">Toolkit Orbit</p>
-                <h3>A more memorable stack visualization for frontend and product visitors.</h3>
-              </div>
-              <span class="tiny-status">Visual Stack</span>
-            </div>
-            <div class="orbit-constellation" id="orbit-constellation"></div>
-            <div class="tool-orbit" id="tool-orbit"></div>
-            <div class="proof-mini-grid" id="proof-mini-grid"></div>
-          </section>
+        <div class="role-fit-grid">
+          <article class="role-fit-card electric-card">
+            <span>01</span>
+            <h3>I can build beyond UI mockups.</h3>
+            <p>ReceiptPulse shows real AWS-backed product flow: auth, upload, OCR extraction, duplicate handling, storage, and dashboard actions.</p>
+          </article>
+          <article class="role-fit-card electric-card">
+            <span>02</span>
+            <h3>I understand product clarity.</h3>
+            <p>The portfolio routes explain what each project proves, what decisions were made, and where the technical depth lives.</p>
+          </article>
+          <article class="role-fit-card electric-card">
+            <span>03</span>
+            <h3>I am ready to grow into engineering teams.</h3>
+            <p>The work is presented for recruiters and engineers without hiding tradeoffs, next steps, or implementation context.</p>
+          </article>
         </div>
       </section>
 
       <section class="section reveal">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Portfolio Routes</p>
-            <h2>A new visual system, but still built around readable next steps.</h2>
+            <p class="eyebrow">Explore More</p>
+            <h2>Clear next steps for recruiters, engineers, and collaborators.</h2>
           </div>
         </div>
         <div class="route-grid">
-          <a class="route-card" href="https://ujala-portfolio.onrender.com/safe/work.html">
-            <span class="route-card__label">Case Studies</span>
+          <a class="route-card electric-card" href="https://ujala-portfolio.onrender.com/safe/work.html">
+            <span class="route-card__label">Projects</span>
             <h3>Project breakdowns, live links, repositories, and tradeoffs.</h3>
             <p>Go straight into the strongest shipped work first.</p>
           </a>
-          <a class="route-card" href="https://ujala-portfolio.onrender.com/safe/systems.html">
-            <span class="route-card__label">Systems</span>
-            <h3>Architecture routes explained in product language.</h3>
+          <a class="route-card electric-card" href="https://ujala-portfolio.onrender.com/safe/systems.html">
+            <span class="route-card__label">Skills + Systems</span>
+            <h3>Architecture and system decisions explained in product language.</h3>
             <p>Best for interview prep, backend discussion, and technical depth.</p>
           </a>
-          <a class="route-card" href="https://ujala-portfolio.onrender.com/safe/about.html">
-            <span class="route-card__label">Journey</span>
+          <a class="route-card electric-card" href="https://ujala-portfolio.onrender.com/safe/about.html">
+            <span class="route-card__label">About</span>
             <h3>The path from early builds to stronger cloud and AI systems.</h3>
             <p>Shows how the work evolved and how the direction sharpened.</p>
           </a>
-          <a class="route-card" href="https://ujala-portfolio.onrender.com/safe/playground.html">
-            <span class="route-card__label">Lab</span>
+          <a class="route-card electric-card" href="https://ujala-portfolio.onrender.com/safe/playground.html">
+            <span class="route-card__label">Experiments</span>
             <h3>Live learning signals, roadmap notes, and experiments in motion.</h3>
             <p>The best place to see what is getting deeper next.</p>
           </a>
@@ -5811,7 +6487,7 @@ body::after {
       </section>
 
       <section class="section section--split reveal">
-        <section class="panel">
+        <section class="panel electric-card">
           <div class="section-head section-head--stack">
             <div>
               <p class="eyebrow">Current Proof Trail</p>
@@ -5821,10 +6497,10 @@ body::after {
           <div class="feed-list" id="home-github-activity"></div>
         </section>
 
-        <a class="panel panel--link cta-panel" href="https://ujala-portfolio.onrender.com/safe/contact.html">
-          <p class="eyebrow">Direct Route</p>
+        <a class="panel panel--link cta-panel electric-card" href="https://ujala-portfolio.onrender.com/safe/contact.html">
+          <p class="eyebrow">Contact</p>
           <h2>If the work looks aligned, this page is already set up to move faster.</h2>
-          <p>Use the contact route for email, phone, GitHub, LinkedIn, and two focused fresher resumes.</p>
+          <p>Use the contact page for email, phone, GitHub, LinkedIn, and two focused fresher resumes.</p>
           <span class="cta-link">Open contact console</span>
         </a>
       </section>
@@ -5846,7 +6522,7 @@ window.UJOS_DATA = {
     email: "agarwalujala3@gmail.com",
     phone: "+91 7906786403",
     tagline:
-      "I built this portfolio as Ujala OS: a static-safe, repo-verified space for backend, AWS, and full-stack project work.",
+      "Entry-level software engineer focused on AWS, backend systems, full-stack products, AI-assisted workflows, and clear project proof.",
     resumes: [
       {
         label: "BTech CSE Fresher Software Resume",
@@ -5864,9 +6540,9 @@ window.UJOS_DATA = {
     recruiter: {
       label: "Recruiter",
       kicker: "Fast Route",
-      heroTitle: "See my strongest proof in two minutes.",
+      heroTitle: "Ujala Agarwal",
       heroLead:
-        "This route removes noise and shows the most important things first: repo-verified products, deployed systems, and the project work that best represents how I build.",
+        "Entry-level software engineer focused on AWS, backend systems, full-stack products, and AI-assisted workflows. This portfolio highlights my strongest projects, skills, resumes, and public proof in one polished high-tech experience.",
       summary:
         "Use this view if you want a fast read on my projects, stack, and role fit.",
       highlights: [
@@ -7336,93 +8012,12 @@ window.UJOS_RUNTIME_DATA = {
 
   function initIntroSequence() {
     const intro = document.getElementById("intro-portal");
-    if (!intro || intro.dataset.bound === "true") {
-      return;
-    }
-
-    intro.dataset.bound = "true";
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const forceIntro = new URLSearchParams(window.location.search).get("intro") === "1";
-    let alreadySeen = false;
-
-    try {
-      alreadySeen = window.sessionStorage.getItem(INTRO_KEY) === "true";
-    } catch {
-      alreadySeen = false;
-    }
-
-    if (!forceIntro && (reducedMotion || alreadySeen)) {
+    if (intro) {
       intro.hidden = true;
-      return;
+      intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", "intro-stage-brand", "intro-stage-proof", "intro-stage-handoff");
     }
-
-    document.body.classList.add("intro-lock");
-    if (forceIntro) {
-      intro.classList.add("is-forced");
-    }
-    intro.classList.add("is-active", "intro-stage-brand");
-
-    const timers = [];
-    let introFinished = false;
-    const stageClasses = ["intro-stage-brand", "intro-stage-proof", "intro-stage-handoff"];
-
-    const scheduleIntroStep = (callback, delay) => {
-      const timer = window.setTimeout(callback, delay);
-      timers.push(timer);
-    };
-
-    const rememberIntro = () => {
-      try {
-        if (!forceIntro) {
-          window.sessionStorage.setItem(INTRO_KEY, "true");
-        }
-      } catch {
-        // Ignore storage failures.
-      }
-    };
-
-    const finishIntro = (skip = false) => {
-      if (introFinished) {
-        return;
-      }
-
-      introFinished = true;
-      timers.forEach((timer) => window.clearTimeout(timer));
-      document.removeEventListener("keydown", handleIntroKeydown);
-      intro.classList.add("is-dismissing");
-      if (skip) {
-        intro.classList.add("is-skipped");
-      }
-      document.body.classList.remove("intro-lock");
-      rememberIntro();
-
-      window.setTimeout(() => {
-        intro.hidden = true;
-        intro.classList.remove("is-active", "is-dismissing", "is-skipped", "is-forced", ...stageClasses);
-      }, skip ? 220 : 650);
-    };
-
-    function handleIntroKeydown(event) {
-      if (event.key === "Escape") {
-        finishIntro(true);
-      }
-    }
-
-    document.addEventListener("keydown", handleIntroKeydown);
-
-    scheduleIntroStep(() => {
-      intro.classList.remove("intro-stage-brand");
-      intro.classList.add("intro-stage-proof");
-    }, 1350);
-
-    scheduleIntroStep(() => {
-      intro.classList.remove("intro-stage-proof");
-      intro.classList.add("intro-stage-handoff");
-    }, 2550);
-
-    scheduleIntroStep(() => {
-      finishIntro(false);
-    }, 4300);
+    document.body.classList.remove("intro-lock");
+    // Intro disabled for professional portfolio: show Ujala's work immediately.
   }
 
   function initPointerExperience() {
@@ -7983,7 +8578,7 @@ window.UJOS_RUNTIME_DATA = {
   }
 
   function renderHeaderChip() {
-    const label = `${App.getModeConfig().label} Lens`;
+    const label = "Open to Work";
     const headerChip = document.getElementById("header-mode-chip");
     const dockChip = document.getElementById("dock-mode-chip");
 
@@ -7999,7 +8594,7 @@ window.UJOS_RUNTIME_DATA = {
   function renderDock() {
     const dockChip = document.getElementById("dock-mode-chip");
     if (dockChip) {
-      dockChip.textContent = `${App.getModeConfig().label} Lens`;
+      dockChip.textContent = "Open to Work";
     }
   }
 
