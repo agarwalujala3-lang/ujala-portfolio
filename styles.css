@@ -6267,3 +6267,645 @@ body[data-page="home"] .profile-console > .profile-console__halo {
     line-height: 1.42;
   }
 }
+
+
+/* Premium glass art system: page-specific atmospheres and transparent professional panels */
+@property --edge-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root {
+  --page-art: url("content/backgrounds/home-atmosphere.svg");
+  --page-accent-a: 141, 244, 255;
+  --page-accent-b: 116, 230, 182;
+  --glass-fill: rgba(7, 16, 30, 0.42);
+  --glass-fill-strong: rgba(8, 18, 34, 0.58);
+  --glass-line: rgba(157, 239, 255, 0.2);
+  --glass-line-hot: rgba(141, 244, 255, 0.58);
+  --glass-glow: rgba(113, 220, 255, 0.16);
+  --glass-glow-strong: rgba(141, 244, 255, 0.28);
+}
+
+body[data-page="home"] { --page-art: url("content/backgrounds/home-atmosphere.svg"); --page-accent-a: 141, 244, 255; --page-accent-b: 116, 230, 182; }
+body[data-page="work"] { --page-art: url("content/backgrounds/work-atmosphere.svg"); --page-accent-a: 141, 244, 255; --page-accent-b: 184, 215, 255; }
+body[data-page="systems"] { --page-art: url("content/backgrounds/systems-atmosphere.svg"); --page-accent-a: 116, 230, 182; --page-accent-b: 141, 244, 255; }
+body[data-page="about"] { --page-art: url("content/backgrounds/about-atmosphere.svg"); --page-accent-a: 138, 168, 255; --page-accent-b: 141, 244, 255; }
+body[data-page="playground"] { --page-art: url("content/backgrounds/playground-atmosphere.svg"); --page-accent-a: 184, 215, 255; --page-accent-b: 116, 230, 182; }
+body[data-page="contact"] { --page-art: url("content/backgrounds/contact-atmosphere.svg"); --page-accent-a: 141, 244, 255; --page-accent-b: 138, 168, 255; }
+
+html,
+body {
+  background:
+    radial-gradient(circle at 10% 8%, rgba(var(--page-accent-b), 0.16), transparent 28%),
+    radial-gradient(circle at 86% 12%, rgba(var(--page-accent-a), 0.16), transparent 30%),
+    linear-gradient(180deg, #020611 0%, #050b16 42%, #07111f 100%) !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(2, 6, 14, 0.38), rgba(2, 6, 14, 0.72)),
+    var(--page-art);
+  background-position: center top, center top;
+  background-size: cover, cover;
+  background-repeat: no-repeat;
+  opacity: 0.74;
+  filter: saturate(1.12) contrast(1.04);
+  transform: translateZ(0);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at var(--cursor-x, 50vw) var(--cursor-y, 50vh), rgba(var(--page-accent-a), 0.16), transparent 17rem),
+    linear-gradient(rgba(var(--page-accent-a), 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--page-accent-a), 0.045) 1px, transparent 1px);
+  background-size: auto, 72px 72px, 72px 72px;
+  mix-blend-mode: screen;
+  opacity: 0.62;
+}
+
+.ambient {
+  opacity: 0.82;
+}
+
+.site-shell {
+  z-index: 2;
+}
+
+.entry-branding {
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: end;
+  width: fit-content;
+  margin-bottom: -4px;
+  padding: 8px 18px 10px 0;
+  color: var(--pro-text);
+  filter: drop-shadow(0 0 24px rgba(141, 244, 255, 0.28));
+  animation: entryBrandIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.entry-branding__mark {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(68px, 8vw, 112px);
+  height: clamp(68px, 8vw, 112px);
+  margin-right: clamp(12px, 2vw, 18px);
+  border: 1px solid rgba(var(--page-accent-a), 0.46);
+  border-radius: 30% 70% 58% 42% / 42% 34% 66% 58%;
+  background:
+    radial-gradient(circle at 36% 24%, rgba(255, 255, 255, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(var(--page-accent-a), 0.18), rgba(var(--page-accent-b), 0.1)),
+    rgba(5, 13, 26, 0.42);
+  box-shadow:
+    0 0 36px rgba(var(--page-accent-a), 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: #f3fbff;
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.65rem, 4.2vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+}
+
+.entry-branding__word {
+  position: relative;
+  color: transparent;
+  background: linear-gradient(90deg, #f5fbff 0%, rgb(var(--page-accent-a)) 42%, rgb(var(--page-accent-b)) 78%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: "Fraunces", serif;
+  font-size: clamp(3.2rem, 10vw, 8.4rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  line-height: 0.84;
+  text-shadow: 0 0 34px rgba(var(--page-accent-a), 0.22);
+}
+
+.entry-branding__word::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 1%;
+  bottom: -8px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(var(--page-accent-a), 0.94), rgba(var(--page-accent-b), 0.78), transparent);
+  box-shadow: 0 0 22px rgba(var(--page-accent-a), 0.65);
+  animation: brandingCurrent 2.6s ease-in-out infinite;
+}
+
+.entry-branding__current {
+  position: absolute;
+  z-index: -1;
+  left: 10px;
+  right: 4px;
+  height: 22px;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, transparent 0 18%, rgba(var(--page-accent-a), 0.68) 18% 22%, transparent 22% 38%, rgba(var(--page-accent-b), 0.72) 38% 42%, transparent 42% 62%, rgba(var(--page-accent-a), 0.68) 62% 66%, transparent 66% 100%);
+  filter: drop-shadow(0 0 16px rgba(var(--page-accent-a), 0.72));
+  opacity: 0.74;
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  animation: zigBrandCurrent 3.2s linear infinite;
+}
+
+.entry-branding__current--top {
+  top: 0;
+}
+
+.entry-branding__current--bottom {
+  bottom: 0;
+  animation-direction: reverse;
+}
+
+:is(
+  .masthead,
+  .hero--home,
+  .hero--page,
+  .panel,
+  .panel--soft,
+  .panel--accent,
+  .panel--link,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .command-palette__panel,
+  .project-modal__card,
+  .constellation-panel,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link,
+  .modal-section
+) {
+  position: relative;
+  isolation: isolate;
+  border-color: var(--glass-line) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.026)),
+    radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 0%), rgba(var(--page-accent-a), 0.12), transparent 34%),
+    var(--glass-fill) !important;
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.32),
+    0 0 38px var(--glass-glow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 28px rgba(141, 244, 255, 0.035) !important;
+  backdrop-filter: blur(24px) saturate(148%);
+  -webkit-backdrop-filter: blur(24px) saturate(148%);
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .command-palette__panel,
+  .project-modal__card,
+  .constellation-panel,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link,
+  .modal-section
+) {
+  overflow: hidden;
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .command-palette__panel,
+  .project-modal__card,
+  .constellation-panel,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link,
+  .modal-section
+)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.12), transparent 22%, transparent 68%, rgba(var(--page-accent-a), 0.08)),
+    radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 12%), rgba(var(--page-accent-a), 0.22), transparent 34%);
+  opacity: 0.72;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .command-palette__panel,
+  .project-modal__card,
+  .constellation-panel,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link,
+  .modal-section
+)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 1.4px;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    repeating-conic-gradient(from var(--edge-angle), transparent 0deg 15deg, rgba(var(--page-accent-a), 0.96) 18deg 22deg, transparent 25deg 42deg, rgba(var(--page-accent-b), 0.84) 44deg 49deg, transparent 52deg 78deg);
+  filter: drop-shadow(0 0 14px rgba(var(--page-accent-a), 0.74));
+  opacity: 0;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: opacity 200ms ease;
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link
+):hover,
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link
+):focus-within {
+  border-color: var(--glass-line-hot) !important;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.34),
+    0 0 48px var(--glass-glow-strong),
+    0 0 18px rgba(var(--page-accent-a), 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 0 34px rgba(var(--page-accent-a), 0.08) !important;
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link
+):hover::before,
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link
+):focus-within::before {
+  opacity: 1;
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link
+):hover::after,
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link
+):focus-within::after {
+  opacity: 1;
+  animation: hoverEdgeCurrent 1.15s linear infinite;
+}
+
+:is(
+  .panel,
+  .case-card,
+  .route-card,
+  .metric-card,
+  .highlight-card,
+  .contact-card,
+  .system-card,
+  .principle-card,
+  .feed-card,
+  .roadmap-card,
+  .insight-card,
+  .timeline-card,
+  .stack-item,
+  .stack-panel,
+  .compare-column,
+  .project-signal-card,
+  .footer-route-card,
+  .command-palette__panel,
+  .project-modal__card,
+  .constellation-panel,
+  .premium-intro-card,
+  .profile-console,
+  .profile-console__grid article,
+  .skill-proof-card,
+  .role-fit-card,
+  .contact-card__link,
+  .modal-section
+) > * {
+  position: relative;
+  z-index: 1;
+}
+
+.button,
+.guide-chip,
+.compare-chip,
+.filter-chip,
+.pill,
+.stack-pill,
+.status-badge,
+.project-kind,
+.profile-console__status,
+.profile-console__signal,
+.profile-console__timeline span,
+.skill-proof-card__label {
+  border-color: rgba(var(--page-accent-a), 0.22) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.024)),
+    rgba(5, 14, 26, 0.34) !important;
+  box-shadow: 0 0 18px rgba(var(--page-accent-a), 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+}
+
+.button--solid {
+  color: #041019 !important;
+  background:
+    linear-gradient(135deg, rgba(238, 252, 255, 0.96), rgba(var(--page-accent-a), 0.86) 50%, rgba(var(--page-accent-b), 0.92)) !important;
+  box-shadow:
+    0 18px 44px rgba(var(--page-accent-a), 0.2),
+    0 0 30px rgba(var(--page-accent-a), 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58) !important;
+}
+
+.section {
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: -28px -18px auto;
+  height: 180px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 20% 0%, rgba(var(--page-accent-a), 0.12), transparent 54%);
+  opacity: 0.78;
+}
+
+@keyframes entryBrandIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); filter: blur(10px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0) drop-shadow(0 0 24px rgba(141, 244, 255, 0.28)); }
+}
+
+@keyframes brandingCurrent {
+  0%, 100% { transform: translateX(-9%) scaleX(0.55); opacity: 0.42; }
+  46% { transform: translateX(7%) scaleX(1); opacity: 0.98; }
+}
+
+@keyframes zigBrandCurrent {
+  from { background-position: 0 0; transform: translateX(-4%); }
+  to { background-position: 180px 0; transform: translateX(4%); }
+}
+
+@keyframes hoverEdgeCurrent {
+  to { --edge-angle: 360deg; }
+}
+
+@media (max-width: 760px) {
+  body::before {
+    background-size: auto 100%, auto 100%;
+    opacity: 0.58;
+  }
+
+  .entry-branding {
+    grid-template-columns: auto auto;
+    padding-right: 0;
+  }
+
+  .entry-branding__mark {
+    width: 58px;
+    height: 58px;
+    border-radius: 22px;
+    font-size: 1.45rem;
+  }
+
+  .entry-branding__word {
+    font-size: clamp(3.1rem, 18vw, 4.8rem);
+  }
+
+  :is(.panel, .case-card, .route-card, .metric-card, .contact-card, .system-card, .feed-card, .compare-column, .project-modal__card, .command-palette__panel) {
+    backdrop-filter: blur(18px) saturate(142%);
+    -webkit-backdrop-filter: blur(18px) saturate(142%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry-branding,
+  .entry-branding__word::after,
+  .entry-branding__current,
+  :is(.panel, .case-card, .route-card, .metric-card, .highlight-card, .contact-card, .system-card, .principle-card, .feed-card, .roadmap-card, .insight-card, .timeline-card, .stack-item, .stack-panel, .compare-column, .project-signal-card, .footer-route-card, .premium-intro-card, .profile-console, .profile-console__grid article, .skill-proof-card, .role-fit-card, .contact-card__link)::after {
+    animation: none !important;
+  }
+}
+
+
+/* Premium intro card edge-current specificity fix */
+body[data-page="home"] .premium-intro-card:hover::after,
+body[data-page="home"] .premium-intro-card:focus-within::after {
+  opacity: 1 !important;
+  animation: hoverEdgeCurrent 1.15s linear infinite !important;
+}

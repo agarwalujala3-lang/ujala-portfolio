@@ -48,6 +48,10 @@ function safePortfolioDataScript(source) {
   return source.replaceAll("content/branding/", "../content/branding/");
 }
 
+function safeStylesheet(source) {
+  return source.replaceAll('url("content/', 'url("../content/');
+}
+
 function scriptTag(source) {
   return `<script>\n${escapeScript(source)}\n</script>`;
 }
@@ -68,7 +72,7 @@ async function main() {
     readText("app-main.js"),
   ]);
 
-  const styleBlock = `<style>\n${styles}\n</style>`;
+  const styleBlock = `<style>\n${safeStylesheet(styles)}\n</style>`;
   const scriptBlock = [
     scriptTag(safePortfolioDataScript(portfolioData)),
     scriptTag(`window.UJOS_RUNTIME_DATA = ${runtimeData.trim()};`),

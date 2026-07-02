@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">playground atmospheric portfolio background</title>
+  <desc id="desc">Abstract dark glass technology artwork with soft blue electric light, circuit paths, and page-specific visual motif.</desc>
+  <defs>
+    <radialGradient id="g1" cx="24%" cy="18%" r="58%"><stop offset="0" stop-color="#b8d7ff" stop-opacity="0.72"/><stop offset="0.42" stop-color="#b8d7ff" stop-opacity="0.18"/><stop offset="1" stop-color="#020712" stop-opacity="0"/></radialGradient>
+    <radialGradient id="g2" cx="76%" cy="20%" r="48%"><stop offset="0" stop-color="#74e6b6" stop-opacity="0.58"/><stop offset="0.5" stop-color="#74e6b6" stop-opacity="0.14"/><stop offset="1" stop-color="#020712" stop-opacity="0"/></radialGradient>
+    <linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#8df4ff" stop-opacity="0"/><stop offset="0.5" stop-color="#8df4ff" stop-opacity="0.95"/><stop offset="1" stop-color="#74e6b6" stop-opacity="0"/></linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8" result="blur"/><feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.42 0 0 0 0 0.94 0 0 0 0 1 0 0 0 0.8 0" result="glow"/><feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="microgrid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke="#8df4ff" stroke-opacity="0.055" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1800" height="1200" fill="#020712"/>
+  <rect width="1800" height="1200" fill="url(#microgrid)" opacity="0.72"/>
+  <rect width="1800" height="1200" fill="url(#g1)"/>
+  <rect width="1800" height="1200" fill="url(#g2)"/>
+  <path d="M-40 880C230 742 376 1001 621 842C830 706 919 503 1160 544C1383 582 1465 359 1840 292" fill="none" stroke="#8df4ff" stroke-opacity="0.28" stroke-width="2"/>
+  <path d="M-20 428C192 342 348 486 530 410C756 316 858 164 1117 220C1324 265 1510 165 1820 96" fill="none" stroke="#8df4ff" stroke-opacity="0.2" stroke-width="1.6"/>
+  <g filter="url(#glow)" opacity="0.72">
+    <path d="M184 296h196l72 70h156l96-92h180l86 78h168l132-128h218" fill="none" stroke="url(#line)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M230 806h222l84-76h152l96 88h196l94-104h172l78 70h246" fill="none" stroke="url(#line)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+  </g>
+  <g opacity="0.55" filter="url(#glow)">
+    <circle cx="888" cy="612" r="216" fill="none" stroke="#8df4ff" stroke-opacity="0.36" stroke-width="2"/>
+    <ellipse cx="888" cy="612" rx="330" ry="92" fill="none" stroke="#74e6b6" stroke-opacity="0.44" stroke-width="3" transform="rotate(-15 888 612)"/>
+    <ellipse cx="888" cy="612" rx="268" ry="72" fill="none" stroke="#b8d7ff" stroke-opacity="0.32" stroke-width="2" transform="rotate(28 888 612)"/>
+    <circle cx="888" cy="612" r="46" fill="#8df4ff" fill-opacity="0.18" stroke="#8df4ff" stroke-opacity="0.72" stroke-width="2"/>
+    <circle cx="1164" cy="536" r="18"/><circle cx="660" cy="700" r="14"/><circle cx="1028" cy="770" r="12"/>
+  </g>
+  <g fill="#8df4ff" opacity="0.55" filter="url(#glow)">
+    <circle cx="184" cy="296" r="6"/><circle cx="452" cy="366" r="5"/><circle cx="704" cy="274" r="6"/><circle cx="1134" cy="352" r="5"/><circle cx="452" cy="806" r="5"/><circle cx="784" cy="818" r="6"/><circle cx="1246" cy="714" r="5"/>
+  </g>
+</svg>
