@@ -64,12 +64,13 @@ async function readText(relativePath) {
 async function main() {
   await mkdir(safeDir, { recursive: true });
 
-  const [styles, portfolioData, runtimeData, appCore, appRender, appMain] = await Promise.all([
+  const [styles, portfolioData, runtimeData, appCore, appRender, visualUpgrades, appMain] = await Promise.all([
     readText("styles.css"),
     readText("portfolio-data.js"),
     readText("portfolio-runtime.json"),
     readText("app-core.js"),
     readText("app-render.js"),
+    readText("visual-upgrades.js"),
     readText("app-main.js"),
   ]);
 
@@ -79,6 +80,7 @@ async function main() {
     scriptTag(`window.UJOS_RUNTIME_DATA = ${runtimeData.trim()};`),
     scriptTag(appCore),
     scriptTag(appRender),
+    scriptTag(visualUpgrades),
     scriptTag(appMain),
   ].join("\n");
 
@@ -91,7 +93,7 @@ async function main() {
     html = rewriteStaticRouteLinks(html);
     html = html.replace(/\s*<link rel="stylesheet" href="styles\.css">/, `\n${styleBlock}`);
     html = html.replace(
-      /\s*<script(?: defer)? src="portfolio-data\.js"><\/script>\s*<script(?: defer)? src="(?:script|app-core|app-render|app-main)\.js"><\/script>(?:\s*<script(?: defer)? src="(?:app-core|app-render|app-main)\.js"><\/script>)*/,
+      /\s*<script(?: defer)? src="portfolio-data\.js"><\/script>\s*<script(?: defer)? src="(?:script|app-core|app-render|visual-upgrades|app-main)\.js"><\/script>(?:\s*<script(?: defer)? src="(?:app-core|app-render|visual-upgrades|app-main)\.js"><\/script>)*/,
       ""
     );
     html = html.replace(/\s*<\/body>/, `\n${scriptBlock}\n</body>`);

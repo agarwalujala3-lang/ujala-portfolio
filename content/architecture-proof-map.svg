@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ujala portfolio architecture proof map</title>
+  <desc id="desc">A high-tech architecture map showing portfolio inputs, API routes, storage, AI analysis, GitHub proof, and Render deployment.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071321"/><stop offset="0.48" stop-color="#08182b"/><stop offset="1" stop-color="#030814"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8df4ff" stop-opacity="0"/><stop offset="0.25" stop-color="#8df4ff"/><stop offset="0.68" stop-color="#74e6b6"/><stop offset="1" stop-color="#8aa8ff" stop-opacity="0.1"/></linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#8df4ff" stop-opacity="0.58"/><stop offset="1" stop-color="#8df4ff" stop-opacity="0"/></radialGradient>
+    <filter id="softGlow" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur stdDeviation="10" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#8df4ff" stroke-opacity="0.07"/></pattern>
+  </defs>
+  <rect width="1280" height="760" rx="38" fill="url(#bg)"/>
+  <rect x="18" y="18" width="1244" height="724" rx="30" fill="url(#grid)" opacity="0.72"/>
+  <circle cx="1046" cy="128" r="270" fill="url(#glow)" opacity="0.42"/>
+  <circle cx="210" cy="642" r="240" fill="#74e6b6" opacity="0.08"/>
+  <g font-family="Manrope, Segoe UI, Arial, sans-serif">
+    <text x="72" y="88" fill="#eaf8ff" font-size="34" font-weight="800">Portfolio Architecture Proof Map</text>
+    <text x="72" y="122" fill="#9db4c8" font-size="18" font-weight="600">From project evidence to recruiter-ready public routes</text>
+    <text x="1020" y="92" fill="#8df4ff" font-size="24" font-weight="900">UA</text>
+    <text x="1058" y="92" fill="#9db4c8" font-size="15" font-weight="800" letter-spacing="2">SYSTEM VIEW</text>
+  </g>
+  <g fill="none" stroke="url(#line)" stroke-width="4" stroke-linecap="round" filter="url(#softGlow)">
+    <path d="M268 260H456C486 260 500 284 520 304L600 384"/>
+    <path d="M268 500H456C486 500 500 476 520 456L600 384"/>
+    <path d="M710 384H870"/>
+    <path d="M930 274H1056"/>
+    <path d="M930 494H1056"/>
+    <path d="M760 384C820 384 840 274 900 274"/>
+    <path d="M760 384C820 384 840 494 900 494"/>
+  </g>
+  <g font-family="Manrope, Segoe UI, Arial, sans-serif">
+    <g transform="translate(72 190)"><rect width="196" height="140" rx="24" fill="#0d1d31" stroke="#8df4ff" stroke-opacity="0.26"/><text x="26" y="42" fill="#8df4ff" font-size="16" font-weight="900">INPUTS</text><text x="26" y="76" fill="#f0fbff" font-size="24" font-weight="800">Projects</text><text x="26" y="108" fill="#a9bed0" font-size="15">ReceiptPulse, AI tools,</text><text x="26" y="130" fill="#a9bed0" font-size="15">case studies, resumes</text></g>
+    <g transform="translate(72 430)"><rect width="196" height="140" rx="24" fill="#0d1d31" stroke="#74e6b6" stroke-opacity="0.28"/><text x="26" y="42" fill="#74e6b6" font-size="16" font-weight="900">PROFILE</text><text x="26" y="76" fill="#f0fbff" font-size="24" font-weight="800">Skills</text><text x="26" y="108" fill="#a9bed0" font-size="15">AWS, backend, UI,</text><text x="26" y="130" fill="#a9bed0" font-size="15">AI workflow proof</text></g>
+    <g transform="translate(570 306)"><rect width="190" height="156" rx="30" fill="#10223a" stroke="#8df4ff" stroke-opacity="0.36" filter="url(#softGlow)"/><text x="32" y="48" fill="#8df4ff" font-size="16" font-weight="900">CORE</text><text x="32" y="84" fill="#ffffff" font-size="28" font-weight="900">Ujala OS</text><text x="32" y="116" fill="#a9bed0" font-size="15">Static-safe renderer</text><text x="32" y="138" fill="#a9bed0" font-size="15">with live proof routes</text></g>
+    <g transform="translate(882 204)"><rect width="222" height="140" rx="24" fill="#0d1d31" stroke="#8aa8ff" stroke-opacity="0.28"/><text x="26" y="42" fill="#8aa8ff" font-size="16" font-weight="900">PROOF</text><text x="26" y="76" fill="#f0fbff" font-size="24" font-weight="800">GitHub</text><text x="26" y="108" fill="#a9bed0" font-size="15">Repos, commits, source</text><text x="26" y="130" fill="#a9bed0" font-size="15">links, public evidence</text></g>
+    <g transform="translate(882 424)"><rect width="222" height="140" rx="24" fill="#0d1d31" stroke="#8df4ff" stroke-opacity="0.28"/><text x="26" y="42" fill="#8df4ff" font-size="16" font-weight="900">DEPLOY</text><text x="26" y="76" fill="#f0fbff" font-size="24" font-weight="800">Render</text><text x="26" y="108" fill="#a9bed0" font-size="15">Production route, safe</text><text x="26" y="130" fill="#a9bed0" font-size="15">mirror, resumes, assets</text></g>
+    <g transform="translate(1070 602)"><rect width="126" height="44" rx="22" fill="#8df4ff" fill-opacity="0.1" stroke="#8df4ff" stroke-opacity="0.28"/><text x="24" y="29" fill="#8df4ff" font-size="14" font-weight="900">LIVE LINK</text></g>
+  </g>
+  <g fill="#8df4ff" filter="url(#softGlow)"><circle cx="268" cy="260" r="7"/><circle cx="268" cy="500" r="7"/><circle cx="570" cy="384" r="8"/><circle cx="760" cy="384" r="8"/><circle cx="882" cy="274" r="7"/><circle cx="882" cy="494" r="7"/></g>
+</svg>

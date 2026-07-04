@@ -20,6 +20,7 @@ const passthroughFiles = [
   "portfolio-runtime.json",
   "app-core.js",
   "app-render.js",
+  "visual-upgrades.js",
   "app-main.js",
   "resume-data.js",
   "resume-renderer.js",
