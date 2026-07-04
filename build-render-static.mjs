@@ -28,7 +28,7 @@ const passthroughFiles = [
   "robots.txt",
   "sitemap.xml",
 ];
-const passthroughDirs = ["content", "resume"];
+const passthroughDirs = ["content", "resume", "safe"];
 
 function pagePublicUrl(page) {
   return page === "index.html" ? `${publicSiteBase}/` : `${publicSiteBase}/${page}`;

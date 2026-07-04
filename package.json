@@ -4,7 +4,7 @@
     "sync": "node sync-portfolio-data.mjs",
     "build:safe": "node build-safe-mirror.mjs",
     "build:render": "node build-render-static.mjs",
-    "build": "npm run build:render && npm run build:safe",
+    "build": "npm run build:safe && npm run build:render",
     "refresh": "node sync-portfolio-data.mjs && npm run build",
     "export:resumes": "powershell -ExecutionPolicy Bypass -File ./export-resumes.ps1"
   }
