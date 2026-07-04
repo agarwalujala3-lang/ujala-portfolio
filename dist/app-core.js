@@ -389,7 +389,7 @@
         return;
       }
 
-      const response = await window.fetch("portfolio-runtime.json", { cache: "no-store" });
+      const response = await window.fetch("portfolio-runtime.json");
       if (!response.ok) {
         return;
       }
@@ -601,6 +601,9 @@
         cursor.classList.toggle("is-interactive", Boolean(interactive));
       };
 
+      let cursorFrame = 0;
+      let lastCursorMoveAt = 0;
+
       const renderCursor = () => {
         const speed = reducedMotion ? 1 : 0.24;
         cursorX += (targetX - cursorX) * speed;
@@ -610,11 +613,28 @@
           cursor.classList.add("is-live");
           revealCursor();
         }
-        window.requestAnimationFrame(renderCursor);
+
+        const distance = Math.abs(cursorX - targetX) + Math.abs(cursorY - targetY);
+        const recentlyMoved = performance.now() - lastCursorMoveAt < 240;
+        if (cursorActive && (distance > 0.35 || recentlyMoved)) {
+          cursorFrame = window.requestAnimationFrame(renderCursor);
+          return;
+        }
+
+        cursorActive = false;
+        cursorFrame = 0;
+      };
+
+      const startCursorLoop = () => {
+        if (!cursorFrame) {
+          cursorFrame = window.requestAnimationFrame(renderCursor);
+        }
       };
 
       document.addEventListener("pointermove", (event) => {
+        lastCursorMoveAt = performance.now();
         setCursorTarget(event);
+        startCursorLoop();
       }, { passive: true });
 
       document.addEventListener("pointerover", (event) => {
@@ -623,7 +643,9 @@
       }, { passive: true });
 
       document.addEventListener("pointerdown", (event) => {
+        lastCursorMoveAt = performance.now();
         setCursorTarget(event);
+        startCursorLoop();
         cursor.classList.add("is-pressed");
       }, { passive: true });
 
@@ -632,12 +654,15 @@
       }, { passive: true });
 
       document.addEventListener("pointerleave", () => {
+        cursorActive = false;
+        if (cursorFrame) {
+          window.cancelAnimationFrame(cursorFrame);
+          cursorFrame = 0;
+        }
         cursor.classList.remove("is-live", "is-interactive", "is-pressed");
         cursor.style.removeProperty("opacity");
         document.body.dataset.cursorReady = "false";
       }, { passive: true });
-
-      window.requestAnimationFrame(renderCursor);
     }
 
     document.addEventListener("click", (event) => {
