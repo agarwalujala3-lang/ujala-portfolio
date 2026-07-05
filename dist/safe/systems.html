@@ -7362,6 +7362,31 @@ body[data-page="contact"] .contact-grid {
   }
 }
 
+/* Modal pointer containment: keep case-study windows above the background. */
+body.modal-open .site-shell,
+body.modal-open .floating-dock {
+  pointer-events: none !important;
+}
+
+body.modal-open .project-modal,
+body.modal-open .project-modal__backdrop,
+body.modal-open .project-modal__card {
+  pointer-events: auto !important;
+}
+
+body.modal-open .project-modal {
+  isolation: isolate;
+}
+
+body.modal-open .project-modal__card {
+  overscroll-behavior: contain;
+  outline: none;
+}
+
+body.modal-open::after {
+  opacity: 0.08;
+}
+
 </style>
 </head>
 <body data-page="systems">
@@ -8931,7 +8956,7 @@ window.UJOS_RUNTIME_DATA = {
       modal.setAttribute("aria-hidden", "true");
       modal.innerHTML = `
         <div class="project-modal__backdrop" data-modal-close></div>
-        <div class="project-modal__card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+        <div class="project-modal__card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabindex="-1">
           <button class="modal-close" type="button" data-modal-close aria-label="Close case study">x</button>
           <div id="project-modal-body"></div>
         </div>
@@ -9541,8 +9566,6 @@ window.UJOS_RUNTIME_DATA = {
     formatMultilineText,
   };
 })();
-
-
 
 </script>
 <script>
@@ -10794,6 +10817,7 @@ window.UJOS_RUNTIME_DATA = {
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
+    modal.querySelector(".project-modal__card")?.focus({ preventScroll: true });
   }
 
   function renderSystemsPage() {
@@ -11048,9 +11072,6 @@ window.UJOS_RUNTIME_DATA = {
   App.renderProjectModal = renderProjectModal;
   App.buildGithubFeed = buildGithubFeed;
 })();
-
-
-
 
 </script>
 <script>

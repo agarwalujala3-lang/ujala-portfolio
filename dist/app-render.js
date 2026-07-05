@@ -1246,6 +1246,7 @@
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
+    modal.querySelector(".project-modal__card")?.focus({ preventScroll: true });
   }
 
   function renderSystemsPage() {
@@ -1500,6 +1501,3 @@
   App.renderProjectModal = renderProjectModal;
   App.buildGithubFeed = buildGithubFeed;
 })();
-
-
-

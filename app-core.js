@@ -508,7 +508,7 @@
       modal.setAttribute("aria-hidden", "true");
       modal.innerHTML = `
         <div class="project-modal__backdrop" data-modal-close></div>
-        <div class="project-modal__card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+        <div class="project-modal__card" role="dialog" aria-modal="true" aria-labelledby="project-modal-title" tabindex="-1">
           <button class="modal-close" type="button" data-modal-close aria-label="Close case study">x</button>
           <div id="project-modal-body"></div>
         </div>
@@ -1118,5 +1118,3 @@
     formatMultilineText,
   };
 })();
-
-

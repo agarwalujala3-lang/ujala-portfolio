@@ -7346,3 +7346,28 @@ body[data-page="contact"] .contact-grid {
     animation: none !important;
   }
 }
+
+/* Modal pointer containment: keep case-study windows above the background. */
+body.modal-open .site-shell,
+body.modal-open .floating-dock {
+  pointer-events: none !important;
+}
+
+body.modal-open .project-modal,
+body.modal-open .project-modal__backdrop,
+body.modal-open .project-modal__card {
+  pointer-events: auto !important;
+}
+
+body.modal-open .project-modal {
+  isolation: isolate;
+}
+
+body.modal-open .project-modal__card {
+  overscroll-behavior: contain;
+  outline: none;
+}
+
+body.modal-open::after {
+  opacity: 0.08;
+}
