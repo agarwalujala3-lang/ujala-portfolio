@@ -4,7 +4,22 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(rootDir, "dist");
-const publicSiteBase = (process.env.PUBLIC_SITE_BASE || "https://ujala-portfolio.onrender.com").replace(/\/+$/, "");
+const canonicalSiteBase = "https://ujala-portfolio.onrender.com";
+const publicSiteBase = cleanPublicSiteBase(process.env.PUBLIC_SITE_BASE);
+
+function cleanPublicSiteBase(value) {
+  const candidate = (value || canonicalSiteBase).replace(/\/+$/, "");
+  try {
+    const url = new URL(candidate);
+    if (url.protocol === "https:" && url.hostname === "ujala-portfolio.onrender.com") {
+      return candidate;
+    }
+  } catch {
+    // Fall through to the repo-owned canonical URL.
+  }
+
+  return canonicalSiteBase;
+}
 const sourcePages = [
   "index.html",
   "work.html",
