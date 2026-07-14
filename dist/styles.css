@@ -7368,6 +7368,41 @@ body.modal-open .project-modal__card {
   outline: none;
 }
 
+/* Navigator pointer containment: keep the command panel fully interactive. */
+body.command-open .site-shell,
+body.command-open .floating-dock {
+  pointer-events: none !important;
+}
+
+body.command-open .command-palette,
+body.command-open .command-palette__backdrop,
+body.command-open .command-palette__panel,
+body.command-open .command-list,
+body.command-open .command-item,
+body.command-open .command-input,
+body.command-open .modal-close {
+  pointer-events: auto !important;
+}
+
+body.command-open .command-palette {
+  isolation: isolate;
+  z-index: 130;
+}
+
+body.command-open,
+body.command-open * {
+  cursor: auto !important;
+}
+
+body.command-open .command-item,
+body.command-open .modal-close,
+body.command-open [data-command-close] {
+  cursor: pointer !important;
+}
+
+body.command-open .command-input {
+  cursor: text !important;
+}
 body.modal-open::after {
   opacity: 0.08;
 }
