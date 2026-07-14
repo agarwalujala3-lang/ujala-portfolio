@@ -382,10 +382,8 @@
         mergeRuntimeData(sanitizeCopy(window.UJOS_RUNTIME_DATA));
         window.PortfolioApp.renderAll();
         initRevealObserver();
-        initHeroDepthScene();
-        initSurfaceSpotlights();
         updateViewportUi();
-        initFloatingDockObserver();
+        scheduleVisualEnhancements(1200);
         return;
       }
 
@@ -397,10 +395,8 @@
       mergeRuntimeData(sanitizeCopy(await response.json()));
       window.PortfolioApp.renderAll();
       initRevealObserver();
-      initHeroDepthScene();
-      initSurfaceSpotlights();
       updateViewportUi();
-      initFloatingDockObserver();
+      scheduleVisualEnhancements(1200);
     } catch {
       // Runtime data is optional.
     }
@@ -416,7 +412,7 @@
 
     if (!document.querySelector(".page-curtain")) {
       const curtain = document.createElement("div");
-      curtain.className = "page-curtain is-active";
+      curtain.className = "page-curtain";
       curtain.id = "page-curtain";
       curtain.innerHTML = `
         <div class="page-curtain__grid" aria-hidden="true"></div>
@@ -547,6 +543,26 @@
     document.getElementById("page-curtain")?.classList.remove("is-active");
   }
 
+  function runWhenIdle(callback, timeout = 900) {
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(callback, { timeout });
+      return;
+    }
+
+    window.setTimeout(callback, 120);
+  }
+
+  function initVisualEnhancements() {
+    initPointerExperience();
+    initFloatingDockObserver();
+    initHeroDepthScene();
+    initSurfaceSpotlights();
+    updateViewportUi();
+  }
+
+  function scheduleVisualEnhancements(timeout = 900) {
+    runWhenIdle(initVisualEnhancements, timeout);
+  }
   function initIntroSequence() {
     const intro = document.getElementById("intro-portal");
     if (intro) {
@@ -850,10 +866,18 @@
       let targetY = 0;
       let currentX = 0;
       let currentY = 0;
+      let frameId = 0;
+      let sceneVisible = false;
       const phase = Math.random() * Math.PI * 2;
 
       const tick = (time = 0) => {
         if (!stage.isConnected) {
+          frameId = 0;
+          return;
+        }
+
+        if (!sceneVisible) {
+          frameId = 0;
           return;
         }
 
@@ -880,7 +904,13 @@
         stage.style.setProperty("--depth-spin", `${((time / 90) % 360).toFixed(2)}deg`);
         stage.style.setProperty("--depth-spin-reverse", `${((360 - (time / 110) % 360)).toFixed(2)}deg`);
 
-        window.requestAnimationFrame(tick);
+        frameId = window.requestAnimationFrame(tick);
+      };
+
+      const startLoop = () => {
+        if (!frameId && sceneVisible) {
+          frameId = window.requestAnimationFrame(tick);
+        }
       };
 
       const updateTarget = (event) => {
@@ -889,15 +919,23 @@
         targetY = (event.clientY - rect.top) / rect.height - 0.5;
       };
 
-      stage.addEventListener("pointermove", updateTarget);
-      stage.addEventListener("pointerdown", updateTarget);
+      stage.addEventListener("pointermove", updateTarget, { passive: true });
+      stage.addEventListener("pointerdown", updateTarget, { passive: true });
       stage.addEventListener("pointerleave", () => {
         targetX = 0;
         targetY = 0;
-      });
+      }, { passive: true });
+
+      const depthObserver = new IntersectionObserver(
+        (entries) => {
+          sceneVisible = entries.some((entry) => entry.isIntersecting);
+          startLoop();
+        },
+        { threshold: 0.05, rootMargin: "160px 0px" }
+      );
+      depthObserver.observe(stage);
 
       scene.dataset.depthBound = "true";
-      window.requestAnimationFrame(tick);
     });
   }
 
@@ -1109,6 +1147,8 @@
     initFloatingDockObserver,
     initIntroSequence,
     initPointerExperience,
+    initVisualEnhancements,
+    scheduleVisualEnhancements,
     goTo,
     resolveRouteHref,
     isRouteHref,

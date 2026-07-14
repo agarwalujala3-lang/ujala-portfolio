@@ -7387,6 +7387,19 @@ body.modal-open::after {
   opacity: 0.08;
 }
 
+/* Performance: keep below-the-fold premium sections cheap until they enter view. */
+.section,
+.marquee-band,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
+}
+
+.hero {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+
 </style>
 </head>
 <body data-page="systems">
@@ -8830,10 +8843,8 @@ window.UJOS_RUNTIME_DATA = {
         mergeRuntimeData(sanitizeCopy(window.UJOS_RUNTIME_DATA));
         window.PortfolioApp.renderAll();
         initRevealObserver();
-        initHeroDepthScene();
-        initSurfaceSpotlights();
         updateViewportUi();
-        initFloatingDockObserver();
+        scheduleVisualEnhancements(1200);
         return;
       }
 
@@ -8845,10 +8856,8 @@ window.UJOS_RUNTIME_DATA = {
       mergeRuntimeData(sanitizeCopy(await response.json()));
       window.PortfolioApp.renderAll();
       initRevealObserver();
-      initHeroDepthScene();
-      initSurfaceSpotlights();
       updateViewportUi();
-      initFloatingDockObserver();
+      scheduleVisualEnhancements(1200);
     } catch {
       // Runtime data is optional.
     }
@@ -8864,7 +8873,7 @@ window.UJOS_RUNTIME_DATA = {
 
     if (!document.querySelector(".page-curtain")) {
       const curtain = document.createElement("div");
-      curtain.className = "page-curtain is-active";
+      curtain.className = "page-curtain";
       curtain.id = "page-curtain";
       curtain.innerHTML = `
         <div class="page-curtain__grid" aria-hidden="true"></div>
@@ -8995,6 +9004,26 @@ window.UJOS_RUNTIME_DATA = {
     document.getElementById("page-curtain")?.classList.remove("is-active");
   }
 
+  function runWhenIdle(callback, timeout = 900) {
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(callback, { timeout });
+      return;
+    }
+
+    window.setTimeout(callback, 120);
+  }
+
+  function initVisualEnhancements() {
+    initPointerExperience();
+    initFloatingDockObserver();
+    initHeroDepthScene();
+    initSurfaceSpotlights();
+    updateViewportUi();
+  }
+
+  function scheduleVisualEnhancements(timeout = 900) {
+    runWhenIdle(initVisualEnhancements, timeout);
+  }
   function initIntroSequence() {
     const intro = document.getElementById("intro-portal");
     if (intro) {
@@ -9298,10 +9327,18 @@ window.UJOS_RUNTIME_DATA = {
       let targetY = 0;
       let currentX = 0;
       let currentY = 0;
+      let frameId = 0;
+      let sceneVisible = false;
       const phase = Math.random() * Math.PI * 2;
 
       const tick = (time = 0) => {
         if (!stage.isConnected) {
+          frameId = 0;
+          return;
+        }
+
+        if (!sceneVisible) {
+          frameId = 0;
           return;
         }
 
@@ -9328,7 +9365,13 @@ window.UJOS_RUNTIME_DATA = {
         stage.style.setProperty("--depth-spin", `${((time / 90) % 360).toFixed(2)}deg`);
         stage.style.setProperty("--depth-spin-reverse", `${((360 - (time / 110) % 360)).toFixed(2)}deg`);
 
-        window.requestAnimationFrame(tick);
+        frameId = window.requestAnimationFrame(tick);
+      };
+
+      const startLoop = () => {
+        if (!frameId && sceneVisible) {
+          frameId = window.requestAnimationFrame(tick);
+        }
       };
 
       const updateTarget = (event) => {
@@ -9337,15 +9380,23 @@ window.UJOS_RUNTIME_DATA = {
         targetY = (event.clientY - rect.top) / rect.height - 0.5;
       };
 
-      stage.addEventListener("pointermove", updateTarget);
-      stage.addEventListener("pointerdown", updateTarget);
+      stage.addEventListener("pointermove", updateTarget, { passive: true });
+      stage.addEventListener("pointerdown", updateTarget, { passive: true });
       stage.addEventListener("pointerleave", () => {
         targetX = 0;
         targetY = 0;
-      });
+      }, { passive: true });
+
+      const depthObserver = new IntersectionObserver(
+        (entries) => {
+          sceneVisible = entries.some((entry) => entry.isIntersecting);
+          startLoop();
+        },
+        { threshold: 0.05, rootMargin: "160px 0px" }
+      );
+      depthObserver.observe(stage);
 
       scene.dataset.depthBound = "true";
-      window.requestAnimationFrame(tick);
     });
   }
 
@@ -9557,6 +9608,8 @@ window.UJOS_RUNTIME_DATA = {
     initFloatingDockObserver,
     initIntroSequence,
     initPointerExperience,
+    initVisualEnhancements,
+    scheduleVisualEnhancements,
     goTo,
     resolveRouteHref,
     isRouteHref,
@@ -11338,15 +11391,33 @@ window.UJOS_RUNTIME_DATA = {
     renderContactPanel();
   }
 
+  let visualUpgradeTask = 0;
+
+  function scheduleVisualUpgrades() {
+    if (visualUpgradeTask) {
+      return;
+    }
+
+    const run = () => {
+      visualUpgradeTask = 0;
+      renderVisualUpgrades();
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      visualUpgradeTask = window.requestIdleCallback(run, { timeout: 1000 });
+      return;
+    }
+
+    visualUpgradeTask = window.setTimeout(run, 140);
+  }
+
   const originalRenderAll = App.renderAll;
   App.renderAll = function patchedRenderAll(...args) {
     originalRenderAll.apply(this, args);
-    renderVisualUpgrades();
+    scheduleVisualUpgrades();
   };
 
-  window.addEventListener("DOMContentLoaded", () => {
-    window.requestAnimationFrame(renderVisualUpgrades);
-  });
+  window.addEventListener("DOMContentLoaded", scheduleVisualUpgrades);
 })();
 
 </script>
@@ -11918,20 +11989,17 @@ window.UJOS_RUNTIME_DATA = {
   function init() {
     App.injectChrome();
     App.initIntroSequence();
-    App.initPointerExperience();
     App.applyMode();
     App.syncCurrentNav();
     hydrateCompareIds();
     App.renderAll();
-    App.initFloatingDockObserver();
     bindGlobalEvents();
     App.initRevealObserver();
-    App.initHeroDepthScene();
-    App.initSurfaceSpotlights();
     App.updateViewportUi();
     window.requestAnimationFrame(() => {
       document.querySelectorAll(".reveal--hero").forEach((item) => item.classList.add("is-visible"));
       App.releaseCurtain();
+      App.scheduleVisualEnhancements?.(900);
     });
 
     App.loadRuntimeData();

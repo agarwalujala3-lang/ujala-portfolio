@@ -7371,3 +7371,16 @@ body.modal-open .project-modal__card {
 body.modal-open::after {
   opacity: 0.08;
 }
+
+/* Performance: keep below-the-fold premium sections cheap until they enter view. */
+.section,
+.marquee-band,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
+}
+
+.hero {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}

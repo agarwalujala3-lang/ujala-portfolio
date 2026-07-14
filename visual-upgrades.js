@@ -261,13 +261,31 @@
     renderContactPanel();
   }
 
+  let visualUpgradeTask = 0;
+
+  function scheduleVisualUpgrades() {
+    if (visualUpgradeTask) {
+      return;
+    }
+
+    const run = () => {
+      visualUpgradeTask = 0;
+      renderVisualUpgrades();
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      visualUpgradeTask = window.requestIdleCallback(run, { timeout: 1000 });
+      return;
+    }
+
+    visualUpgradeTask = window.setTimeout(run, 140);
+  }
+
   const originalRenderAll = App.renderAll;
   App.renderAll = function patchedRenderAll(...args) {
     originalRenderAll.apply(this, args);
-    renderVisualUpgrades();
+    scheduleVisualUpgrades();
   };
 
-  window.addEventListener("DOMContentLoaded", () => {
-    window.requestAnimationFrame(renderVisualUpgrades);
-  });
+  window.addEventListener("DOMContentLoaded", scheduleVisualUpgrades);
 })();

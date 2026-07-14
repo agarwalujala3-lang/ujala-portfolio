@@ -565,20 +565,17 @@
   function init() {
     App.injectChrome();
     App.initIntroSequence();
-    App.initPointerExperience();
     App.applyMode();
     App.syncCurrentNav();
     hydrateCompareIds();
     App.renderAll();
-    App.initFloatingDockObserver();
     bindGlobalEvents();
     App.initRevealObserver();
-    App.initHeroDepthScene();
-    App.initSurfaceSpotlights();
     App.updateViewportUi();
     window.requestAnimationFrame(() => {
       document.querySelectorAll(".reveal--hero").forEach((item) => item.classList.add("is-visible"));
       App.releaseCurtain();
+      App.scheduleVisualEnhancements?.(900);
     });
 
     App.loadRuntimeData();
