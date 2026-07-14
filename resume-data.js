@@ -1,6 +1,6 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-14T12:01:52.043Z",
+  "generatedAt": "2026-07-14T13:01:05.580Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -41,7 +41,7 @@ window.UJOS_RESUME_DATA = {
       "pdfFile": "resume/Ujala_Agarwal_Resume.pdf",
       "documentTitle": "Ujala Agarwal - BTech CSE Fresher Software Resume",
       "headline": "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
-      "summary": "Entry-level Software Engineer (B.Tech CSE) with project proof across JavaScript, React/Vite, Node.js/Express REST APIs, AWS serverless services, and AI-assisted web products. Built and deployed live apps on Render, integrated authentication/upload/OCR/AI/dashboard flows, and solved 250+ DSA problems in Java/Python. Seeking software engineering roles where I can ship clean backend, cloud, and full-stack features.",
+      "summary": "Entry-level Software Engineer (B.Tech CSE) with project proof across JavaScript, React/Vite, Node.js/Express REST APIs, AWS serverless services, and AI-assisted web products. Built and deployed live apps on Render, completed Google Cloud Gen AI, Gemini Enterprise Agent, Power BI, AWS, and AI tools certifications, and solved 250+ DSA problems in Java/Python.",
       "projectOrder": [
         "Atlasiq-Ops-Platform",
         "LumenStack-AI",
@@ -79,6 +79,14 @@ window.UJOS_RESUME_DATA = {
           ]
         },
         {
+          "label": "AI/Data",
+          "values": [
+            "Google Gemini",
+            "AI Agents",
+            "Microsoft Power BI"
+          ]
+        },
+        {
           "label": "Databases",
           "values": [
             "MySQL",
@@ -108,7 +116,7 @@ window.UJOS_RESUME_DATA = {
       "coreStrengths": [
         "Built and deployed live JavaScript + Node.js/Express products on Render with GitHub-backed source control and public proof links.",
         "Integrated REST-style flows for authentication, file upload, AI generation, OCR extraction, dashboard data, and exports.",
-        "Solved 250+ DSA problems in Java/Python across arrays, strings, hashing, recursion, sorting, and core problem-solving patterns."
+        "Completed Google Cloud Gen AI badges, Gemini Enterprise Agent Ready, Power BI for Beginners, be10x AI Tools Workshop, and AWS Cloud Internship."
       ],
       "projects": [
         "Atlasiq-Ops-Platform",
@@ -122,7 +130,7 @@ window.UJOS_RESUME_DATA = {
       "pdfFile": "resume/Ujala_Agarwal_Resume_Software.pdf",
       "documentTitle": "Ujala Agarwal - Backend AWS BTech Fresher Resume",
       "headline": "BTech CSE Fresher | Backend Developer | Node.js and AWS",
-      "summary": "B.Tech CSE fresher focused on backend APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built repo-backed workflows for Cognito login, authenticated upload, Textract OCR extraction, repository analysis, AI generation, exports, and dashboard data using Lambda, API Gateway, S3, DynamoDB, Node.js, and Express. Solved 250+ DSA problems in Java/Python.",
+      "summary": "B.Tech CSE fresher focused on backend APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built repo-backed workflows for Cognito login, upload, Textract OCR, repository analysis, AI generation, exports, and dashboard data using Lambda, API Gateway, S3, DynamoDB, Node.js, and Express. Completed Google Cloud Gen AI, Power BI, AWS, and AI tools certifications.",
       "projectOrder": [
         "ReceiptPulse",
         "Atlasiq-Ops-Platform",
@@ -157,6 +165,14 @@ window.UJOS_RESUME_DATA = {
             "Cognito",
             "Textract",
             "IAM"
+          ]
+        },
+        {
+          "label": "AI/Data",
+          "values": [
+            "Google Gemini",
+            "AI Agents",
+            "Microsoft Power BI"
           ]
         },
         {
@@ -348,7 +364,7 @@ window.UJOS_RESUME_DATA = {
         "Render"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-07-14T12:00:09Z",
+      "pushedAt": "2026-07-14T12:04:23Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio.onrender.com/",
@@ -375,8 +391,8 @@ window.UJOS_RESUME_DATA = {
       "location": "Noida, Uttar Pradesh",
       "dates": "June 2025 - August 2025",
       "bullets": [
-        "Built and tested AWS serverless workflows using Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition during cloud application assignments.",
-        "Implemented cloud application tasks around API integration, storage access, IAM permissions, and backend workflow validation."
+        "Built and tested AWS serverless workflows using Lambda, S3, DynamoDB, API Gateway, IAM, Cognito, and Rekognition during cloud application assignments.",
+        "Designed conceptual Smart Expense Tracker and resume-builder flows to connect frontend screens with cloud-backed APIs and storage."
       ]
     }
   ],
@@ -389,8 +405,17 @@ window.UJOS_RESUME_DATA = {
     }
   ],
   "certifications": [
-    "CETPA Infotech Pvt. Ltd. - Cloud Computing Internship Completion Certificate",
+    "Google Cloud - Gen AI: Unlock Foundational Concepts",
+    "Google Cloud - Gen AI: Navigate the Landscape",
+    "Google Cloud - Gen AI Apps: Transform Your Work",
+    "Google Cloud - Gen AI: Beyond the Chatbot",
+    "Google Cloud - Gen AI Agents: Transform Your Organization",
+    "Google Cloud - Gemini Enterprise Agent Ready",
+    "Power BI for Beginners - Certificate Code 10463374",
+    "be10x - AI Tools and ChatGPT Workshop",
+    "AWS Cloud Internship - CETPA Infotech Pvt. Ltd.",
     "IBM SkillsBuild - Introduction to Large Language Models",
-    "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant"
+    "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant",
+    "Getting Started with Artificial Intelligence"
   ]
 };

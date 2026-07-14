@@ -501,22 +501,30 @@ window.UJOS_DATA = {
     ],
     toolkit: [
       "Java",
+      "JavaScript",
+      "Python",
       "C",
+      "React",
+      "Vite",
       "HTML",
       "CSS",
-      "JavaScript",
       "Node.js",
       "Express.js",
       "AWS Lambda",
       "S3",
       "DynamoDB",
       "API Gateway",
+      "Cognito",
       "IAM",
       "Rekognition",
       "Textract",
       "MySQL",
+      "Google Gemini",
+      "AI Agents",
+      "Microsoft Power BI",
       "Git",
       "GitHub",
+      "Render",
       "Docker basics",
     ],
   },
@@ -532,6 +540,12 @@ window.UJOS_DATA = {
       title: "Explaining architecture more clearly",
       note:
         "I am working on turning project flows into interview-ready explanations so I can defend decisions, tradeoffs, and system choices more clearly.",
+    },
+    {
+      phase: "Certification Track",
+      title: "Adding Gen AI and data proof",
+      note:
+        "I am turning Google Cloud Gen AI badges, Gemini Enterprise Agent Ready, Power BI for Beginners, be10x AI Tools Workshop, and AWS Cloud Internship into clearer project and resume proof.",
     },
     {
       phase: "Practice Layer",
@@ -578,7 +592,3 @@ window.UJOS_DATA = {
     },
   ],
 };
-
-
-
-
