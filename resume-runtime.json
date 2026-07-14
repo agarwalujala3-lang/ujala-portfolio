@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-05T17:33:23.088Z",
+  "generatedAt": "2026-07-14T11:29:01.147Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -41,11 +41,11 @@
       "pdfFile": "resume/Ujala_Agarwal_Resume.pdf",
       "documentTitle": "Ujala Agarwal - BTech CSE Fresher Software Resume",
       "headline": "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
-      "summary": "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, and AWS serverless workflows. Completed a cloud computing internship and built GitHub-backed projects using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
+      "summary": "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, AWS serverless workflows, and AI-assisted products. Completed cloud/AI training and maintains GitHub-backed projects with verified live demos for AtlasIQ Ops, LumenStack AI, and this portfolio. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
       "projectOrder": [
         "Atlasiq-Ops-Platform",
-        "ReceiptPulse",
-        "LumenStack-AI"
+        "LumenStack-AI",
+        "ReceiptPulse"
       ],
       "skills": [
         {
@@ -97,14 +97,20 @@
           "values": [
             "Git",
             "GitHub",
+            "Render",
             "Docker Basics"
           ]
         }
       ],
+      "coreStrengths": [
+        "Verified live proof: AtlasIQ Ops, LumenStack AI, and Ujala OS Portfolio are currently reachable on Render.",
+        "GitHub proof: current public repos include Ujala Portfolio, LumenStack AI, ReceiptPulse, AtlasIQ Ops, and Safety Copilot.",
+        "Training/badges signal: CETPA cloud internship certificate plus IBM LLM and SkillsBuild AI Campus Connect learning."
+      ],
       "projects": [
         "Atlasiq-Ops-Platform",
-        "ReceiptPulse",
-        "LumenStack-AI"
+        "LumenStack-AI",
+        "ReceiptPulse"
       ]
     },
     "backend": {
@@ -113,10 +119,10 @@
       "pdfFile": "resume/Ujala_Agarwal_Resume_Software.pdf",
       "documentTitle": "Ujala Agarwal - Backend AWS BTech Fresher Resume",
       "headline": "BTech CSE Fresher | Backend Developer | Node.js and AWS",
-      "summary": "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, and AWS serverless workflows. Built project workflows for authenticated upload, OCR extraction, repository analysis, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract.",
+      "summary": "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built project workflows for authenticated upload, OCR extraction, repository analysis, AI generation, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, Node.js, and Express.",
       "projectOrder": [
-        "Atlasiq-Ops-Platform",
         "ReceiptPulse",
+        "Atlasiq-Ops-Platform",
         "LumenStack-AI"
       ],
       "skills": [
@@ -169,13 +175,19 @@
           "values": [
             "Git",
             "GitHub",
+            "Render",
             "Docker Basics"
           ]
         }
       ],
+      "coreStrengths": [
+        "Backend/AWS proof: ReceiptPulse repo demonstrates Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract workflow design.",
+        "Verified live proof: AtlasIQ Ops and LumenStack AI are currently reachable on Render; ReceiptPulse is listed as GitHub proof while its live URL is unavailable.",
+        "Training/badges signal: CETPA cloud internship certificate plus IBM LLM and SkillsBuild AI Campus Connect learning."
+      ],
       "projects": [
-        "Atlasiq-Ops-Platform",
         "ReceiptPulse",
+        "Atlasiq-Ops-Platform",
         "LumenStack-AI"
       ]
     }
@@ -218,7 +230,7 @@
       "id": "receiptpulse",
       "repo": "ReceiptPulse",
       "title": "ReceiptPulse",
-      "status": "GitHub",
+      "status": "GitHub Proof",
       "summary": "Receipt processing web application with user authentication, file upload, OCR extraction, duplicate review, and receipt history tracking.",
       "stack": [
         "AWS Lambda",
@@ -234,7 +246,7 @@
       "pushedAt": "2026-07-03T08:17:35Z",
       "language": "CSS",
       "links": {
-        "live": "https://receipt-pulse.netlify.app/",
+        "live": "",
         "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
       },
       "bullets": {
@@ -252,7 +264,7 @@
       "id": "lumenstack",
       "repo": "LumenStack-AI",
       "title": "LumenStack AI",
-      "status": "GitHub",
+      "status": "Live + GitHub",
       "summary": "Codebase analysis tool that accepts repository input, maps project structure, and generates architecture summaries and Mermaid diagrams.",
       "stack": [
         "Node.js",
@@ -264,7 +276,7 @@
         "CSS"
       ],
       "source": "github-manifest",
-      "pushedAt": "2026-07-05T08:24:51Z",
+      "pushedAt": "2026-07-14T10:01:58Z",
       "language": "CSS",
       "links": {
         "live": "https://lumenstack-ai.onrender.com/",
@@ -329,7 +341,7 @@
         "Static Runtime Snapshot"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-07-05T08:40:01Z",
+      "pushedAt": "2026-07-14T10:05:54Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio.onrender.com/",
@@ -370,8 +382,8 @@
     }
   ],
   "certifications": [
-    "Cloud Computing Internship Completion Certificate - CETPA Infotech Pvt. Ltd.",
-    "IBM Introduction to Large Language Models",
+    "CETPA Infotech Pvt. Ltd. - Cloud Computing Internship Completion Certificate",
+    "IBM SkillsBuild - Introduction to Large Language Models",
     "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant"
   ]
 }

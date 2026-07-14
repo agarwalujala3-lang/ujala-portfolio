@@ -24,6 +24,21 @@
     }
   }
 
+  function displayUrl(value) {
+    const href = safeHref(value);
+    if (!href) {
+      return "";
+    }
+
+    try {
+      const url = new URL(href);
+      const path = url.pathname.replace(/\/$/, "");
+      return `${url.hostname}${path}`;
+    } catch {
+      return href.replace(/^https?:\/\//i, "").replace(/\/$/, "");
+    }
+  }
+
   function list(items) {
     return `<ul>${(items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
   }
@@ -121,6 +136,7 @@
     const portfolioUrl = safeHref(profile.portfolioUrl);
     const githubUrl = safeHref(profile.githubUrl);
     const linkedinUrl = safeHref(profile.linkedinUrl);
+    const portfolioLabel = displayUrl(profile.portfolioUrl) || "ujala-portfolio.onrender.com";
 
     return `
       <section class="header">
@@ -128,7 +144,7 @@
         <p class="title">${escapeHtml(variant.headline)}</p>
         <p class="contact">${escapeHtml(profile.location)} | ${escapeHtml(profile.phone)} | ${escapeHtml(profile.email)}</p>
         <p class="contact">
-          Portfolio: <a href="${escapeHtml(portfolioUrl)}">ujala-portfolio</a> |
+          Portfolio: <a href="${escapeHtml(portfolioUrl)}">${escapeHtml(portfolioLabel)}</a> |
           GitHub: <a href="${escapeHtml(githubUrl)}">github.com/agarwalujala3-lang</a> |
           LinkedIn: <a href="${escapeHtml(linkedinUrl)}">linkedin.com/in/ujala-agarwal-30aa28283</a>
         </p>
@@ -187,3 +203,4 @@
     renderResume();
   }
 })();
+

@@ -34,8 +34,8 @@ const education = [
 ];
 
 const certifications = [
-  "Cloud Computing Internship Completion Certificate - CETPA Infotech Pvt. Ltd.",
-  "IBM Introduction to Large Language Models",
+  "CETPA Infotech Pvt. Ltd. - Cloud Computing Internship Completion Certificate",
+  "IBM SkillsBuild - Introduction to Large Language Models",
   "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant",
 ];
 
@@ -46,7 +46,7 @@ const skills = {
     { label: "Cloud", values: ["AWS Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
     { label: "Databases", values: ["MySQL", "DynamoDB"] },
     { label: "Web", values: ["HTML", "CSS", "Responsive UI"] },
-    { label: "Tools", values: ["Git", "GitHub", "Docker Basics"] },
+    { label: "Tools", values: ["Git", "GitHub", "Render", "Docker Basics"] },
   ],
   backend: [
     { label: "Languages", values: ["Java", "JavaScript", "C"] },
@@ -54,11 +54,11 @@ const skills = {
     { label: "AWS", values: ["Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
     { label: "Databases", values: ["MySQL", "DynamoDB"] },
     { label: "Frontend Basics", values: ["HTML", "CSS", "Client-Side JavaScript"] },
-    { label: "Tools", values: ["Git", "GitHub", "Docker Basics"] },
+    { label: "Tools", values: ["Git", "GitHub", "Render", "Docker Basics"] },
   ],
 };
 
-const defaultProjectOrder = ["Atlasiq-Ops-Platform", "ReceiptPulse", "LumenStack-AI"];
+const defaultProjectOrder = ["Atlasiq-Ops-Platform", "LumenStack-AI", "ReceiptPulse"];
 
 const variants = {
   general: {
@@ -68,9 +68,14 @@ const variants = {
     documentTitle: "Ujala Agarwal - BTech CSE Fresher Software Resume",
     headline: "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
     summary:
-      "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, and AWS serverless workflows. Completed a cloud computing internship and built GitHub-backed projects using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
+      "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, AWS serverless workflows, and AI-assisted products. Completed cloud/AI training and maintains GitHub-backed projects with verified live demos for AtlasIQ Ops, LumenStack AI, and this portfolio. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
     projectOrder: defaultProjectOrder,
     skills: skills.general,
+    coreStrengths: [
+      "Verified live proof: AtlasIQ Ops, LumenStack AI, and Ujala OS Portfolio are currently reachable on Render.",
+      "GitHub proof: current public repos include Ujala Portfolio, LumenStack AI, ReceiptPulse, AtlasIQ Ops, and Safety Copilot.",
+      "Training/badges signal: CETPA cloud internship certificate plus IBM LLM and SkillsBuild AI Campus Connect learning.",
+    ],
   },
   backend: {
     label: "Backend/AWS BTech Fresher Resume",
@@ -79,9 +84,14 @@ const variants = {
     documentTitle: "Ujala Agarwal - Backend AWS BTech Fresher Resume",
     headline: "BTech CSE Fresher | Backend Developer | Node.js and AWS",
     summary:
-      "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, and AWS serverless workflows. Built project workflows for authenticated upload, OCR extraction, repository analysis, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract.",
-    projectOrder: defaultProjectOrder,
+      "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built project workflows for authenticated upload, OCR extraction, repository analysis, AI generation, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, Node.js, and Express.",
+    projectOrder: ["ReceiptPulse", "Atlasiq-Ops-Platform", "LumenStack-AI"],
     skills: skills.backend,
+    coreStrengths: [
+      "Backend/AWS proof: ReceiptPulse repo demonstrates Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract workflow design.",
+      "Verified live proof: AtlasIQ Ops and LumenStack AI are currently reachable on Render; ReceiptPulse is listed as GitHub proof while its live URL is unavailable.",
+      "Training/badges signal: CETPA cloud internship certificate plus IBM LLM and SkillsBuild AI Campus Connect learning.",
+    ],
   },
 };
 const projectBlueprints = {
@@ -109,11 +119,11 @@ const projectBlueprints = {
     repo: "ReceiptPulse",
     id: "receiptpulse",
     title: "ReceiptPulse",
-    status: "GitHub",
+    status: "GitHub Proof",
     summary:
       "Receipt processing web application with user authentication, file upload, OCR extraction, duplicate review, and receipt history tracking.",
     stack: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "JavaScript"],
-    liveUrl: "https://receipt-pulse.netlify.app/",
+    liveUrl: "",
     bullets: {
       general: [
         "Built a receipt processing web application with user authentication, file upload, OCR extraction, and receipt history tracking.",
@@ -129,7 +139,7 @@ const projectBlueprints = {
     repo: "LumenStack-AI",
     id: "lumenstack",
     title: "LumenStack AI",
-    status: "GitHub",
+    status: "Live + GitHub",
     summary:
       "Codebase analysis tool that accepts repository input, maps project structure, and generates architecture summaries and Mermaid diagrams.",
     stack: ["Node.js", "Express", "JavaScript", "OpenAI API", "Mermaid", "HTML", "CSS"],

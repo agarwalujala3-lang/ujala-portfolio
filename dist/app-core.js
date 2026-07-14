@@ -1058,7 +1058,6 @@
     "linkedin.com",
     "lumenstack-ai.onrender.com",
     "ujala-portfolio.onrender.com",
-    "receipt-pulse.netlify.app",
     "atlasiq-ops-platform.onrender.com",
     "raw.githubusercontent.com",
     "cdn.jsdelivr.net",

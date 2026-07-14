@@ -9,10 +9,9 @@ const brainApiUrl = "";
 const manifestPath = "portfolio-branding.json";
 const allowedProjectRepos = new Set(["Atlasiq-Ops-Platform", "ReceiptPulse", "LumenStack-AI", "Safety-Copilot"]);
 const blockedPublicRepos = new Set(["Amazon-UI-Clone", "VALENTINE-CHAUDHRAIN"]);
-const trustedLiveHosts = new Set(["atlasiq-ops-platform.onrender.com", "lumenstack-ai.onrender.com", "receipt-pulse.netlify.app", "ujala-portfolio.onrender.com"]);
+const trustedLiveHosts = new Set(["atlasiq-ops-platform.onrender.com", "lumenstack-ai.onrender.com", "ujala-portfolio.onrender.com"]);
 const verifiedLiveUrlsByRepo = new Map([
   ["Atlasiq-Ops-Platform", "https://atlasiq-ops-platform.onrender.com/"],
-  ["ReceiptPulse", "https://receipt-pulse.netlify.app/"],
   ["LumenStack-AI", "https://lumenstack-ai.onrender.com/"],
   ["ujala-portfolio", "https://ujala-portfolio.onrender.com/"],
 ]);
