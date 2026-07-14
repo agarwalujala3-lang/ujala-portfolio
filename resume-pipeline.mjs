@@ -29,7 +29,7 @@ const education = [
     school: "Shri Ram Murti Smarak College of Engineering and Technology",
     degree: "B.Tech in Computer Science and Engineering (CSE)",
     location: "Bareilly, Uttar Pradesh",
-    dates: "Graduated May 2026",
+    dates: "Final exams completed June 2026",
   },
 ];
 

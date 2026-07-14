@@ -1,6 +1,6 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-14T11:54:26.939Z",
+  "generatedAt": "2026-07-14T12:01:52.043Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -348,7 +348,7 @@ window.UJOS_RESUME_DATA = {
         "Render"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-07-14T11:39:54Z",
+      "pushedAt": "2026-07-14T12:00:09Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio.onrender.com/",
@@ -385,7 +385,7 @@ window.UJOS_RESUME_DATA = {
       "school": "Shri Ram Murti Smarak College of Engineering and Technology",
       "degree": "B.Tech in Computer Science and Engineering (CSE)",
       "location": "Bareilly, Uttar Pradesh",
-      "dates": "Graduated May 2026"
+      "dates": "Final exams completed June 2026"
     }
   ],
   "certifications": [
