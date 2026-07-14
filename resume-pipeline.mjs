@@ -18,8 +18,8 @@ const experience = [
     location: "Noida, Uttar Pradesh",
     dates: "June 2025 - August 2025",
     bullets: [
-      "Worked with AWS services including Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition during cloud application tasks.",
-      "Developed and tested basic serverless backend workflows as part of internship assignments.",
+      "Built and tested AWS serverless workflows using Lambda, S3, DynamoDB, API Gateway, IAM, and Rekognition during cloud application assignments.",
+      "Implemented cloud application tasks around API integration, storage access, IAM permissions, and backend workflow validation.",
     ],
   },
 ];
@@ -41,19 +41,19 @@ const certifications = [
 
 const skills = {
   general: [
-    { label: "Languages", values: ["Java", "JavaScript", "C"] },
+    { label: "Languages", values: ["Java", "JavaScript", "Python", "C"] },
     { label: "Backend", values: ["Node.js", "Express.js", "REST APIs", "JSON"] },
     { label: "Cloud", values: ["AWS Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
     { label: "Databases", values: ["MySQL", "DynamoDB"] },
-    { label: "Web", values: ["HTML", "CSS", "Responsive UI"] },
+    { label: "Frontend", values: ["React", "Vite", "HTML", "CSS", "Responsive UI"] },
     { label: "Tools", values: ["Git", "GitHub", "Render", "Docker Basics"] },
   ],
   backend: [
-    { label: "Languages", values: ["Java", "JavaScript", "C"] },
+    { label: "Languages", values: ["Java", "JavaScript", "Python", "C"] },
     { label: "Backend", values: ["Node.js", "Express.js", "REST APIs", "JSON"] },
     { label: "AWS", values: ["Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
     { label: "Databases", values: ["MySQL", "DynamoDB"] },
-    { label: "Frontend Basics", values: ["HTML", "CSS", "Client-Side JavaScript"] },
+    { label: "Frontend", values: ["React", "Vite", "HTML", "CSS", "Client-Side JavaScript"] },
     { label: "Tools", values: ["Git", "GitHub", "Render", "Docker Basics"] },
   ],
 };
@@ -68,13 +68,13 @@ const variants = {
     documentTitle: "Ujala Agarwal - BTech CSE Fresher Software Resume",
     headline: "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
     summary:
-      "BTech CSE fresher with hands-on project experience in JavaScript, Node.js, Express, REST APIs, AWS serverless workflows, and AI-assisted products. Completed cloud/AI training and maintains GitHub-backed projects with verified live demos for AtlasIQ Ops, LumenStack AI, and this portfolio. Seeking entry-level software engineering roles where I can contribute to backend, cloud, and full-stack application work.",
+      "Entry-level Software Engineer (B.Tech CSE) with project proof across JavaScript, React/Vite, Node.js/Express REST APIs, AWS serverless services, and AI-assisted web products. Built and deployed live apps on Render, integrated authentication/upload/OCR/AI/dashboard flows, and solved 250+ DSA problems in Java/Python. Seeking software engineering roles where I can ship clean backend, cloud, and full-stack features.",
     projectOrder: defaultProjectOrder,
     skills: skills.general,
     coreStrengths: [
-      "Verified live proof: AtlasIQ Ops, LumenStack AI, and Ujala OS Portfolio are currently reachable on Render.",
-      "GitHub proof: current public repos include Ujala Portfolio, LumenStack AI, ReceiptPulse, AtlasIQ Ops, and Safety Copilot.",
-      "Training/badges signal: CETPA cloud internship certificate plus IBM LLM and SkillsBuild AI Campus Connect learning.",
+      "Built and deployed live JavaScript + Node.js/Express products on Render with GitHub-backed source control and public proof links.",
+      "Integrated REST-style flows for authentication, file upload, AI generation, OCR extraction, dashboard data, and exports.",
+      "Solved 250+ DSA problems in Java/Python across arrays, strings, hashing, recursion, sorting, and core problem-solving patterns.",
     ],
   },
   backend: {
@@ -84,13 +84,13 @@ const variants = {
     documentTitle: "Ujala Agarwal - Backend AWS BTech Fresher Resume",
     headline: "BTech CSE Fresher | Backend Developer | Node.js and AWS",
     summary:
-      "BTech CSE fresher focused on backend development, REST APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built project workflows for authenticated upload, OCR extraction, repository analysis, AI generation, and structured data storage using Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, Node.js, and Express.",
+      "B.Tech CSE fresher focused on backend APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built repo-backed workflows for Cognito login, authenticated upload, Textract OCR extraction, repository analysis, AI generation, exports, and dashboard data using Lambda, API Gateway, S3, DynamoDB, Node.js, and Express. Solved 250+ DSA problems in Java/Python.",
     projectOrder: ["ReceiptPulse", "Atlasiq-Ops-Platform", "LumenStack-AI"],
     skills: skills.backend,
     coreStrengths: [
-      "Backend/AWS proof: ReceiptPulse repo demonstrates Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract workflow design.",
-      "Verified live proof: AtlasIQ Ops and LumenStack AI are currently reachable on Render; ReceiptPulse is listed as GitHub proof while its live URL is unavailable.",
-      "Training/badges signal: CETPA cloud internship certificate plus IBM LLM and SkillsBuild AI Campus Connect learning.",
+      "Built AWS serverless workflows with Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract for authenticated OCR receipt processing.",
+      "Developed Node.js/Express REST APIs for authentication, workspace sessions, AI generation, repository analysis, exports, and JSON data flows.",
+      "Solved 250+ DSA problems in Java/Python across arrays, strings, hashing, recursion, sorting, and core problem-solving patterns.",
     ],
   },
 };
@@ -106,12 +106,12 @@ const projectBlueprints = {
     liveUrl: "https://atlasiq-ops-platform.onrender.com/",
     bullets: {
       general: [
-        "Built a live knowledge operations platform that transforms raw content into summaries, visual maps, charts, cheat notes, flashcards, and review recommendations.",
-        "Added authentication, per-user workspaces, secure server-backed sessions, source traceability, exports, and a polished responsive dashboard experience.",
+        "Built a Node.js + Express + JavaScript knowledge platform with authentication, per-user workspaces, AI summaries, visual maps, charts, flashcards, and review workflows.",
+        "Integrated REST-style APIs for sessions, workspace storage, AI generation, exports, and dashboard data; deployed the full app on Render.",
       ],
       backend: [
-        "Built Node.js and Express APIs for authentication, sessions, workspace storage, AI generation, exports, and secure JSON request handling.",
-        "Deployed the full frontend and backend on one Render URL with persistent disk-backed data configuration and GitHub auto-deploy.",
+        "Developed Node.js + Express APIs for authentication, server-backed sessions, workspace storage, AI generation, exports, and secure JSON request handling.",
+        "Deployed frontend and backend together on Render with persistent disk-backed data configuration and GitHub auto-deploy.",
       ],
     },
   },
@@ -126,12 +126,12 @@ const projectBlueprints = {
     liveUrl: "",
     bullets: {
       general: [
-        "Built a receipt processing web application with user authentication, file upload, OCR extraction, and receipt history tracking.",
-        "Integrated AWS Lambda, S3, DynamoDB, API Gateway, Cognito, and Textract in a serverless workflow.",
+        "Built an AWS serverless receipt processor with Cognito login, authenticated upload, Textract OCR extraction, duplicate review, and receipt history tracking.",
+        "Integrated Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, and CloudFront to move receipts from upload to structured dashboard data.",
       ],
       backend: [
-        "Built backend workflows for authenticated receipt upload, OCR extraction, duplicate review, and receipt history retrieval.",
-        "Connected AWS Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract in a serverless application flow.",
+        "Developed AWS Lambda/API Gateway workflows for authenticated receipt upload, OCR extraction, duplicate detection, and receipt history retrieval.",
+        "Integrated S3, DynamoDB, Cognito, Textract, and CloudFront in a repo-backed serverless architecture with clean API boundaries.",
       ],
     },
   },
@@ -146,12 +146,12 @@ const projectBlueprints = {
     liveUrl: "https://lumenstack-ai.onrender.com/",
     bullets: {
       general: [
-        "Built a codebase analysis tool that accepts GitHub or ZIP input and summarizes project structure for easier review.",
-        "Used Node.js, Express, JavaScript, Mermaid, and OpenAI API features to generate diagrams and guided explanations.",
+        "Built a Node.js + Express codebase analysis tool that accepts GitHub/ZIP input, maps project structure, and generates architecture summaries.",
+        "Integrated OpenAI-assisted explanations with Mermaid diagrams and export-ready outputs so repositories are easier to review and present.",
       ],
       backend: [
-        "Built Node.js and Express routes for repository input, analysis sessions, generated summaries, and export flows.",
-        "Separated static parsing from AI-assisted explanation so outputs stay connected to repository structure.",
+        "Developed Node.js + Express routes for repository ingestion, analysis sessions, generated summaries, Mermaid diagrams, and export flows.",
+        "Separated static parsing from AI-assisted explanation so outputs stay grounded in actual repository structure.",
       ],
     },
   },
@@ -165,14 +165,14 @@ const projectBlueprints = {
     stack: ["React", "Vite", "Node.js", "AWS API Gateway", "AWS Lambda", "CloudFront", "Flutter"],
     bullets: {
       general: [
-        "Built a personal safety project with trusted-circle management, live trip monitoring screens, and SOS workflow concepts.",
-        "Created web and Android-facing interfaces for alerts, trip state, and response flow visibility.",
-        "Practiced connecting frontend states with API-oriented workflow design across multiple user surfaces.",
+        "Built a React + Vite safety workflow prototype with trusted-circle management, trip monitoring screens, and SOS response states.",
+        "Connected web/mobile-facing UI concepts to API-oriented flows for alerts, trip updates, acknowledgement states, and incident visibility.",
+        "Practiced product-level safety workflow design across React web and Flutter Android-facing surfaces.",
       ],
       backend: [
-        "Modeled backend-friendly workflows for trusted-circle coordination, trip updates, alert states, and SOS actions.",
-        "Worked with API-oriented client behavior for alerts, acknowledgments, and incident state transitions.",
-        "Built the project as GitHub proof of product workflow thinking across web and mobile-facing surfaces.",
+        "Modeled REST-friendly workflows for trusted-circle coordination, trip updates, alert states, acknowledgments, and SOS actions.",
+        "Worked with API-oriented client behavior for alerts, incident visibility, response states, and multi-surface safety flows.",
+        "Built GitHub proof of product workflow thinking across React web and Flutter Android-facing safety surfaces.",
       ],
     },
   },
@@ -183,18 +183,18 @@ const projectBlueprints = {
     status: "Live + GitHub",
     summary:
       "Portfolio website with static runtime data, GitHub-backed project sync, and downloadable fresher resume links.",
-    stack: ["HTML", "CSS", "JavaScript", "Static Runtime Snapshot"],
+    stack: ["HTML", "CSS", "JavaScript", "Static Runtime Snapshot", "Render"],
     liveUrl: portfolioUrl,
     bullets: {
       general: [
-        "Built a multi-page portfolio website with project routes, contact links, and downloadable resume files.",
-        "Connected committed runtime data with GitHub-backed project information so the portfolio can be updated consistently.",
-        "Kept the public profile independent from AWS hosting by using static pages and generated data snapshots.",
+        "Built a high-polish HTML/CSS/JavaScript portfolio with multi-page routes, case studies, contact links, and downloadable ATS resume PDFs.",
+        "Automated GitHub-backed project/runtime data generation so live demos, repo links, and resume assets stay aligned before deployment.",
+        "Deployed the public profile on Render using static pages and generated data snapshots instead of manual resume/link updates.",
       ],
       backend: [
-        "Built a static portfolio workflow that keeps resume links and project metadata generated from source data.",
-        "Added build steps for safe static pages so updates can be regenerated instead of edited manually.",
-        "Used GitHub-backed source data to keep public project proof and downloadable assets aligned.",
+        "Built a static-generation workflow that syncs portfolio project metadata, resume links, and verified GitHub repos from source data.",
+        "Added build steps for safe static pages and deployable Render assets so public proof can be regenerated instead of manually edited.",
+        "Used GitHub-backed source data to keep live project proof, downloadable PDFs, and resume runtime data aligned.",
       ],
     },
   },
@@ -336,4 +336,3 @@ export function createPortfolioResumeLinks(resumeRuntime) {
     note: noteByVariant[key] || "Generated from GitHub-verified resume source data.",
   }));
 }
-
