@@ -545,7 +545,7 @@ window.UJOS_DATA = {
       phase: "Certification Track",
       title: "Adding Gen AI and data proof",
       note:
-        "I am turning Google Cloud Gen AI badges, Gemini Enterprise Agent Ready, Power BI for Beginners, be10x AI Tools Workshop, and AWS Cloud Internship into clearer project and resume proof.",
+        "I am turning Google Cloud Gen AI badges, Gemini Enterprise Agent Ready, Power BI for Beginners, be10x AI Tools Workshop, Unstop participation, and AWS Cloud Internship into clearer project and resume proof.",
     },
     {
       phase: "Practice Layer",

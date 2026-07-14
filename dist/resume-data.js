@@ -1,6 +1,6 @@
 window.UJOS_RESUME_DATA = {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-14T13:01:05.580Z",
+  "generatedAt": "2026-07-14T13:14:56.312Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -364,7 +364,7 @@ window.UJOS_RESUME_DATA = {
         "Render"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-07-14T12:04:23Z",
+      "pushedAt": "2026-07-14T13:11:00Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio.onrender.com/",
@@ -413,6 +413,7 @@ window.UJOS_RESUME_DATA = {
     "Google Cloud - Gemini Enterprise Agent Ready",
     "Power BI for Beginners - Certificate Code 10463374",
     "be10x - AI Tools and ChatGPT Workshop",
+    "Unstop - Participation Certificate",
     "AWS Cloud Internship - CETPA Infotech Pvt. Ltd.",
     "IBM SkillsBuild - Introduction to Large Language Models",
     "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant",

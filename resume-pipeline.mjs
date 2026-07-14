@@ -42,6 +42,7 @@ const certifications = [
   "Google Cloud - Gemini Enterprise Agent Ready",
   "Power BI for Beginners - Certificate Code 10463374",
   "be10x - AI Tools and ChatGPT Workshop",
+  "Unstop - Participation Certificate",
   "AWS Cloud Internship - CETPA Infotech Pvt. Ltd.",
   "IBM SkillsBuild - Introduction to Large Language Models",
   "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant",
