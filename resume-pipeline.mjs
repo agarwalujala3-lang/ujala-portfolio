@@ -158,7 +158,7 @@ const projectBlueprints = {
     summary:
       "Receipt processing web application with user authentication, file upload, OCR extraction, duplicate review, and receipt history tracking.",
     stack: ["AWS Lambda", "S3", "DynamoDB", "API Gateway", "Cognito", "Textract", "CloudFront", "JavaScript"],
-    liveUrl: "",
+    liveUrl: "https://receiptpulse-cloud-demo.onrender.com/",
     bullets: {
       general: [
         "Built an AWS serverless receipt processor with Cognito login, authenticated upload, Textract OCR extraction, duplicate review, and receipt history tracking.",

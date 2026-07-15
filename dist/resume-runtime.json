@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-15T08:05:07.583Z",
+  "generatedAt": "2026-07-15T08:21:57.537Z",
   "sync": {
     "status": "synced",
     "source": "github",
@@ -296,7 +296,7 @@
       "pushedAt": "2026-07-03T08:17:35Z",
       "language": "CSS",
       "links": {
-        "live": "",
+        "live": "https://receiptpulse-cloud-demo.onrender.com/",
         "repo": "https://github.com/agarwalujala3-lang/ReceiptPulse"
       },
       "bullets": {
@@ -392,7 +392,7 @@
         "Render"
       ],
       "source": "github-repo-blueprint",
-      "pushedAt": "2026-07-14T13:17:24Z",
+      "pushedAt": "2026-07-15T08:07:33Z",
       "language": "HTML",
       "links": {
         "live": "https://ujala-portfolio.onrender.com/",

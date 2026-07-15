@@ -168,7 +168,7 @@ window.UJOS_DATA = {
       ],
       tags: ["aws", "backend", "full-stack", "repo"],
       links: {
-        live: "",
+        live: "https://receiptpulse-cloud-demo.onrender.com/",
         repo: "https://github.com/agarwalujala3-lang/ReceiptPulse",
       },
       details: [
