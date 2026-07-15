@@ -19,7 +19,7 @@ const experience = [
     dates: "June 2025 - August 2025",
     bullets: [
       "Built and tested AWS serverless workflows using Lambda, S3, DynamoDB, API Gateway, IAM, Cognito, and Rekognition during cloud application assignments.",
-      "Designed conceptual Smart Expense Tracker and resume-builder flows to connect frontend screens with cloud-backed APIs and storage.",
+      "Implemented cloud-backed application flows for API integration, storage access, IAM permissions, dashboard data, and deployment practice.",
     ],
   },
 ];
@@ -52,19 +52,20 @@ const certifications = [
 const skills = {
   general: [
     { label: "Languages", values: ["Java", "JavaScript", "Python", "C"] },
+    { label: "CS Fundamentals", values: ["DSA", "OOP", "Problem Solving"] },
     { label: "Backend", values: ["Node.js", "Express.js", "REST APIs", "JSON"] },
+    { label: "Databases", values: ["SQL", "MySQL", "DynamoDB"] },
     { label: "Cloud", values: ["AWS Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
-    { label: "AI/Data", values: ["Google Gemini", "AI Agents", "Microsoft Power BI"] },
-    { label: "Databases", values: ["MySQL", "DynamoDB"] },
     { label: "Frontend", values: ["React", "Vite", "HTML", "CSS", "Responsive UI"] },
+    { label: "AI/Data", values: ["Google Gemini", "AI Agents", "Microsoft Power BI"] },
     { label: "Tools", values: ["Git", "GitHub", "Render", "Docker Basics"] },
   ],
   backend: [
     { label: "Languages", values: ["Java", "JavaScript", "Python", "C"] },
+    { label: "CS Fundamentals", values: ["DSA", "OOP", "Problem Solving", "DBMS Basics"] },
     { label: "Backend", values: ["Node.js", "Express.js", "REST APIs", "JSON"] },
+    { label: "Databases", values: ["SQL", "MySQL", "DynamoDB"] },
     { label: "AWS", values: ["Lambda", "API Gateway", "S3", "DynamoDB", "Cognito", "Textract", "IAM"] },
-    { label: "AI/Data", values: ["Google Gemini", "AI Agents", "Microsoft Power BI"] },
-    { label: "Databases", values: ["MySQL", "DynamoDB"] },
     { label: "Frontend", values: ["React", "Vite", "HTML", "CSS", "Client-Side JavaScript"] },
     { label: "Tools", values: ["Git", "GitHub", "Render", "Docker Basics"] },
   ],
@@ -72,37 +73,59 @@ const skills = {
 
 const defaultProjectOrder = ["Atlasiq-Ops-Platform", "LumenStack-AI", "ReceiptPulse"];
 
+const certificationHighlights = {
+  general: [
+    "Google Cloud - Gen AI: Unlock Foundational Concepts",
+    "Google Cloud - Gen AI: Navigate the Landscape",
+    "Google Cloud - Gen AI Apps: Transform Your Work",
+    "Google Cloud - Gemini Enterprise Agent Ready",
+    "Power BI for Beginners - Certificate Code 10463374",
+    "be10x - AI Tools and ChatGPT Workshop",
+    "AWS Cloud Internship - CETPA Infotech Pvt. Ltd.",
+    "IBM SkillsBuild AI Campus Connect Bootcamp - Capstone Project Participant",
+  ],
+  backend: [
+    "AWS Cloud Internship - CETPA Infotech Pvt. Ltd.",
+    "Google Cloud - Gen AI: Unlock Foundational Concepts",
+    "Google Cloud - Gemini Enterprise Agent Ready",
+    "IBM SkillsBuild - Introduction to Large Language Models",
+    "Unstop - Participation Certificate",
+  ],
+};
+
 const variants = {
   general: {
-    label: "BTech CSE Fresher Software Resume",
+    label: "General Software Fresher Resume",
     htmlFile: "resume/Ujala_Agarwal_Resume_ATS.html",
     pdfFile: "resume/Ujala_Agarwal_Resume.pdf",
-    documentTitle: "Ujala Agarwal - BTech CSE Fresher Software Resume",
-    headline: "BTech CSE Fresher | Software Engineer | Backend and AWS Projects",
+    documentTitle: "Ujala Agarwal - General Software Fresher Resume",
+    headline: "BTech CSE Fresher | Software Engineer | Backend, Cloud and AI Projects",
     summary:
-      "Entry-level Software Engineer (B.Tech CSE) with project proof across JavaScript, React/Vite, Node.js/Express REST APIs, AWS serverless services, and AI-assisted web products. Built and deployed live apps on Render, completed Google Cloud Gen AI, Gemini Enterprise Agent, Power BI, AWS, and AI tools certifications, and solved 250+ DSA problems in Java/Python.",
+      "Entry-level Software Engineer (B.Tech CSE) with hands-on proof in Java, JavaScript, Python, DSA, Node.js/Express REST APIs, React/Vite, SQL/MySQL, and AWS serverless workflows. Built live projects on Render with authentication, uploads, OCR, AI generation, dashboards, exports, and GitHub-backed source proof. Solved 250+ DSA problems in Java/Python.",
     projectOrder: defaultProjectOrder,
     skills: skills.general,
+    certifications: certificationHighlights.general,
     coreStrengths: [
-      "Built and deployed live JavaScript + Node.js/Express products on Render with GitHub-backed source control and public proof links.",
-      "Integrated REST-style flows for authentication, file upload, AI generation, OCR extraction, dashboard data, and exports.",
-      "Completed Google Cloud Gen AI badges, Gemini Enterprise Agent Ready, Power BI for Beginners, be10x AI Tools Workshop, and AWS Cloud Internship.",
+      "Solved 250+ DSA problems in Java/Python across arrays, strings, hashing, recursion, sorting, and core problem-solving patterns.",
+      "Built and deployed JavaScript + Node.js/Express products with REST APIs, dashboard data, exports, and GitHub-backed source proof.",
+      "Completed Google Cloud Gen AI, Gemini Enterprise Agent, Power BI, IBM SkillsBuild, be10x AI tools, and AWS Cloud Internship training.",
     ],
   },
   backend: {
-    label: "Backend/AWS BTech Fresher Resume",
+    label: "SDE Fresher Resume",
     htmlFile: "resume/Ujala_Agarwal_Resume_Software.html",
     pdfFile: "resume/Ujala_Agarwal_Resume_Software.pdf",
-    documentTitle: "Ujala Agarwal - Backend AWS BTech Fresher Resume",
-    headline: "BTech CSE Fresher | Backend Developer | Node.js and AWS",
+    documentTitle: "Ujala Agarwal - SDE Fresher Resume",
+    headline: "BTech CSE Fresher | SDE | Java, DSA, REST APIs and Backend",
     summary:
-      "B.Tech CSE fresher focused on backend APIs, Node.js/Express services, AWS serverless workflows, and deployable product systems. Built repo-backed workflows for Cognito login, upload, Textract OCR, repository analysis, AI generation, exports, and dashboard data using Lambda, API Gateway, S3, DynamoDB, Node.js, and Express. Completed Google Cloud Gen AI, Power BI, AWS, and AI tools certifications.",
+      "SDE-focused B.Tech CSE fresher with Java/Python DSA practice, OOP fundamentals, SQL/MySQL, JavaScript, Node.js/Express REST APIs, and AWS serverless project proof. Built repo-backed workflows for authentication, uploads, Textract OCR, repository analysis, AI generation, exports, and dashboard data using Lambda, API Gateway, S3, DynamoDB, Node.js, and Express.",
     projectOrder: ["ReceiptPulse", "Atlasiq-Ops-Platform", "LumenStack-AI"],
     skills: skills.backend,
+    certifications: certificationHighlights.backend,
     coreStrengths: [
-      "Built AWS serverless workflows with Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract for authenticated OCR receipt processing.",
-      "Developed Node.js/Express REST APIs for authentication, workspace sessions, AI generation, repository analysis, exports, and JSON data flows.",
       "Solved 250+ DSA problems in Java/Python across arrays, strings, hashing, recursion, sorting, and core problem-solving patterns.",
+      "Developed Node.js/Express REST APIs for authentication, sessions, workspace storage, AI generation, exports, and JSON data flows.",
+      "Built AWS serverless workflows with Lambda, API Gateway, S3, DynamoDB, Cognito, and Textract for authenticated OCR receipt processing.",
     ],
   },
 };
@@ -119,7 +142,7 @@ const projectBlueprints = {
     bullets: {
       general: [
         "Built a Node.js + Express + JavaScript knowledge platform with authentication, per-user workspaces, AI summaries, visual maps, charts, flashcards, and review workflows.",
-        "Integrated REST-style APIs for sessions, workspace storage, AI generation, exports, and dashboard data; deployed the full app on Render.",
+        "Integrated REST APIs for sessions, workspace storage, AI generation, exports, dashboard data, and deployment on Render.",
       ],
       backend: [
         "Developed Node.js + Express APIs for authentication, server-backed sessions, workspace storage, AI generation, exports, and secure JSON request handling.",
@@ -139,7 +162,7 @@ const projectBlueprints = {
     bullets: {
       general: [
         "Built an AWS serverless receipt processor with Cognito login, authenticated upload, Textract OCR extraction, duplicate review, and receipt history tracking.",
-        "Integrated Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, and CloudFront to move receipts from upload to structured dashboard data.",
+        "Integrated Lambda, API Gateway, S3, DynamoDB, Cognito, Textract, and CloudFront to convert uploaded receipts into structured dashboard data.",
       ],
       backend: [
         "Developed AWS Lambda/API Gateway workflows for authenticated receipt upload, OCR extraction, duplicate detection, and receipt history retrieval.",
@@ -339,7 +362,7 @@ export function createResumeDataScript(resumeRuntime) {
 export function createPortfolioResumeLinks(resumeRuntime) {
   const noteByVariant = {
     general: "Best all-purpose fresher resume for software, backend, and cloud-trainee applications.",
-    backend: "Use this when the role emphasizes backend APIs, Node.js, or AWS project work.",
+    backend: "Use this for SDE fresher roles that emphasize Java, DSA, REST APIs, SQL, Node.js, or backend project proof.",
   };
 
   return Object.entries(resumeRuntime.variants || {}).map(([key, variant]) => ({
@@ -348,3 +371,4 @@ export function createPortfolioResumeLinks(resumeRuntime) {
     note: noteByVariant[key] || "Generated from GitHub-verified resume source data.",
   }));
 }
+

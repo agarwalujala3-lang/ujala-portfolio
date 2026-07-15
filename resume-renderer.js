@@ -193,7 +193,7 @@
       </section>
       <section class="section">
         <h2>Certifications and Training</h2>
-        ${list(data.certifications || [])}
+        ${list(variant.certifications || data.certifications || [])}
       </section>`;
   }
 
@@ -203,4 +203,3 @@
     renderResume();
   }
 })();
-
